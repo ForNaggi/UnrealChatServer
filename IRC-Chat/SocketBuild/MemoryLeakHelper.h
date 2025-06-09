@@ -1,45 +1,45 @@
-#pragma once
+ï»¿#pragma once
 
-// MSVC(ÄÄÆÄÀÏ·¯)ÀÏ °æ¿ì.
+// MSVC(ì»´íŒŒì¼ëŸ¬)ì¼ ê²½ìš°.
 #ifdef _MSC_VER
-	// malloc, calloc, realloc, free °°Àº Ç¥ÁØ c ¸Þ¸ð¸® ÇÔ¼öµéÀÌ µð¹ö±×¿ë ¹öÀüÀ¸·Î Ä¡È¯µË´Ï´Ù.
+	// malloc, calloc, realloc, free ê°™ì€ í‘œì¤€ c ë©”ëª¨ë¦¬ í•¨ìˆ˜ë“¤ì´ ë””ë²„ê·¸ìš© ë²„ì „ìœ¼ë¡œ ì¹˜í™˜ë©ë‹ˆë‹¤.
 	#define _CRTDBG_MAP_ALLOC
 	#include <stdlib.h>
 	#include <crtdbg.h>
 
-	// µð¹ö±× ¸ðµåÀÏ °æ¿ì.
+	// ë””ë²„ê·¸ ëª¨ë“œì¼ ê²½ìš°.
 	#ifdef _DEBUG
 		/*
-		** ÇÔ¼ö¸í	:	DBG_NEW(NEW)
-		** ¼³¸í		:	new¸¦ »ç¿ë½Ã DBG_NEW·Î Ä¡È¯µÇ¸ç ÆÄÀÏ°ú ¶óÀÎ ÃßÃ´ÀÌ °¡´ÉÇÏ´Ù.
-						(MSVC(CRT µð¹ö±ë ¶óÀÌºê·¯¸®)ÀÇ µð¹ö±×¿ë new ¿¬»êÀÚ ¿À¹ö·Îµå¸¦ È£ÃâÇÏ´Â ¹æ½Ä)
-		** ÀÎÀÚ		:	_NORMAL_BLOCK : ÇÒ´çµÈ ºí·Ï
-						__FILE__ : ÀÌ ¸ÅÅ©·Î°¡ ¾²ÀÎ ¼Ò½º ÆÄÀÏ ÀÌ¸§ ÀÚµ¿ Ä¡È¯.
-						__LINE__ : ÀÌ ¸ÅÅ©·Î°¡ ¾²ÀÎ ÄÚµå ÁÙ ¹øÈ£.			
-		** ¹ÝÈ¯°ª	:	¾øÀ½
+		** í•¨ìˆ˜ëª…	:	DBG_NEW(NEW)
+		** ì„¤ëª…		:	newë¥¼ ì‚¬ìš©ì‹œ DBG_NEWë¡œ ì¹˜í™˜ë˜ë©° íŒŒì¼ê³¼ ë¼ì¸ ì¶”ì²™ì´ ê°€ëŠ¥í•˜ë‹¤.
+						(MSVC(CRT ë””ë²„ê¹… ë¼ì´ë¸ŒëŸ¬ë¦¬)ì˜ ë””ë²„ê·¸ìš© new ì—°ì‚°ìž ì˜¤ë²„ë¡œë“œë¥¼ í˜¸ì¶œí•˜ëŠ” ë°©ì‹)
+		** ì¸ìž		:	_NORMAL_BLOCK : í• ë‹¹ëœ ë¸”ë¡
+						__FILE__ : ì´ ë§¤í¬ë¡œê°€ ì“°ì¸ ì†ŒìŠ¤ íŒŒì¼ ì´ë¦„ ìžë™ ì¹˜í™˜.
+						__LINE__ : ì´ ë§¤í¬ë¡œê°€ ì“°ì¸ ì½”ë“œ ì¤„ ë²ˆí˜¸.			
+		** ë°˜í™˜ê°’	:	ì—†ìŒ
 		*/
 		#define DBG_NEW new ( _NORMAL_BLOCK , __FILE__ , __LINE__ )
 		#define new DBG_NEW
 
 		/*
-		** ÇÔ¼ö¸í	:	MemoryLeakCheck
-		** ¼³¸í		:	ÇÁ·Î±×·¥ Á¾·á ½Ã ¸Þ¸ð¸® leakÀ» Ã¼Å©ÇØÁÝ´Ï´Ù.
-		** ÀÎÀÚ		:	¾øÀ½
-		** ¹ÝÈ¯°ª	:	¾øÀ½
+		** í•¨ìˆ˜ëª…	:	MemoryLeakCheck
+		** ì„¤ëª…		:	í”„ë¡œê·¸ëž¨ ì¢…ë£Œ ì‹œ ë©”ëª¨ë¦¬ leakì„ ì²´í¬í•´ì¤ë‹ˆë‹¤.
+		** ì¸ìž		:	ì—†ìŒ
+		** ë°˜í™˜ê°’	:	ì—†ìŒ
 		*/
 		inline void memory_leak_check()
 		{
 			_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 		}
 
-		// memory_leak_check ÇÔ¼ö¸¦ ¸ÅÅ©·Î·Î »ç¿ëÇÒ ¼ö ÀÖ°Ô ÇØÁØ´Ù.
+		// memory_leak_check í•¨ìˆ˜ë¥¼ ë§¤í¬ë¡œë¡œ ì‚¬ìš©í•  ìˆ˜ ìžˆê²Œ í•´ì¤€ë‹¤.
 		#define RUN_MEMORY_LEAK_CHECK memory_leak_check()
 
 	#else
-		// µð¹ö±× ¸ðµå°¡ ¾Æ´Ï¸é ÀÛµ¿ ¾ÈµÇ°Ô ÇÏ·Á°í ½É¾î³õÀº ÇÔ¼ö.
+		// ë””ë²„ê·¸ ëª¨ë“œê°€ ì•„ë‹ˆë©´ ìž‘ë™ ì•ˆë˜ê²Œ í•˜ë ¤ê³  ì‹¬ì–´ë†“ì€ í•¨ìˆ˜.
 		inline void memory_leak_check() {}
 
-		// ÇØ´ç Ç¥ÇöÀº ÄÄÆÄÀÏ ´Ü°è¿¡¼­ ¿ÏÀüÈ÷ »èÁ¦µË´Ï´Ù.
+		// í•´ë‹¹ í‘œí˜„ì€ ì»´íŒŒì¼ ë‹¨ê³„ì—ì„œ ì™„ì „ížˆ ì‚­ì œë©ë‹ˆë‹¤.
 		#define RUN_MEMORY_LEAK_CHECK ((void)0)
 
 	#endif

@@ -1,4 +1,4 @@
-#include "SocketIniter.h"
+ï»¿#include "SocketIniter.h"
 #include "MemoryLeakHelper.h"
 #include "DebugHelper.h"
 #include "sstream"
@@ -6,56 +6,55 @@
 
 SocketIniter::SocketIniter()
 {
-    // _wsaData¸¦ ÃÊ±âÈ­ÇÕ´Ï´Ù.
+    // _wsaDataë¥¼ ì´ˆê¸°í™”í•©ë‹ˆë‹¤.
     this->_wsaData = {};
 }
 
 SocketIniter::~SocketIniter()
 {
-    // WinsockÀ» ÇØÁ¦ÇÕ´Ï´Ù.
+    // Winsockì„ í•´ì œí•©ë‹ˆë‹¤.
     WSACleanup();
-    LOG_INFO("WinsockÀ» ÇØÁ¦ÇÕ´Ï´Ù.");
+    LOG_INFO("Winsockì„ í•´ì œí•©ë‹ˆë‹¤.");
 }
 
-bool SocketIniter::init()
+SocketIniter::Result SocketIniter::init()
 {
-    LOG_INFO("Winsock ÃÊ±âÈ­¸¦ ½ÃÀÛÇÕ´Ï´Ù.");
-    // °á°ú¸¦ ±â·ÏÇÒ ÇÔ¼ö.
-    int iResult;
+    LOG_INFO("Winsock ì´ˆê¸°í™”ë¥¼ ì‹œì‘í•©ë‹ˆë‹¤.");
+    // ê²°ê³¼ë¥¼ ê¸°ë¡í•  í•¨ìˆ˜.
+    int result;
 
-    // Winsock ÃÊ±âÈ­ÇÕ´Ï´Ù.
-    iResult = WSAStartup(MAKEWORD(2, 2), &this->_wsaData);
+    // Winsock ì´ˆê¸°í™”í•©ë‹ˆë‹¤.
+    result = WSAStartup(MAKEWORD(2, 2), &this->_wsaData);
 
-    // ÃÊ±âÈ­ ¼º°ø È®ÀÎÇÕ´Ï´Ù.
-    if (iResult != 0)
+    // ì´ˆê¸°í™” ì„±ê³µ í™•ì¸í•©ë‹ˆë‹¤.
+    if (result != 0)
     {
-        LOG_ERROR("ÃÊ±âÈ­ ½ÇÆĞ");
-        return (false);
+        LOG_ERROR("Winsock ì´ˆê¸°í™” ì‹¤íŒ¨, ì—ëŸ¬ ì½”ë“œ : " + std::to_string(result));
+        return (Result::FAIL_SOCKET);
     }
-    else
-    {
-        // ÃÊ±âÈ­ ¼º°ø ½Ã DEBUG¸ğµå ÀÏ°æ¿ì _wsaData¸¦ Ãâ·ÂÇÕ´Ï´Ù.
-        LOG_DEBUG(wsaDataToString());
-    }
+ 
+    LOG_INFO("Winsock ì´ˆê¸°í™” ì„±ê³µ");
+
+    // ì´ˆê¸°í™” ì„±ê³µ ì‹œ DEBUGëª¨ë“œ ì¼ê²½ìš° _wsaDataë¥¼ ì¶œë ¥í•©ë‹ˆë‹¤.
+    LOG_DEBUG(wsaDataToString());
+
+    return (Result::SUCCESS_SOCKET);
 }
 
 std::string SocketIniter::wsaDataToString() const
 {
-    // ostringsteamÀ» ÅëÇØ¼­ _wsaData µ¥ÀÌÅÍ¸¦ Á¤¸®ÇÏ¿© ÀúÀåÇÕ´Ï´Ù.
+    // ostringsteamì„ í†µí•´ì„œ _wsaData ë°ì´í„°ë¥¼ ì •ë¦¬í•˜ì—¬ ì €ì¥í•©ë‹ˆë‹¤.
     std::ostringstream oss;
 
-    oss << "WSAData{";
-    oss << "ver=" << LOBYTE(this->_wsaData.wVersion) << "." << HIBYTE(this->_wsaData.wVersion);
-    oss << ", highVer=" << LOBYTE(this->_wsaData.wHighVersion) << "." << HIBYTE(this->_wsaData.wHighVersion);
-
-#ifdef _WIN64
-    oss << ", maxSockets=" << this->_wsaData.iMaxSockets;
-    oss << ", maxUdpDg=" << this->_wsaData.iMaxUdpDg;
-#endif
-
-    oss << ", desc=\"" << this->_wsaData.szDescription << "\"";
+    // WORDëŠ” unsigned short.
+    oss << "\nWSAData{\n";
+    oss << "\tver=" << (int)LOBYTE(this->_wsaData.wVersion) << "." << (int)HIBYTE(this->_wsaData.wVersion);
+    oss << ", highVer=" << (int)LOBYTE(this->_wsaData.wHighVersion) << "." << (int)HIBYTE(this->_wsaData.wHighVersion) << '\n';
+    oss << "\tmaxSockets=" << this->_wsaData.iMaxSockets;
+    oss << ", maxUdpDg=" << this->_wsaData.iMaxUdpDg << '\n';
+    oss << "\tdesc=\"" << this->_wsaData.szDescription << "\"";
     oss << ", status=\"" << this->_wsaData.szSystemStatus << "\"";
-    oss << "}";
+    oss << "\n}";
     
     return oss.str();
 }

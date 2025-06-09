@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <iostream> 
 #include <string>
@@ -6,39 +6,39 @@
 
 enum class LogLevel
 {
-    INFO,       // ÀÏ¹Ý Á¤º¸.
-    WARNNING,   // °æ°í.  
-    ERRORZ,      // ¿¡·¯.
-    DEBUG       // µð¹ö±× Á¤º¸.
+    INFO,       // ì¼ë°˜ ì •ë³´.
+    WARNNING,   // ê²½ê³ .  
+    ERRORZ,      // ì—ëŸ¬.
+    DEBUG       // ë””ë²„ê·¸ ì •ë³´.
 };
 
 /*
-** ÇÔ¼ö¸í	:	CurrentTime.
-** ¼³¸í		:	ÇöÀç ½Ã°£À» "2025-06-04 00:00:00" °°Àº ÇüÅÂ·Î ¹ÝÈ¯ÇØ ÁÝ´Ï´Ù.
-** ÀÎÀÚ		:	¾øÀ½.
-** ¹ÝÈ¯°ª	:	string.
+** í•¨ìˆ˜ëª…	:	CurrentTime.
+** ì„¤ëª…		:	í˜„ìž¬ ì‹œê°„ì„ "2025-06-04 00:00:00" ê°™ì€ í˜•íƒœë¡œ ë°˜í™˜í•´ ì¤ë‹ˆë‹¤.
+** ì¸ìž		:	ì—†ìŒ.
+** ë°˜í™˜ê°’	:	string.
 */
 inline std::string current_time()
 {
-    time_t now = time(nullptr); // ÇöÀç ½Ã°£À» ÃÊ ´ÜÀ§·Î °¡Á®¿È.
+    time_t now = time(nullptr); // í˜„ìž¬ ì‹œê°„ì„ ì´ˆ ë‹¨ìœ„ë¡œ ê°€ì ¸ì˜´.
     struct tm timeInfo;
     localtime_s(&timeInfo , &now);
-    static char buf[64];        // ½Ã°£ °ü·Ã Á¤º¸¸¦ ´ãÀ» ¹è¿­ - static »ç¿ë ÀçÇÒ´ç ¾ÈÇÔ.
-    // ÇØ´ç ÇÔ¼ö´Â (¹öÆÛ, ¹öÆÛ»çÀÌÁî, Ãâ·ÂÇü½Ä, ½Ã°£Á¤º¸)¸¦ ¹Þ°í buf¿¡ Ãâ·ÂÇü½Ä´ë·Î ÀúÀåÇÕ´Ï´Ù.
+    static char buf[64];        // ì‹œê°„ ê´€ë ¨ ì •ë³´ë¥¼ ë‹´ì„ ë°°ì—´ - static ì‚¬ìš© ìž¬í• ë‹¹ ì•ˆí•¨.
+    // í•´ë‹¹ í•¨ìˆ˜ëŠ” (ë²„í¼, ë²„í¼ì‚¬ì´ì¦ˆ, ì¶œë ¥í˜•ì‹, ì‹œê°„ì •ë³´)ë¥¼ ë°›ê³  bufì— ì¶œë ¥í˜•ì‹ëŒ€ë¡œ ì €ìž¥í•©ë‹ˆë‹¤.
     strftime(buf, sizeof(buf), "%Y-%m-%d %H:%M:%S", &timeInfo);
     return std::string(buf);
 }
 
 /*
-** ÇÔ¼ö¸í	:	LogLevelToString.
-** ¼³¸í		:	ÀÎÀÚ·Î ³Ñ¾î¿Â ·Î±×¿¡ ÇØ´çÇÏ´Â ¹®ÀÚ¿­À» ¸®ÅÏÇÕ´Ï´Ù.
-*               ÇØ´ç ¹®ÀÚ¿­Àº ·Î±×ÀÇ ¾î¹Ì°¡ µË´Ï´Ù.
-** ÀÎÀÚ		:	LogLevel <- ¿­°ÅÃ¼ Å¬·¡½º.
-** ¹ÝÈ¯°ª	:	const char* <- ·Î±×¿¡ ÇØ´çÇÏ´Â ¹®ÀÚ¿­.
+** í•¨ìˆ˜ëª…	:	LogLevelToString.
+** ì„¤ëª…		:	ì¸ìžë¡œ ë„˜ì–´ì˜¨ ë¡œê·¸ì— í•´ë‹¹í•˜ëŠ” ë¬¸ìžì—´ì„ ë¦¬í„´í•©ë‹ˆë‹¤.
+*               í•´ë‹¹ ë¬¸ìžì—´ì€ ë¡œê·¸ì˜ ì–´ë¯¸ê°€ ë©ë‹ˆë‹¤.
+** ì¸ìž		:	LogLevel <- ì—´ê±°ì²´ í´ëž˜ìŠ¤.
+** ë°˜í™˜ê°’	:	const char* <- ë¡œê·¸ì— í•´ë‹¹í•˜ëŠ” ë¬¸ìžì—´.
 */
 inline const char* log_level_to_string(LogLevel level)
 {
-    switch (level) // ·Î±×¿¡ ÇØ´çÇÏ´Â ¿¡·¯·Î switchÇÕ´Ï´Ù.
+    switch (level) // ë¡œê·¸ì— í•´ë‹¹í•˜ëŠ” ì—ëŸ¬ë¡œ switchí•©ë‹ˆë‹¤.
     {
     case LogLevel::INFO:  return " INFO ";
     case LogLevel::WARNNING:  return " WARNNING ";
@@ -49,14 +49,14 @@ inline const char* log_level_to_string(LogLevel level)
 }
 
 /*
-** ÇÔ¼ö¸í	:	Log.
-** ¼³¸í		:	ÀÎÀÚ¿¡ µû¶ó Ãâ·ÂÇü½ÄÀ» °áÁ¤ÇÏ°í ¸Þ¼¼Áö¸¦ Ãâ·ÂÇÕ´Ï´Ù.
-*               Error¿Í Debug°°Àº °æ¿ì´Â ÆÄÀÏ°ú ÄÚµå ¶óÀÎµµ °°ÀÌ Ãâ·ÂÇÕ´Ï´Ù.
-** ÀÎÀÚ		:	level <- ¿­°ÅÃ¼ Å¬·¡½º. ÇØ´ç ¸Þ¼¼ÁöÀÇ Á¾·ù ÆÇÁ¤.
-*               message <- ·Î±× ¸Þ¼¼Áö.
-*               file <- ÇöÀç ÇØ´ç ¸Þ¼¼Áö°¡ ³ª¿À°Ô ÇÑ ÆÄÀÏ.
-*               Line <- ÇØ´ç ÄÚµå ¶óÀÎ.
-** ¹ÝÈ¯°ª	:	¾øÀ½.
+** í•¨ìˆ˜ëª…	:	Log.
+** ì„¤ëª…		:	ì¸ìžì— ë”°ë¼ ì¶œë ¥í˜•ì‹ì„ ê²°ì •í•˜ê³  ë©”ì„¸ì§€ë¥¼ ì¶œë ¥í•©ë‹ˆë‹¤.
+*               Errorì™€ Debugê°™ì€ ê²½ìš°ëŠ” íŒŒì¼ê³¼ ì½”ë“œ ë¼ì¸ë„ ê°™ì´ ì¶œë ¥í•©ë‹ˆë‹¤.
+** ì¸ìž		:	level <- ì—´ê±°ì²´ í´ëž˜ìŠ¤. í•´ë‹¹ ë©”ì„¸ì§€ì˜ ì¢…ë¥˜ íŒì •.
+*               message <- ë¡œê·¸ ë©”ì„¸ì§€.
+*               file <- í˜„ìž¬ í•´ë‹¹ ë©”ì„¸ì§€ê°€ ë‚˜ì˜¤ê²Œ í•œ íŒŒì¼.
+*               Line <- í•´ë‹¹ ì½”ë“œ ë¼ì¸.
+** ë°˜í™˜ê°’	:	ì—†ìŒ.
 */
 inline void log(
     LogLevel level,
@@ -65,7 +65,7 @@ inline void log(
     int line = 0
 )
 {
-    // DEBUG ¸ðµå°¡ ¾Æ´Ï¸é ÇØ´ç »ó¼ö°¡ Á¤ÀÇµÈ ÀûÀÌ ¾ø°í DEBUGÀÏ °æ¿ì ¸®ÅÏµË´Ï´Ù.
+    // DEBUG ëª¨ë“œê°€ ì•„ë‹ˆë©´ í•´ë‹¹ ìƒìˆ˜ê°€ ì •ì˜ëœ ì ì´ ì—†ê³  DEBUGì¼ ê²½ìš° ë¦¬í„´ë©ë‹ˆë‹¤.
 #ifndef _DEBUG
     if (level == LogLevel::DEBUG)
     {
@@ -73,32 +73,32 @@ inline void log(
     }
 #endif
 
-    // ·Î±×ÀÇ Ãâ·ÂÇü½ÄÀ» °áÁ¤ÇÕ´Ï´Ù.
+    // ë¡œê·¸ì˜ ì¶œë ¥í˜•ì‹ì„ ê²°ì •í•©ë‹ˆë‹¤.
     std::ostream& out = (level == LogLevel::ERRORZ) ? std::cerr : std::cout;
 
-    // ·Î±× ·¹º§ ¹®ÀÚ¿­À» °¡Á®¿É´Ï´Ù.
+    // ë¡œê·¸ ë ˆë²¨ ë¬¸ìžì—´ì„ ê°€ì ¸ì˜µë‹ˆë‹¤.
     const char* levelStr = log_level_to_string(level);
 
-    // ¾Æ¿ôÇ²¿¡ ·Î±× Å¸ÀÔ°ú ½Ã°£À» Ãß°¡ÇÕ´Ï´Ù.
+    // ì•„ì›ƒí’‹ì— ë¡œê·¸ íƒ€ìž…ê³¼ ì‹œê°„ì„ ì¶”ê°€í•©ë‹ˆë‹¤.
     out << "[" << levelStr << "] " << current_time();
 
-    // ÆÄÀÏ°ú ÄÚµå¶óÀÎ Á¤º¸´Â ERROR¿Í DEBUG¿¡¸¸ Ãß°¡ÇÕ´Ï´Ù.
+    // íŒŒì¼ê³¼ ì½”ë“œë¼ì¸ ì •ë³´ëŠ” ERRORì™€ DEBUGì—ë§Œ ì¶”ê°€í•©ë‹ˆë‹¤.
     if (level == LogLevel::ERRORZ || level == LogLevel::DEBUG)
     {
         out << " (" << file << ":" << line << ")";
     }
 
-    // ¾Æ¿ôÇ²¿¡ ¸Þ¼¼Áö¸¦ Ãß°¡ÇÕ´Ï´Ù.(flush)
+    // ì•„ì›ƒí’‹ì— ë©”ì„¸ì§€ë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.(flush)
     out << " - " << message << std::endl;
 }
 
-// ¸ÅÅ©·Î·Î Á¤¸®
+// ë§¤í¬ë¡œë¡œ ì •ë¦¬
 
-// ÀÏ¹Ý ·Î±×
+// ì¼ë°˜ ë¡œê·¸
 #define LOG_INFO(message) log(LogLevel::INFO,  message)
-// °æ°í ·Î±×
+// ê²½ê³  ë¡œê·¸
 #define LOG_WARN(message) log(LogLevel::WARNNING,  message)
-// ¿¡·¯ ·Î±×
+// ì—ëŸ¬ ë¡œê·¸
 #define LOG_ERROR(message) log(LogLevel::ERRORZ, message, __FILE__, __LINE__)
-// µð¹ö±× ·Î±×
+// ë””ë²„ê·¸ ë¡œê·¸
 #define LOG_DEBUG(message) log(LogLevel::DEBUG, message, __FILE__, __LINE__)
