@@ -7,8 +7,8 @@
 enum class LogLevel
 {
     INFO,       // 일반 정보.
-    WARNNING,   // 경고.  
-    ERRORZ,      // 에러.
+    WARNING,    // 경고.  
+    ERRORZ,     // 에러.
     DEBUG       // 디버그 정보.
 };
 
@@ -41,7 +41,7 @@ inline const char* log_level_to_string(LogLevel level)
     switch (level) // 로그에 해당하는 에러로 switch합니다.
     {
     case LogLevel::INFO:  return " INFO ";
-    case LogLevel::WARNNING:  return " WARNNING ";
+    case LogLevel::WARNING:  return " WARNING ";
     case LogLevel::ERRORZ: return " ERROR ";
     case LogLevel::DEBUG: return " DEBUG ";
     default: return " UNKNOWN ";
@@ -88,17 +88,17 @@ inline void log(
         out << " (" << file << ":" << line << ")";
     }
 
-    // 아웃풋에 메세지를 추가합니다.(flush)
+    // 아웃풋에 메세지를 추가합니다.(flush).
     out << " - " << message << std::endl;
 }
 
-// 매크로로 정리
+// 매크로로 정리.
 
-// 일반 로그
+// 일반 로그.
 #define LOG_INFO(message) log(LogLevel::INFO,  message)
-// 경고 로그
-#define LOG_WARN(message) log(LogLevel::WARNNING,  message)
-// 에러 로그
+// 경고 로그.
+#define LOG_WARN(message) log(LogLevel::WARNING,  message)
+// 에러 로그.
 #define LOG_ERROR(message) log(LogLevel::ERRORZ, message, __FILE__, __LINE__)
-// 디버그 로그
+// 디버그 로그.
 #define LOG_DEBUG(message) log(LogLevel::DEBUG, message, __FILE__, __LINE__)
