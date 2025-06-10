@@ -28,7 +28,7 @@ jobs:
           echo "🧪 테스트 1: 토큰 없이 다운로드 시도"
           echo "============================================="
           
-          if curl -f -s -o labels.yml https://raw.githubusercontent.com/MakeChatStudy/.github/main/labels/labels.yml; then
+          if curl -f -s -o labels.yml https://raw.githubusercontent.com/ForNaggi/.github/main/labels/labels.yml; then
             echo "✅ 다운로드 성공!"
             echo "📄 파일 크기: $(wc -c < labels.yml) bytes"
             echo "📄 라인 수: $(wc -l < labels.yml) lines"
@@ -48,11 +48,11 @@ jobs:
           echo "============================================="
           
           echo "📡 URL 접근성 테스트:"
-          curl -I https://raw.githubusercontent.com/MakeChatStudy/.github/main/labels/labels.yml
+          curl -I https://raw.githubusercontent.com/ForNaggi/.github/main/labels/labels.yml
           
           echo ""
           echo "📥 다운로드 시도 (상세 로그):"
-          curl -v -f -o labels-test.yml https://raw.githubusercontent.com/MakeChatStudy/.github/main/labels/labels.yml
+          curl -v -f -o labels-test.yml https://raw.githubusercontent.com/ForNaggi/.github/main/labels/labels.yml
           
           if [ -f labels-test.yml ]; then
             echo "✅ Test 2 성공!"
@@ -93,7 +93,7 @@ jobs:
           echo "📥 조직 표준 라벨 다운로드 중..."
           echo "============================================="
           
-          if curl -f -s -o labels.yml https://raw.githubusercontent.com/MakeChatStudy/.github/main/labels/labels.yml; then
+          if curl -f -s -o labels.yml https://raw.githubusercontent.com/ForNaggi/.github/main/labels/labels.yml; then
             echo "✅ 다운로드 성공!"
             echo ""
             echo "📋 적용될 라벨 목록:"
