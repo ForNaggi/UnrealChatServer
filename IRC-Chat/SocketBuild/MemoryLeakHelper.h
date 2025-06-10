@@ -10,22 +10,22 @@
 	// 디버그 모드일 경우.
 	#ifdef _DEBUG
 		/*
-		** 함수명	:	DBG_NEW(NEW)
+		** 함수명	:	DBG_NEW(NEW).
 		** 설명		:	new를 사용시 DBG_NEW로 치환되며 파일과 라인 추척이 가능하다.
-						(MSVC(CRT 디버깅 라이브러리)의 디버그용 new 연산자 오버로드를 호출하는 방식)
-		** 인자		:	_NORMAL_BLOCK : 할당된 블록
+						(MSVC(CRT 디버깅 라이브러리)의 디버그용 new 연산자 오버로드를 호출하는 방식).
+		** 인자		:	_NORMAL_BLOCK : 할당된 블록.
 						__FILE__ : 이 매크로가 쓰인 소스 파일 이름 자동 치환.
 						__LINE__ : 이 매크로가 쓰인 코드 줄 번호.			
-		** 반환값	:	없음
+		** 반환값	:	없음.
 		*/
 		#define DBG_NEW new ( _NORMAL_BLOCK , __FILE__ , __LINE__ )
 		#define new DBG_NEW
 
 		/*
-		** 함수명	:	MemoryLeakCheck
+		** 함수명	:	MemoryLeakCheck.
 		** 설명		:	프로그램 종료 시 메모리 leak을 체크해줍니다.
-		** 인자		:	없음
-		** 반환값	:	없음
+		** 인자		:	없음.
+		** 반환값	:	없음.
 		*/
 		inline void memory_leak_check()
 		{
