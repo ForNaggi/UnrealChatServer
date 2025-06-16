@@ -8,8 +8,7 @@
 
 /*
 ** 클래스명	:	MultiServer.
-** 설명		:	여러 컴포넌트를 조합해 멀티클라이언트 서버를 구현합니다.
-*               각 컴포넌트의 기능을 조합하여 select 기반 서버를 만듭니다.
+** 설명		:	여러 컴포넌트를 조합해 select 기반 멀티클라이언트 서버를 구현합니다.
 ** 초기화	:	int(포트번호)를 매개변수로 받는 생성자만 가능.
 */
 class MultiServer
@@ -131,4 +130,13 @@ private:
     ** 반환값	:	없음.
     */
     void announceLeave(int client_index);
+
+    /*
+    ** 함수명	:	makeWecomeMessage.
+    ** 설명		:   클라이언트 접속 시 띄울 메세지를 생성합니다.
+    ** 인자		:	const std::string& nickname : 해당 클라이언트의 닉네임.
+    *               int connectedClientCount : 접속된 총 인원.
+    ** 반환값	:	std::string : 클라이언트 접속 시 띄울 메세지.
+    */
+    std::string makeWecomeMessage(const std::string& nickname, int connectedClientCount);
 };

@@ -42,7 +42,7 @@ int ClientManager::addClient(SOCKET client_socket)
     this->_clientSockets[index] = client_socket;
     this->_connectedSocketCount = this->_connectedSocketCount + 1;
 
-    LOG_INFO("클라이언트 추가 성공 - 인덱스: " + std::to_string(index) + ", " + std::to_string(this->_connectedSocketCount) + "명");
+    LOG_INFO("클라이언트 추가 성공(player_" + std::to_string(index) + ")\n" + std::to_string(this->_connectedSocketCount) + "명");
     return (index);
 }
 
@@ -70,7 +70,7 @@ bool ClientManager::removeClient(int client_index)
     // 삭제한 소켓의 인덱스를 재사용 큐에 추가.
     this->_availableList.push(client_index);
 
-    LOG_INFO("클라이언트 제거 완료, 인덱스: " + std::to_string(client_index) + ", 남은 접속자: " + std::to_string(this->_connectedSocketCount) + "명");
+    LOG_INFO("클라이언트 제거 완료(player_" + std::to_string(client_index) + ")\n남은 접속자: " + std::to_string(this->_connectedSocketCount) + "명");
     return (true);
 }
 
@@ -108,6 +108,24 @@ int ClientManager::getAllSockets(SOCKET* sockets, int max_count) const
     }
 
     return (count);
+}
+
+std::string ClientManager::getClientNickname(int client_index) const
+{
+    // 유효하지 않은 인덱스 범위이거나.
+    if (this->isValidIndex(client_index) == false)
+    {
+        return ("Player_Unknown");
+    }
+
+    // 해당 소켓이 유효하지 않다면
+    if (this->_clientSockets[client_index] == INVALID_SOCKET)
+    {
+        return ("Player_Unknown");
+    }
+
+    // 항상 Player_{NUMBER} 형식으로 반환.
+    return ("Player_" + std::to_string(client_index));
 }
 
 void ClientManager::initalizeClientSockets()

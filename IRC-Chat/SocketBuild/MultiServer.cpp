@@ -120,7 +120,7 @@ void MultiServer::stop()
     if (this->_isRunning)
     {
         this->_isRunning = false;
-        LOG_INFO("멀티클라이언트 서버를 중지합니다");
+        LOG_INFO("멀티 클라이언트 서버를 중지합니다");
     }
 }
 
@@ -180,18 +180,21 @@ bool MultiServer::handleClientMessage(int client_index)
         // quit 명령 확인
         if (receiver.isQuitCommand(message))
         {
-            std::string goodbye_message = "안녕히 가세요!";
+            std::string goodbye_message = "[시스템] 안녕히 가세요!";
             this->_messageSender.unicast(goodbye_message, client_socket);
             return (false); // 연결 종료
         }
 
-        // 브로드캐스트 메시지 생성
-        std::string broadcast_message = "[클라이언트" + std::to_string(client_index) + "]: " + message;
+        // 클라이언트 닉네임.
+        std::string nickname = this->_clientManager.getClientNickname(client_index);
+        // 브로드캐스트 메시지 생성.
+        std::string broadcast_message = "[" + nickname + "]: " + message; 
+        
 
-        // 모든 클라이언트에게 브로드캐스트 (발송자 제외)
+        // 모든 클라이언트에게 브로드캐스트.
         SOCKET all_sockets[ClientManager::MAX_CLIENTS];
         int socket_count = this->_clientManager.getAllSockets(all_sockets, ClientManager::MAX_CLIENTS);
-        this->_messageSender.multicast(broadcast_message, all_sockets, socket_count, client_socket);
+        this->_messageSender.broadcast(broadcast_message, all_sockets, socket_count);
 
         return (true);
     }
@@ -211,35 +214,63 @@ bool MultiServer::handleClientMessage(int client_index)
 
 void MultiServer::sendWelcomeMessage(int client_index)
 {
+    // 환영 메세지를 보낼 클라이언트 소켓을 가져옵니다.
     SOCKET client_socket = this->_clientManager.getClientSocket(client_index);
-    if (client_socket == INVALID_SOCKET) return;
 
-    std::string welcome_message = "=== 채팅 서버에 오신 것을 환영합니다! ===";
-    welcome_message += "\n당신은 클라이언트" + std::to_string(client_index) + "입니다.";
-    welcome_message += "\n현재 접속자 수: " + std::to_string(this->_clientManager.getConnectedClientCount()) + "명";
-    welcome_message += "\n'quit'를 입력하면 종료됩니다.";
-    welcome_message += "\n==========================================";
+    // 소켓에 문제가 있다면.
+    if (client_socket == INVALID_SOCKET) 
+    {
+        return ;
+    }
 
+    // 해당 클라이언트의 닉네임을 가져옵니다.
+    std::string nickname = this->_clientManager.getClientNickname(client_socket);
+    // 현재 접속 중인 유저의 수를 반환합니다.
+    int connectedClientCount = this->_clientManager.getConnectedClientCount();
+    // 환영 메세지를 생성합니다.
+    std::string welcome_message = makeWecomeMessage(nickname, connectedClientCount);
+
+    // 클라이언트에게 메세지를 전송합니다.
     this->_messageSender.unicast(welcome_message, client_socket);
 }
 
 void MultiServer::announceJoin(int client_index)
 {
-    std::string join_message = "[시스템] 클라이언트" + std::to_string(client_index) + "님이 채팅방에 참여했습니다.";
+    std::string nickname = this->_clientManager.getClientNickname(client_index);
+    // 클라이언트가 채팅방을 참여했다는 메세지 생성.
+    std::string join_message = "[시스템] " + nickname + "님이 채팅방에 참여했습니다.";
 
     SOCKET all_sockets[ClientManager::MAX_CLIENTS];
     int socket_count = this->_clientManager.getAllSockets(all_sockets, ClientManager::MAX_CLIENTS);
 
+    // 현재 채팅창에 들어온 클라이언트 소켓.
     SOCKET new_client_socket = this->_clientManager.getClientSocket(client_index);
+
+    // 새로 들어온 클라이언트를 제외한 다른 클라이언트들에게 메세지 전송.
     this->_messageSender.multicast(join_message, all_sockets, socket_count, new_client_socket);
 }
 
 void MultiServer::announceLeave(int client_index)
 {
-    std::string leave_message = "[시스템] 클라이언트" + std::to_string(client_index) + "님이 채팅방을 떠났습니다.";
+    std::string nickname = this->_clientManager.getClientNickname(client_index);
+    // 클라이언트가 채팅방을 떠났다는 메세지 생성.
+    std::string leave_message = "[시스템] " + nickname + "님이 채팅방을 떠났습니다.";
 
     SOCKET all_sockets[ClientManager::MAX_CLIENTS];
+    // 현재 채팅서버에 접속된 모든 클라이언트의 수.
     int socket_count = this->_clientManager.getAllSockets(all_sockets, ClientManager::MAX_CLIENTS);
 
+    // 떠나는 클라이언트를 포함한 모든 클라이언트에게 메세지 전송.
     this->_messageSender.broadcast(leave_message, all_sockets, socket_count);
+}
+
+std::string MultiServer::makeWecomeMessage(const std::string& nickname, int connectedClientCount)
+{
+    std::string welcome_message = "";
+    welcome_message = welcome_message + "=== 채팅 서버에 오신 것을 환영합니다! ===\n";
+    welcome_message = welcome_message + "현재 접속자 수: " + std::to_string(connectedClientCount) + "명\n";
+    welcome_message = welcome_message + "'quit'를 입력하면 종료됩니다.\n";
+    welcome_message = welcome_message + "==========================================\n";
+
+    return (welcome_message);
 }
