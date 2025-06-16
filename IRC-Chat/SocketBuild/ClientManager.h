@@ -2,12 +2,14 @@
 
 #include <WinSock2.h>
 #include <array>
+#include <string>
 #include <queue>
 
 /*
 ** 클래스명	:	ClientManager.
 ** 설명		:	클라이언트 소켓 관리를 담당하는 클래스입니다.
 *               클라이언트 소켓 추가, 제거, 조회 기능.
+*				게임과 채팅에서 사용할 닉네임을 생성합니다.
 ** 초기화	:	기본 생성자만 사용.
 */
 class ClientManager
@@ -50,6 +52,7 @@ class ClientManager
 		/*
 		** 함수명	:	addClient.
 		** 설명		:	새로운 클라이언트 소켓을 추가합니다.
+		*				클라이언트의 닉네임을 할당합니다. (Player_{NUMBER} 형식).
 		** 인자		:	SOCKET client_socket : 추가할 클라이언트 소켓.
 		** 반환값	:	int : 할당된 인덱스, -1이면 실패.
 		*/
@@ -95,6 +98,14 @@ class ClientManager
 		** 반환값	:	int : 복사된 소켓 수.
 		*/
 		int getAllSockets(SOCKET* sockets, int max_count) const;
+
+		/*
+		** 함수명	:	getClientNickname.
+		** 설명		:	클라이언트의 생성된 닉네임을 반환합니다.
+		** 인자		:	int client_index : 클라이언트 인덱스.
+		** 반환값	:	std::string : 클라이언트 닉네임.
+		*/
+		std::string getClientNickname(int client_index) const;
 
 	private:
 		// 클라이언트 소켓 배열.
