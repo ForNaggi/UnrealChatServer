@@ -94,6 +94,14 @@ class TCPSocket
 		*/
 		bool isValid() const;
 
+		/*
+		** 함수명	:	getSocket.
+		** 설명		:	내부 소켓 핸들을 반환합니다.
+		** 인자		:	없음.
+		** 반환값	:	SOCKET : 소켓 핸들.
+		*/
+		SOCKET getSocket() const;
+
 	private:
 		SOCKET _tcpSocket;
 

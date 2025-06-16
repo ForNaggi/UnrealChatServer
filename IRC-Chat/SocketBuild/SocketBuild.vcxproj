@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -127,19 +127,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="EchoServer.cpp" />
+    <ClCompile Include="ClientManager.cpp" />
+    <ClCompile Include="MessageReceiver.cpp" />
+    <ClCompile Include="MessageSender.cpp" />
+    <ClCompile Include="MultiServer.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MessageManager.cpp" />
     <ClCompile Include="Program.cpp" />
+    <ClCompile Include="SelectManager.cpp" />
     <ClCompile Include="SocketIniter.cpp" />
     <ClCompile Include="TCPSocket.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ClientManager.h" />
     <ClInclude Include="DebugHelper.h" />
-    <ClInclude Include="EchoServer.h" />
+    <ClInclude Include="MessageReceiver.h" />
+    <ClInclude Include="MessageSender.h" />
+    <ClInclude Include="MultiServer.h" />
     <ClInclude Include="MemoryLeakHelper.h" />
-    <ClInclude Include="MessageManager.h" />
     <ClInclude Include="Program.h" />
+    <ClInclude Include="SelectManager.h" />
     <ClInclude Include="SocketIniter.h" />
     <ClInclude Include="TCPSocket.h" />
   </ItemGroup>

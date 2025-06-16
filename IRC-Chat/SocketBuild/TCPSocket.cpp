@@ -110,6 +110,11 @@ bool TCPSocket::isValid() const
 	return (this->_tcpSocket != INVALID_SOCKET);
 }
 
+SOCKET TCPSocket::getSocket() const
+{
+	return this->_tcpSocket;
+}
+
 void TCPSocket::logClientInfo(const sockaddr_in& addr)
 {
 	// ip를 담을 배열.

@@ -27,10 +27,19 @@
     <ClCompile Include="Program.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EchoServer.cpp">
+    <ClCompile Include="MultiServer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MessageManager.cpp">
+    <ClCompile Include="SelectManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageSender.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageReceiver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,13 +56,22 @@
     <ClInclude Include="TCPSocket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EchoServer.h">
+    <ClInclude Include="MultiServer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Program.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MessageManager.h">
+    <ClInclude Include="SelectManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageSender.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageReceiver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
