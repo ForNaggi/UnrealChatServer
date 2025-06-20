@@ -1,0 +1,257 @@
+.TH "SelectManager" 3 "Version 1.0.0" "ChatMultiServerDoxygen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SelectManager \- 소켓 집합을 관리하고 select()를 사용하여 네트워크 I/O를 다중화합니다\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <SelectManager\&.h>\fP
+.SS "Public 타입"
+
+.in +1c
+.ti -1c
+.RI "enum class \fBResult\fP { \fBSUCCESS\fP, \fBTIMEOUT\fP, \fBFAIL_SELECT\fP, \fBNO_SOCKETS\fP }"
+.br
+.in -1c
+.SS "Public 멤버 함수"
+
+.in +1c
+.ti -1c
+.RI "\fBSelectManager\fP ()"
+.br
+.RI "SelectManager를 생성하여 내부 소켓 집합을 초기화합니다\&. "
+.ti -1c
+.RI "\fB~SelectManager\fP ()"
+.br
+.RI "SelectManager의 소멸자\&. "
+.ti -1c
+.RI "\fBSelectManager\fP (const \fBSelectManager\fP &obj)=delete"
+.br
+.ti -1c
+.RI "\fBSelectManager\fP & \fBoperator=\fP (const \fBSelectManager\fP &obj)=delete"
+.br
+.ti -1c
+.RI "\fBSelectManager\fP (\fBSelectManager\fP &&obj)=delete"
+.br
+.ti -1c
+.RI "\fBSelectManager\fP & \fBoperator=\fP (\fBSelectManager\fP &&obj)=delete"
+.br
+.ti -1c
+.RI "void \fBsetupFdSet\fP ()"
+.br
+.RI "새로운 select 작업을 위해 fd_set을 초기화하여 준비합니다\&. "
+.ti -1c
+.RI "bool \fBaddSocket\fP (SOCKET socket)"
+.br
+.RI "select()로 모니터링할 소켓 집합에 소켓을 추가합니다\&. "
+.ti -1c
+.RI "\fBSelectManager::Result\fP \fBexecuteSelect\fP (int timeout_sec=1)"
+.br
+.RI "현재 설정된 소켓 집합에 대해 select() 시스템 호출을 수행합니다\&. "
+.ti -1c
+.RI "bool \fBisSocketReady\fP (SOCKET socket) const"
+.br
+.RI "해당 소켓이 "읽기 준비 완료"로 표시되었는지 확인합니다\&. "
+.in -1c
+.SS "Private 속성"
+
+.in +1c
+.ti -1c
+.RI "fd_set \fB_originSet\fP"
+.br
+.RI "재사용 가능한 원본 소켓 집합 (모니터링할 소켓들의 집합)\&. "
+.ti -1c
+.RI "fd_set \fB_copySet\fP"
+.br
+.RI "select()에 전달되는 소켓 집합의 복사본입니다 (select 호출 시 변경될 수 있음)\&. "
+.ti -1c
+.RI "int \fB_socketCount\fP"
+.br
+.RI "현재 집합에 포함된 소켓 개수입니다\&. "
+.in -1c
+.SH "상세한 설명"
+.PP 
+소켓 집합을 관리하고 select()를 사용하여 네트워크 I/O를 다중화합니다\&. 
+
+SelectManager는 select에 필요한 fd_set 구조체를 래핑합니다\&. 
+.br
+소켓을 추가하여 select 연산을 수행하는 메서드를 제공합니다\&. 
+.br
+어떤 소켓에 수신 데이터가 있는지(읽기 준비 완료 상태인지)를 확인합니다\&. 
+.br
+타임아웃 상황을 처리할 수 있습니다\&. 
+.PP
+\fBSelectManager\&.h\fP 파일의 \fB27\fP 번째 라인에서 정의되었습니다\&.
+.SH "멤버 열거형 문서화"
+.PP 
+.SS "enum class \fBSelectManager::Result\fP\fR [strong]\fP"
+
+.PP
+\fB열거형 멤버\fP
+.in +1c
+.TP
+\f(BISUCCESS \fP
+select 호출에 성공, 적어도 하나의 소켓이 I/O 처리 준비가 된 경우\&. 
+.TP
+\f(BITIMEOUT \fP
+지정된 타임아웃 내에 아무 소켓에서도 활동이 없어 select가 타임아웃된 경우\&. 
+.TP
+\f(BIFAIL_SELECT \fP
+select 호출이 실패한 경우 (예: 잘못된 소켓 등 오류로 인해)\&. 
+.TP
+\f(BINO_SOCKETS \fP
+모니터링할 소켓이 하나도 설정되지 않은 경우 (select가 호출되지 않음)\&. 
+.PP
+\fBSelectManager\&.h\fP 파일의 \fB35\fP 번째 라인에서 정의되었습니다\&.
+.SH "생성자 & 소멸자 문서화"
+.PP 
+.SS "SelectManager::SelectManager ()"
+
+.PP
+SelectManager를 생성하여 내부 소켓 집합을 초기화합니다\&. 
+.PP
+\fB반환값\fP
+.RS 4
+없음\&.
+.RE
+.PP
+빈 fd_set들을 준비합니다\&. 
+.PP
+\fBSelectManager\&.cpp\fP 파일의 \fB21\fP 번째 라인에서 정의되었습니다\&.
+.SS "SelectManager::~SelectManager ()"
+
+.PP
+SelectManager의 소멸자\&. 
+.PP
+\fB반환값\fP
+.RS 4
+없음\&.
+.RE
+.PP
+\fB주의\fP
+.RS 4
+내부적으로 해제할 동적 리소스는 없습니다\&. 
+.RE
+.PP
+
+.PP
+\fBSelectManager\&.cpp\fP 파일의 \fB27\fP 번째 라인에서 정의되었습니다\&.
+.SS "SelectManager::SelectManager (const \fBSelectManager\fP & obj)\fR [delete]\fP"
+
+.SS "SelectManager::SelectManager (\fBSelectManager\fP && obj)\fR [delete]\fP"
+
+.SH "멤버 함수 문서화"
+.PP 
+.SS "bool SelectManager::addSocket (SOCKET socket)"
+
+.PP
+select()로 모니터링할 소켓 집합에 소켓을 추가합니다\&. 
+.PP
+\fB매개변수\fP
+.RS 4
+\fI[IN]\fP SOCKET socket : 감시 목록에 추가할 소켓입니다\&. 
+.RE
+.PP
+\fB반환값\fP
+.RS 4
+bool : 소켓이 정상적으로 추가되어 유효하면 true, 추가할 수 없으면 false를 반환합니다 (예: 소켓 개수 초과 또는 잘못된 소켓인 경우)\&.
+.RE
+.PP
+해당 소켓을 내부 fd_set에 추가합니다\&. 
+.PP
+\fBSelectManager\&.cpp\fP 파일의 \fB41\fP 번째 라인에서 정의되었습니다\&.
+.SS "\fBSelectManager::Result\fP SelectManager::executeSelect (int timeout_sec = \fR1\fP)"
+
+.PP
+현재 설정된 소켓 집합에 대해 select() 시스템 호출을 수행합니다\&. 
+.PP
+\fB매개변수\fP
+.RS 4
+\fI[IN]\fP int timeout_sec : 이벤트를 기다릴 시간(초)입니다 (기본값: 1초)\&. 
+.RE
+.PP
+\fB반환값\fP
+.RS 4
+\fBSelectManager::Result\fP : select 연산의 결과를 반환합니다 (SUCCESS, TIMEOUT, FAIL_SELECT 또는 NO_SOCKETS)\&.
+.RE
+.PP
+내부적으로 소켓 집합을 임시 복사본으로 만들고 select()를 호출합니다\&. 
+.br
+하나 이상의 소켓이 준비되었다면 SUCCESS를 반환합니다\&. 
+.br
+집합에 소켓이 없다면 select를 호출하지 않고 NO_SOCKETS를 반환합니다\&. 
+.br
+타임아웃 시 TIMEOUT을, 오류 발생 시 FAIL_SELECT를 반환합니다\&. 
+.PP
+\fBSelectManager\&.cpp\fP 파일의 \fB58\fP 번째 라인에서 정의되었습니다\&.
+.SS "bool SelectManager::isSocketReady (SOCKET socket) const"
+
+.PP
+해당 소켓이 "읽기 준비 완료"로 표시되었는지 확인합니다\&. 
+.PP
+\fB매개변수\fP
+.RS 4
+\fI[IN]\fP SOCKET socket : 확인할 소켓입니다\&. 
+.RE
+.PP
+\fB반환값\fP
+.RS 4
+bool : 소켓에 읽을 데이터가 있어(select에 의해 fd_set에 설정된 경우) true를 반환하고, 그렇지 않으면 false를 반환합니다\&.
+.RE
+.PP
+\fB주의\fP
+.RS 4
+이 메서드는 \fBexecuteSelect()\fP 호출 후에 사용해야 합니다\&. 
+.br
+select가 업데이트한 내부 fd_set 복사본을 검사합니다\&. 
+.RE
+.PP
+
+.PP
+\fBSelectManager\&.cpp\fP 파일의 \fB98\fP 번째 라인에서 정의되었습니다\&.
+.SS "\fBSelectManager\fP & SelectManager::operator= (const \fBSelectManager\fP & obj)\fR [delete]\fP"
+
+.SS "\fBSelectManager\fP & SelectManager::operator= (\fBSelectManager\fP && obj)\fR [delete]\fP"
+
+.SS "void SelectManager::setupFdSet ()"
+
+.PP
+새로운 select 작업을 위해 fd_set을 초기화하여 준비합니다\&. 
+.PP
+\fB반환값\fP
+.RS 4
+없음\&.
+.RE
+.PP
+내부 소켓 집합을 모두 비우고 소켓 개수를 0으로 재설정합니다\&. 
+.br
+필요한 경우 (예: 서버 루프의 각 반복마다) 소켓을 다시 추가하기 전에 이 메서드를 호출하십시오\&. 
+.PP
+\fBSelectManager\&.cpp\fP 파일의 \fB32\fP 번째 라인에서 정의되었습니다\&.
+.SH "멤버 데이터 문서화"
+.PP 
+.SS "fd_set SelectManager::_copySet\fR [private]\fP"
+
+.PP
+select()에 전달되는 소켓 집합의 복사본입니다 (select 호출 시 변경될 수 있음)\&. 
+.PP
+\fBSelectManager\&.h\fP 파일의 \fB125\fP 번째 라인에서 정의되었습니다\&.
+.SS "fd_set SelectManager::_originSet\fR [private]\fP"
+
+.PP
+재사용 가능한 원본 소켓 집합 (모니터링할 소켓들의 집합)\&. 
+.PP
+\fBSelectManager\&.h\fP 파일의 \fB122\fP 번째 라인에서 정의되었습니다\&.
+.SS "int SelectManager::_socketCount\fR [private]\fP"
+
+.PP
+현재 집합에 포함된 소켓 개수입니다\&. 
+.PP
+\fBSelectManager\&.h\fP 파일의 \fB128\fP 번째 라인에서 정의되었습니다\&.
+
+.SH "작성자"
+.PP 
+소스 코드로부터 ChatMultiServerDoxygen를 위해 Doxygen에 의해 자동으로 생성됨\&.

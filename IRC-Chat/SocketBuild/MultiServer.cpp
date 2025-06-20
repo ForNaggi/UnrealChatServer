@@ -1,5 +1,15 @@
-﻿#include "MultiServer.h"
+﻿#pragma execution_character_set("utf-8")
+
+/**
+ * @file MultiServer.cpp
+ * @brief MultiServer.h 구현부.
+ * @author 최성락
+ * @date 2025-06-17
+ */
+
+#include "MultiServer.h"
 #include "DebugHelper.h"
+#include <iostream>
 
 MultiServer::MultiServer(int port)
     : _port(port), _tcpSocket(), _clientManager(), _selectManager(), _messageSender(), _isRunning(false)
@@ -63,7 +73,7 @@ MultiServer::Result MultiServer::runServerLoop()
         }
 
         // select 실행
-        SelectManager::Result select_result = this->_selectManager.excuteSelect(1);
+        SelectManager::Result select_result = this->_selectManager.executeSelect(1);
 
         // select 결과 처리
         switch (select_result)
@@ -167,13 +177,13 @@ bool MultiServer::handleClientMessage(int client_index)
         return (false);
     }
 
-    // MessageRecevier로 메시지 수신
-    MessageRecevier receiver(client_socket);
-    MessageRecevier::Result recv_result = receiver.receiveMessage();
+    // MessageReceiver로 메시지 수신
+    MessageReceiver receiver(client_socket);
+    MessageReceiver::Result recv_result = receiver.receiveMessage();
 
     switch (recv_result)
     {
-    case MessageRecevier::Result::SUCCESS:
+    case MessageReceiver::Result::SUCCESS:
     {
         std::string message = receiver.getLastMessage();
 
@@ -188,8 +198,8 @@ bool MultiServer::handleClientMessage(int client_index)
         // 클라이언트 닉네임.
         std::string nickname = this->_clientManager.getClientNickname(client_index);
         // 브로드캐스트 메시지 생성.
-        std::string broadcast_message = "[" + nickname + "]: " + message; 
-        
+        std::string broadcast_message = "[" + nickname + "]: " + message;
+
 
         // 모든 클라이언트에게 브로드캐스트.
         SOCKET all_sockets[ClientManager::MAX_CLIENTS];
@@ -199,11 +209,11 @@ bool MultiServer::handleClientMessage(int client_index)
         return (true);
     }
 
-    case MessageRecevier::Result::CLIENT_DISCONNECTED:
+    case MessageReceiver::Result::CLIENT_DISCONNECTED:
         LOG_INFO("클라이언트 연결 해제 - 인덱스: " + std::to_string(client_index));
         return (false);
 
-    case MessageRecevier::Result::FAIL_RECEIVE:
+    case MessageReceiver::Result::FAIL_RECEIVE:
         LOG_ERROR("클라이언트 메시지 수신 실패 - 인덱스: " + std::to_string(client_index));
         return (false);
 

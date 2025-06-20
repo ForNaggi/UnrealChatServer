@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ChatMultiServerDoxygen: SocketBuild/TCPSocket.h 소스 파일</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ChatMultiServerDoxygen<span id="projectnumber">&#160;1.0.0</span>
+   </div>
+   <div id="projectbrief">this is the synopsis</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','검색',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('_t_c_p_socket_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">로딩중...</div>
+<div class="SRStatus" id="Searching">검색중...</div>
+<div class="SRStatus" id="NoMatches">일치하는것 없음</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">TCPSocket.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_t_c_p_socket_8h.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#pragma execution_character_set(&quot;utf-8&quot;)</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;WinSock2.h&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span></div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_t_c_p_socket.html">   26</a></span><span class="keyword">class </span><a class="code hl_function" href="class_t_c_p_socket.html#a7a50427a401d1a6f3209d51818bad901">TCPSocket</a></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>{</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    public :</div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="class_t_c_p_socket.html#a4cac285e312c44d43921a8bcc4e46209">   33</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="class_t_c_p_socket.html#a4cac285e312c44d43921a8bcc4e46209">Result</a></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="class_t_c_p_socket.html#a4cac285e312c44d43921a8bcc4e46209ad0749aaba8b833466dfcbb0428e4f89c">   35</a></span>            <a class="code hl_enumvalue" href="class_t_c_p_socket.html#a4cac285e312c44d43921a8bcc4e46209ad0749aaba8b833466dfcbb0428e4f89c">SUCCESS</a>,     </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="class_t_c_p_socket.html#a4cac285e312c44d43921a8bcc4e46209ae91d869fabbc45334b126465fe181a48">   36</a></span>            <a class="code hl_enumvalue" href="class_t_c_p_socket.html#a4cac285e312c44d43921a8bcc4e46209ae91d869fabbc45334b126465fe181a48">FAIL_CREATE</a>, </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_t_c_p_socket.html#a4cac285e312c44d43921a8bcc4e46209aa3d9c9ddd9e1ac76615c92b42ce8026e">   37</a></span>            <a class="code hl_enumvalue" href="class_t_c_p_socket.html#a4cac285e312c44d43921a8bcc4e46209aa3d9c9ddd9e1ac76615c92b42ce8026e">FAIL_BIND</a>,     </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="class_t_c_p_socket.html#a4cac285e312c44d43921a8bcc4e46209ae717c150ec495ca490669de1aedcad7e">   38</a></span>            <a class="code hl_enumvalue" href="class_t_c_p_socket.html#a4cac285e312c44d43921a8bcc4e46209ae717c150ec495ca490669de1aedcad7e">FAIL_LISTEN</a>, </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_t_c_p_socket.html#a4cac285e312c44d43921a8bcc4e46209aa5f69d4e0fc92f11d6eb032f7c9c49fc">   39</a></span>            <a class="code hl_enumvalue" href="class_t_c_p_socket.html#a4cac285e312c44d43921a8bcc4e46209aa5f69d4e0fc92f11d6eb032f7c9c49fc">FAIL_ACCEPT</a>      </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        };</div>
+</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <a class="code hl_function" href="class_t_c_p_socket.html#a7a50427a401d1a6f3209d51818bad901">TCPSocket</a>();</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <a class="code hl_function" href="class_t_c_p_socket.html#af357e6923a0f8adbbb8e46fab4523991">~TCPSocket</a>();</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="comment">// 복사 생성자 및 복사 할당 연산자 삭제.</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="class_t_c_p_socket.html#a3d0a85a095f0f5e098672eb02d026fb9">   63</a></span>        <a class="code hl_function" href="class_t_c_p_socket.html#a3d0a85a095f0f5e098672eb02d026fb9">TCPSocket</a>(<span class="keyword">const</span> <a class="code hl_function" href="class_t_c_p_socket.html#a7a50427a401d1a6f3209d51818bad901">TCPSocket</a>&amp; obj) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="class_t_c_p_socket.html#a417aa551478970f6b5b712c4284e4fde">   64</a></span>        <a class="code hl_function" href="class_t_c_p_socket.html#a7a50427a401d1a6f3209d51818bad901">TCPSocket</a>&amp; <a class="code hl_function" href="class_t_c_p_socket.html#a417aa551478970f6b5b712c4284e4fde">operator=</a>(<span class="keyword">const</span> <a class="code hl_function" href="class_t_c_p_socket.html#a7a50427a401d1a6f3209d51818bad901">TCPSocket</a>&amp; obj) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="comment">// 이동 생성자 및 이동 할당 연산자 삭제.</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="class_t_c_p_socket.html#a0170bc32a14ec5b67d42602bbbd48e90">   67</a></span>        <a class="code hl_function" href="class_t_c_p_socket.html#a0170bc32a14ec5b67d42602bbbd48e90">TCPSocket</a>(<a class="code hl_function" href="class_t_c_p_socket.html#a7a50427a401d1a6f3209d51818bad901">TCPSocket</a>&amp;&amp; obj) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="class_t_c_p_socket.html#a89e1d258ebe87147d5a51f500d79f722">   68</a></span>        <a class="code hl_function" href="class_t_c_p_socket.html#a7a50427a401d1a6f3209d51818bad901">TCPSocket</a>&amp; <a class="code hl_function" href="class_t_c_p_socket.html#a89e1d258ebe87147d5a51f500d79f722">operator=</a>(<a class="code hl_function" href="class_t_c_p_socket.html#a7a50427a401d1a6f3209d51818bad901">TCPSocket</a>&amp;&amp; obj) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <a class="code hl_enumeration" href="class_t_c_p_socket.html#a4cac285e312c44d43921a8bcc4e46209">TCPSocket::Result</a> <a class="code hl_function" href="class_t_c_p_socket.html#ad644dd13d2032ba5d5fb2f70f07458dc">createTCPSocket</a>();</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <a class="code hl_enumeration" href="class_t_c_p_socket.html#a4cac285e312c44d43921a8bcc4e46209">TCPSocket::Result</a> <a class="code hl_function" href="class_t_c_p_socket.html#a5b129a44ef126fcf7922dd200a1b10f7">bindTCPSocket</a>(<span class="keywordtype">int</span> port) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <a class="code hl_enumeration" href="class_t_c_p_socket.html#a4cac285e312c44d43921a8bcc4e46209">TCPSocket::Result</a> <a class="code hl_function" href="class_t_c_p_socket.html#ae197bb8adbd15a94b07c4e2437e61acb">startListen</a>();</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        SOCKET <a class="code hl_function" href="class_t_c_p_socket.html#a7819994c76c135eb2ae924dce636ee44">acceptConnection</a>();</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_t_c_p_socket.html#af6072d318785a79e757998a73a1926e3">closeTCPSocket</a>();</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="class_t_c_p_socket.html#a6381da5b9062803c6556bfb779a7cac4">isValid</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        SOCKET <a class="code hl_function" href="class_t_c_p_socket.html#aacfe19e3fe6987c557754e2c7fae8950">getSocket</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="class_t_c_p_socket.html#a17836ac496897cff17892d7c05d1f742">  142</a></span>        SOCKET <a class="code hl_variable" href="class_t_c_p_socket.html#a17836ac496897cff17892d7c05d1f742">_tcpSocket</a>;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_t_c_p_socket.html#aed9cf3a16ecf4d5b2f22cde77f204454">logClientInfo</a>(<span class="keyword">const</span> sockaddr_in&amp; addr);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>};</div>
+</div>
+<div class="ttc" id="aclass_t_c_p_socket_html_a0170bc32a14ec5b67d42602bbbd48e90"><div class="ttname"><a href="class_t_c_p_socket.html#a0170bc32a14ec5b67d42602bbbd48e90">TCPSocket::TCPSocket</a></div><div class="ttdeci">TCPSocket(TCPSocket &amp;&amp;obj)=delete</div></div>
+<div class="ttc" id="aclass_t_c_p_socket_html_a17836ac496897cff17892d7c05d1f742"><div class="ttname"><a href="class_t_c_p_socket.html#a17836ac496897cff17892d7c05d1f742">TCPSocket::_tcpSocket</a></div><div class="ttdeci">SOCKET _tcpSocket</div><div class="ttdoc">TCP 서버 소켓(WinSock 소켓).</div><div class="ttdef"><b>Definition</b> <a href="#l00142">TCPSocket.h:142</a></div></div>
+<div class="ttc" id="aclass_t_c_p_socket_html_a3d0a85a095f0f5e098672eb02d026fb9"><div class="ttname"><a href="class_t_c_p_socket.html#a3d0a85a095f0f5e098672eb02d026fb9">TCPSocket::TCPSocket</a></div><div class="ttdeci">TCPSocket(const TCPSocket &amp;obj)=delete</div></div>
+<div class="ttc" id="aclass_t_c_p_socket_html_a417aa551478970f6b5b712c4284e4fde"><div class="ttname"><a href="class_t_c_p_socket.html#a417aa551478970f6b5b712c4284e4fde">TCPSocket::operator=</a></div><div class="ttdeci">TCPSocket &amp; operator=(const TCPSocket &amp;obj)=delete</div></div>
+<div class="ttc" id="aclass_t_c_p_socket_html_a4cac285e312c44d43921a8bcc4e46209"><div class="ttname"><a href="class_t_c_p_socket.html#a4cac285e312c44d43921a8bcc4e46209">TCPSocket::Result</a></div><div class="ttdeci">Result</div><div class="ttdef"><b>Definition</b> <a href="#l00033">TCPSocket.h:34</a></div></div>
+<div class="ttc" id="aclass_t_c_p_socket_html_a4cac285e312c44d43921a8bcc4e46209aa3d9c9ddd9e1ac76615c92b42ce8026e"><div class="ttname"><a href="class_t_c_p_socket.html#a4cac285e312c44d43921a8bcc4e46209aa3d9c9ddd9e1ac76615c92b42ce8026e">TCPSocket::Result::FAIL_BIND</a></div><div class="ttdeci">@ FAIL_BIND</div><div class="ttdoc">소켓 바인드 실패.</div><div class="ttdef"><b>Definition</b> <a href="#l00037">TCPSocket.h:37</a></div></div>
+<div class="ttc" id="aclass_t_c_p_socket_html_a4cac285e312c44d43921a8bcc4e46209aa5f69d4e0fc92f11d6eb032f7c9c49fc"><div class="ttname"><a href="class_t_c_p_socket.html#a4cac285e312c44d43921a8bcc4e46209aa5f69d4e0fc92f11d6eb032f7c9c49fc">TCPSocket::Result::FAIL_ACCEPT</a></div><div class="ttdeci">@ FAIL_ACCEPT</div><div class="ttdoc">새 연결 수락 실패.</div><div class="ttdef"><b>Definition</b> <a href="#l00039">TCPSocket.h:39</a></div></div>
+<div class="ttc" id="aclass_t_c_p_socket_html_a4cac285e312c44d43921a8bcc4e46209ad0749aaba8b833466dfcbb0428e4f89c"><div class="ttname"><a href="class_t_c_p_socket.html#a4cac285e312c44d43921a8bcc4e46209ad0749aaba8b833466dfcbb0428e4f89c">TCPSocket::Result::SUCCESS</a></div><div class="ttdeci">@ SUCCESS</div><div class="ttdoc">연산 성공.</div><div class="ttdef"><b>Definition</b> <a href="#l00035">TCPSocket.h:35</a></div></div>
+<div class="ttc" id="aclass_t_c_p_socket_html_a4cac285e312c44d43921a8bcc4e46209ae717c150ec495ca490669de1aedcad7e"><div class="ttname"><a href="class_t_c_p_socket.html#a4cac285e312c44d43921a8bcc4e46209ae717c150ec495ca490669de1aedcad7e">TCPSocket::Result::FAIL_LISTEN</a></div><div class="ttdeci">@ FAIL_LISTEN</div><div class="ttdoc">리스닝 모드 전환 실패.</div><div class="ttdef"><b>Definition</b> <a href="#l00038">TCPSocket.h:38</a></div></div>
+<div class="ttc" id="aclass_t_c_p_socket_html_a4cac285e312c44d43921a8bcc4e46209ae91d869fabbc45334b126465fe181a48"><div class="ttname"><a href="class_t_c_p_socket.html#a4cac285e312c44d43921a8bcc4e46209ae91d869fabbc45334b126465fe181a48">TCPSocket::Result::FAIL_CREATE</a></div><div class="ttdeci">@ FAIL_CREATE</div><div class="ttdoc">소켓 생성 실패.</div><div class="ttdef"><b>Definition</b> <a href="#l00036">TCPSocket.h:36</a></div></div>
+<div class="ttc" id="aclass_t_c_p_socket_html_a5b129a44ef126fcf7922dd200a1b10f7"><div class="ttname"><a href="class_t_c_p_socket.html#a5b129a44ef126fcf7922dd200a1b10f7">TCPSocket::bindTCPSocket</a></div><div class="ttdeci">TCPSocket::Result bindTCPSocket(int port) const</div><div class="ttdoc">소켓을 로컬 포트에 바인드하여 연결 요청을 받을 수 있게 합니다.</div><div class="ttdef"><b>Definition</b> <a href="_t_c_p_socket_8cpp_source.html#l00042">TCPSocket.cpp:42</a></div></div>
+<div class="ttc" id="aclass_t_c_p_socket_html_a6381da5b9062803c6556bfb779a7cac4"><div class="ttname"><a href="class_t_c_p_socket.html#a6381da5b9062803c6556bfb779a7cac4">TCPSocket::isValid</a></div><div class="ttdeci">bool isValid() const</div><div class="ttdoc">소켓이 유효한지 확인합니다.</div><div class="ttdef"><b>Definition</b> <a href="_t_c_p_socket_8cpp_source.html#l00117">TCPSocket.cpp:117</a></div></div>
+<div class="ttc" id="aclass_t_c_p_socket_html_a7819994c76c135eb2ae924dce636ee44"><div class="ttname"><a href="class_t_c_p_socket.html#a7819994c76c135eb2ae924dce636ee44">TCPSocket::acceptConnection</a></div><div class="ttdeci">SOCKET acceptConnection()</div><div class="ttdoc">들어오는 클라이언트 연결을 수락합니다.</div><div class="ttdef"><b>Definition</b> <a href="_t_c_p_socket_8cpp_source.html#l00080">TCPSocket.cpp:80</a></div></div>
+<div class="ttc" id="aclass_t_c_p_socket_html_a7a50427a401d1a6f3209d51818bad901"><div class="ttname"><a href="class_t_c_p_socket.html#a7a50427a401d1a6f3209d51818bad901">TCPSocket::TCPSocket</a></div><div class="ttdeci">TCPSocket()</div><div class="ttdoc">TCPSocket 객체를 생성하고 소켓 핸들을 INVALID_SOCKET으로 초기화합니다.</div><div class="ttdef"><b>Definition</b> <a href="_t_c_p_socket_8cpp_source.html#l00014">TCPSocket.cpp:14</a></div></div>
+<div class="ttc" id="aclass_t_c_p_socket_html_a89e1d258ebe87147d5a51f500d79f722"><div class="ttname"><a href="class_t_c_p_socket.html#a89e1d258ebe87147d5a51f500d79f722">TCPSocket::operator=</a></div><div class="ttdeci">TCPSocket &amp; operator=(TCPSocket &amp;&amp;obj)=delete</div></div>
+<div class="ttc" id="aclass_t_c_p_socket_html_aacfe19e3fe6987c557754e2c7fae8950"><div class="ttname"><a href="class_t_c_p_socket.html#aacfe19e3fe6987c557754e2c7fae8950">TCPSocket::getSocket</a></div><div class="ttdeci">SOCKET getSocket() const</div><div class="ttdoc">내부 소켓 핸들을 가져옵니다.</div><div class="ttdef"><b>Definition</b> <a href="_t_c_p_socket_8cpp_source.html#l00122">TCPSocket.cpp:122</a></div></div>
+<div class="ttc" id="aclass_t_c_p_socket_html_ad644dd13d2032ba5d5fb2f70f07458dc"><div class="ttname"><a href="class_t_c_p_socket.html#ad644dd13d2032ba5d5fb2f70f07458dc">TCPSocket::createTCPSocket</a></div><div class="ttdeci">TCPSocket::Result createTCPSocket()</div><div class="ttdoc">새로운 TCP 소켓을 생성합니다.</div><div class="ttdef"><b>Definition</b> <a href="_t_c_p_socket_8cpp_source.html#l00024">TCPSocket.cpp:24</a></div></div>
+<div class="ttc" id="aclass_t_c_p_socket_html_ae197bb8adbd15a94b07c4e2437e61acb"><div class="ttname"><a href="class_t_c_p_socket.html#ae197bb8adbd15a94b07c4e2437e61acb">TCPSocket::startListen</a></div><div class="ttdeci">TCPSocket::Result startListen()</div><div class="ttdoc">소켓을 수신 대기 모드로 전환하여 들어오는 연결을 받을 수 있게 합니다.</div><div class="ttdef"><b>Definition</b> <a href="_t_c_p_socket_8cpp_source.html#l00064">TCPSocket.cpp:64</a></div></div>
+<div class="ttc" id="aclass_t_c_p_socket_html_aed9cf3a16ecf4d5b2f22cde77f204454"><div class="ttname"><a href="class_t_c_p_socket.html#aed9cf3a16ecf4d5b2f22cde77f204454">TCPSocket::logClientInfo</a></div><div class="ttdeci">void logClientInfo(const sockaddr_in &amp;addr)</div><div class="ttdoc">연결된 클라이언트의 IP 주소와 포트 정보를 로그에 출력합니다.</div><div class="ttdef"><b>Definition</b> <a href="_t_c_p_socket_8cpp_source.html#l00127">TCPSocket.cpp:127</a></div></div>
+<div class="ttc" id="aclass_t_c_p_socket_html_af357e6923a0f8adbbb8e46fab4523991"><div class="ttname"><a href="class_t_c_p_socket.html#af357e6923a0f8adbbb8e46fab4523991">TCPSocket::~TCPSocket</a></div><div class="ttdeci">~TCPSocket()</div><div class="ttdoc">소멸자입니다. 소켓이 열려 있는 경우 해당 소켓을 닫습니다.</div><div class="ttdef"><b>Definition</b> <a href="_t_c_p_socket_8cpp_source.html#l00019">TCPSocket.cpp:19</a></div></div>
+<div class="ttc" id="aclass_t_c_p_socket_html_af6072d318785a79e757998a73a1926e3"><div class="ttname"><a href="class_t_c_p_socket.html#af6072d318785a79e757998a73a1926e3">TCPSocket::closeTCPSocket</a></div><div class="ttdeci">void closeTCPSocket()</div><div class="ttdoc">리스닝 소켓을 닫습니다.</div><div class="ttdef"><b>Definition</b> <a href="_t_c_p_socket_8cpp_source.html#l00105">TCPSocket.cpp:105</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_abbf5edca481bc51d1cdb4c1a782205f.html">SocketBuild</a></li><li class="navelem"><a href="_t_c_p_socket_8h.html">TCPSocket.h</a></li>
+    <li class="footer">다음에 의해 생성됨 :  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

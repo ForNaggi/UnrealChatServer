@@ -1,4 +1,13 @@
-﻿#include "TCPSocket.h"
+﻿#pragma execution_character_set("utf-8")
+
+/**
+ * @file TCPSocket.cpp
+ * @brief TCPSocket.h 구현부.
+ * @author 최성락
+ * @date 2025-06-17
+ */
+
+#include "TCPSocket.h"
 #include "DebugHelper.h"
 #include <ws2tcpip.h>
 

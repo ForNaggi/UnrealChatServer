@@ -1,0 +1,56 @@
+\doxysection{TCPSocket.\+h}
+\hypertarget{_t_c_p_socket_8h_source}{}\label{_t_c_p_socket_8h_source}\index{SocketBuild/TCPSocket.h@{SocketBuild/TCPSocket.h}}
+\mbox{\hyperlink{_t_c_p_socket_8h}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00002}00002\ \textcolor{preprocessor}{\#pragma\ execution\_character\_set("{}utf-\/8"{})}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <WinSock2.h>}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00026}\mbox{\hyperlink{class_t_c_p_socket}{00026}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_t_c_p_socket_a7a50427a401d1a6f3209d51818bad901}{TCPSocket}}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00027}00027\ \{}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00028}00028\ \ \ \ \ public\ :}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00033}\mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209}{00033}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209}{Result}}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00035}\mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209ad0749aaba8b833466dfcbb0428e4f89c}{00035}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209ad0749aaba8b833466dfcbb0428e4f89c}{SUCCESS}},\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00036}\mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209ae91d869fabbc45334b126465fe181a48}{00036}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209ae91d869fabbc45334b126465fe181a48}{FAIL\_CREATE}},\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00037}\mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209aa3d9c9ddd9e1ac76615c92b42ce8026e}{00037}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209aa3d9c9ddd9e1ac76615c92b42ce8026e}{FAIL\_BIND}},\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00038}\mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209ae717c150ec495ca490669de1aedcad7e}{00038}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209ae717c150ec495ca490669de1aedcad7e}{FAIL\_LISTEN}},\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00039}\mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209aa5f69d4e0fc92f11d6eb032f7c9c49fc}{00039}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209aa5f69d4e0fc92f11d6eb032f7c9c49fc}{FAIL\_ACCEPT}}\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00041}00041\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_t_c_p_socket_a7a50427a401d1a6f3209d51818bad901}{TCPSocket}}();}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_t_c_p_socket_af357e6923a0f8adbbb8e46fab4523991}{\string~TCPSocket}}();}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 복사\ 생성자\ 및\ 복사\ 할당\ 연산자\ 삭제.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00063}\mbox{\hyperlink{class_t_c_p_socket_a3d0a85a095f0f5e098672eb02d026fb9}{00063}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_t_c_p_socket_a3d0a85a095f0f5e098672eb02d026fb9}{TCPSocket}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_t_c_p_socket_a7a50427a401d1a6f3209d51818bad901}{TCPSocket}}\&\ obj)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00064}\mbox{\hyperlink{class_t_c_p_socket_a417aa551478970f6b5b712c4284e4fde}{00064}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_t_c_p_socket_a7a50427a401d1a6f3209d51818bad901}{TCPSocket}}\&\ \mbox{\hyperlink{class_t_c_p_socket_a417aa551478970f6b5b712c4284e4fde}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_t_c_p_socket_a7a50427a401d1a6f3209d51818bad901}{TCPSocket}}\&\ obj)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 이동\ 생성자\ 및\ 이동\ 할당\ 연산자\ 삭제.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00067}\mbox{\hyperlink{class_t_c_p_socket_a0170bc32a14ec5b67d42602bbbd48e90}{00067}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_t_c_p_socket_a0170bc32a14ec5b67d42602bbbd48e90}{TCPSocket}}(\mbox{\hyperlink{class_t_c_p_socket_a7a50427a401d1a6f3209d51818bad901}{TCPSocket}}\&\&\ obj)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00068}\mbox{\hyperlink{class_t_c_p_socket_a89e1d258ebe87147d5a51f500d79f722}{00068}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_t_c_p_socket_a7a50427a401d1a6f3209d51818bad901}{TCPSocket}}\&\ \mbox{\hyperlink{class_t_c_p_socket_a89e1d258ebe87147d5a51f500d79f722}{operator=}}(\mbox{\hyperlink{class_t_c_p_socket_a7a50427a401d1a6f3209d51818bad901}{TCPSocket}}\&\&\ obj)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00070}00070\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00080}00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209}{TCPSocket::Result}}\ \mbox{\hyperlink{class_t_c_p_socket_ad644dd13d2032ba5d5fb2f70f07458dc}{createTCPSocket}}();}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00092}00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209}{TCPSocket::Result}}\ \mbox{\hyperlink{class_t_c_p_socket_a5b129a44ef126fcf7922dd200a1b10f7}{bindTCPSocket}}(\textcolor{keywordtype}{int}\ port)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00102}00102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209}{TCPSocket::Result}}\ \mbox{\hyperlink{class_t_c_p_socket_ae197bb8adbd15a94b07c4e2437e61acb}{startListen}}();}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00114}00114\ \ \ \ \ \ \ \ \ SOCKET\ \mbox{\hyperlink{class_t_c_p_socket_a7819994c76c135eb2ae924dce636ee44}{acceptConnection}}();}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00124}00124\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_c_p_socket_af6072d318785a79e757998a73a1926e3}{closeTCPSocket}}();}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00131}00131\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_t_c_p_socket_a6381da5b9062803c6556bfb779a7cac4}{isValid}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00138}00138\ \ \ \ \ \ \ \ \ SOCKET\ \mbox{\hyperlink{class_t_c_p_socket_aacfe19e3fe6987c557754e2c7fae8950}{getSocket}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00140}00140\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00142}\mbox{\hyperlink{class_t_c_p_socket_a17836ac496897cff17892d7c05d1f742}{00142}}\ \ \ \ \ \ \ \ \ SOCKET\ \mbox{\hyperlink{class_t_c_p_socket_a17836ac496897cff17892d7c05d1f742}{\_tcpSocket}};}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00153}00153\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_c_p_socket_aed9cf3a16ecf4d5b2f22cde77f204454}{logClientInfo}}(\textcolor{keyword}{const}\ sockaddr\_in\&\ addr);}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8h_source_l00154}00154\ \};}
+
+\end{DoxyCode}

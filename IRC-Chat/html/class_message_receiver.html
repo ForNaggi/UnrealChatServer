@@ -1,0 +1,571 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ChatMultiServerDoxygen: MessageReceiver 클래스 참조</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ChatMultiServerDoxygen<span id="projectnumber">&#160;1.0.0</span>
+   </div>
+   <div id="projectbrief">this is the synopsis</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','검색',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('class_message_receiver.html','','class_message_receiver-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">로딩중...</div>
+<div class="SRStatus" id="Searching">검색중...</div>
+<div class="SRStatus" id="NoMatches">일치하는것 없음</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">MessageReceiver 클래스 참조</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>클라이언트 소켓으로부터 들어오는 메시지를 처리하는 클래스입니다.  
+ <a href="#details">더 자세히 ...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_message_receiver_8h_source.html">MessageReceiver.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 타입</h2></td></tr>
+<tr class="memitem:af74bce14070bbf4d0a0324acee430084" id="r_af74bce14070bbf4d0a0324acee430084"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af74bce14070bbf4d0a0324acee430084">Result</a> { <br />
+&#160;&#160;<a class="el" href="#af74bce14070bbf4d0a0324acee430084ad0749aaba8b833466dfcbb0428e4f89c">SUCCESS</a>
+, <a class="el" href="#af74bce14070bbf4d0a0324acee430084ac6c8a4faea4d0b94dceb90a306074d2b">FAIL_RECEIVE</a>
+, <a class="el" href="#af74bce14070bbf4d0a0324acee430084abc14f1ca70c7ca9704e7f3bd0a2ba383">FAIL_SEND</a>
+, <a class="el" href="#af74bce14070bbf4d0a0324acee430084a31933f777c42ffbab532bc7ba2610c68">CLIENT_QUIT</a>
+, <br />
+&#160;&#160;<a class="el" href="#af74bce14070bbf4d0a0324acee430084a50ba526e9a6ee61df579023c1e99817a">CLIENT_DISCONNECTED</a>
+<br />
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 멤버 함수</h2></td></tr>
+<tr class="memitem:adb7ba8d5430ba18e8c226ba1f386981a" id="r_adb7ba8d5430ba18e8c226ba1f386981a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb7ba8d5430ba18e8c226ba1f386981a">MessageReceiver</a> (SOCKET client_socket)</td></tr>
+<tr class="memdesc:adb7ba8d5430ba18e8c226ba1f386981a"><td class="mdescLeft">&#160;</td><td class="mdescRight">주어진 클라이언트 소켓에 대한 <a class="el" href="class_message_receiver.html" title="클라이언트 소켓으로부터 들어오는 메시지를 처리하는 클래스입니다.">MessageReceiver</a> 객체를 생성합니다.  <br /></td></tr>
+<tr class="memitem:aae8d620cc02dea621ddb4a91b8438b1e" id="r_aae8d620cc02dea621ddb4a91b8438b1e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae8d620cc02dea621ddb4a91b8438b1e">~MessageReceiver</a> ()</td></tr>
+<tr class="memdesc:aae8d620cc02dea621ddb4a91b8438b1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">소멸자.  <br /></td></tr>
+<tr class="memitem:a034ca3dbab55b482a4258f7e46f79cb1" id="r_a034ca3dbab55b482a4258f7e46f79cb1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a034ca3dbab55b482a4258f7e46f79cb1">MessageReceiver</a> (const <a class="el" href="class_message_receiver.html">MessageReceiver</a> &amp;obj)=delete</td></tr>
+<tr class="memitem:a33fac997d6824751d4911d46edeb4faf" id="r_a33fac997d6824751d4911d46edeb4faf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_message_receiver.html">MessageReceiver</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33fac997d6824751d4911d46edeb4faf">operator=</a> (const <a class="el" href="class_message_receiver.html">MessageReceiver</a> &amp;obj)=delete</td></tr>
+<tr class="memitem:a94672dede89c25ab2452a9e3d199603e" id="r_a94672dede89c25ab2452a9e3d199603e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94672dede89c25ab2452a9e3d199603e">MessageReceiver</a> (<a class="el" href="class_message_receiver.html">MessageReceiver</a> &amp;&amp;obj)=delete</td></tr>
+<tr class="memitem:a074181d10e5b6299998deea9e6efa340" id="r_a074181d10e5b6299998deea9e6efa340"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_message_receiver.html">MessageReceiver</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a074181d10e5b6299998deea9e6efa340">operator=</a> (<a class="el" href="class_message_receiver.html">MessageReceiver</a> &amp;&amp;obj)=delete</td></tr>
+<tr class="memitem:a0c83ac3a7387ab21f74bc81d6640d9ec" id="r_a0c83ac3a7387ab21f74bc81d6640d9ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#af74bce14070bbf4d0a0324acee430084">MessageReceiver::Result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c83ac3a7387ab21f74bc81d6640d9ec">receiveMessage</a> ()</td></tr>
+<tr class="memdesc:a0c83ac3a7387ab21f74bc81d6640d9ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">클라이언트 소켓으로부터 메시지를 수신하고 내부에 저장합니다.  <br /></td></tr>
+<tr class="memitem:a649a859e023ac92682659c83312c64ef" id="r_a649a859e023ac92682659c83312c64ef"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a649a859e023ac92682659c83312c64ef">getLastMessage</a> () const</td></tr>
+<tr class="memdesc:a649a859e023ac92682659c83312c64ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">마지막으로 수신된 메시지를 반환합니다.  <br /></td></tr>
+<tr class="memitem:af9984778a2d338b38cf108b16b47d718" id="r_af9984778a2d338b38cf108b16b47d718"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9984778a2d338b38cf108b16b47d718">isQuitCommand</a> (const std::string &amp;message) const</td></tr>
+<tr class="memdesc:af9984778a2d338b38cf108b16b47d718"><td class="mdescLeft">&#160;</td><td class="mdescRight">주어진 메시지가 "quit" 명령인지 확인합니다.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private 멤버 함수</h2></td></tr>
+<tr class="memitem:ad7dce9c6a9e01f99ba458f8635d86fd5" id="r_ad7dce9c6a9e01f99ba458f8635d86fd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7dce9c6a9e01f99ba458f8635d86fd5">cleanMessage</a> (std::string &amp;message)</td></tr>
+<tr class="memdesc:ad7dce9c6a9e01f99ba458f8635d86fd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">수신한 메시지 문자열에서 캐리지 리턴/뉴라인 문자를 제거합니다.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private 속성</h2></td></tr>
+<tr class="memitem:a2905ffef925668d0c802ad1fdf28dab6" id="r_a2905ffef925668d0c802ad1fdf28dab6"><td class="memItemLeft" align="right" valign="top">SOCKET&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2905ffef925668d0c802ad1fdf28dab6">_clientSocket</a></td></tr>
+<tr class="memdesc:a2905ffef925668d0c802ad1fdf28dab6"><td class="mdescLeft">&#160;</td><td class="mdescRight">통신에 사용하는 클라이언트 소켓.  <br /></td></tr>
+<tr class="memitem:a9e44455ed76f630e9bb73614033cfabe" id="r_a9e44455ed76f630e9bb73614033cfabe"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e44455ed76f630e9bb73614033cfabe">_lastMessage</a></td></tr>
+<tr class="memdesc:a9e44455ed76f630e9bb73614033cfabe"><td class="mdescLeft">&#160;</td><td class="mdescRight">가장 최근에 수신한 메시지.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-static-attribs" class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
+정적 Private 속성</h2></td></tr>
+<tr class="memitem:a77e67dede82634157c9aeac775395a33" id="r_a77e67dede82634157c9aeac775395a33"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77e67dede82634157c9aeac775395a33">BUFFER_SIZE</a> = 1024</td></tr>
+<tr class="memdesc:a77e67dede82634157c9aeac775395a33"><td class="mdescLeft">&#160;</td><td class="mdescRight">데이터 수신에 사용하는 버퍼 크기(바이트 단위).  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">상세한 설명</h2>
+<div class="textblock"><p>클라이언트 소켓으로부터 들어오는 메시지를 처리하는 클래스입니다. </p>
+<p>클라이언트 소켓을 전달받아 객체를 생성합니다. <br  />
+소켓으로부터 메시지를 수신하여 저장하고, 특별한 명령(예: 종료 요청)이 있는지 확인합니다. <br  />
+고정 크기 버퍼를 사용하여 수신된 데이터를 처리합니다. </p>
+
+<p class="definition"><a class="el" href="_message_receiver_8h_source.html">MessageReceiver.h</a> 파일의 <a class="el" href="_message_receiver_8h_source.html#l00027">27</a> 번째 라인에서 정의되었습니다.</p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">멤버 열거형 문서화</h2>
+<a id="af74bce14070bbf4d0a0324acee430084" name="af74bce14070bbf4d0a0324acee430084"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af74bce14070bbf4d0a0324acee430084">&#9670;&#160;</a></span>Result</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#af74bce14070bbf4d0a0324acee430084">MessageReceiver::Result</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">열거형 멤버</th></tr><tr><td class="fieldname"><a id="af74bce14070bbf4d0a0324acee430084ad0749aaba8b833466dfcbb0428e4f89c" name="af74bce14070bbf4d0a0324acee430084ad0749aaba8b833466dfcbb0428e4f89c"></a>SUCCESS&#160;</td><td class="fielddoc"><p>메시지 수신에 성공함 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af74bce14070bbf4d0a0324acee430084ac6c8a4faea4d0b94dceb90a306074d2b" name="af74bce14070bbf4d0a0324acee430084ac6c8a4faea4d0b94dceb90a306074d2b"></a>FAIL_RECEIVE&#160;</td><td class="fielddoc"><p>메시지 수신에 실패함(예: recv 오류) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af74bce14070bbf4d0a0324acee430084abc14f1ca70c7ca9704e7f3bd0a2ba383" name="af74bce14070bbf4d0a0324acee430084abc14f1ca70c7ca9704e7f3bd0a2ba383"></a>FAIL_SEND&#160;</td><td class="fielddoc"><p>필요한 응답 전송에 실패함 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af74bce14070bbf4d0a0324acee430084a31933f777c42ffbab532bc7ba2610c68" name="af74bce14070bbf4d0a0324acee430084a31933f777c42ffbab532bc7ba2610c68"></a>CLIENT_QUIT&#160;</td><td class="fielddoc"><p>클라이언트가 quit 명령을 보냄 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af74bce14070bbf4d0a0324acee430084a50ba526e9a6ee61df579023c1e99817a" name="af74bce14070bbf4d0a0324acee430084a50ba526e9a6ee61df579023c1e99817a"></a>CLIENT_DISCONNECTED&#160;</td><td class="fielddoc"><p>클라이언트 연결이 예기치 않게 끊어짐 </p>
+</td></tr>
+</table>
+
+<p class="definition"><a class="el" href="_message_receiver_8h_source.html">MessageReceiver.h</a> 파일의 <a class="el" href="_message_receiver_8h_source.html#l00035">35</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">생성자 &amp; 소멸자 문서화</h2>
+<a id="adb7ba8d5430ba18e8c226ba1f386981a" name="adb7ba8d5430ba18e8c226ba1f386981a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb7ba8d5430ba18e8c226ba1f386981a">&#9670;&#160;</a></span>MessageReceiver() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MessageReceiver::MessageReceiver </td>
+          <td>(</td>
+          <td class="paramtype">SOCKET</td>          <td class="paramname"><span class="paramname"><em>client_socket</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>주어진 클라이언트 소켓에 대한 <a class="el" href="class_message_receiver.html" title="클라이언트 소켓으로부터 들어오는 메시지를 처리하는 클래스입니다.">MessageReceiver</a> 객체를 생성합니다. </p>
+<dl class="params"><dt>매개변수</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>SOCKET client_socket : 이 수신기가 메시지를 받을 클라이언트 소켓. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>반환값</dt><dd>없음. </dd></dl>
+<dl class="section note"><dt>주의</dt><dd>SOCKET을 인자로 받는 이 생성자만 사용할 수 있으며, 내부 변수 초기화합니다. </dd></dl>
+
+<p class="definition"><a class="el" href="_message_receiver_8cpp_source.html">MessageReceiver.cpp</a> 파일의 <a class="el" href="_message_receiver_8cpp_source.html#l00013">13</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="aae8d620cc02dea621ddb4a91b8438b1e" name="aae8d620cc02dea621ddb4a91b8438b1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae8d620cc02dea621ddb4a91b8438b1e">&#9670;&#160;</a></span>~MessageReceiver()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MessageReceiver::~MessageReceiver </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>소멸자. </p>
+<dl class="section return"><dt>반환값</dt><dd>없음. </dd></dl>
+<dl class="section note"><dt>주의</dt><dd>클라이언트 소켓은 외부에서 관리되므로 이 소멸자는 소켓을 닫지 않습니다. </dd></dl>
+
+<p class="definition"><a class="el" href="_message_receiver_8cpp_source.html">MessageReceiver.cpp</a> 파일의 <a class="el" href="_message_receiver_8cpp_source.html#l00019">19</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="a034ca3dbab55b482a4258f7e46f79cb1" name="a034ca3dbab55b482a4258f7e46f79cb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a034ca3dbab55b482a4258f7e46f79cb1">&#9670;&#160;</a></span>MessageReceiver() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MessageReceiver::MessageReceiver </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_message_receiver.html">MessageReceiver</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>obj</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a94672dede89c25ab2452a9e3d199603e" name="a94672dede89c25ab2452a9e3d199603e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94672dede89c25ab2452a9e3d199603e">&#9670;&#160;</a></span>MessageReceiver() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MessageReceiver::MessageReceiver </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_message_receiver.html">MessageReceiver</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>obj</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">멤버 함수 문서화</h2>
+<a id="ad7dce9c6a9e01f99ba458f8635d86fd5" name="ad7dce9c6a9e01f99ba458f8635d86fd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7dce9c6a9e01f99ba458f8635d86fd5">&#9670;&#160;</a></span>cleanMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MessageReceiver::cleanMessage </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>message</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>수신한 메시지 문자열에서 캐리지 리턴/뉴라인 문자를 제거합니다. </p>
+<dl class="params"><dt>매개변수</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN,OUT]</td><td>std::string&amp; message : 제거할 메시지 문자열. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>반환값</dt><dd>없음. </dd></dl>
+<dl class="section note"><dt>주의</dt><dd>메시지를 수신한 후 호출되어, 메시지 끝의 개행 문자를 제거합니다. </dd></dl>
+
+<p class="definition"><a class="el" href="_message_receiver_8cpp_source.html">MessageReceiver.cpp</a> 파일의 <a class="el" href="_message_receiver_8cpp_source.html#l00088">88</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="a649a859e023ac92682659c83312c64ef" name="a649a859e023ac92682659c83312c64ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a649a859e023ac92682659c83312c64ef">&#9670;&#160;</a></span>getLastMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; MessageReceiver::getLastMessage </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>마지막으로 수신된 메시지를 반환합니다. </p>
+<dl class="section return"><dt>반환값</dt><dd>const std::string&amp; : 저장된 마지막 메시지 문자열에 대한 참조. </dd></dl>
+
+<p class="definition"><a class="el" href="_message_receiver_8cpp_source.html">MessageReceiver.cpp</a> 파일의 <a class="el" href="_message_receiver_8cpp_source.html#l00076">76</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="af9984778a2d338b38cf108b16b47d718" name="af9984778a2d338b38cf108b16b47d718"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9984778a2d338b38cf108b16b47d718">&#9670;&#160;</a></span>isQuitCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MessageReceiver::isQuitCommand </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>message</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>주어진 메시지가 "quit" 명령인지 확인합니다. </p>
+<dl class="params"><dt>매개변수</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>const std::string&amp; message : 검사할 메시지 문자열. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>반환값</dt><dd>bool : 해당 메시지가 "quit"와 일치하면 true, 아니면 false. </dd></dl>
+
+<p class="definition"><a class="el" href="_message_receiver_8cpp_source.html">MessageReceiver.cpp</a> 파일의 <a class="el" href="_message_receiver_8cpp_source.html#l00082">82</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="a33fac997d6824751d4911d46edeb4faf" name="a33fac997d6824751d4911d46edeb4faf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33fac997d6824751d4911d46edeb4faf">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_message_receiver.html">MessageReceiver</a> &amp; MessageReceiver::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_message_receiver.html">MessageReceiver</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>obj</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a074181d10e5b6299998deea9e6efa340" name="a074181d10e5b6299998deea9e6efa340"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a074181d10e5b6299998deea9e6efa340">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_message_receiver.html">MessageReceiver</a> &amp; MessageReceiver::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_message_receiver.html">MessageReceiver</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>obj</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0c83ac3a7387ab21f74bc81d6640d9ec" name="a0c83ac3a7387ab21f74bc81d6640d9ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c83ac3a7387ab21f74bc81d6640d9ec">&#9670;&#160;</a></span>receiveMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#af74bce14070bbf4d0a0324acee430084">MessageReceiver::Result</a> MessageReceiver::receiveMessage </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>클라이언트 소켓으로부터 메시지를 수신하고 내부에 저장합니다. </p>
+<dl class="section return"><dt>반환값</dt><dd><a class="el" href="#af74bce14070bbf4d0a0324acee430084">MessageReceiver::Result</a> 수신 동작의 결과 상태 값.</dd></dl>
+<p>클라이언트 소켓에서 데이터를 읽어들입니다. <br  />
+성공 시 해당 데이터를 내부에 저장하여 <a class="el" href="#a649a859e023ac92682659c83312c64ef" title="마지막으로 수신된 메시지를 반환합니다.">getLastMessage()</a>로 접근할 수 있습니다.</p>
+<dl class="section note"><dt>주의</dt><dd><ul>
+<li>메시지가 정상 수신되면 SUCCESS.</li>
+<li>수신된 메세지가 "quit" 이면 CLIENT_QUIT.</li>
+<li>오류 발생 시 적절한 상태 값. </li>
+</ul>
+</dd></dl>
+
+<p class="definition"><a class="el" href="_message_receiver_8cpp_source.html">MessageReceiver.cpp</a> 파일의 <a class="el" href="_message_receiver_8cpp_source.html#l00024">24</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">멤버 데이터 문서화</h2>
+<a id="a2905ffef925668d0c802ad1fdf28dab6" name="a2905ffef925668d0c802ad1fdf28dab6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2905ffef925668d0c802ad1fdf28dab6">&#9670;&#160;</a></span>_clientSocket</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SOCKET MessageReceiver::_clientSocket</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>통신에 사용하는 클라이언트 소켓. </p>
+
+<p class="definition"><a class="el" href="_message_receiver_8h_source.html">MessageReceiver.h</a> 파일의 <a class="el" href="_message_receiver_8h_source.html#l00104">104</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="a9e44455ed76f630e9bb73614033cfabe" name="a9e44455ed76f630e9bb73614033cfabe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e44455ed76f630e9bb73614033cfabe">&#9670;&#160;</a></span>_lastMessage</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string MessageReceiver::_lastMessage</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>가장 최근에 수신한 메시지. </p>
+
+<p class="definition"><a class="el" href="_message_receiver_8h_source.html">MessageReceiver.h</a> 파일의 <a class="el" href="_message_receiver_8h_source.html#l00107">107</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="a77e67dede82634157c9aeac775395a33" name="a77e67dede82634157c9aeac775395a33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77e67dede82634157c9aeac775395a33">&#9670;&#160;</a></span>BUFFER_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int MessageReceiver::BUFFER_SIZE = 1024</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>데이터 수신에 사용하는 버퍼 크기(바이트 단위). </p>
+
+<p class="definition"><a class="el" href="_message_receiver_8h_source.html">MessageReceiver.h</a> 파일의 <a class="el" href="_message_receiver_8h_source.html#l00110">110</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<hr/>이 클래스에 대한 문서화 페이지는 다음의 파일들로부터 생성되었습니다.:<ul>
+<li>SocketBuild/<a class="el" href="_message_receiver_8h_source.html">MessageReceiver.h</a></li>
+<li>SocketBuild/<a class="el" href="_message_receiver_8cpp_source.html">MessageReceiver.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_message_receiver.html">MessageReceiver</a></li>
+    <li class="footer">다음에 의해 생성됨 :  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

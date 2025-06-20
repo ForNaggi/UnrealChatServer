@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ChatMultiServerDoxygen: SocketBuild/Program.h 소스 파일</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ChatMultiServerDoxygen<span id="projectnumber">&#160;1.0.0</span>
+   </div>
+   <div id="projectbrief">this is the synopsis</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','검색',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('_program_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">로딩중...</div>
+<div class="SRStatus" id="Searching">검색중...</div>
+<div class="SRStatus" id="NoMatches">일치하는것 없음</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Program.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_program_8h.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#pragma execution_character_set(&quot;utf-8&quot;)</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="_socket_initer_8h.html">SocketIniter.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="_multi_server_8h.html">MultiServer.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span></div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_program.html">   29</a></span><span class="keyword">class </span><a class="code hl_function" href="class_program.html#aaefaa0df08f3484476fc4d61e97acbdc">Program</a></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>{</div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="};">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="class_program.html#a5c86c74a26fc7c7584ce7575297347ad">   35</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="class_program.html#a5c86c74a26fc7c7584ce7575297347ad">Result</a></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_program.html#a5c86c74a26fc7c7584ce7575297347adac2759effffc94bb9acc71d69fe3e8a1f">   37</a></span>        <a class="code hl_enumvalue" href="class_program.html#a5c86c74a26fc7c7584ce7575297347adac2759effffc94bb9acc71d69fe3e8a1f">FAIL</a>,       </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="class_program.html#a5c86c74a26fc7c7584ce7575297347adad0749aaba8b833466dfcbb0428e4f89c">   38</a></span>        <a class="code hl_enumvalue" href="class_program.html#a5c86c74a26fc7c7584ce7575297347adad0749aaba8b833466dfcbb0428e4f89c">SUCCESS</a>      </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    };</div>
+</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_function" href="class_program.html#aaefaa0df08f3484476fc4d61e97acbdc">Program</a>();</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_function" href="class_program.html#a986aef1c50e1d338a3315a47ba6df549">~Program</a>();</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="comment">// 복사 생성자 및 복사 할당 연산자 삭제.</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="class_program.html#a8ae6ae58d965fbb6771bb905206eb9a5">   63</a></span>    <a class="code hl_function" href="class_program.html#a8ae6ae58d965fbb6771bb905206eb9a5">Program</a>(<span class="keyword">const</span> <a class="code hl_function" href="class_program.html#aaefaa0df08f3484476fc4d61e97acbdc">Program</a>&amp; obj) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="class_program.html#af0c7e1d33460868c3b657c68767b5083">   64</a></span>    <a class="code hl_function" href="class_program.html#aaefaa0df08f3484476fc4d61e97acbdc">Program</a>&amp; <a class="code hl_function" href="class_program.html#af0c7e1d33460868c3b657c68767b5083">operator=</a>(<span class="keyword">const</span> <a class="code hl_function" href="class_program.html#aaefaa0df08f3484476fc4d61e97acbdc">Program</a>&amp; obj) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="comment">// 이동 생성자 및 이동 할당 연산자 삭제.</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="class_program.html#ad1b5e5ed6544441e20323c6f2ba8bdb8">   67</a></span>    <a class="code hl_function" href="class_program.html#ad1b5e5ed6544441e20323c6f2ba8bdb8">Program</a>(<a class="code hl_function" href="class_program.html#aaefaa0df08f3484476fc4d61e97acbdc">Program</a>&amp;&amp; obj) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="class_program.html#a1483899626ee04d36034fe35abe10a48">   68</a></span>    <a class="code hl_function" href="class_program.html#aaefaa0df08f3484476fc4d61e97acbdc">Program</a>&amp; <a class="code hl_function" href="class_program.html#a1483899626ee04d36034fe35abe10a48">operator=</a>(<a class="code hl_function" href="class_program.html#aaefaa0df08f3484476fc4d61e97acbdc">Program</a>&amp;&amp; obj) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_program.html#ab7cb58a80ead351385709a33c4491db1">run</a>();</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="class_program.html#a2316692413f16195ab641e3e32ca8cf2">   87</a></span>    <a class="code hl_class" href="class_socket_initer.html">SocketIniter</a> <a class="code hl_variable" href="class_program.html#a2316692413f16195ab641e3e32ca8cf2">_socketIniter</a>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="class_program.html#ae2c0ef9389cacfee338ccfe6e3a36469">   90</a></span>    <a class="code hl_class" href="class_multi_server.html">MultiServer</a> <a class="code hl_variable" href="class_program.html#ae2c0ef9389cacfee338ccfe6e3a36469">_multiServer</a>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="class_program.html#a385ed11a369ecec61603ef81daa4890e">   93</a></span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="class_program.html#a385ed11a369ecec61603ef81daa4890e">SERVER_PORT</a> = 5500;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <a class="code hl_enumeration" href="class_program.html#a5c86c74a26fc7c7584ce7575297347ad">Program::Result</a> <a class="code hl_function" href="class_program.html#aa3a4b3daa45fa2dbb713d3b43d59840b">initialize</a>();</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <a class="code hl_enumeration" href="class_program.html#a5c86c74a26fc7c7584ce7575297347ad">Program::Result</a> <a class="code hl_function" href="class_program.html#a0ca01cb6c97834e6c4137c0a6520c6d9">startMultiServer</a>();</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_program.html#a4fda9f162a36c7758c037116c3876536">runServerLoop</a>();</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>};</div>
+</div>
+<div class="ttc" id="a_multi_server_8h_html"><div class="ttname"><a href="_multi_server_8h.html">MultiServer.h</a></div><div class="ttdoc">다중 클라이언트 서버 로직을 수행하는 MultiServer 클래스를 정의합니다.</div></div>
+<div class="ttc" id="a_socket_initer_8h_html"><div class="ttname"><a href="_socket_initer_8h.html">SocketIniter.h</a></div><div class="ttdoc">WinSock(Windows Sockets API)을 초기화하기 위한 SocketIniter 클래스를 정의합니다.</div></div>
+<div class="ttc" id="aclass_multi_server_html"><div class="ttname"><a href="class_multi_server.html">MultiServer</a></div><div class="ttdoc">select 기반 루프를 통해 다중 클라이언트 채팅 서버를 관리하는 클래스입니다.</div><div class="ttdef"><b>Definition</b> <a href="_multi_server_8h_source.html#l00033">MultiServer.h:34</a></div></div>
+<div class="ttc" id="aclass_program_html_a0ca01cb6c97834e6c4137c0a6520c6d9"><div class="ttname"><a href="class_program.html#a0ca01cb6c97834e6c4137c0a6520c6d9">Program::startMultiServer</a></div><div class="ttdeci">Program::Result startMultiServer()</div><div class="ttdoc">MultiServer 인스턴스를 생성하고 시작합니다.</div><div class="ttdef"><b>Definition</b> <a href="_program_8cpp_source.html#l00060">Program.cpp:60</a></div></div>
+<div class="ttc" id="aclass_program_html_a1483899626ee04d36034fe35abe10a48"><div class="ttname"><a href="class_program.html#a1483899626ee04d36034fe35abe10a48">Program::operator=</a></div><div class="ttdeci">Program &amp; operator=(Program &amp;&amp;obj)=delete</div></div>
+<div class="ttc" id="aclass_program_html_a2316692413f16195ab641e3e32ca8cf2"><div class="ttname"><a href="class_program.html#a2316692413f16195ab641e3e32ca8cf2">Program::_socketIniter</a></div><div class="ttdeci">SocketIniter _socketIniter</div><div class="ttdoc">WinSock(Windows Sockets API)의 초기화와 정리를 담당하는 객체.</div><div class="ttdef"><b>Definition</b> <a href="#l00087">Program.h:87</a></div></div>
+<div class="ttc" id="aclass_program_html_a385ed11a369ecec61603ef81daa4890e"><div class="ttname"><a href="class_program.html#a385ed11a369ecec61603ef81daa4890e">Program::SERVER_PORT</a></div><div class="ttdeci">static const int SERVER_PORT</div><div class="ttdoc">서버가 사용할 TCP 포트 번호 (기본값: 5500).</div><div class="ttdef"><b>Definition</b> <a href="#l00093">Program.h:93</a></div></div>
+<div class="ttc" id="aclass_program_html_a4fda9f162a36c7758c037116c3876536"><div class="ttname"><a href="class_program.html#a4fda9f162a36c7758c037116c3876536">Program::runServerLoop</a></div><div class="ttdeci">void runServerLoop()</div><div class="ttdoc">서버를 계속 실행하며 이벤트에 응답하도록 서버 메인 루프에 진입합니다.</div><div class="ttdef"><b>Definition</b> <a href="_program_8cpp_source.html#l00073">Program.cpp:73</a></div></div>
+<div class="ttc" id="aclass_program_html_a5c86c74a26fc7c7584ce7575297347ad"><div class="ttname"><a href="class_program.html#a5c86c74a26fc7c7584ce7575297347ad">Program::Result</a></div><div class="ttdeci">Result</div><div class="ttdef"><b>Definition</b> <a href="#l00035">Program.h:36</a></div></div>
+<div class="ttc" id="aclass_program_html_a5c86c74a26fc7c7584ce7575297347adac2759effffc94bb9acc71d69fe3e8a1f"><div class="ttname"><a href="class_program.html#a5c86c74a26fc7c7584ce7575297347adac2759effffc94bb9acc71d69fe3e8a1f">Program::Result::FAIL</a></div><div class="ttdeci">@ FAIL</div><div class="ttdoc">단계가 실패한 경우 (예: WinSock 초기화 또는 서버 시작 실패).</div><div class="ttdef"><b>Definition</b> <a href="#l00037">Program.h:37</a></div></div>
+<div class="ttc" id="aclass_program_html_a5c86c74a26fc7c7584ce7575297347adad0749aaba8b833466dfcbb0428e4f89c"><div class="ttname"><a href="class_program.html#a5c86c74a26fc7c7584ce7575297347adad0749aaba8b833466dfcbb0428e4f89c">Program::Result::SUCCESS</a></div><div class="ttdeci">@ SUCCESS</div><div class="ttdoc">단계가 성공적으로 완료된 경우.</div><div class="ttdef"><b>Definition</b> <a href="#l00038">Program.h:38</a></div></div>
+<div class="ttc" id="aclass_program_html_a8ae6ae58d965fbb6771bb905206eb9a5"><div class="ttname"><a href="class_program.html#a8ae6ae58d965fbb6771bb905206eb9a5">Program::Program</a></div><div class="ttdeci">Program(const Program &amp;obj)=delete</div></div>
+<div class="ttc" id="aclass_program_html_a986aef1c50e1d338a3315a47ba6df549"><div class="ttname"><a href="class_program.html#a986aef1c50e1d338a3315a47ba6df549">Program::~Program</a></div><div class="ttdeci">~Program()</div><div class="ttdoc">Program의 소멸자.</div><div class="ttdef"><b>Definition</b> <a href="_program_8cpp_source.html#l00020">Program.cpp:20</a></div></div>
+<div class="ttc" id="aclass_program_html_aa3a4b3daa45fa2dbb713d3b43d59840b"><div class="ttname"><a href="class_program.html#aa3a4b3daa45fa2dbb713d3b43d59840b">Program::initialize</a></div><div class="ttdeci">Program::Result initialize()</div><div class="ttdoc">프로그램에 필요한 리소스를 초기화합니다 (예: WinSock).</div><div class="ttdef"><b>Definition</b> <a href="_program_8cpp_source.html#l00044">Program.cpp:44</a></div></div>
+<div class="ttc" id="aclass_program_html_aaefaa0df08f3484476fc4d61e97acbdc"><div class="ttname"><a href="class_program.html#aaefaa0df08f3484476fc4d61e97acbdc">Program::Program</a></div><div class="ttdeci">Program()</div><div class="ttdoc">Program 객체를 생성하고 하위 구성 요소를 초기화합니다.</div><div class="ttdef"><b>Definition</b> <a href="_program_8cpp_source.html#l00014">Program.cpp:14</a></div></div>
+<div class="ttc" id="aclass_program_html_ab7cb58a80ead351385709a33c4491db1"><div class="ttname"><a href="class_program.html#ab7cb58a80ead351385709a33c4491db1">Program::run</a></div><div class="ttdeci">int run()</div><div class="ttdoc">서버 프로그램을 실행하여 초기화하고, 서버 루프에 진입합니다.</div><div class="ttdef"><b>Definition</b> <a href="_program_8cpp_source.html#l00025">Program.cpp:25</a></div></div>
+<div class="ttc" id="aclass_program_html_ad1b5e5ed6544441e20323c6f2ba8bdb8"><div class="ttname"><a href="class_program.html#ad1b5e5ed6544441e20323c6f2ba8bdb8">Program::Program</a></div><div class="ttdeci">Program(Program &amp;&amp;obj)=delete</div></div>
+<div class="ttc" id="aclass_program_html_ae2c0ef9389cacfee338ccfe6e3a36469"><div class="ttname"><a href="class_program.html#ae2c0ef9389cacfee338ccfe6e3a36469">Program::_multiServer</a></div><div class="ttdeci">MultiServer _multiServer</div><div class="ttdoc">클라이언트 연결과 메시지를 처리하는 다중 클라이언트 서버 객체.</div><div class="ttdef"><b>Definition</b> <a href="#l00090">Program.h:90</a></div></div>
+<div class="ttc" id="aclass_program_html_af0c7e1d33460868c3b657c68767b5083"><div class="ttname"><a href="class_program.html#af0c7e1d33460868c3b657c68767b5083">Program::operator=</a></div><div class="ttdeci">Program &amp; operator=(const Program &amp;obj)=delete</div></div>
+<div class="ttc" id="aclass_socket_initer_html"><div class="ttname"><a href="class_socket_initer.html">SocketIniter</a></div><div class="ttdoc">애플리케이션의 WinSock 초기화와 종료를 수행합니다.</div><div class="ttdef"><b>Definition</b> <a href="_socket_initer_8h_source.html#l00031">SocketIniter.h:32</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_abbf5edca481bc51d1cdb4c1a782205f.html">SocketBuild</a></li><li class="navelem"><a href="_program_8h.html">Program.h</a></li>
+    <li class="footer">다음에 의해 생성됨 :  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

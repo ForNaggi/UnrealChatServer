@@ -1,0 +1,418 @@
+\doxysection{Client\+Manager 클래스 참조}
+\hypertarget{class_client_manager}{}\label{class_client_manager}\index{ClientManager@{ClientManager}}
+
+
+서버에서 고정된 수의 클라이언트 소켓과 별칭을 관리하는 클래스입니다.  
+
+
+
+
+{\ttfamily \#include $<$Client\+Manager.\+h$>$}
+
+\doxysubsubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_client_manager_ad68355fab62dffa97b8ddc8df4509f7e}{Client\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Client\+Manager를 생성하고 내부 데이터를 초기화합니다. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_client_manager_af605d4fa9dab04b9874bf307277cd8a3}{\texorpdfstring{$\sim$}{\string~}\+Client\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Client\+Manager의 소멸자입니다. 관리하는 모든 클라이언트 소켓을 닫습니다. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_client_manager_a37d31724165934a20c2823029ac5a279}{Client\+Manager}} (const \mbox{\hyperlink{class_client_manager}{Client\+Manager}} \&obj)=delete
+\item 
+\mbox{\hyperlink{class_client_manager}{Client\+Manager}} \& \mbox{\hyperlink{class_client_manager_a291ced1a562e8d1949529cbcb12b29c2}{operator=}} (const \mbox{\hyperlink{class_client_manager}{Client\+Manager}} \&obj)=delete
+\item 
+\mbox{\hyperlink{class_client_manager_a9d693661783baaa2e2cdeae3ab171530}{Client\+Manager}} (\mbox{\hyperlink{class_client_manager}{Client\+Manager}} \&\&obj)=delete
+\item 
+\mbox{\hyperlink{class_client_manager}{Client\+Manager}} \& \mbox{\hyperlink{class_client_manager_ac6a66de5ca44b4d221ba95d7349f0761}{operator=}} (\mbox{\hyperlink{class_client_manager}{Client\+Manager}} \&\&obj)=delete
+\item 
+int \mbox{\hyperlink{class_client_manager_a21dbc00f745e70bd7bedecd0eec58216}{add\+Client}} (SOCKET client\+\_\+socket)
+\begin{DoxyCompactList}\small\item\em 새로운 클라이언트 소켓을 관리자에 추가하고 별칭을 할당합니다. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_client_manager_a7aa6a242406b89805af82cd1125615f9}{remove\+Client}} (int client\+\_\+index)
+\begin{DoxyCompactList}\small\item\em 지정한 인덱스의 클라이언트 소켓을 제거합니다. \end{DoxyCompactList}\item 
+SOCKET \mbox{\hyperlink{class_client_manager_aa7b5f1568b654a830228f7836b6d7d8f}{get\+Client\+Socket}} (int client\+\_\+index) const
+\begin{DoxyCompactList}\small\item\em 주어진 클라이언트 인덱스에 대한 소켓을 가져옵니다. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_client_manager_a7edb4e75534d2fcf47eaa6eb74a07b5c}{get\+Connected\+Client\+Count}} () const
+\begin{DoxyCompactList}\small\item\em 현재 연결된(관리 중인) 클라이언트의 수를 반환합니다. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_client_manager_a55aa31e4af748cacf58cc9dff5754baf}{is\+Valid\+Index}} (int client\+\_\+index) const
+\begin{DoxyCompactList}\small\item\em 클라이언트 인덱스가 유효한 범위 내인지를 확인합니다. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_client_manager_a0b9e41a03d66cdaa066f1fb1a766ec05}{get\+All\+Sockets}} (SOCKET \texorpdfstring{$\ast$}{*}sockets, int max\+\_\+count) const
+\begin{DoxyCompactList}\small\item\em 모든 활성 클라이언트 소켓을 주어진 배열에 복사합니다. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_client_manager_a80a36f778aeaf517224416333b228d1a}{get\+Client\+Nickname}} (int client\+\_\+index) const
+\begin{DoxyCompactList}\small\item\em 주어진 인덱스가 유효하다면 클라이언트 자동 생성 별칭을 반환합니다. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{정적 Public 속성}
+\begin{DoxyCompactItemize}
+\item 
+static const int \mbox{\hyperlink{class_client_manager_a27f5637b4a9704be93ee219073a253c4}{MAX\+\_\+\+CLIENTS}} = 10
+\begin{DoxyCompactList}\small\item\em 서버에서 동시에 관리할 수 있는 최대 클라이언트 수입니다. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_client_manager_af345e743923ae3b4a306523f4d1edada}{initalize\+Client\+Sockets}} ()
+\begin{DoxyCompactList}\small\item\em 클라이언트 소켓 배열의 모든 소켓을 INVALID\+\_\+\+SOCKET으로 설정 초기화합니다. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_manager_a7f614a1ed7b2dc16361fc6d94eb71c81}{initalize\+Available\+List}} ()
+\begin{DoxyCompactList}\small\item\em 사용 가능한 클라이언트 인덱스 (0 \texorpdfstring{$\sim$}{\string~} MAX\+\_\+\+CLIENTS-\/1) 목록을 초기화합니다. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_client_manager_a6f80a54c17fbb4d64916bf188e63d290}{get\+Next\+Index}} ()
+\begin{DoxyCompactList}\small\item\em 새 연결에 사용할 사용 가능한 클라이언트 인덱스를 가져옵니다. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+std\+::array$<$ SOCKET, \mbox{\hyperlink{class_client_manager_a27f5637b4a9704be93ee219073a253c4}{MAX\+\_\+\+CLIENTS}} $>$ \mbox{\hyperlink{class_client_manager_aa0b45296671fe2f5471e900a4c6520e7}{\+\_\+client\+Sockets}}
+\begin{DoxyCompactList}\small\item\em 클라이언트 소켓 배열 (크기 MAX\+\_\+\+CLIENTS). 사용되지 않은 슬롯에는 INVALID\+\_\+\+SOCKET. \end{DoxyCompactList}\item 
+std\+::priority\+\_\+queue$<$ int, std\+::vector$<$ int $>$, std\+::greater$<$ int $>$ $>$ \mbox{\hyperlink{class_client_manager_ac0a2fcf1bfd32fee35171a48ee92edbf}{\+\_\+available\+List}}
+\begin{DoxyCompactList}\small\item\em 재사용을 위한 가용 인덱스 목록 (우선순위 큐). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_client_manager_a77ff4acb1ed9631a2abf3b121cb809ea}{\+\_\+connected\+Socket\+Count}}
+\begin{DoxyCompactList}\small\item\em 현재 연결된 클라이언트 소켓 개수. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+서버에서 고정된 수의 클라이언트 소켓과 별칭을 관리하는 클래스입니다. 
+
+이 클래스는 클라이언트 연결 추가/제거, 활성 소켓 추적, 각 클라이언트에 고유 별칭 할당을 담당합니다.~\newline
+ 최대 MAX\+\_\+\+CLIENTS개의 클라이언트를 동시 관리할 수 있습니다. 
+
+\mbox{\hyperlink{_client_manager_8h_source}{Client\+Manager.\+h}} 파일의 \mbox{\hyperlink{_client_manager_8h_source_l00030}{30}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_client_manager_doc-constructors}
+\doxysubsection{생성자 \& 소멸자 문서화}
+\Hypertarget{class_client_manager_ad68355fab62dffa97b8ddc8df4509f7e}\index{ClientManager@{ClientManager}!ClientManager@{ClientManager}}
+\index{ClientManager@{ClientManager}!ClientManager@{ClientManager}}
+\doxysubsubsection{\texorpdfstring{ClientManager()}{ClientManager()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_client_manager_ad68355fab62dffa97b8ddc8df4509f7e} 
+Client\+Manager\+::\+Client\+Manager (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Client\+Manager를 생성하고 내부 데이터를 초기화합니다. 
+
+\begin{DoxyNote}{주의}
+클라이언트 소켓 배열과 사용 가능한 인덱스 목록을 초기화합니다.~\newline
+ 모든 클라이언트 슬롯은 초기에는 비어 있습니다. 
+\end{DoxyNote}
+
+
+\mbox{\hyperlink{_client_manager_8cpp_source}{Client\+Manager.\+cpp}} 파일의 \mbox{\hyperlink{_client_manager_8cpp_source_l00013}{13}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_client_manager_af605d4fa9dab04b9874bf307277cd8a3}\index{ClientManager@{ClientManager}!````~ClientManager@{\texorpdfstring{$\sim$}{\string~}ClientManager}}
+\index{````~ClientManager@{\texorpdfstring{$\sim$}{\string~}ClientManager}!ClientManager@{ClientManager}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ClientManager()}{\string~ClientManager()}}
+{\footnotesize\ttfamily \label{class_client_manager_af605d4fa9dab04b9874bf307277cd8a3} 
+Client\+Manager\+::\texorpdfstring{$\sim$}{\string~}\+Client\+Manager (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Client\+Manager의 소멸자입니다. 관리하는 모든 클라이언트 소켓을 닫습니다. 
+
+\begin{DoxyNote}{주의}
+배열에 열린 모든 클라이언트 소켓이 닫힙니다.~\newline
+ 서버를 종료할 때 Client\+Manager를 소멸시켜 자원을 해제해야 합니다. 
+\end{DoxyNote}
+
+
+\mbox{\hyperlink{_client_manager_8cpp_source}{Client\+Manager.\+cpp}} 파일의 \mbox{\hyperlink{_client_manager_8cpp_source_l00021}{21}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_client_manager_a37d31724165934a20c2823029ac5a279}\index{ClientManager@{ClientManager}!ClientManager@{ClientManager}}
+\index{ClientManager@{ClientManager}!ClientManager@{ClientManager}}
+\doxysubsubsection{\texorpdfstring{ClientManager()}{ClientManager()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_client_manager_a37d31724165934a20c2823029ac5a279} 
+Client\+Manager\+::\+Client\+Manager (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_client_manager}{Client\+Manager}} \&}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_client_manager_a9d693661783baaa2e2cdeae3ab171530}\index{ClientManager@{ClientManager}!ClientManager@{ClientManager}}
+\index{ClientManager@{ClientManager}!ClientManager@{ClientManager}}
+\doxysubsubsection{\texorpdfstring{ClientManager()}{ClientManager()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_client_manager_a9d693661783baaa2e2cdeae3ab171530} 
+Client\+Manager\+::\+Client\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_client_manager}{Client\+Manager}} \&\&}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_client_manager_doc-func-members}
+\doxysubsection{멤버 함수 문서화}
+\Hypertarget{class_client_manager_a21dbc00f745e70bd7bedecd0eec58216}\index{ClientManager@{ClientManager}!addClient@{addClient}}
+\index{addClient@{addClient}!ClientManager@{ClientManager}}
+\doxysubsubsection{\texorpdfstring{addClient()}{addClient()}}
+{\footnotesize\ttfamily \label{class_client_manager_a21dbc00f745e70bd7bedecd0eec58216} 
+int Client\+Manager\+::add\+Client (\begin{DoxyParamCaption}\item[{SOCKET}]{client\+\_\+socket}{}\end{DoxyParamCaption})}
+
+
+
+새로운 클라이언트 소켓을 관리자에 추가하고 별칭을 할당합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em \mbox{[}\+IN\mbox{]}} & SOCKET client\+\_\+socket \+: 추가할 클라이언트 소켓 (accept된 연결 소켓). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+int \+: 새 클라이언트에 할당된 인덱스(0 \texorpdfstring{$\sim$}{\string~} MAX\+\_\+\+CLIENTS-\/1), 추가 실패 시 -\/1. 
+\end{DoxyReturn}
+\begin{DoxyNote}{주의}
+클라이언트에게 "{}\+Player\+\_\+\{\+N\}"{} 형식의 별칭이 부여됩니다 (N은 인덱스). 
+\end{DoxyNote}
+
+
+\mbox{\hyperlink{_client_manager_8cpp_source}{Client\+Manager.\+cpp}} 파일의 \mbox{\hyperlink{_client_manager_8cpp_source_l00034}{34}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_client_manager_a0b9e41a03d66cdaa066f1fb1a766ec05}\index{ClientManager@{ClientManager}!getAllSockets@{getAllSockets}}
+\index{getAllSockets@{getAllSockets}!ClientManager@{ClientManager}}
+\doxysubsubsection{\texorpdfstring{getAllSockets()}{getAllSockets()}}
+{\footnotesize\ttfamily \label{class_client_manager_a0b9e41a03d66cdaa066f1fb1a766ec05} 
+int Client\+Manager\+::get\+All\+Sockets (\begin{DoxyParamCaption}\item[{SOCKET \texorpdfstring{$\ast$}{*}}]{sockets}{, }\item[{int}]{max\+\_\+count}{}\end{DoxyParamCaption}) const}
+
+
+
+모든 활성 클라이언트 소켓을 주어진 배열에 복사합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em \mbox{[}\+OUT\mbox{]}} & SOCKET\texorpdfstring{$\ast$}{*} sockets \+: 클라이언트 소켓 핸들을 저장할 배열. \\
+\hline
+{\em \mbox{[}\+IN\mbox{]}} & int max\+\_\+count \+: 배열이 담을 수 있는 최대 소켓 개수. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+int \+: 실제 배열에 복사된 클라이언트 소켓의 개수. 
+\end{DoxyReturn}
+\begin{DoxyNote}{주의}
+현재 모든 클라이언트 소켓 목록을 얻는 데 사용합니다. 
+\end{DoxyNote}
+
+
+\mbox{\hyperlink{_client_manager_8cpp_source}{Client\+Manager.\+cpp}} 파일의 \mbox{\hyperlink{_client_manager_8cpp_source_l00106}{106}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_client_manager_a80a36f778aeaf517224416333b228d1a}\index{ClientManager@{ClientManager}!getClientNickname@{getClientNickname}}
+\index{getClientNickname@{getClientNickname}!ClientManager@{ClientManager}}
+\doxysubsubsection{\texorpdfstring{getClientNickname()}{getClientNickname()}}
+{\footnotesize\ttfamily \label{class_client_manager_a80a36f778aeaf517224416333b228d1a} 
+std\+::string Client\+Manager\+::get\+Client\+Nickname (\begin{DoxyParamCaption}\item[{int}]{client\+\_\+index}{}\end{DoxyParamCaption}) const}
+
+
+
+주어진 인덱스가 유효하다면 클라이언트 자동 생성 별칭을 반환합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em \mbox{[}\+IN\mbox{]}} & int client\+\_\+index \+: 클라이언트의 인덱스. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+std\+::string \+: 해당 클라이언트의 별칭 (예\+: "{}\+Player\+\_\+5"{}), 인덱스가 유효하지 않으면 "{}\+Player\+\_\+\+Unknown"{}. 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_client_manager_8cpp_source}{Client\+Manager.\+cpp}} 파일의 \mbox{\hyperlink{_client_manager_8cpp_source_l00122}{122}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_client_manager_aa7b5f1568b654a830228f7836b6d7d8f}\index{ClientManager@{ClientManager}!getClientSocket@{getClientSocket}}
+\index{getClientSocket@{getClientSocket}!ClientManager@{ClientManager}}
+\doxysubsubsection{\texorpdfstring{getClientSocket()}{getClientSocket()}}
+{\footnotesize\ttfamily \label{class_client_manager_aa7b5f1568b654a830228f7836b6d7d8f} 
+SOCKET Client\+Manager\+::get\+Client\+Socket (\begin{DoxyParamCaption}\item[{int}]{client\+\_\+index}{}\end{DoxyParamCaption}) const}
+
+
+
+주어진 클라이언트 인덱스에 대한 소켓을 가져옵니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em \mbox{[}\+IN\mbox{]}} & int client\+\_\+index \+: 소켓을 요청할 클라이언트의 인덱스. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+SOCKET \+: 해당 인덱스의 클라이언트 소켓(유효하지 않으면 INVALID\+\_\+\+SOCKET). 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_client_manager_8cpp_source}{Client\+Manager.\+cpp}} 파일의 \mbox{\hyperlink{_client_manager_8cpp_source_l00086}{86}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_client_manager_a7edb4e75534d2fcf47eaa6eb74a07b5c}\index{ClientManager@{ClientManager}!getConnectedClientCount@{getConnectedClientCount}}
+\index{getConnectedClientCount@{getConnectedClientCount}!ClientManager@{ClientManager}}
+\doxysubsubsection{\texorpdfstring{getConnectedClientCount()}{getConnectedClientCount()}}
+{\footnotesize\ttfamily \label{class_client_manager_a7edb4e75534d2fcf47eaa6eb74a07b5c} 
+int Client\+Manager\+::get\+Connected\+Client\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+현재 연결된(관리 중인) 클라이언트의 수를 반환합니다. 
+
+\begin{DoxyReturn}{반환값}
+int \+: 연결된 클라이언트 개수. 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_client_manager_8cpp_source}{Client\+Manager.\+cpp}} 파일의 \mbox{\hyperlink{_client_manager_8cpp_source_l00096}{96}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_client_manager_a6f80a54c17fbb4d64916bf188e63d290}\index{ClientManager@{ClientManager}!getNextIndex@{getNextIndex}}
+\index{getNextIndex@{getNextIndex}!ClientManager@{ClientManager}}
+\doxysubsubsection{\texorpdfstring{getNextIndex()}{getNextIndex()}}
+{\footnotesize\ttfamily \label{class_client_manager_a6f80a54c17fbb4d64916bf188e63d290} 
+int Client\+Manager\+::get\+Next\+Index (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+새 연결에 사용할 사용 가능한 클라이언트 인덱스를 가져옵니다. 
+
+\begin{DoxyReturn}{반환값}
+int \+: 사용 가능한 인덱스 (0 \texorpdfstring{$\sim$}{\string~} MAX\+\_\+\+CLIENTS-\/1) 또는 서버에 빈 슬롯이 없을 경우 -\/1. 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_client_manager_8cpp_source}{Client\+Manager.\+cpp}} 파일의 \mbox{\hyperlink{_client_manager_8cpp_source_l00160}{160}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_client_manager_a7f614a1ed7b2dc16361fc6d94eb71c81}\index{ClientManager@{ClientManager}!initalizeAvailableList@{initalizeAvailableList}}
+\index{initalizeAvailableList@{initalizeAvailableList}!ClientManager@{ClientManager}}
+\doxysubsubsection{\texorpdfstring{initalizeAvailableList()}{initalizeAvailableList()}}
+{\footnotesize\ttfamily \label{class_client_manager_a7f614a1ed7b2dc16361fc6d94eb71c81} 
+void Client\+Manager\+::initalize\+Available\+List (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+사용 가능한 클라이언트 인덱스 (0 \texorpdfstring{$\sim$}{\string~} MAX\+\_\+\+CLIENTS-\/1) 목록을 초기화합니다. 
+
+\begin{DoxyReturn}{반환값}
+없음. 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_client_manager_8cpp_source}{Client\+Manager.\+cpp}} 파일의 \mbox{\hyperlink{_client_manager_8cpp_source_l00150}{150}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_client_manager_af345e743923ae3b4a306523f4d1edada}\index{ClientManager@{ClientManager}!initalizeClientSockets@{initalizeClientSockets}}
+\index{initalizeClientSockets@{initalizeClientSockets}!ClientManager@{ClientManager}}
+\doxysubsubsection{\texorpdfstring{initalizeClientSockets()}{initalizeClientSockets()}}
+{\footnotesize\ttfamily \label{class_client_manager_af345e743923ae3b4a306523f4d1edada} 
+void Client\+Manager\+::initalize\+Client\+Sockets (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+클라이언트 소켓 배열의 모든 소켓을 INVALID\+\_\+\+SOCKET으로 설정 초기화합니다. 
+
+\begin{DoxyReturn}{반환값}
+없음. 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_client_manager_8cpp_source}{Client\+Manager.\+cpp}} 파일의 \mbox{\hyperlink{_client_manager_8cpp_source_l00140}{140}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_client_manager_a55aa31e4af748cacf58cc9dff5754baf}\index{ClientManager@{ClientManager}!isValidIndex@{isValidIndex}}
+\index{isValidIndex@{isValidIndex}!ClientManager@{ClientManager}}
+\doxysubsubsection{\texorpdfstring{isValidIndex()}{isValidIndex()}}
+{\footnotesize\ttfamily \label{class_client_manager_a55aa31e4af748cacf58cc9dff5754baf} 
+bool Client\+Manager\+::is\+Valid\+Index (\begin{DoxyParamCaption}\item[{int}]{client\+\_\+index}{}\end{DoxyParamCaption}) const}
+
+
+
+클라이언트 인덱스가 유효한 범위 내인지를 확인합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em \mbox{[}\+IN\mbox{]}} & int client\+\_\+index \+: 검증할 클라이언트 인덱스. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+bool \+: 인덱스가 유효한 범위(0 \texorpdfstring{$\sim$}{\string~} MAX\+\_\+\+CLIENTS -\/ 1)이면 true, 아니면 false. 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_client_manager_8cpp_source}{Client\+Manager.\+cpp}} 파일의 \mbox{\hyperlink{_client_manager_8cpp_source_l00101}{101}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_client_manager_ac6a66de5ca44b4d221ba95d7349f0761}\index{ClientManager@{ClientManager}!operator=@{operator=}}
+\index{operator=@{operator=}!ClientManager@{ClientManager}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_client_manager_ac6a66de5ca44b4d221ba95d7349f0761} 
+\mbox{\hyperlink{class_client_manager}{Client\+Manager}} \& Client\+Manager\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_client_manager}{Client\+Manager}} \&\&}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_client_manager_a291ced1a562e8d1949529cbcb12b29c2}\index{ClientManager@{ClientManager}!operator=@{operator=}}
+\index{operator=@{operator=}!ClientManager@{ClientManager}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_client_manager_a291ced1a562e8d1949529cbcb12b29c2} 
+\mbox{\hyperlink{class_client_manager}{Client\+Manager}} \& Client\+Manager\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_client_manager}{Client\+Manager}} \&}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_client_manager_a7aa6a242406b89805af82cd1125615f9}\index{ClientManager@{ClientManager}!removeClient@{removeClient}}
+\index{removeClient@{removeClient}!ClientManager@{ClientManager}}
+\doxysubsubsection{\texorpdfstring{removeClient()}{removeClient()}}
+{\footnotesize\ttfamily \label{class_client_manager_a7aa6a242406b89805af82cd1125615f9} 
+bool Client\+Manager\+::remove\+Client (\begin{DoxyParamCaption}\item[{int}]{client\+\_\+index}{}\end{DoxyParamCaption})}
+
+
+
+지정한 인덱스의 클라이언트 소켓을 제거합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em \mbox{[}\+IN\mbox{]}} & int client\+\_\+index \+: 제거할 클라이언트의 인덱스. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+bool \+: 제거에 성공하면 true, 인덱스가 잘못되었거나 실패 시 false. 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_client_manager_8cpp_source}{Client\+Manager.\+cpp}} 파일의 \mbox{\hyperlink{_client_manager_8cpp_source_l00058}{58}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_client_manager_doc-variable-members}
+\doxysubsection{멤버 데이터 문서화}
+\Hypertarget{class_client_manager_ac0a2fcf1bfd32fee35171a48ee92edbf}\index{ClientManager@{ClientManager}!\_availableList@{\_availableList}}
+\index{\_availableList@{\_availableList}!ClientManager@{ClientManager}}
+\doxysubsubsection{\texorpdfstring{\_availableList}{\_availableList}}
+{\footnotesize\ttfamily \label{class_client_manager_ac0a2fcf1bfd32fee35171a48ee92edbf} 
+std\+::priority\+\_\+queue$<$int, std\+::vector$<$int$>$, std\+::greater$<$int$>$ $>$ Client\+Manager\+::\+\_\+available\+List\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+재사용을 위한 가용 인덱스 목록 (우선순위 큐). 
+
+
+
+\mbox{\hyperlink{_client_manager_8h_source}{Client\+Manager.\+h}} 파일의 \mbox{\hyperlink{_client_manager_8h_source_l00130}{130}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_client_manager_aa0b45296671fe2f5471e900a4c6520e7}\index{ClientManager@{ClientManager}!\_clientSockets@{\_clientSockets}}
+\index{\_clientSockets@{\_clientSockets}!ClientManager@{ClientManager}}
+\doxysubsubsection{\texorpdfstring{\_clientSockets}{\_clientSockets}}
+{\footnotesize\ttfamily \label{class_client_manager_aa0b45296671fe2f5471e900a4c6520e7} 
+std\+::array$<$SOCKET, \mbox{\hyperlink{class_client_manager_a27f5637b4a9704be93ee219073a253c4}{MAX\+\_\+\+CLIENTS}}$>$ Client\+Manager\+::\+\_\+client\+Sockets\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+클라이언트 소켓 배열 (크기 MAX\+\_\+\+CLIENTS). 사용되지 않은 슬롯에는 INVALID\+\_\+\+SOCKET. 
+
+
+
+\mbox{\hyperlink{_client_manager_8h_source}{Client\+Manager.\+h}} 파일의 \mbox{\hyperlink{_client_manager_8h_source_l00127}{127}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_client_manager_a77ff4acb1ed9631a2abf3b121cb809ea}\index{ClientManager@{ClientManager}!\_connectedSocketCount@{\_connectedSocketCount}}
+\index{\_connectedSocketCount@{\_connectedSocketCount}!ClientManager@{ClientManager}}
+\doxysubsubsection{\texorpdfstring{\_connectedSocketCount}{\_connectedSocketCount}}
+{\footnotesize\ttfamily \label{class_client_manager_a77ff4acb1ed9631a2abf3b121cb809ea} 
+int Client\+Manager\+::\+\_\+connected\+Socket\+Count\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+현재 연결된 클라이언트 소켓 개수. 
+
+
+
+\mbox{\hyperlink{_client_manager_8h_source}{Client\+Manager.\+h}} 파일의 \mbox{\hyperlink{_client_manager_8h_source_l00133}{133}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_client_manager_a27f5637b4a9704be93ee219073a253c4}\index{ClientManager@{ClientManager}!MAX\_CLIENTS@{MAX\_CLIENTS}}
+\index{MAX\_CLIENTS@{MAX\_CLIENTS}!ClientManager@{ClientManager}}
+\doxysubsubsection{\texorpdfstring{MAX\_CLIENTS}{MAX\_CLIENTS}}
+{\footnotesize\ttfamily \label{class_client_manager_a27f5637b4a9704be93ee219073a253c4} 
+const int Client\+Manager\+::\+MAX\+\_\+\+CLIENTS = 10\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+서버에서 동시에 관리할 수 있는 최대 클라이언트 수입니다. 
+
+
+
+\mbox{\hyperlink{_client_manager_8h_source}{Client\+Manager.\+h}} 파일의 \mbox{\hyperlink{_client_manager_8h_source_l00035}{35}} 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일들로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+Socket\+Build/\mbox{\hyperlink{_client_manager_8h}{Client\+Manager.\+h}}\item 
+Socket\+Build/\mbox{\hyperlink{_client_manager_8cpp}{Client\+Manager.\+cpp}}\end{DoxyCompactItemize}

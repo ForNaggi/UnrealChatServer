@@ -1,3 +1,12 @@
+ï»¿#pragma execution_character_set("utf-8")
+
+/**
+ * @file SelectManager.cpp
+ * @brief SelectManager.h êµ¬í˜„ë¶€.
+ * @author ìµœì„±ë½
+ * @date 2025-06-17
+ */
+
 #include "SelectManager.h"
 #include "DebugHelper.h"
 
@@ -12,83 +21,83 @@ static timeval make_timer(long sec, long usec)
 SelectManager::SelectManager()
     : _originSet(), _copySet(), _socketCount(0)
 {
-    LOG_DEBUG("SelectManager °´Ã¼¸¦ »ý¼ºÇÕ´Ï´Ù.");
+    LOG_DEBUG("SelectManager ê°ì²´ë¥¼ ìƒì„±í•©ë‹ˆë‹¤.");
 }
 
 SelectManager::~SelectManager()
 {
-    LOG_DEBUG("SelectManager °´Ã¼¸¦ »èÁ¦ÇÕ´Ï´Ù.");
+    LOG_DEBUG("SelectManager ê°ì²´ë¥¼ ì‚­ì œí•©ë‹ˆë‹¤.");
 }
 
 void SelectManager::setupFdSet()
 {
-    // fd_set ÃÊ±âÈ­.
+    // fd_set ì´ˆê¸°í™”.
     FD_ZERO(&this->_originSet);
     this->_socketCount = 0;
 
-    LOG_DEBUG("fd_set°ú ¼ÒÄÏ count¸¦ ÃÊ±âÈ­ÇÕ´Ï´Ù.");
+    LOG_DEBUG("fd_setê³¼ ì†Œì¼“ countë¥¼ ì´ˆê¸°í™”í•©ë‹ˆë‹¤.");
 }
 
 bool SelectManager::addSocket(SOCKET socket)
 {
-    // À¯È¿ÇÑ ¼ÒÄÏÀÎÁö È®ÀÎÇÕ´Ï´Ù.
+    // ìœ íš¨í•œ ì†Œì¼“ì¸ì§€ í™•ì¸í•©ë‹ˆë‹¤.
     if (socket == INVALID_SOCKET)
     {
-        LOG_WARN("Å¬¶óÀÌ¾ðÆ® ¼ÒÄÏ µî·Ï ½Ã À¯È¿ÇÏÁö ¾ÊÀº ¼ÒÄÏÀÌ È®ÀÎµÇ¾ú½À´Ï´Ù.");
+        LOG_WARN("í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ ë“±ë¡ ì‹œ ìœ íš¨í•˜ì§€ ì•Šì€ ì†Œì¼“ì´ í™•ì¸ë˜ì—ˆìŠµë‹ˆë‹¤.");
         return (false);
     }
 
-    // fd_set¿¡ Å¬¶óÀÌ¾ðÆ® ¼ÒÄÏÀ» Ãß°¡ÇÕ´Ï´Ù.
+    // fd_setì— í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ì„ ì¶”ê°€í•©ë‹ˆë‹¤.
     FD_SET(socket, &this->_originSet);
     this->_socketCount = this->_socketCount + 1;
 
-    LOG_DEBUG("Å¬¶óÀÌ¾ðÆ® ¼ÒÄÏÀÌ fd_set¿¡ Ãß°¡µÇ¾ú½À´Ï´Ù.:\nÇöÀç ¼ÒÄÏ ¼ö : " + std::to_string(this->_socketCount));
+    LOG_DEBUG("í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ì´ fd_setì— ì¶”ê°€ë˜ì—ˆìŠµë‹ˆë‹¤.:\ní˜„ìž¬ ì†Œì¼“ ìˆ˜ : " + std::to_string(this->_socketCount));
     return (true);
 }
 
-SelectManager::Result SelectManager::excuteSelect(int timeout_sec)
+SelectManager::Result SelectManager::executeSelect(int timeout_sec)
 {
-    // °¨½ÃÇÒ ¼ÒÄÏÀÌ ¾øÀ¸¸é ¹Ù·Î Å»ÃâÇÕ´Ï´Ù.
+    // ê°ì‹œí•  ì†Œì¼“ì´ ì—†ìœ¼ë©´ ë°”ë¡œ íƒˆì¶œí•©ë‹ˆë‹¤.
     if (this->_socketCount == 0)
     {
-        LOG_DEBUG("°¨½ÃÇÒ ¼ÒÄÏÀÌ ¾ø½À´Ï´Ù.");
+        LOG_DEBUG("ê°ì‹œí•  ì†Œì¼“ì´ ì—†ìŠµë‹ˆë‹¤.");
         return (SelectManager::Result::NO_SOCKETS);
     }
 
-    // fd_setÀ» º¹»çÇÕ´Ï´Ù.
-    // select ÇÔ¼ö°¡ ÀÎÀÚÀÇ fd_setÀ» ¼öÁ¤ÇÏ¹Ç·Î ¿øº»À» ¼öÁ¤ÇÏÁö ¾Ê±â À§ÇØ º¹»çÇØ¼­ »ç¿ëÇÕ´Ï´Ù.
+    // fd_setì„ ë³µì‚¬í•©ë‹ˆë‹¤.
+    // select í•¨ìˆ˜ê°€ ì¸ìžì˜ fd_setì„ ìˆ˜ì •í•˜ë¯€ë¡œ ì›ë³¸ì„ ìˆ˜ì •í•˜ì§€ ì•Šê¸° ìœ„í•´ ë³µì‚¬í•´ì„œ ì‚¬ìš©í•©ë‹ˆë‹¤.
     this->_copySet = this->_originSet;
 
-    // select¿¡ »ç¿ëÇÒ timeout ¼³Á¤.
+    // selectì— ì‚¬ìš©í•  timeout ì„¤ì •.
     timeval timeout = make_timer(timeout_sec, 0);
 
-    // Windows¿¡¼­´Â selectÇÔ¼öÀÇ Ã¹¹ø Â° ¸Å°³º¯¼ö°¡ ¹«½ÃµË´Ï´Ù.(¿ø·¡´Â ÃÖ´ë °ªÀÇ ¼ÒÄÏ id).
-    // ÀÐ±â ÁØºñ°¡ µÈ ¼ÒÄÏÀ» ¼ö¸¦ ¸®ÅÏÇÕ´Ï´Ù.
+    // Windowsì—ì„œëŠ” selectí•¨ìˆ˜ì˜ ì²«ë²ˆ ì§¸ ë§¤ê°œë³€ìˆ˜ê°€ ë¬´ì‹œë©ë‹ˆë‹¤.(ì›ëž˜ëŠ” ìµœëŒ€ ê°’ì˜ ì†Œì¼“ id).
+    // ì½ê¸° ì¤€ë¹„ê°€ ëœ ì†Œì¼“ì„ ìˆ˜ë¥¼ ë¦¬í„´í•©ë‹ˆë‹¤.
     int result = select(0, &this->_copySet, nullptr, nullptr, &timeout);
 
-    // select °á°ú¿¡ µû¸¥ ºÐ±â.
+    // select ê²°ê³¼ì— ë”°ë¥¸ ë¶„ê¸°.
     if (result == SOCKET_ERROR)
     {
-        LOG_ERROR("slect ÇÔ¼ö ½ÇÇà ½ÇÆÐ\n ¿¡·¯ ÄÚµå: " + std::to_string(WSAGetLastError()));
+        LOG_ERROR("slect í•¨ìˆ˜ ì‹¤í–‰ ì‹¤íŒ¨\n ì—ëŸ¬ ì½”ë“œ: " + std::to_string(WSAGetLastError()));
         return (SelectManager::Result::FAIL_SELECT);
     }
     else if (result == 0)
     {
-        // Å¸ÀÓ¾Æ¿ô ¹ß»ý.
-        LOG_DEBUG("select Å¸ÀÓ¾Æ¿ô ¹ß»ý");
+        // íƒ€ìž„ì•„ì›ƒ ë°œìƒ.
+        LOG_DEBUG("select íƒ€ìž„ì•„ì›ƒ ë°œìƒ");
         return (SelectManager::Result::TIMEOUT);
     }
     else
     {
-        // ÇÏ³ª ÀÌ»óÀÇ ¼ÒÄÏÀÌ ÁØºñµÊ.
-        LOG_DEBUG("select ¼º°ø, ÁØºñµÈ ¼ÒÄÏ ¼ö: " + std::to_string(result));
+        // í•˜ë‚˜ ì´ìƒì˜ ì†Œì¼“ì´ ì¤€ë¹„ë¨.
+        LOG_DEBUG("select ì„±ê³µ, ì¤€ë¹„ëœ ì†Œì¼“ ìˆ˜: " + std::to_string(result));
         return (SelectManager::Result::SUCCESS);
     }
 }
 
 bool SelectManager::isSocketReady(SOCKET socket) const
 {
-    // FD_ISSET¸¦ »ç¿ëÇÏ¿© fd_set¿¡¼­ ¼ÒÄÏÀÌ ÀÐ±â°¡ ÁØºñµÇ¾ú´ÂÁö Ã¼Å©ÇÕ´Ï´Ù.
-    // select() ½ÇÇà ÈÄ º¹»çµÈ fd_set¿¡´Â ÀÐ±â°¡ ÁØºñµÈ ¼ÒÄÏ¸¸ ³²¾ÆÀÖ½À´Ï´Ù.
+    // FD_ISSETë¥¼ ì‚¬ìš©í•˜ì—¬ fd_setì—ì„œ ì†Œì¼“ì´ ì½ê¸°ê°€ ì¤€ë¹„ë˜ì—ˆëŠ”ì§€ ì²´í¬í•©ë‹ˆë‹¤.
+    // select() ì‹¤í–‰ í›„ ë³µì‚¬ëœ fd_setì—ëŠ” ì½ê¸°ê°€ ì¤€ë¹„ëœ ì†Œì¼“ë§Œ ë‚¨ì•„ìžˆìŠµë‹ˆë‹¤.
     return (FD_ISSET(socket, &this->_copySet));
 }

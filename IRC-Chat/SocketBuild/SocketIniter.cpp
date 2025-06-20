@@ -1,4 +1,13 @@
-﻿#include "SocketIniter.h"
+﻿#pragma execution_character_set("utf-8")
+
+/**
+ * @file SocketIniter.cpp
+ * @brief SocketIniter.h 구현부.
+ * @author 최성락
+ * @date 2025-06-17
+ */
+
+#include "SocketIniter.h"
 #include "MemoryLeakHelper.h"
 #include "DebugHelper.h"
 #include "sstream"

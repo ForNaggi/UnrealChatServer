@@ -1,0 +1,88 @@
+.TH "SocketBuild 디렉토리 참조" 3 "Version 1.0.0" "ChatMultiServerDoxygen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SocketBuild 디렉토리 참조
+.SH SYNOPSIS
+.br
+.PP
+.SS "파일들"
+
+.in +1c
+.ti -1c
+.RI "파일 \fBClientManager\&.cpp\fP"
+.br
+.RI "\fBClientManager\&.h\fP 구현부\&. "
+.ti -1c
+.RI "파일 \fBClientManager\&.h\fP"
+.br
+.RI "다중 클라이언트 채팅 서버에서 클라이언트 소켓을 관리하는 \fBClientManager\fP 클래스를 정의합니다\&. "
+.ti -1c
+.RI "파일 \fBDebugHelper\&.h\fP"
+.br
+.RI "로깅 및 디버깅을 위한 유틸리티 함수와 정의들을 제공합니다\&. "
+.ti -1c
+.RI "파일 \fBmain\&.cpp\fP"
+.br
+.RI "멀티 클라이언트 서버 프로그램 main\&. "
+.ti -1c
+.RI "파일 \fBMemoryLeakHelper\&.h\fP"
+.br
+.RI "디버그 모드(MSVC 전용)의 메모리 누수 감지 유틸리티\&. "
+.ti -1c
+.RI "파일 \fBMessageReceiver\&.cpp\fP"
+.br
+.RI "\fBMessageReceiver\&.h\fP 구현부\&. "
+.ti -1c
+.RI "파일 \fBMessageReceiver\&.h\fP"
+.br
+.RI "클라이언트로부터 들어오는 메시지를 처리하는 \fBMessageReceiver\fP 클래스를 선언합니다\&. "
+.ti -1c
+.RI "파일 \fBMessageSender\&.cpp\fP"
+.br
+.RI "\fBMessageSender\&.h\fP 구현부\&. "
+.ti -1c
+.RI "파일 \fBMessageSender\&.h\fP"
+.br
+.RI "다양한 방식으로 클라이언트들에게 메시지를 전송하는 \fBMessageSender\fP 클래스를 선언합니다\&. "
+.ti -1c
+.RI "파일 \fBMultiServer\&.cpp\fP"
+.br
+.RI "\fBMultiServer\&.h\fP 구현부\&. "
+.ti -1c
+.RI "파일 \fBMultiServer\&.h\fP"
+.br
+.RI "다중 클라이언트 서버 로직을 수행하는 \fBMultiServer\fP 클래스를 정의합니다\&. "
+.ti -1c
+.RI "파일 \fBProgram\&.cpp\fP"
+.br
+.RI "\fBProgram\&.h\fP 구현부\&. "
+.ti -1c
+.RI "파일 \fBProgram\&.h\fP"
+.br
+.RI "채팅 서버 프로그램을 초기화하고 실행하는 클래스를 정의합니다\&. "
+.ti -1c
+.RI "파일 \fBSelectManager\&.cpp\fP"
+.br
+.RI "\fBSelectManager\&.h\fP 구현부\&. "
+.ti -1c
+.RI "파일 \fBSelectManager\&.h\fP"
+.br
+.RI "여러 소켓에 대한 \fRselect()\fP 호출을 관리하는 \fBSelectManager\fP 클래스를 선언합니다\&. "
+.ti -1c
+.RI "파일 \fBSocketIniter\&.cpp\fP"
+.br
+.RI "\fBSocketIniter\&.h\fP 구현부\&. "
+.ti -1c
+.RI "파일 \fBSocketIniter\&.h\fP"
+.br
+.RI "WinSock(Windows Sockets API)을 초기화하기 위한 \fBSocketIniter\fP 클래스를 정의합니다\&. "
+.ti -1c
+.RI "파일 \fBTCPSocket\&.cpp\fP"
+.br
+.RI "\fBTCPSocket\&.h\fP 구현부\&. "
+.ti -1c
+.RI "파일 \fBTCPSocket\&.h\fP"
+.br
+.RI "TCP 리스닝 소켓을 제어하는 \fBTCPSocket\fP 클래스를 선언합니다\&. "
+.in -1c

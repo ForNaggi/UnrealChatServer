@@ -1,102 +1,137 @@
-#pragma once
+ï»¿#pragma once
+#pragma execution_character_set("utf-8")
+
+/**
+ * @file MessageSender.h
+ * @brief ë‹¤ì–‘í•œ ë°©ì‹ìœ¼ë¡œ í´ë¼ì´ì–¸íŠ¸ë“¤ì—ê²Œ ë©”ì‹œì§€ë¥¼ ì „ì†¡í•˜ëŠ” MessageSender í´ë˜ìŠ¤ë¥¼ ì„ ì–¸í•©ë‹ˆë‹¤.
+ * @author ìµœì„±ë½
+ * @date 2025-06-17
+ * 
+ * @details
+ * ëª¨ë“  í´ë¼ì´ì–¸íŠ¸ì—ê²Œ ë©”ì‹œì§€ë¥¼ ë³´ë‚´ëŠ” ë¸Œë¡œë“œìºìŠ¤íŠ¸, 
+ * <br>í•œ í´ë¼ì´ì–¸íŠ¸ë¥¼ ì œì™¸í•œ ëª¨ë‘ì—ê²Œ ë³´ë‚´ëŠ” ë©€í‹°ìºìŠ¤íŠ¸,
+ * <br>íŠ¹ì • í´ë¼ì´ì–¸íŠ¸ì—ê²Œë§Œ ë³´ë‚´ëŠ” ìœ ë‹ˆìºìŠ¤íŠ¸ ê¸°ëŠ¥ì„ ì œê³µí•©ë‹ˆë‹¤.
+ * <br>ë©”ì‹œì§€ í¬ë§·íŒ…ê³¼ ì „ì†¡ ê²°ê³¼ ì¶”ì ì„ ìœ„í•œ ìœ í‹¸ë¦¬í‹°ë“¤ì„ í¬í•¨í•©ë‹ˆë‹¤.
+ */
 
 #include <WinSock2.h>
 #include <string>
 
-/*
-** Å¬·¡½º¸í	:	MessageSender.
-** ¼³¸í		:	¸Ş¼¼Áö Àü¼ÛÀ» ´ã´çÇÏ´Â Å¬·¡½º.
-*				Broadcast, Multicast, unicast ¹æ½ÄÀÇ Àü¼Û.
-** ÃÊ±âÈ­	:	±âº» »ı¼ºÀÚ¸¸ »ç¿ë.
-*/
+/**
+ * @class MessageSender
+ * @brief ì„œë²„ì—ì„œ í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ìœ¼ë¡œ ë©”ì‹œì§€ë¥¼ ë³´ë‚´ëŠ” ê¸°ëŠ¥ì„ ì œê³µí•˜ëŠ” í´ë˜ìŠ¤ì…ë‹ˆë‹¤.
+ *
+ * @details
+ * ì´ í´ë˜ìŠ¤ëŠ” ì„œë²„ ë©”ì‹œì§€ì˜ ë‹¤ì–‘í•œ ì „ë‹¬ ëª¨ë“œë¥¼ êµ¬í˜„í•©ë‹ˆë‹¤.
+ * - Broadcast : ëª¨ë“  ì—°ê²°ëœ í´ë¼ì´ì–¸íŠ¸ì—ê²Œ ë©”ì‹œì§€ ì „ì†¡.
+ * - Multicast : íŠ¹ì • í´ë¼ì´ì–¸íŠ¸ë¥¼ ì œì™¸í•œ ë‹¤ìˆ˜ì—ê²Œ ë©”ì‹œì§€ ì „ì†¡.
+ * - Unicast : í•œ í´ë¼ì´ì–¸íŠ¸ì—ê²Œë§Œ ë©”ì„¸ì§€ ì „ì†¡.
+ * 
+ * ë‚´ë¶€ì ìœ¼ë¡œ ê°œí–‰ ë¬¸ì(NEW_LINE ìƒìˆ˜)ë¥¼ ë©”ì‹œì§€ ëì— ì¶”ê°€í•˜ì—¬ í¬ë§·íŒ…í•©ë‹ˆë‹¤.
+ * <br>ì „ì†¡ ì‘ì—… ê²°ê³¼ë¥¼ ë‚˜íƒ€ë‚´ëŠ” Result ì—´ê±°í˜•ì„ ì‚¬ìš©í•©ë‹ˆë‹¤.
+ */
 class MessageSender
 {
 	public:
+		/// ë©”ì‹œì§€ ëì— ë¶™ì¼ ê°œí–‰ êµ¬ë¶„ì (ì†ŒìŠ¤ íŒŒì¼ì—ì„œ ì •ì˜ë¨).
 		static const char* NEW_LINE;
+
 	public:
-	
-		// ÇØ´ç Å¬·¡½ºÀÇ ¸Ş¼ÒµåÀÇ °á°ú¸¦ ³ªÅ¸³»´Â enum classÀÔ´Ï´Ù.
+		/**
+		 * @enum MessageSender::Result
+		 * @brief ë©”ì‹œì§€ ì „ì†¡ ì‘ì—…ì˜ ê²°ê³¼ ìƒíƒœ ê°’.
+		 */
 		enum class Result
 		{
-			SUCCESS,		// ´ë»óÀ¸·Î ÇÑ ¸ğµç ´ë»ó¿¡°Ô Àü¼Û ¼º°ø.
-			PARTIAL_FAIL,	// ÀÏºÎ ´ë»ó¿¡°Ô¸¸ Àü¼Û ¼º°ø.
-			TOTAL_FAIL,		// ¸ğµç ´ë»ó¿¡°Ô Àü¼Û ½ÇÆĞ.
+			
+			SUCCESS,		///< ëª¨ë“  ëŒ€ìƒì—ê²Œ ë©”ì‹œì§€ë¥¼ ì„±ê³µì ìœ¼ë¡œ ì „ì†¡í•¨.
+			PARTIAL_FAIL,	///< ë©”ì‹œì§€ê°€ ì¼ë¶€ ëŒ€ìƒì—ê²Œë§Œ ì „ì†¡ë˜ê³  ì¼ë¶€ ëŒ€ìƒì—ê²ŒëŠ” ì „ì†¡ ì‹¤íŒ¨í•¨.
+			TOTAL_FAIL,		///< ë©”ì‹œì§€ë¥¼ ì–´ë–¤ ëŒ€ìƒì—ê²Œë„ ë³´ë‚´ì§€ ëª»í•¨.
 		};
 
 	public:
-
-		/*
-		** ÇÔ¼ö¸í	:	MessageSender.
-		** ¼³¸í		:	MessageSender °´Ã¼ »ı¼ºÀÚ.
-		** ÀÎÀÚ		:	¾øÀ½.
-		** ¹İÈ¯°ª	:	¾øÀ½.
-		*/
+		/**
+		 * @fn MessageSender::MessageSender()
+		 * @brief MessageSender ìƒì„±ì.
+		 * @return ì—†ìŒ.
+		 * @note ì´ ìƒì„±ìì—ì„œëŠ” íŠ¹ë³„í•œ ì´ˆê¸°í™”ê°€ ì¼ì–´ë‚˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
+		 */
 		MessageSender();
 
-		/*
-		** ÇÔ¼ö¸í	:	~MessageSender.
-		** ¼³¸í		:	MessageSender °´Ã¼ ¼Ò¸êÀÚ.
-		** ÀÎÀÚ		:	¾øÀ½.
-		** ¹İÈ¯°ª	:	¾øÀ½.
-		*/
+		/**
+		 * @fn MessageSender::~MessageSender()
+		 * @brief ì†Œë©¸ì.
+		 * @return ì—†ìŒ.
+		 * @note ì´ ì†Œë©¸ìì—ì„œëŠ” í•´ì œí•  ë™ì  ìì›ì´ ì—†ìŠµë‹ˆë‹¤.
+		 */
 		~MessageSender();
 
-		// º¹»ç »ı¼ºÀÚ ¹× º¹»ç ÇÒ´ç ¿¬»êÀÚ »èÁ¦.
+		// ë³µì‚¬ ìƒì„±ì ë° ë³µì‚¬ í• ë‹¹ ì—°ì‚°ì ì‚­ì œ.
 		MessageSender(const MessageSender& obj) = delete;
 		MessageSender& operator=(const MessageSender& obj) = delete;
 
-		// ÀÌµ¿ »ı¼ºÀÚ ¹× ÀÌµ¿ ÇÒ´ç ¿¬»êÀÚ »èÁ¦.
+		// ì´ë™ ìƒì„±ì ë° ì´ë™ í• ë‹¹ ì—°ì‚°ì ì‚­ì œ.
 		MessageSender(MessageSender&& obj) = delete;
 		MessageSender& operator=(MessageSender&& obj) = delete;
 
 	public:
-
-		/*
-		** ÇÔ¼ö¸í	:	broadcast.
-		** ¼³¸í		:	¸ğµç Å¬¶óÀÌ¾ğÆ®¿¡°Ô ¸Ş¼¼Áö¸¦ ºê·ÎµåÄ³½ºÆ®ÇÕ´Ï´Ù.
-		** ÀÎÀÚ		:	const std::string& message : Àü¼ÛÇÒ ¸Ş¼¼Áö.
-		*				SOCKET* sockets : ¸Ş¼¼Áö¸¦ Àü¼ÛÇÒ Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏ ¹è¿­.
-		*				int socket_count : ¼ÒÄÏ °³¼ö.
-		** ¹İÈ¯°ª	:	MessageSender::Result : Àü¼Û °á°ú.
-		*/
+		
+		/**
+		 * @fn MessageSender::Result MessageSender::broadcast(const std::string& message, SOCKET* sockets, int socket_count)
+		 * @brief ëª¨ë“  í´ë¼ì´ì–¸íŠ¸ì—ê²Œ ë©”ì‹œì§€ë¥¼ ì „ì†¡í•©ë‹ˆë‹¤.
+		 * @param[IN] const std::string& message : ë³´ë‚¼ ë©”ì‹œì§€ í…ìŠ¤íŠ¸.
+		 * @param[IN] SOCKET* sockets : ë©”ì‹œì§€ë¥¼ ë³´ë‚¼ í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ë“¤ì˜ ë°°ì—´.
+		 * @param[IN] int socket_count : ë°°ì—´ì— í¬í•¨ëœ ì†Œì¼“ ê°œìˆ˜ (ì „ì†¡í•  í´ë¼ì´ì–¸íŠ¸ ìˆ˜).
+		 * @return MessageSender::Result : ì „ì†¡ ì‘ì—… ê²°ê³¼ ìƒíƒœ ê°’ (SUCCESS, PARTIAL_FAIL ë˜ëŠ” TOTAL_FAIL).
+		 *
+		 * @details
+		 * ì£¼ì–´ì§„ ë©”ì‹œì§€ë¥¼ ë°°ì—´ì— ìˆëŠ” ëª¨ë“  í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ì— ì „ì†¡í•©ë‹ˆë‹¤.
+		 * <br>í•˜ë‚˜ ì´ìƒì˜ ì „ì†¡ì— ì‹¤íŒ¨í•˜ë©´ ê²°ê³¼ ì½”ë“œê°€ ë¶€ë¶„ ì‹¤íŒ¨ ë˜ëŠ” ì „ì²´ ì‹¤íŒ¨ë¡œ í‘œì‹œë©ë‹ˆë‹¤.
+		 */
 		MessageSender::Result broadcast(const std::string& message, SOCKET* sockets, int socket_count);
 
-		/*
-		** ÇÔ¼ö¸í	:	multicast.
-		** ¼³¸í		:	except_socketÀ» Á¦¿ÜÇÑ ³ª¸ÓÁö Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏ(µé)¿¡°Ô ¸ÖÆ¼Ä³½ºÆ®ÇÕ´Ï´Ù.
-		** ÀÎÀÚ		:	const std::string& message : Àü¼ÛÇÒ ¸Ş¼¼Áö.
-		*				SOCKET* sockets : ¸Ş¼¼Áö¸¦ Àü¼ÛÇÒ Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏ ¹è¿­.
-		*				int socket_count : ¼ÒÄÏ °³¼ö.
-		*				SOCKET except_socket : ¸Ş¼¼Áö Àü¼ÛÀ» Á¦¿ÜÇÒ ¼ÒÄÏ.
-		** ¹İÈ¯°ª	:	MessageSender::Result : Àü¼Û °á°ú.
-		*/
+		/**
+		 * @fn MessageSender::Result MessageSender::multicast(const std::string& message, SOCKET* sockets, int socket_count, SOCKET except_socket)
+		 * @brief íŠ¹ì • í´ë¼ì´ì–¸íŠ¸ë¥¼ ì œì™¸í•œ ëª¨ë“  í´ë¼ì´ì–¸íŠ¸ì—ê²Œ ë©”ì‹œì§€ë¥¼ ë³´ëƒ…ë‹ˆë‹¤.
+		 * @param[IN] const std::string& message : ë³´ë‚¼ ë©”ì‹œì§€ í…ìŠ¤íŠ¸.
+		 * @param[IN] SOCKET* sockets : ë©”ì‹œì§€ë¥¼ ë³´ë‚¼ í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ë“¤ì˜ ë°°ì—´.
+		 * @param[IN] int socket_count : ë°°ì—´ì— í¬í•¨ëœ ì†Œì¼“ ê°œìˆ˜ (ì „ì†¡í•  í´ë¼ì´ì–¸íŠ¸ ìˆ˜).
+		 * @param[IN] SOCKET except_socket : ë©”ì‹œì§€ë¥¼ ë³´ë‚´ì§€ ì•Šì„ í´ë¼ì´ì–¸íŠ¸ì˜ ì†Œì¼“.
+		 * @return MessageSender::Result : ì „ì†¡ ì‘ì—… ê²°ê³¼ ìƒíƒœ ê°’ (SUCCESS, PARTIAL_FAIL ë˜ëŠ” TOTAL_FAIL).
+		 *
+		 * @details
+		 * ì†Œì¼“ ë¦¬ìŠ¤íŠ¸ì—ì„œ `except_socket`ìœ¼ë¡œ ì§€ì •ëœ ì†Œì¼“ì„ ì œì™¸í•œ ëª¨ë“  ì†Œì¼“ì— ë©”ì‹œì§€ë¥¼ ì „ì†¡í•©ë‹ˆë‹¤.
+		 * <br>í•œ í´ë¼ì´ì–¸íŠ¸ë¥¼ ì œì™¸í•œ ë‹¤ë¥¸ í´ë¼ì´ì–¸íŠ¸ì—ê²Œ ë©”ì‹œì§€ë¥¼ ì „ë‹¬í•  ë•Œ ì‚¬ìš©í•©ë‹ˆë‹¤. 
+		 */
 		MessageSender::Result multicast(const std::string& message, SOCKET* sockets, int socket_count, SOCKET except_socket);
-	
-		/*
-		** ÇÔ¼ö¸í	:	unicast.
-		** ¼³¸í		:	Æ¯Á¤ ¼ÒÄÏ¿¡°Ô¸¸ ¸Ş¼¼Áö¸¦ Àü¼ÛÇÕ´Ï´Ù.
-		** ÀÎÀÚ		:	const std::string& message : Àü¼ÛÇÒ ¸Ş¼¼Áö.
-		*				SOCKET target_socket : ¸Ş¼¼Áö¸¦ Àü¼ÛÇÒ ¼ÒÄÏ.
-		** ¹İÈ¯°ª	:	MessageSender::Result : bool : ¼º°øÇÏ¸é true, ½ÇÆĞÇÏ¸é false.
-		*/
+		
+		/**
+		 * @fn bool MessageSender::unicast(const std::string& message, SOCKET target_socket)
+		 * @brief í•˜ë‚˜ì˜ í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ì—ë§Œ ë©”ì‹œì§€ë¥¼ ì „ì†¡í•©ë‹ˆë‹¤.
+		 * @param[IN] const std::string& message : ë³´ë‚¼ ë©”ì‹œì§€ í…ìŠ¤íŠ¸.
+		 * @param[IN] SOCKET target_socket : ë©”ì‹œì§€ë¥¼ ë³´ë‚¼ ëŒ€ìƒ í´ë¼ì´ì–¸íŠ¸ì˜ ì†Œì¼“.
+		 * @return : bool ë©”ì‹œì§€ ì „ì†¡ì— ì„±ê³µí•˜ë©´ true, ì‹¤íŒ¨í•˜ë©´ false.
+		 */
 		bool unicast(const std::string& message, SOCKET target_socket);
 
 	private:
-
-		/*
-		** ÇÔ¼ö¸í	:	formatMessage.
-		** ¼³¸í		:	Àü¼ÛÇÒ ¸Ş¼¼Áö¿¡ °³Çà ¹®ÀÚ¸¦ Ãß°¡ÇÕ´Ï´Ù.
-		** ÀÎÀÚ		:	const std::string& message : Àü¼ÛÇÒ ¸Ş¼¼Áö.
-		** ¹İÈ¯°ª	:	std::string : Æ÷¸äÆÃµÈ ¸Ş¼¼Áö.
-		*/
+		/**
+		 * @fn std::string MessageSender::formatMessage(const std::string& message) const
+		 * @brief ì£¼ì–´ì§„ ë©”ì‹œì§€ ëì— ê°œí–‰ ë¬¸ìë¥¼ ì¶”ê°€í•œ ë¬¸ìì—´ì„ ë°˜í™˜í•©ë‹ˆë‹¤.
+		 * @param[IN] const std::string& message : ì›ë³¸ ë©”ì‹œì§€ í…ìŠ¤íŠ¸.
+		 * @return std::string : ê°œí–‰ ë¬¸ìê°€ ì¶”ê°€ëœ ë©”ì‹œì§€ ë¬¸ìì—´.
+		 * @note NEW_LINE ìƒìˆ˜ë¥¼ ì£¼ì–´ì§„ ë©”ì‹œì§€ ëì— ì¶”ê°€í•œ ë¬¸ìì—´ì„ ë°˜í™˜í•©ë‹ˆë‹¤.
+		 */
 		std::string formatMessage(const std::string& message) const;
 
-		/*
-		** ÇÔ¼ö¸í	:	sendMessage.
-		** ¼³¸í		:	½ÇÁ¦ Å¸°Ù Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏ¿¡°Ô ¸Ş¼¼Áö¸¦ Àü¼ÛÇÕ´Ï´Ù.
-		** ÀÎÀÚ		:	const std::string& formatted_mssage : Àü¼ÛÇÒ Æ÷¸ËµÈ ¸Ş¼¼Áö.
-		*				SOCKET target_socket : ¸Ş¼¼Áö¸¦ Àü¼ÛÇÒ Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏ.
-		** ¹İÈ¯°ª	:	bool : ¼º°øÇÏ¸é true, ½ÇÆĞÇÏ¸é false.
-		*/
+		/**
+		 * @fn bool MessageSender::sendMessage(const std::string& formatted_message, SOCKET target_socket)
+		 * @brief ì´ë¯¸ í¬ë§·ëœ ë©”ì‹œì§€ë¥¼ íŠ¹ì • í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ìœ¼ë¡œ ì „ì†¡í•©ë‹ˆë‹¤.
+		 * @param[IN] const std::string& formatted_mssage : ê°œí–‰ ë¬¸ìê¹Œì§€ í¬í•¨ëœ ë©”ì‹œì§€ ë¬¸ìì—´.
+		 * @param[IN] SOCKET target_socket : ë©”ì‹œì§€ë¥¼ ë³´ë‚¼ ëŒ€ìƒ í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“.
+		 * @return bool : ë©”ì‹œì§€ ì „ì†¡ì— ì„±ê³µí•˜ë©´ true, ì‹¤íŒ¨í•˜ë©´ false.
+		 * 
+		 * @note broadcast, multicast, unicast í•¨ìˆ˜ ë‚´ë¶€ì—ì„œ ì‹¤ì œ ì „ì†¡ì„ ë‹´ë‹¹í•˜ëŠ” í•µì‹¬ êµ¬í˜„ í•¨ìˆ˜ì…ë‹ˆë‹¤.
+		 */
 		bool sendMessage(const std::string& formatted_mssage, SOCKET target_socket);
 };

@@ -1,0 +1,289 @@
+.TH "MessageSender" 3 "Version 1.0.0" "ChatMultiServerDoxygen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MessageSender \- 서버에서 클라이언트 소켓으로 메시지를 보내는 기능을 제공하는 클래스입니다\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <MessageSender\&.h>\fP
+.SS "Public 타입"
+
+.in +1c
+.ti -1c
+.RI "enum class \fBResult\fP { \fBSUCCESS\fP, \fBPARTIAL_FAIL\fP, \fBTOTAL_FAIL\fP }"
+.br
+.in -1c
+.SS "Public 멤버 함수"
+
+.in +1c
+.ti -1c
+.RI "\fBMessageSender\fP ()"
+.br
+.RI "\fBMessageSender\fP 생성자\&. "
+.ti -1c
+.RI "\fB~MessageSender\fP ()"
+.br
+.RI "소멸자\&. "
+.ti -1c
+.RI "\fBMessageSender\fP (const \fBMessageSender\fP &obj)=delete"
+.br
+.ti -1c
+.RI "\fBMessageSender\fP & \fBoperator=\fP (const \fBMessageSender\fP &obj)=delete"
+.br
+.ti -1c
+.RI "\fBMessageSender\fP (\fBMessageSender\fP &&obj)=delete"
+.br
+.ti -1c
+.RI "\fBMessageSender\fP & \fBoperator=\fP (\fBMessageSender\fP &&obj)=delete"
+.br
+.ti -1c
+.RI "\fBMessageSender::Result\fP \fBbroadcast\fP (const std::string &message, SOCKET *sockets, int socket_count)"
+.br
+.RI "모든 클라이언트에게 메시지를 전송합니다\&. "
+.ti -1c
+.RI "\fBMessageSender::Result\fP \fBmulticast\fP (const std::string &message, SOCKET *sockets, int socket_count, SOCKET except_socket)"
+.br
+.RI "특정 클라이언트를 제외한 모든 클라이언트에게 메시지를 보냅니다\&. "
+.ti -1c
+.RI "bool \fBunicast\fP (const std::string &message, SOCKET target_socket)"
+.br
+.RI "하나의 클라이언트 소켓에만 메시지를 전송합니다\&. "
+.in -1c
+.SS "정적 Public 속성"
+
+.in +1c
+.ti -1c
+.RI "static const char * \fBNEW_LINE\fP = '\\r\\n'"
+.br
+.RI "메시지 끝에 붙일 개행 구분자 (소스 파일에서 정의됨)\&. "
+.in -1c
+.SS "Private 멤버 함수"
+
+.in +1c
+.ti -1c
+.RI "std::string \fBformatMessage\fP (const std::string &message) const"
+.br
+.RI "주어진 메시지 끝에 개행 문자를 추가한 문자열을 반환합니다\&. "
+.ti -1c
+.RI "bool \fBsendMessage\fP (const std::string &formatted_mssage, SOCKET target_socket)"
+.br
+.RI "이미 포맷된 메시지를 특정 클라이언트 소켓으로 전송합니다\&. "
+.in -1c
+.SH "상세한 설명"
+.PP 
+서버에서 클라이언트 소켓으로 메시지를 보내는 기능을 제공하는 클래스입니다\&. 
+
+이 클래스는 서버 메시지의 다양한 전달 모드를 구현합니다\&.
+.IP "\(bu" 2
+Broadcast : 모든 연결된 클라이언트에게 메시지 전송\&.
+.IP "\(bu" 2
+Multicast : 특정 클라이언트를 제외한 다수에게 메시지 전송\&.
+.IP "\(bu" 2
+Unicast : 한 클라이언트에게만 메세지 전송\&.
+.PP
+
+.PP
+내부적으로 개행 문자(NEW_LINE 상수)를 메시지 끝에 추가하여 포맷팅합니다\&. 
+.br
+전송 작업 결과를 나타내는 \fBResult\fP 열거형을 사용합니다\&. 
+.PP
+\fBMessageSender\&.h\fP 파일의 \fB33\fP 번째 라인에서 정의되었습니다\&.
+.SH "멤버 열거형 문서화"
+.PP 
+.SS "enum class \fBMessageSender::Result\fP\fR [strong]\fP"
+
+.PP
+\fB열거형 멤버\fP
+.in +1c
+.TP
+\f(BISUCCESS \fP
+모든 대상에게 메시지를 성공적으로 전송함\&. 
+.TP
+\f(BIPARTIAL_FAIL \fP
+메시지가 일부 대상에게만 전송되고 일부 대상에게는 전송 실패함\&. 
+.TP
+\f(BITOTAL_FAIL \fP
+메시지를 어떤 대상에게도 보내지 못함\&. 
+.PP
+\fBMessageSender\&.h\fP 파일의 \fB44\fP 번째 라인에서 정의되었습니다\&.
+.SH "생성자 & 소멸자 문서화"
+.PP 
+.SS "MessageSender::MessageSender ()"
+
+.PP
+\fBMessageSender\fP 생성자\&. 
+.PP
+\fB반환값\fP
+.RS 4
+없음\&. 
+.RE
+.PP
+\fB주의\fP
+.RS 4
+이 생성자에서는 특별한 초기화가 일어나지 않습니다\&. 
+.RE
+.PP
+
+.PP
+\fBMessageSender\&.cpp\fP 파일의 \fB15\fP 번째 라인에서 정의되었습니다\&.
+.SS "MessageSender::~MessageSender ()"
+
+.PP
+소멸자\&. 
+.PP
+\fB반환값\fP
+.RS 4
+없음\&. 
+.RE
+.PP
+\fB주의\fP
+.RS 4
+이 소멸자에서는 해제할 동적 자원이 없습니다\&. 
+.RE
+.PP
+
+.PP
+\fBMessageSender\&.cpp\fP 파일의 \fB20\fP 번째 라인에서 정의되었습니다\&.
+.SS "MessageSender::MessageSender (const \fBMessageSender\fP & obj)\fR [delete]\fP"
+
+.SS "MessageSender::MessageSender (\fBMessageSender\fP && obj)\fR [delete]\fP"
+
+.SH "멤버 함수 문서화"
+.PP 
+.SS "\fBMessageSender::Result\fP MessageSender::broadcast (const std::string & message, SOCKET * sockets, int socket_count)"
+
+.PP
+모든 클라이언트에게 메시지를 전송합니다\&. 
+.PP
+\fB매개변수\fP
+.RS 4
+\fI[IN]\fP const std::string& message : 보낼 메시지 텍스트\&. 
+.br
+\fI[IN]\fP SOCKET* sockets : 메시지를 보낼 클라이언트 소켓들의 배열\&. 
+.br
+\fI[IN]\fP int socket_count : 배열에 포함된 소켓 개수 (전송할 클라이언트 수)\&. 
+.RE
+.PP
+\fB반환값\fP
+.RS 4
+\fBMessageSender::Result\fP : 전송 작업 결과 상태 값 (SUCCESS, PARTIAL_FAIL 또는 TOTAL_FAIL)\&.
+.RE
+.PP
+주어진 메시지를 배열에 있는 모든 클라이언트 소켓에 전송합니다\&. 
+.br
+하나 이상의 전송에 실패하면 결과 코드가 부분 실패 또는 전체 실패로 표시됩니다\&. 
+.PP
+\fBMessageSender\&.cpp\fP 파일의 \fB25\fP 번째 라인에서 정의되었습니다\&.
+.SS "std::string MessageSender::formatMessage (const std::string & message) const\fR [private]\fP"
+
+.PP
+주어진 메시지 끝에 개행 문자를 추가한 문자열을 반환합니다\&. 
+.PP
+\fB매개변수\fP
+.RS 4
+\fI[IN]\fP const std::string& message : 원본 메시지 텍스트\&. 
+.RE
+.PP
+\fB반환값\fP
+.RS 4
+std::string : 개행 문자가 추가된 메시지 문자열\&. 
+.RE
+.PP
+\fB주의\fP
+.RS 4
+NEW_LINE 상수를 주어진 메시지 끝에 추가한 문자열을 반환합니다\&. 
+.RE
+.PP
+
+.PP
+\fBMessageSender\&.cpp\fP 파일의 \fB128\fP 번째 라인에서 정의되었습니다\&.
+.SS "\fBMessageSender::Result\fP MessageSender::multicast (const std::string & message, SOCKET * sockets, int socket_count, SOCKET except_socket)"
+
+.PP
+특정 클라이언트를 제외한 모든 클라이언트에게 메시지를 보냅니다\&. 
+.PP
+\fB매개변수\fP
+.RS 4
+\fI[IN]\fP const std::string& message : 보낼 메시지 텍스트\&. 
+.br
+\fI[IN]\fP SOCKET* sockets : 메시지를 보낼 클라이언트 소켓들의 배열\&. 
+.br
+\fI[IN]\fP int socket_count : 배열에 포함된 소켓 개수 (전송할 클라이언트 수)\&. 
+.br
+\fI[IN]\fP SOCKET except_socket : 메시지를 보내지 않을 클라이언트의 소켓\&. 
+.RE
+.PP
+\fB반환값\fP
+.RS 4
+\fBMessageSender::Result\fP : 전송 작업 결과 상태 값 (SUCCESS, PARTIAL_FAIL 또는 TOTAL_FAIL)\&.
+.RE
+.PP
+소켓 리스트에서 \fRexcept_socket\fP으로 지정된 소켓을 제외한 모든 소켓에 메시지를 전송합니다\&. 
+.br
+한 클라이언트를 제외한 다른 클라이언트에게 메시지를 전달할 때 사용합니다\&. 
+.PP
+\fBMessageSender\&.cpp\fP 파일의 \fB66\fP 번째 라인에서 정의되었습니다\&.
+.SS "\fBMessageSender\fP & MessageSender::operator= (const \fBMessageSender\fP & obj)\fR [delete]\fP"
+
+.SS "\fBMessageSender\fP & MessageSender::operator= (\fBMessageSender\fP && obj)\fR [delete]\fP"
+
+.SS "bool MessageSender::sendMessage (const std::string & formatted_message, SOCKET target_socket)\fR [private]\fP"
+
+.PP
+이미 포맷된 메시지를 특정 클라이언트 소켓으로 전송합니다\&. 
+.PP
+\fB매개변수\fP
+.RS 4
+\fI[IN]\fP const std::string& formatted_mssage : 개행 문자까지 포함된 메시지 문자열\&. 
+.br
+\fI[IN]\fP SOCKET target_socket : 메시지를 보낼 대상 클라이언트 소켓\&. 
+.RE
+.PP
+\fB반환값\fP
+.RS 4
+bool : 메시지 전송에 성공하면 true, 실패하면 false\&.
+.RE
+.PP
+\fB주의\fP
+.RS 4
+broadcast, multicast, unicast 함수 내부에서 실제 전송을 담당하는 핵심 구현 함수입니다\&. 
+.RE
+.PP
+
+.PP
+\fBMessageSender\&.cpp\fP 파일의 \fB134\fP 번째 라인에서 정의되었습니다\&.
+.SS "bool MessageSender::unicast (const std::string & message, SOCKET target_socket)"
+
+.PP
+하나의 클라이언트 소켓에만 메시지를 전송합니다\&. 
+.PP
+\fB매개변수\fP
+.RS 4
+\fI[IN]\fP const std::string& message : 보낼 메시지 텍스트\&. 
+.br
+\fI[IN]\fP SOCKET target_socket : 메시지를 보낼 대상 클라이언트의 소켓\&. 
+.RE
+.PP
+\fB반환값\fP
+.RS 4
+: bool 메시지 전송에 성공하면 true, 실패하면 false\&. 
+.RE
+.PP
+
+.PP
+\fBMessageSender\&.cpp\fP 파일의 \fB116\fP 번째 라인에서 정의되었습니다\&.
+.SH "멤버 데이터 문서화"
+.PP 
+.SS "const char * MessageSender::NEW_LINE = '\\r\\n'\fR [static]\fP"
+
+.PP
+메시지 끝에 붙일 개행 구분자 (소스 파일에서 정의됨)\&. 
+.PP
+\fBMessageSender\&.h\fP 파일의 \fB37\fP 번째 라인에서 정의되었습니다\&.
+
+.SH "작성자"
+.PP 
+소스 코드로부터 ChatMultiServerDoxygen를 위해 Doxygen에 의해 자동으로 생성됨\&.

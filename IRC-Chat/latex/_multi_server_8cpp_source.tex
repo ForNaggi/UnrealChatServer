@@ -1,0 +1,286 @@
+\doxysection{Multi\+Server.\+cpp}
+\hypertarget{_multi_server_8cpp_source}{}\label{_multi_server_8cpp_source}\index{SocketBuild/MultiServer.cpp@{SocketBuild/MultiServer.cpp}}
+\mbox{\hyperlink{_multi_server_8cpp}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ execution\_character\_set("{}utf-\/8"{})}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_multi_server_8h}{MultiServer.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_debug_helper_8h}{DebugHelper.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00014}\mbox{\hyperlink{class_multi_server_ad08dd4f1558c2fa37977075fd9668454}{00014}}\ \mbox{\hyperlink{class_multi_server_ad08dd4f1558c2fa37977075fd9668454}{MultiServer::MultiServer}}(\textcolor{keywordtype}{int}\ port)}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00015}00015\ \ \ \ \ :\ \mbox{\hyperlink{class_multi_server_a1aa185a63a212c8cacc3a22c9e612671}{\_port}}(port),\ \mbox{\hyperlink{class_multi_server_ac435f2f0311227fbd1534b83b2f1c661}{\_tcpSocket}}(),\ \mbox{\hyperlink{class_multi_server_ab43ad74d162ad0db0fb8ce85c96f2152}{\_clientManager}}(),\ \mbox{\hyperlink{class_multi_server_a6422120bbd44de002830c98f4f5cdfe5}{\_selectManager}}(),\ \mbox{\hyperlink{class_multi_server_af88cc615fbb8ae5ff2f26a23e5c6b0e9}{\_messageSender}}(),\ \mbox{\hyperlink{class_multi_server_a031128913fae39403819203793ee2f6c}{\_isRunning}}(false)}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00016}00016\ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00017}00017\ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a1df2a84bb8d3b43c8c49f1aff655190a}{LOG\_INFO}}(\textcolor{stringliteral}{"{}MultiServer\ 객체가\ 생성되었습니다.\(\backslash\)n포트번호:\ "{}}\ +\ std::to\_string(port));}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00018}00018\ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00020}\mbox{\hyperlink{class_multi_server_ae6e9f083d34175fbca6c38f562daab3d}{00020}}\ \mbox{\hyperlink{class_multi_server_ae6e9f083d34175fbca6c38f562daab3d}{MultiServer::\string~MultiServer}}()}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00021}00021\ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00022}00022\ \ \ \ \ this-\/>\mbox{\hyperlink{class_multi_server_a914389fbf7e944b4b80ccf8f609c2316}{stop}}();}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00023}00023\ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a1df2a84bb8d3b43c8c49f1aff655190a}{LOG\_INFO}}(\textcolor{stringliteral}{"{}MultiServer\ 객체가\ 소멸되었습니다."{}});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00024}00024\ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00026}\mbox{\hyperlink{class_multi_server_a3c6ab56d025fbb50dd1521716f859eef}{00026}}\ \mbox{\hyperlink{class_multi_server_a05f2fbce39f97a4aea3ca4e8a5f76520}{MultiServer::Result}}\ \mbox{\hyperlink{class_multi_server_a3c6ab56d025fbb50dd1521716f859eef}{MultiServer::startServer}}()}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00027}00027\ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00028}00028\ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a1df2a84bb8d3b43c8c49f1aff655190a}{LOG\_INFO}}(\textcolor{stringliteral}{"{}멀티클라이언트\ 서버를\ 시작합니다"{}});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{comment}{//\ TCP\ 소켓\ 생성}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{class_multi_server_ac435f2f0311227fbd1534b83b2f1c661}{\_tcpSocket}}.createTCPSocket()\ !=\ \mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209ad0749aaba8b833466dfcbb0428e4f89c}{TCPSocket::Result::SUCCESS}})}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00032}00032\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_multi_server_a05f2fbce39f97a4aea3ca4e8a5f76520aca35fd19fc398dd5c1dbbbd88349422c}{MultiServer::Result::FAIL\_START}});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00034}00034\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//\ 포트에\ 바인딩}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{class_multi_server_ac435f2f0311227fbd1534b83b2f1c661}{\_tcpSocket}}.bindTCPSocket(\mbox{\hyperlink{class_multi_server_a1aa185a63a212c8cacc3a22c9e612671}{\_port}})\ !=\ \mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209ad0749aaba8b833466dfcbb0428e4f89c}{TCPSocket::Result::SUCCESS}})}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00038}00038\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_multi_server_a05f2fbce39f97a4aea3ca4e8a5f76520aca35fd19fc398dd5c1dbbbd88349422c}{MultiServer::Result::FAIL\_START}});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00040}00040\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{comment}{//\ 리슨\ 시작}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00043}00043\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{class_multi_server_ac435f2f0311227fbd1534b83b2f1c661}{\_tcpSocket}}.startListen()\ !=\ \mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209ad0749aaba8b833466dfcbb0428e4f89c}{TCPSocket::Result::SUCCESS}})}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00044}00044\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_multi_server_a05f2fbce39f97a4aea3ca4e8a5f76520aca35fd19fc398dd5c1dbbbd88349422c}{MultiServer::Result::FAIL\_START}});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00046}00046\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00048}00048\ \ \ \ \ this-\/>\mbox{\hyperlink{class_multi_server_a031128913fae39403819203793ee2f6c}{\_isRunning}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00049}00049\ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a1df2a84bb8d3b43c8c49f1aff655190a}{LOG\_INFO}}(\textcolor{stringliteral}{"{}멀티클라이언트\ 서버가\ 성공적으로\ 시작되었습니다"{}});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_multi_server_a05f2fbce39f97a4aea3ca4e8a5f76520ad0749aaba8b833466dfcbb0428e4f89c}{MultiServer::Result::SUCCESS}});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00052}00052\ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00054}\mbox{\hyperlink{class_multi_server_add5af07e493ad545ee82b7d966481a47}{00054}}\ \mbox{\hyperlink{class_multi_server_a05f2fbce39f97a4aea3ca4e8a5f76520}{MultiServer::Result}}\ \mbox{\hyperlink{class_multi_server_add5af07e493ad545ee82b7d966481a47}{MultiServer::runServerLoop}}()}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00055}00055\ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00056}00056\ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a1df2a84bb8d3b43c8c49f1aff655190a}{LOG\_INFO}}(\textcolor{stringliteral}{"{}서버\ 메인\ 루프를\ 시작합니다"{}});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{while}\ (this-\/>\mbox{\hyperlink{class_multi_server_a031128913fae39403819203793ee2f6c}{\_isRunning}})}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00059}00059\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ SelectManager를\ 사용해\ fd\_set\ 설정}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_multi_server_a6422120bbd44de002830c98f4f5cdfe5}{\_selectManager}}.setupFdSet();}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 서버\ 소켓\ 추가}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_multi_server_a6422120bbd44de002830c98f4f5cdfe5}{\_selectManager}}.addSocket(this-\/>\mbox{\hyperlink{class_multi_server_ac435f2f0311227fbd1534b83b2f1c661}{\_tcpSocket}}.getSocket());}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 모든\ 클라이언트\ 소켓\ 추가}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ SOCKET\ client\_sockets[\mbox{\hyperlink{class_client_manager_a27f5637b4a9704be93ee219073a253c4}{ClientManager::MAX\_CLIENTS}}];}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ socket\_count\ =\ \mbox{\hyperlink{class_multi_server_ab43ad74d162ad0db0fb8ce85c96f2152}{\_clientManager}}.getAllSockets(client\_sockets,\ \mbox{\hyperlink{class_client_manager_a27f5637b4a9704be93ee219073a253c4}{ClientManager::MAX\_CLIENTS}});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ socket\_count;\ ++i)}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_multi_server_a6422120bbd44de002830c98f4f5cdfe5}{\_selectManager}}.addSocket(client\_sockets[i]);}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ select\ 실행}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085ec}{SelectManager::Result}}\ select\_result\ =\ this-\/>\mbox{\hyperlink{class_multi_server_a6422120bbd44de002830c98f4f5cdfe5}{\_selectManager}}.executeSelect(1);}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ select\ 결과\ 처리}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (select\_result)}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085ecad0749aaba8b833466dfcbb0428e4f89c}{SelectManager::Result::SUCCESS}}:}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 활성\ 소켓\ 처리}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085eca070a0fb40f6c308ab544b227660aadff}{SelectManager::Result::TIMEOUT}}:}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 타임아웃\ -\/\ 다음\ 루프로\ 계속}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085ecadd820d26a503ff5eff2d001703714e47}{SelectManager::Result::FAIL\_SELECT}}:}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a27d98b18ba06759c6ef5c71b1e1a9904}{LOG\_ERROR}}(\textcolor{stringliteral}{"{}select\ 실행\ 실패"{}});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_multi_server_a05f2fbce39f97a4aea3ca4e8a5f76520a51d2a797b58df1fe8da2c085dca4a579}{MultiServer::Result::FAIL\_LOOP}});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085eca9577f71024a3ec9d5367f5bc34fe747f}{SelectManager::Result::NO\_SOCKETS}}:}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 소켓이\ 없으면\ 잠시\ 대기}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Sleep(100);}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 서버\ 소켓\ 확인\ (새로운\ 연결)}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{class_multi_server_a6422120bbd44de002830c98f4f5cdfe5}{\_selectManager}}.isSocketReady(this-\/>\_tcpSocket.getSocket()))}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{class_multi_server_ae4799250c000becd9277b69d188ad648}{handleNewConnection}}()\ ==\ \textcolor{keyword}{false})}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_abfe0c293b360dc335041f1bc67b00647}{LOG\_WARN}}(\textcolor{stringliteral}{"{}새로운\ 연결\ 처리\ 실패"{}});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 각\ 클라이언트\ 소켓\ 확인}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{class_client_manager_a27f5637b4a9704be93ee219073a253c4}{ClientManager::MAX\_CLIENTS}};\ ++i)}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ SOCKET\ client\_socket\ =\ this-\/>\mbox{\hyperlink{class_multi_server_ab43ad74d162ad0db0fb8ce85c96f2152}{\_clientManager}}.getClientSocket(i);}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (client\_socket\ !=\ INVALID\_SOCKET\ \&\&\ this-\/>\mbox{\hyperlink{class_multi_server_a6422120bbd44de002830c98f4f5cdfe5}{\_selectManager}}.isSocketReady(client\_socket))}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{class_multi_server_adce90ff32f0a97f736d59263d836447e}{handleClientMessage}}(i)\ ==\ \textcolor{keyword}{false})}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 클라이언트\ 연결\ 종료}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_multi_server_a145530f5cb105a12c3a4662e7ef0b262}{announceLeave}}(i);}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_multi_server_ab43ad74d162ad0db0fb8ce85c96f2152}{\_clientManager}}.removeClient(i);}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00122}00122\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00124}00124\ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a1df2a84bb8d3b43c8c49f1aff655190a}{LOG\_INFO}}(\textcolor{stringliteral}{"{}서버\ 메인\ 루프가\ 종료되었습니다"{}});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00125}00125\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_multi_server_a05f2fbce39f97a4aea3ca4e8a5f76520ad0749aaba8b833466dfcbb0428e4f89c}{MultiServer::Result::SUCCESS}});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00126}00126\ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00128}\mbox{\hyperlink{class_multi_server_a914389fbf7e944b4b80ccf8f609c2316}{00128}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_server_a914389fbf7e944b4b80ccf8f609c2316}{MultiServer::stop}}()}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00129}00129\ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00130}00130\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{class_multi_server_a031128913fae39403819203793ee2f6c}{\_isRunning}})}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00131}00131\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_multi_server_a031128913fae39403819203793ee2f6c}{\_isRunning}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a1df2a84bb8d3b43c8c49f1aff655190a}{LOG\_INFO}}(\textcolor{stringliteral}{"{}멀티\ 클라이언트\ 서버를\ 중지합니다"{}});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00134}00134\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00135}00135\ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00137}\mbox{\hyperlink{class_multi_server_a0759e5145e1876a3553447bae830a54a}{00137}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_server_a0759e5145e1876a3553447bae830a54a}{MultiServer::isRunning}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00138}00138\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00139}00139\ \ \ \ \ \textcolor{keywordflow}{return}\ (this-\/>\mbox{\hyperlink{class_multi_server_a031128913fae39403819203793ee2f6c}{\_isRunning}});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00140}00140\ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00142}\mbox{\hyperlink{class_multi_server_ae4799250c000becd9277b69d188ad648}{00142}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_server_ae4799250c000becd9277b69d188ad648}{MultiServer::handleNewConnection}}()}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00143}00143\ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00144}00144\ \ \ \ \ \textcolor{comment}{//\ 새로운\ 클라이언트\ 연결\ 수락}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00145}00145\ \ \ \ \ SOCKET\ client\_socket\ =\ this-\/>\mbox{\hyperlink{class_multi_server_ac435f2f0311227fbd1534b83b2f1c661}{\_tcpSocket}}.acceptConnection();}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00146}00146\ \ \ \ \ \textcolor{keywordflow}{if}\ (client\_socket\ ==\ INVALID\_SOCKET)}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00147}00147\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00149}00149\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00151}00151\ \ \ \ \ \textcolor{comment}{//\ 클라이언트\ 추가}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00152}00152\ \ \ \ \ \textcolor{keywordtype}{int}\ client\_index\ =\ this-\/>\mbox{\hyperlink{class_multi_server_ab43ad74d162ad0db0fb8ce85c96f2152}{\_clientManager}}.addClient(client\_socket);}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00153}00153\ \ \ \ \ \textcolor{keywordflow}{if}\ (client\_index\ ==\ -\/1)}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00154}00154\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 최대\ 클라이언트\ 수\ 초과}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ std::string\ reject\_message\ =\ \textcolor{stringliteral}{"{}서버가\ 가득\ 찼습니다.\ 나중에\ 다시\ 시도해주세요."{}};}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00157}00157\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_multi_server_af88cc615fbb8ae5ff2f26a23e5c6b0e9}{\_messageSender}}.unicast(reject\_message,\ client\_socket);}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ closesocket(client\_socket);}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00160}00160\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00162}00162\ \ \ \ \ \textcolor{comment}{//\ 환영\ 메시지\ 전송}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00163}00163\ \ \ \ \ this-\/>\mbox{\hyperlink{class_multi_server_a424e220806ae76d40dad3212f57f7f69}{sendWelcomeMessage}}(client\_index);}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00165}00165\ \ \ \ \ \textcolor{comment}{//\ 다른\ 클라이언트들에게\ 참여\ 알림}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00166}00166\ \ \ \ \ this-\/>\mbox{\hyperlink{class_multi_server_a09b33835c30ec6ac63e354484030234f}{announceJoin}}(client\_index);}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00168}00168\ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a1df2a84bb8d3b43c8c49f1aff655190a}{LOG\_INFO}}(\textcolor{stringliteral}{"{}새로운\ 클라이언트\ 연결\ 완료\ -\/\ 인덱스:\ "{}}\ +\ std::to\_string(client\_index));}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00169}00169\ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00170}00170\ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00172}\mbox{\hyperlink{class_multi_server_adce90ff32f0a97f736d59263d836447e}{00172}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_server_adce90ff32f0a97f736d59263d836447e}{MultiServer::handleClientMessage}}(\textcolor{keywordtype}{int}\ client\_index)}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00173}00173\ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00174}00174\ \ \ \ \ SOCKET\ client\_socket\ =\ this-\/>\mbox{\hyperlink{class_multi_server_ab43ad74d162ad0db0fb8ce85c96f2152}{\_clientManager}}.getClientSocket(client\_index);}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00175}00175\ \ \ \ \ \textcolor{keywordflow}{if}\ (client\_socket\ ==\ INVALID\_SOCKET)}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00176}00176\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00177}00177\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00178}00178\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00180}00180\ \ \ \ \ \textcolor{comment}{//\ MessageReceiver로\ 메시지\ 수신}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00181}00181\ \ \ \ \ \mbox{\hyperlink{class_message_receiver}{MessageReceiver}}\ receiver(client\_socket);}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00182}00182\ \ \ \ \ \mbox{\hyperlink{class_message_receiver_af74bce14070bbf4d0a0324acee430084}{MessageReceiver::Result}}\ recv\_result\ =\ receiver.\mbox{\hyperlink{class_message_receiver_a0c83ac3a7387ab21f74bc81d6640d9ec}{receiveMessage}}();}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00184}00184\ \ \ \ \ \textcolor{keywordflow}{switch}\ (recv\_result)}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00185}00185\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00186}00186\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{class_message_receiver_af74bce14070bbf4d0a0324acee430084ad0749aaba8b833466dfcbb0428e4f89c}{MessageReceiver::Result::SUCCESS}}:}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00187}00187\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00188}00188\ \ \ \ \ \ \ \ \ std::string\ message\ =\ receiver.\mbox{\hyperlink{class_message_receiver_a649a859e023ac92682659c83312c64ef}{getLastMessage}}();}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00189}00189\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00190}00190\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ quit\ 명령\ 확인}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00191}00191\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (receiver.\mbox{\hyperlink{class_message_receiver_af9984778a2d338b38cf108b16b47d718}{isQuitCommand}}(message))}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00192}00192\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ goodbye\_message\ =\ \textcolor{stringliteral}{"{}[시스템]\ 안녕히\ 가세요!"{}};}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_multi_server_af88cc615fbb8ae5ff2f26a23e5c6b0e9}{\_messageSender}}.unicast(goodbye\_message,\ client\_socket);}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{false});\ \textcolor{comment}{//\ 연결\ 종료}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 클라이언트\ 닉네임.}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ std::string\ nickname\ =\ this-\/>\mbox{\hyperlink{class_multi_server_ab43ad74d162ad0db0fb8ce85c96f2152}{\_clientManager}}.getClientNickname(client\_index);}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 브로드캐스트\ 메시지\ 생성.}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00201}00201\ \ \ \ \ \ \ \ \ std::string\ broadcast\_message\ =\ \textcolor{stringliteral}{"{}["{}}\ +\ nickname\ +\ \textcolor{stringliteral}{"{}]:\ "{}}\ +\ message;}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00204}00204\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 모든\ 클라이언트에게\ 브로드캐스트.}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00205}00205\ \ \ \ \ \ \ \ \ SOCKET\ all\_sockets[\mbox{\hyperlink{class_client_manager_a27f5637b4a9704be93ee219073a253c4}{ClientManager::MAX\_CLIENTS}}];}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ socket\_count\ =\ this-\/>\mbox{\hyperlink{class_multi_server_ab43ad74d162ad0db0fb8ce85c96f2152}{\_clientManager}}.getAllSockets(all\_sockets,\ \mbox{\hyperlink{class_client_manager_a27f5637b4a9704be93ee219073a253c4}{ClientManager::MAX\_CLIENTS}});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_multi_server_af88cc615fbb8ae5ff2f26a23e5c6b0e9}{\_messageSender}}.broadcast(broadcast\_message,\ all\_sockets,\ socket\_count);}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00208}00208\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00209}00209\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00210}00210\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00211}00211\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00212}00212\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{class_message_receiver_af74bce14070bbf4d0a0324acee430084a50ba526e9a6ee61df579023c1e99817a}{MessageReceiver::Result::CLIENT\_DISCONNECTED}}:}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00213}00213\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a1df2a84bb8d3b43c8c49f1aff655190a}{LOG\_INFO}}(\textcolor{stringliteral}{"{}클라이언트\ 연결\ 해제\ -\/\ 인덱스:\ "{}}\ +\ std::to\_string(client\_index));}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00214}00214\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00215}00215\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00216}00216\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{class_message_receiver_af74bce14070bbf4d0a0324acee430084ac6c8a4faea4d0b94dceb90a306074d2b}{MessageReceiver::Result::FAIL\_RECEIVE}}:}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00217}00217\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a27d98b18ba06759c6ef5c71b1e1a9904}{LOG\_ERROR}}(\textcolor{stringliteral}{"{}클라이언트\ 메시지\ 수신\ 실패\ -\/\ 인덱스:\ "{}}\ +\ std::to\_string(client\_index));}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00220}00220\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00222}00222\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00223}00223\ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00225}\mbox{\hyperlink{class_multi_server_a424e220806ae76d40dad3212f57f7f69}{00225}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_server_a424e220806ae76d40dad3212f57f7f69}{MultiServer::sendWelcomeMessage}}(\textcolor{keywordtype}{int}\ client\_index)}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00226}00226\ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00227}00227\ \ \ \ \ \textcolor{comment}{//\ 환영\ 메세지를\ 보낼\ 클라이언트\ 소켓을\ 가져옵니다.}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00228}00228\ \ \ \ \ SOCKET\ client\_socket\ =\ this-\/>\mbox{\hyperlink{class_multi_server_ab43ad74d162ad0db0fb8ce85c96f2152}{\_clientManager}}.getClientSocket(client\_index);}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00230}00230\ \ \ \ \ \textcolor{comment}{//\ 소켓에\ 문제가\ 있다면.}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00231}00231\ \ \ \ \ \textcolor{keywordflow}{if}\ (client\_socket\ ==\ INVALID\_SOCKET)\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00232}00232\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00233}00233\ \ \ \ \ \ \ \ \ return\ ;}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00234}00234\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00235}00235\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00236}00236\ \ \ \ \ \textcolor{comment}{//\ 해당\ 클라이언트의\ 닉네임을\ 가져옵니다.}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00237}00237\ \ \ \ \ std::string\ nickname\ =\ this-\/>\mbox{\hyperlink{class_multi_server_ab43ad74d162ad0db0fb8ce85c96f2152}{\_clientManager}}.getClientNickname(client\_socket);}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00238}00238\ \ \ \ \ \textcolor{comment}{//\ 현재\ 접속\ 중인\ 유저의\ 수를\ 반환합니다.}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00239}00239\ \ \ \ \ \textcolor{keywordtype}{int}\ connectedClientCount\ =\ this-\/>\mbox{\hyperlink{class_multi_server_ab43ad74d162ad0db0fb8ce85c96f2152}{\_clientManager}}.getConnectedClientCount();}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00240}00240\ \ \ \ \ \textcolor{comment}{//\ 환영\ 메세지를\ 생성합니다.}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00241}00241\ \ \ \ \ std::string\ welcome\_message\ =\ \mbox{\hyperlink{class_multi_server_ae5b77230b0dc9bfff431219a08a21b88}{makeWecomeMessage}}(nickname,\ connectedClientCount);}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00242}00242\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00243}00243\ \ \ \ \ \textcolor{comment}{//\ 클라이언트에게\ 메세지를\ 전송합니다.}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00244}00244\ \ \ \ \ this-\/>\mbox{\hyperlink{class_multi_server_af88cc615fbb8ae5ff2f26a23e5c6b0e9}{\_messageSender}}.unicast(welcome\_message,\ client\_socket);}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00245}00245\ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00246}00246\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00247}\mbox{\hyperlink{class_multi_server_a09b33835c30ec6ac63e354484030234f}{00247}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_server_a09b33835c30ec6ac63e354484030234f}{MultiServer::announceJoin}}(\textcolor{keywordtype}{int}\ client\_index)}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00248}00248\ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00249}00249\ \ \ \ \ std::string\ nickname\ =\ this-\/>\mbox{\hyperlink{class_multi_server_ab43ad74d162ad0db0fb8ce85c96f2152}{\_clientManager}}.getClientNickname(client\_index);}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00250}00250\ \ \ \ \ \textcolor{comment}{//\ 클라이언트가\ 채팅방을\ 참여했다는\ 메세지\ 생성.}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00251}00251\ \ \ \ \ std::string\ join\_message\ =\ \textcolor{stringliteral}{"{}[시스템]\ "{}}\ +\ nickname\ +\ \textcolor{stringliteral}{"{}님이\ 채팅방에\ 참여했습니다."{}};}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00252}00252\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00253}00253\ \ \ \ \ SOCKET\ all\_sockets[\mbox{\hyperlink{class_client_manager_a27f5637b4a9704be93ee219073a253c4}{ClientManager::MAX\_CLIENTS}}];}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00254}00254\ \ \ \ \ \textcolor{keywordtype}{int}\ socket\_count\ =\ this-\/>\mbox{\hyperlink{class_multi_server_ab43ad74d162ad0db0fb8ce85c96f2152}{\_clientManager}}.getAllSockets(all\_sockets,\ \mbox{\hyperlink{class_client_manager_a27f5637b4a9704be93ee219073a253c4}{ClientManager::MAX\_CLIENTS}});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00255}00255\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00256}00256\ \ \ \ \ \textcolor{comment}{//\ 현재\ 채팅창에\ 들어온\ 클라이언트\ 소켓.}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00257}00257\ \ \ \ \ SOCKET\ new\_client\_socket\ =\ this-\/>\mbox{\hyperlink{class_multi_server_ab43ad74d162ad0db0fb8ce85c96f2152}{\_clientManager}}.getClientSocket(client\_index);}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00258}00258\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00259}00259\ \ \ \ \ \textcolor{comment}{//\ 새로\ 들어온\ 클라이언트를\ 제외한\ 다른\ 클라이언트들에게\ 메세지\ 전송.}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00260}00260\ \ \ \ \ this-\/>\mbox{\hyperlink{class_multi_server_af88cc615fbb8ae5ff2f26a23e5c6b0e9}{\_messageSender}}.multicast(join\_message,\ all\_sockets,\ socket\_count,\ new\_client\_socket);}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00261}00261\ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00262}00262\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00263}\mbox{\hyperlink{class_multi_server_a145530f5cb105a12c3a4662e7ef0b262}{00263}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_server_a145530f5cb105a12c3a4662e7ef0b262}{MultiServer::announceLeave}}(\textcolor{keywordtype}{int}\ client\_index)}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00264}00264\ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00265}00265\ \ \ \ \ std::string\ nickname\ =\ this-\/>\mbox{\hyperlink{class_multi_server_ab43ad74d162ad0db0fb8ce85c96f2152}{\_clientManager}}.getClientNickname(client\_index);}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00266}00266\ \ \ \ \ \textcolor{comment}{//\ 클라이언트가\ 채팅방을\ 떠났다는\ 메세지\ 생성.}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00267}00267\ \ \ \ \ std::string\ leave\_message\ =\ \textcolor{stringliteral}{"{}[시스템]\ "{}}\ +\ nickname\ +\ \textcolor{stringliteral}{"{}님이\ 채팅방을\ 떠났습니다."{}};}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00268}00268\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00269}00269\ \ \ \ \ SOCKET\ all\_sockets[\mbox{\hyperlink{class_client_manager_a27f5637b4a9704be93ee219073a253c4}{ClientManager::MAX\_CLIENTS}}];}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00270}00270\ \ \ \ \ \textcolor{comment}{//\ 현재\ 채팅서버에\ 접속된\ 모든\ 클라이언트의\ 수.}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00271}00271\ \ \ \ \ \textcolor{keywordtype}{int}\ socket\_count\ =\ this-\/>\mbox{\hyperlink{class_multi_server_ab43ad74d162ad0db0fb8ce85c96f2152}{\_clientManager}}.getAllSockets(all\_sockets,\ \mbox{\hyperlink{class_client_manager_a27f5637b4a9704be93ee219073a253c4}{ClientManager::MAX\_CLIENTS}});}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00272}00272\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00273}00273\ \ \ \ \ \textcolor{comment}{//\ 떠나는\ 클라이언트를\ 포함한\ 모든\ 클라이언트에게\ 메세지\ 전송.}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00274}00274\ \ \ \ \ this-\/>\mbox{\hyperlink{class_multi_server_af88cc615fbb8ae5ff2f26a23e5c6b0e9}{\_messageSender}}.broadcast(leave\_message,\ all\_sockets,\ socket\_count);}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00275}00275\ \}}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00276}00276\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00277}\mbox{\hyperlink{class_multi_server_ae5b77230b0dc9bfff431219a08a21b88}{00277}}\ std::string\ \mbox{\hyperlink{class_multi_server_ae5b77230b0dc9bfff431219a08a21b88}{MultiServer::makeWecomeMessage}}(\textcolor{keyword}{const}\ std::string\&\ nickname,\ \textcolor{keywordtype}{int}\ connectedClientCount)}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00278}00278\ \{}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00279}00279\ \ \ \ \ std::string\ welcome\_message\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00280}00280\ \ \ \ \ welcome\_message\ =\ welcome\_message\ +\ \textcolor{stringliteral}{"{}===\ 채팅\ 서버에\ 오신\ 것을\ 환영합니다!\ ===\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00281}00281\ \ \ \ \ welcome\_message\ =\ welcome\_message\ +\ \textcolor{stringliteral}{"{}현재\ 접속자\ 수:\ "{}}\ +\ std::to\_string(connectedClientCount)\ +\ \textcolor{stringliteral}{"{}명\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00282}00282\ \ \ \ \ welcome\_message\ =\ welcome\_message\ +\ \textcolor{stringliteral}{"{}'quit'를\ 입력하면\ 종료됩니다.\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00283}00283\ \ \ \ \ welcome\_message\ =\ welcome\_message\ +\ \textcolor{stringliteral}{"{}==========================================\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00284}00284\ }
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00285}00285\ \ \ \ \ \textcolor{keywordflow}{return}\ (welcome\_message);}
+\DoxyCodeLine{\Hypertarget{_multi_server_8cpp_source_l00286}00286\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,26 @@
+\chapter{Chat\+Multi\+Server 프로젝트 }
+\hypertarget{index}{}\label{index}\index{ChatMultiServer 프로젝트@{ChatMultiServer 프로젝트}}
+Windows 소켓 기반 멀티 클라이언트 채팅 서버 프로그램입니다.
+
+Windows 소켓 기반 멀티 클라이언트 채팅 서버 프로그램입니다.  
+
+Chat\+Multi\+Server는 Windows의 Winsock2 API와 {\ttfamily select} 함수를 이용하여 다중 클라이언트의 채팅을 처리하는 서버 애플리케이션입니다. 기본적으로 콘솔 환경에서 동작하며, 여러 개의 컴포넌트 클래스로 구성되어 있습니다.\hypertarget{index_components}{}\doxysection{\texorpdfstring{주요 구성 요소}{주요 구성 요소}}\label{index_components}
+
+\begin{DoxyItemize}
+\item {\bfseries{\doxylink{class_multi_server}{Multi\+Server}}}\+: \doxylink{class_t_c_p_socket}{TCPSocket}, \doxylink{class_client_manager}{Client\+Manager}, \doxylink{class_select_manager}{Select\+Manager} 등을 조합하여 채팅 서버의 핵심 로직(클라이언트 연결 관리, 메시지 브로드캐스트 등)을 담당합니다.
+\item {\bfseries{\doxylink{class_client_manager}{Client\+Manager}}}\+: 연결된 클라이언트 소켓들을 관리하고 각 클라이언트의 닉네임을 생성합니다.
+\item {\bfseries{\doxylink{class_select_manager}{Select\+Manager}}}\+: {\ttfamily select} 함수를 호출하여, 다수 소켓들의 상태를 감시합니다.
+\item {\bfseries{\doxylink{class_message_sender}{Message\+Sender}}}\+: 브로드캐스트/멀티캐스트/유니캐스트 방식으로 메시지를 전송합니다.
+\item {\bfseries{\doxylink{class_message_receiver}{Message\+Receiver}}}\+: 클라이언트로부터 메시지를 수신하고 파싱하여 메시지 유형에 따라 처리합니다.
+\item {\bfseries{\doxylink{class_socket_initer}{Socket\+Initer}}}\+: Winsock 초기화 및 종료(WSAStartup/\+WSACleanup 호출)를 처리하여 소켓 사용 환경을 설정합니다.
+\item {\bfseries{\doxylink{class_t_c_p_socket}{TCPSocket}}}\+: 서버 소켓 생성과 바인드(bind)/리스닝(listen)/\+Accept 등의 동작을 처리합니다.
+\item {\bfseries{Debug\+Helper}}\+: 로그 출력 수준(enum {\ttfamily \doxylink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9}{Log\+Level}})과 현재 시간 구하기 함수, 편의 매크로(LOG\+\_\+\+INFO 등)를 제공합니다.
+\item {\bfseries{Memory\+Leak\+Helper}}\+: 디버그 모드에서 메모리 누수 검사를 위해 new 연산자를 재정의하고 체크 함수를 제공합니다.
+\end{DoxyItemize}\hypertarget{index_usage}{}\doxysection{\texorpdfstring{사용 예}{사용 예}}\label{index_usage}
+아래는 서버를 시작하는 간단한 예시 코드(cpp)입니다\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_program}{Program}}\ program;}
+\DoxyCodeLine{program.\mbox{\hyperlink{class_program_ab7cb58a80ead351385709a33c4491db1}{run}}();}
+
+\end{DoxyCode}
+ 

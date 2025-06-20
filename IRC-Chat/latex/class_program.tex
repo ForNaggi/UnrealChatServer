@@ -1,0 +1,299 @@
+\doxysection{Program 클래스 참조}
+\hypertarget{class_program}{}\label{class_program}\index{Program@{Program}}
+
+
+채팅 서버 프로그램의 시작, 실행 및 종료를 제어합니다.  
+
+
+
+
+{\ttfamily \#include $<$Program.\+h$>$}
+
+\doxysubsubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_program_aaefaa0df08f3484476fc4d61e97acbdc}{Program}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{class_program}{Program} 객체를 생성하고 하위 구성 요소를 초기화합니다. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_program_a986aef1c50e1d338a3315a47ba6df549}{\texorpdfstring{$\sim$}{\string~}\+Program}} ()
+\begin{DoxyCompactList}\small\item\em Program의 소멸자. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_program_a8ae6ae58d965fbb6771bb905206eb9a5}{Program}} (const \mbox{\hyperlink{class_program}{Program}} \&obj)=delete
+\item 
+\mbox{\hyperlink{class_program}{Program}} \& \mbox{\hyperlink{class_program_af0c7e1d33460868c3b657c68767b5083}{operator=}} (const \mbox{\hyperlink{class_program}{Program}} \&obj)=delete
+\item 
+\mbox{\hyperlink{class_program_ad1b5e5ed6544441e20323c6f2ba8bdb8}{Program}} (\mbox{\hyperlink{class_program}{Program}} \&\&obj)=delete
+\item 
+\mbox{\hyperlink{class_program}{Program}} \& \mbox{\hyperlink{class_program_a1483899626ee04d36034fe35abe10a48}{operator=}} (\mbox{\hyperlink{class_program}{Program}} \&\&obj)=delete
+\item 
+int \mbox{\hyperlink{class_program_ab7cb58a80ead351385709a33c4491db1}{run}} ()
+\begin{DoxyCompactList}\small\item\em 서버 프로그램을 실행하여 초기화하고, 서버 루프에 진입합니다. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 타입}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{class_program_a5c86c74a26fc7c7584ce7575297347ad}{Result}} \{ \mbox{\hyperlink{class_program_a5c86c74a26fc7c7584ce7575297347adac2759effffc94bb9acc71d69fe3e8a1f}{FAIL}}
+, \mbox{\hyperlink{class_program_a5c86c74a26fc7c7584ce7575297347adad0749aaba8b833466dfcbb0428e4f89c}{SUCCESS}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_program_a5c86c74a26fc7c7584ce7575297347ad}{Program\+::\+Result}} \mbox{\hyperlink{class_program_aa3a4b3daa45fa2dbb713d3b43d59840b}{initialize}} ()
+\begin{DoxyCompactList}\small\item\em 프로그램에 필요한 리소스를 초기화합니다 (예\+: Win\+Sock). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_program_a5c86c74a26fc7c7584ce7575297347ad}{Program\+::\+Result}} \mbox{\hyperlink{class_program_a0ca01cb6c97834e6c4137c0a6520c6d9}{start\+Multi\+Server}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{class_multi_server}{Multi\+Server} 인스턴스를 생성하고 시작합니다. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_program_a4fda9f162a36c7758c037116c3876536}{run\+Server\+Loop}} ()
+\begin{DoxyCompactList}\small\item\em 서버를 계속 실행하며 이벤트에 응답하도록 서버 메인 루프에 진입합니다. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_socket_initer}{Socket\+Initer}} \mbox{\hyperlink{class_program_a2316692413f16195ab641e3e32ca8cf2}{\+\_\+socket\+Initer}}
+\begin{DoxyCompactList}\small\item\em Win\+Sock(\+Windows Sockets API)의 초기화와 정리를 담당하는 객체. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_server}{Multi\+Server}} \mbox{\hyperlink{class_program_ae2c0ef9389cacfee338ccfe6e3a36469}{\+\_\+multi\+Server}}
+\begin{DoxyCompactList}\small\item\em 클라이언트 연결과 메시지를 처리하는 다중 클라이언트 서버 객체. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{정적 Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+static const int \mbox{\hyperlink{class_program_a385ed11a369ecec61603ef81daa4890e}{SERVER\+\_\+\+PORT}} = 5500
+\begin{DoxyCompactList}\small\item\em 서버가 사용할 TCP 포트 번호 (기본값\+: 5500). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+채팅 서버 프로그램의 시작, 실행 및 종료를 제어합니다. 
+
+\doxylink{class_program}{Program} 클래스는 필요한 하위 시스템(Win\+Sock 초기화 등)을 설정합니다. ~\newline
+Multi\+Server를 인스턴스화합니다. ~\newline
+서버를 시작하여 메인 루프를 실행하고 서버를 중지하는 순서를 관리합니다. ~\newline
+{\ttfamily \doxylink{class_program_ab7cb58a80ead351385709a33c4491db1}{run()}} 메서드를 제공하여 전체 과정을 시작할 수 있습니다. 
+
+\mbox{\hyperlink{_program_8h_source}{Program.\+h}} 파일의 \mbox{\hyperlink{_program_8h_source_l00029}{29}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-enum-members}
+\Hypertarget{class_program_doc-enum-members}
+\doxysubsection{멤버 열거형 문서화}
+\Hypertarget{class_program_a5c86c74a26fc7c7584ce7575297347ad}\index{Program@{Program}!Result@{Result}}
+\index{Result@{Result}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{Result}{Result}}
+{\footnotesize\ttfamily \label{class_program_a5c86c74a26fc7c7584ce7575297347ad} 
+enum class \mbox{\hyperlink{class_program_a5c86c74a26fc7c7584ce7575297347ad}{Program\+::\+Result}}\hspace{0.3cm}{\ttfamily [strong]}, {\ttfamily [private]}}
+
+\begin{DoxyEnumFields}[2]{열거형 멤버}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAIL@{FAIL}!Program@{Program}}\index{Program@{Program}!FAIL@{FAIL}}}\Hypertarget{class_program_a5c86c74a26fc7c7584ce7575297347adac2759effffc94bb9acc71d69fe3e8a1f}\label{class_program_a5c86c74a26fc7c7584ce7575297347adac2759effffc94bb9acc71d69fe3e8a1f} 
+FAIL&단계가 실패한 경우 (예\+: Win\+Sock 초기화 또는 서버 시작 실패). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SUCCESS@{SUCCESS}!Program@{Program}}\index{Program@{Program}!SUCCESS@{SUCCESS}}}\Hypertarget{class_program_a5c86c74a26fc7c7584ce7575297347adad0749aaba8b833466dfcbb0428e4f89c}\label{class_program_a5c86c74a26fc7c7584ce7575297347adad0749aaba8b833466dfcbb0428e4f89c} 
+SUCCESS&단계가 성공적으로 완료된 경우. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\mbox{\hyperlink{_program_8h_source}{Program.\+h}} 파일의 \mbox{\hyperlink{_program_8h_source_l00035}{35}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_program_doc-constructors}
+\doxysubsection{생성자 \& 소멸자 문서화}
+\Hypertarget{class_program_aaefaa0df08f3484476fc4d61e97acbdc}\index{Program@{Program}!Program@{Program}}
+\index{Program@{Program}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{Program()}{Program()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_program_aaefaa0df08f3484476fc4d61e97acbdc} 
+Program\+::\+Program (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\doxylink{class_program}{Program} 객체를 생성하고 하위 구성 요소를 초기화합니다. 
+
+\begin{DoxyReturn}{반환값}
+없음.
+\end{DoxyReturn}
+\doxylink{class_socket_initer}{Socket\+Initer}(Win\+Sock 초기화 담당)와 Multi\+Server를 초기화합니다. 
+
+\mbox{\hyperlink{_program_8cpp_source}{Program.\+cpp}} 파일의 \mbox{\hyperlink{_program_8cpp_source_l00014}{14}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_program_a986aef1c50e1d338a3315a47ba6df549}\index{Program@{Program}!````~Program@{\texorpdfstring{$\sim$}{\string~}Program}}
+\index{````~Program@{\texorpdfstring{$\sim$}{\string~}Program}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Program()}{\string~Program()}}
+{\footnotesize\ttfamily \label{class_program_a986aef1c50e1d338a3315a47ba6df549} 
+Program\+::\texorpdfstring{$\sim$}{\string~}\+Program (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Program의 소멸자. 
+
+\begin{DoxyReturn}{반환값}
+없음.
+\end{DoxyReturn}
+\begin{DoxyNote}{주의}
+모든 구성 요소가 올바르게 종료되도록 보장합니다. ~\newline
+소켓 정리는 Socket\+Initer와 Multi\+Server의 소멸자에서 처리됩니다. 
+\end{DoxyNote}
+
+
+\mbox{\hyperlink{_program_8cpp_source}{Program.\+cpp}} 파일의 \mbox{\hyperlink{_program_8cpp_source_l00020}{20}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_program_a8ae6ae58d965fbb6771bb905206eb9a5}\index{Program@{Program}!Program@{Program}}
+\index{Program@{Program}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{Program()}{Program()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_program_a8ae6ae58d965fbb6771bb905206eb9a5} 
+Program\+::\+Program (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_program}{Program}} \&}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_program_ad1b5e5ed6544441e20323c6f2ba8bdb8}\index{Program@{Program}!Program@{Program}}
+\index{Program@{Program}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{Program()}{Program()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_program_ad1b5e5ed6544441e20323c6f2ba8bdb8} 
+Program\+::\+Program (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_program}{Program}} \&\&}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_program_doc-func-members}
+\doxysubsection{멤버 함수 문서화}
+\Hypertarget{class_program_aa3a4b3daa45fa2dbb713d3b43d59840b}\index{Program@{Program}!initialize@{initialize}}
+\index{initialize@{initialize}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily \label{class_program_aa3a4b3daa45fa2dbb713d3b43d59840b} 
+\mbox{\hyperlink{class_program_a5c86c74a26fc7c7584ce7575297347ad}{Program\+::\+Result}} Program\+::initialize (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+프로그램에 필요한 리소스를 초기화합니다 (예\+: Win\+Sock). 
+
+\begin{DoxyReturn}{반환값}
+\doxylink{class_program_a5c86c74a26fc7c7584ce7575297347ad}{Program\+::\+Result} \+: 초기화에 성공하면 SUCCESS, 실패하면 FAIL.
+\end{DoxyReturn}
+\begin{DoxyNote}{주의}
+Win\+Sock을 시작하기 위해 \doxylink{class_socket_initer_a4ce0c4a0794fc9eb469334e875eca9fb}{Socket\+Initer\+::init()}을 호출합니다. ~\newline
+이 호출이 실패하면 서버를 실행할 수 없습니다. 
+\end{DoxyNote}
+
+
+\mbox{\hyperlink{_program_8cpp_source}{Program.\+cpp}} 파일의 \mbox{\hyperlink{_program_8cpp_source_l00044}{44}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_program_af0c7e1d33460868c3b657c68767b5083}\index{Program@{Program}!operator=@{operator=}}
+\index{operator=@{operator=}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_program_af0c7e1d33460868c3b657c68767b5083} 
+\mbox{\hyperlink{class_program}{Program}} \& Program\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_program}{Program}} \&}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_program_a1483899626ee04d36034fe35abe10a48}\index{Program@{Program}!operator=@{operator=}}
+\index{operator=@{operator=}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_program_a1483899626ee04d36034fe35abe10a48} 
+\mbox{\hyperlink{class_program}{Program}} \& Program\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_program}{Program}} \&\&}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_program_ab7cb58a80ead351385709a33c4491db1}\index{Program@{Program}!run@{run}}
+\index{run@{run}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily \label{class_program_ab7cb58a80ead351385709a33c4491db1} 
+int Program\+::run (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+서버 프로그램을 실행하여 초기화하고, 서버 루프에 진입합니다. 
+
+\begin{DoxyReturn}{반환값}
+int \+: 프로그램 종료 상태 값 (정상 종료 시 0, 오류 발생 시 -\/1).
+\end{DoxyReturn}
+이 메서드는 다음과 같은 주요 단계들을 수행합니다\+:
+\begin{DoxyItemize}
+\item \doxylink{class_program_aa3a4b3daa45fa2dbb713d3b43d59840b}{initialize()}를 호출하여 네트워킹(\+Win\+Sock)을 초기화합니다.
+\item \doxylink{class_program_a0ca01cb6c97834e6c4137c0a6520c6d9}{start\+Multi\+Server()}를 호출하여 서버를 시작합니다.
+\item 서버가 성공적으로 시작되면 \doxylink{class_program_a4fda9f162a36c7758c037116c3876536}{run\+Server\+Loop()}를 호출하여 서버 루프에 진입하고 클라이언트 상호 작용을 처리합니다.
+\item 루프가 종료되거나 오류가 발생하면 정수 상태 코드를 반환하고, 이 값은 프로세스 종료 코드로 사용될 수 있습니다. 
+\end{DoxyItemize}
+
+\mbox{\hyperlink{_program_8cpp_source}{Program.\+cpp}} 파일의 \mbox{\hyperlink{_program_8cpp_source_l00025}{25}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_program_a4fda9f162a36c7758c037116c3876536}\index{Program@{Program}!runServerLoop@{runServerLoop}}
+\index{runServerLoop@{runServerLoop}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{runServerLoop()}{runServerLoop()}}
+{\footnotesize\ttfamily \label{class_program_a4fda9f162a36c7758c037116c3876536} 
+void Program\+::run\+Server\+Loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+서버를 계속 실행하며 이벤트에 응답하도록 서버 메인 루프에 진입합니다. 
+
+\begin{DoxyReturn}{반환값}
+없음.
+\end{DoxyReturn}
+\doxylink{class_multi_server_add5af07e493ad545ee82b7d966481a47}{Multi\+Server\+::run\+Server\+Loop()}를 호출하여 클라이언트 연결과 메시지를 처리합니다. ~\newline
+이 함수는 서버 루프가 종료될 때까지(오류 발생 또는 중지 신호 수신 시) loop합니다. 
+
+\mbox{\hyperlink{_program_8cpp_source}{Program.\+cpp}} 파일의 \mbox{\hyperlink{_program_8cpp_source_l00073}{73}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_program_a0ca01cb6c97834e6c4137c0a6520c6d9}\index{Program@{Program}!startMultiServer@{startMultiServer}}
+\index{startMultiServer@{startMultiServer}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{startMultiServer()}{startMultiServer()}}
+{\footnotesize\ttfamily \label{class_program_a0ca01cb6c97834e6c4137c0a6520c6d9} 
+\mbox{\hyperlink{class_program_a5c86c74a26fc7c7584ce7575297347ad}{Program\+::\+Result}} Program\+::start\+Multi\+Server (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxylink{class_multi_server}{Multi\+Server} 인스턴스를 생성하고 시작합니다. 
+
+\begin{DoxyReturn}{반환값}
+\doxylink{class_program_a5c86c74a26fc7c7584ce7575297347ad}{Program\+::\+Result} \+: 서버 시작에 성공하면 SUCCESS, 서버 시작 실패 시 FAIL.
+\end{DoxyReturn}
+SERVER\+\_\+\+PORT로 Multi\+Server를 초기화합니다. ~\newline
+\doxylink{class_multi_server_a3c6ab56d025fbb50dd1521716f859eef}{Multi\+Server\+::start\+Server()}를 호출합니다. ~\newline
+서버가 클라이언트의 접속을 받을 준비를 마칩니다. 
+
+\mbox{\hyperlink{_program_8cpp_source}{Program.\+cpp}} 파일의 \mbox{\hyperlink{_program_8cpp_source_l00060}{60}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_program_doc-variable-members}
+\doxysubsection{멤버 데이터 문서화}
+\Hypertarget{class_program_ae2c0ef9389cacfee338ccfe6e3a36469}\index{Program@{Program}!\_multiServer@{\_multiServer}}
+\index{\_multiServer@{\_multiServer}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{\_multiServer}{\_multiServer}}
+{\footnotesize\ttfamily \label{class_program_ae2c0ef9389cacfee338ccfe6e3a36469} 
+\mbox{\hyperlink{class_multi_server}{Multi\+Server}} Program\+::\+\_\+multi\+Server\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+클라이언트 연결과 메시지를 처리하는 다중 클라이언트 서버 객체. 
+
+
+
+\mbox{\hyperlink{_program_8h_source}{Program.\+h}} 파일의 \mbox{\hyperlink{_program_8h_source_l00090}{90}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_program_a2316692413f16195ab641e3e32ca8cf2}\index{Program@{Program}!\_socketIniter@{\_socketIniter}}
+\index{\_socketIniter@{\_socketIniter}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{\_socketIniter}{\_socketIniter}}
+{\footnotesize\ttfamily \label{class_program_a2316692413f16195ab641e3e32ca8cf2} 
+\mbox{\hyperlink{class_socket_initer}{Socket\+Initer}} Program\+::\+\_\+socket\+Initer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Win\+Sock(\+Windows Sockets API)의 초기화와 정리를 담당하는 객체. 
+
+
+
+\mbox{\hyperlink{_program_8h_source}{Program.\+h}} 파일의 \mbox{\hyperlink{_program_8h_source_l00087}{87}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_program_a385ed11a369ecec61603ef81daa4890e}\index{Program@{Program}!SERVER\_PORT@{SERVER\_PORT}}
+\index{SERVER\_PORT@{SERVER\_PORT}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{SERVER\_PORT}{SERVER\_PORT}}
+{\footnotesize\ttfamily \label{class_program_a385ed11a369ecec61603ef81daa4890e} 
+const int Program\+::\+SERVER\+\_\+\+PORT = 5500\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+서버가 사용할 TCP 포트 번호 (기본값\+: 5500). 
+
+
+
+\mbox{\hyperlink{_program_8h_source}{Program.\+h}} 파일의 \mbox{\hyperlink{_program_8h_source_l00093}{93}} 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일들로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+Socket\+Build/\mbox{\hyperlink{_program_8h}{Program.\+h}}\item 
+Socket\+Build/\mbox{\hyperlink{_program_8cpp}{Program.\+cpp}}\end{DoxyCompactItemize}

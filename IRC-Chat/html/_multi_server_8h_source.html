@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ChatMultiServerDoxygen: SocketBuild/MultiServer.h 소스 파일</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ChatMultiServerDoxygen<span id="projectnumber">&#160;1.0.0</span>
+   </div>
+   <div id="projectbrief">this is the synopsis</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','검색',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('_multi_server_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">로딩중...</div>
+<div class="SRStatus" id="Searching">검색중...</div>
+<div class="SRStatus" id="NoMatches">일치하는것 없음</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">MultiServer.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_multi_server_8h.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#pragma execution_character_set(&quot;utf-8&quot;)</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="_t_c_p_socket_8h.html">TCPSocket.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="_client_manager_8h.html">ClientManager.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="_select_manager_8h.html">SelectManager.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="_message_sender_8h.html">MessageSender.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="_message_receiver_8h.html">MessageReceiver.h</a>&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span></div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="class_multi_server.html">   33</a></span><span class="keyword">class </span><a class="code hl_function" href="class_multi_server.html#ad08dd4f1558c2fa37977075fd9668454">MultiServer</a></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>{</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="};">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="class_multi_server.html#a05f2fbce39f97a4aea3ca4e8a5f76520">   40</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="class_multi_server.html#a05f2fbce39f97a4aea3ca4e8a5f76520">Result</a></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="class_multi_server.html#a05f2fbce39f97a4aea3ca4e8a5f76520ad0749aaba8b833466dfcbb0428e4f89c">   42</a></span>        <a class="code hl_enumvalue" href="class_multi_server.html#a05f2fbce39f97a4aea3ca4e8a5f76520ad0749aaba8b833466dfcbb0428e4f89c">SUCCESS</a>,        </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="class_multi_server.html#a05f2fbce39f97a4aea3ca4e8a5f76520aca35fd19fc398dd5c1dbbbd88349422c">   43</a></span>        <a class="code hl_enumvalue" href="class_multi_server.html#a05f2fbce39f97a4aea3ca4e8a5f76520aca35fd19fc398dd5c1dbbbd88349422c">FAIL_START</a>,     </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_multi_server.html#a05f2fbce39f97a4aea3ca4e8a5f76520a51d2a797b58df1fe8da2c085dca4a579">   44</a></span>        <a class="code hl_enumvalue" href="class_multi_server.html#a05f2fbce39f97a4aea3ca4e8a5f76520a51d2a797b58df1fe8da2c085dca4a579">FAIL_LOOP</a>,      </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="class_multi_server.html#a05f2fbce39f97a4aea3ca4e8a5f76520a3138f8a215e46f7c6130d18a39975651">   45</a></span>        <a class="code hl_enumvalue" href="class_multi_server.html#a05f2fbce39f97a4aea3ca4e8a5f76520a3138f8a215e46f7c6130d18a39975651">SERVER_STOPPED</a>  </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    };</div>
+</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_multi_server.html#ad08dd4f1558c2fa37977075fd9668454">MultiServer</a>(<span class="keywordtype">int</span> port);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_function" href="class_multi_server.html#ae6e9f083d34175fbca6c38f562daab3d">~MultiServer</a>();</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="comment">// 복사 생성자 및 복사 할당 연산자 삭제.</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="class_multi_server.html#ab3aad1e5dff2a3b472378c6dfc1e03e2">   73</a></span>    <a class="code hl_function" href="class_multi_server.html#ab3aad1e5dff2a3b472378c6dfc1e03e2">MultiServer</a>(<span class="keyword">const</span> <a class="code hl_function" href="class_multi_server.html#ad08dd4f1558c2fa37977075fd9668454">MultiServer</a>&amp; obj) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="class_multi_server.html#afce4e70caa3021b2657d55d84cb03fdc">   74</a></span>    <a class="code hl_function" href="class_multi_server.html#ad08dd4f1558c2fa37977075fd9668454">MultiServer</a>&amp; <a class="code hl_function" href="class_multi_server.html#afce4e70caa3021b2657d55d84cb03fdc">operator=</a>(<span class="keyword">const</span> <a class="code hl_function" href="class_multi_server.html#ad08dd4f1558c2fa37977075fd9668454">MultiServer</a>&amp; obj) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="comment">// 이동 생성자 및 이동 할당 연산자 삭제.</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="class_multi_server.html#ae86a59c8b6b6943298db5bd0d5c37a29">   77</a></span>    <a class="code hl_function" href="class_multi_server.html#ae86a59c8b6b6943298db5bd0d5c37a29">MultiServer</a>(<a class="code hl_function" href="class_multi_server.html#ad08dd4f1558c2fa37977075fd9668454">MultiServer</a>&amp;&amp; obj) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="class_multi_server.html#a6857ad878617b15ac2d6ec72958ff2f8">   78</a></span>    <a class="code hl_function" href="class_multi_server.html#ad08dd4f1558c2fa37977075fd9668454">MultiServer</a>&amp; <a class="code hl_function" href="class_multi_server.html#a6857ad878617b15ac2d6ec72958ff2f8">operator=</a>(<a class="code hl_function" href="class_multi_server.html#ad08dd4f1558c2fa37977075fd9668454">MultiServer</a>&amp;&amp; obj) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <a class="code hl_enumeration" href="class_multi_server.html#a05f2fbce39f97a4aea3ca4e8a5f76520">MultiServer::Result</a> <a class="code hl_function" href="class_multi_server.html#a3c6ab56d025fbb50dd1521716f859eef">startServer</a>();</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <a class="code hl_enumeration" href="class_multi_server.html#a05f2fbce39f97a4aea3ca4e8a5f76520">MultiServer::Result</a> <a class="code hl_function" href="class_multi_server.html#add5af07e493ad545ee82b7d966481a47">runServerLoop</a>();</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_multi_server.html#a914389fbf7e944b4b80ccf8f609c2316">stop</a>();</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_multi_server.html#a0759e5145e1876a3553447bae830a54a">isRunning</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="class_multi_server.html#a1aa185a63a212c8cacc3a22c9e612671">  126</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="class_multi_server.html#a1aa185a63a212c8cacc3a22c9e612671">_port</a>;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="class_multi_server.html#ac435f2f0311227fbd1534b83b2f1c661">  128</a></span>    <a class="code hl_class" href="class_t_c_p_socket.html">TCPSocket</a> <a class="code hl_variable" href="class_multi_server.html#ac435f2f0311227fbd1534b83b2f1c661">_tcpSocket</a>;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="class_multi_server.html#ab43ad74d162ad0db0fb8ce85c96f2152">  130</a></span>    <a class="code hl_class" href="class_client_manager.html">ClientManager</a> <a class="code hl_variable" href="class_multi_server.html#ab43ad74d162ad0db0fb8ce85c96f2152">_clientManager</a>;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="class_multi_server.html#a6422120bbd44de002830c98f4f5cdfe5">  132</a></span>    <a class="code hl_class" href="class_select_manager.html">SelectManager</a> <a class="code hl_variable" href="class_multi_server.html#a6422120bbd44de002830c98f4f5cdfe5">_selectManager</a>;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="class_multi_server.html#af88cc615fbb8ae5ff2f26a23e5c6b0e9">  134</a></span>    <a class="code hl_class" href="class_message_sender.html">MessageSender</a> <a class="code hl_variable" href="class_multi_server.html#af88cc615fbb8ae5ff2f26a23e5c6b0e9">_messageSender</a>;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="class_multi_server.html#a031128913fae39403819203793ee2f6c">  136</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_multi_server.html#a031128913fae39403819203793ee2f6c">_isRunning</a>;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_multi_server.html#ae4799250c000becd9277b69d188ad648">handleNewConnection</a>();</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_multi_server.html#adce90ff32f0a97f736d59263d836447e">handleClientMessage</a>(<span class="keywordtype">int</span> client_index);</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_multi_server.html#a424e220806ae76d40dad3212f57f7f69">sendWelcomeMessage</a>(<span class="keywordtype">int</span> client_index);</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_multi_server.html#a09b33835c30ec6ac63e354484030234f">announceJoin</a>(<span class="keywordtype">int</span> client_index);</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_multi_server.html#a145530f5cb105a12c3a4662e7ef0b262">announceLeave</a>(<span class="keywordtype">int</span> client_index);</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    std::string <a class="code hl_function" href="class_multi_server.html#ae5b77230b0dc9bfff431219a08a21b88">makeWecomeMessage</a>(<span class="keyword">const</span> std::string&amp; nickname, <span class="keywordtype">int</span> connectedClientCount);</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>};</div>
+</div>
+<div class="ttc" id="a_client_manager_8h_html"><div class="ttname"><a href="_client_manager_8h.html">ClientManager.h</a></div><div class="ttdoc">다중 클라이언트 채팅 서버에서 클라이언트 소켓을 관리하는 ClientManager 클래스를 정의합니다.</div></div>
+<div class="ttc" id="a_message_receiver_8h_html"><div class="ttname"><a href="_message_receiver_8h.html">MessageReceiver.h</a></div><div class="ttdoc">클라이언트로부터 들어오는 메시지를 처리하는 MessageReceiver 클래스를 선언합니다.</div></div>
+<div class="ttc" id="a_message_sender_8h_html"><div class="ttname"><a href="_message_sender_8h.html">MessageSender.h</a></div><div class="ttdoc">다양한 방식으로 클라이언트들에게 메시지를 전송하는 MessageSender 클래스를 선언합니다.</div></div>
+<div class="ttc" id="a_select_manager_8h_html"><div class="ttname"><a href="_select_manager_8h.html">SelectManager.h</a></div><div class="ttdoc">여러 소켓에 대한 select() 호출을 관리하는 SelectManager 클래스를 선언합니다.</div></div>
+<div class="ttc" id="a_t_c_p_socket_8h_html"><div class="ttname"><a href="_t_c_p_socket_8h.html">TCPSocket.h</a></div><div class="ttdoc">TCP 리스닝 소켓을 제어하는 TCPSocket 클래스를 선언합니다.</div></div>
+<div class="ttc" id="aclass_client_manager_html"><div class="ttname"><a href="class_client_manager.html">ClientManager</a></div><div class="ttdoc">서버에서 고정된 수의 클라이언트 소켓과 별칭을 관리하는 클래스입니다.</div><div class="ttdef"><b>Definition</b> <a href="_client_manager_8h_source.html#l00030">ClientManager.h:31</a></div></div>
+<div class="ttc" id="aclass_message_sender_html"><div class="ttname"><a href="class_message_sender.html">MessageSender</a></div><div class="ttdoc">서버에서 클라이언트 소켓으로 메시지를 보내는 기능을 제공하는 클래스입니다.</div><div class="ttdef"><b>Definition</b> <a href="_message_sender_8h_source.html#l00033">MessageSender.h:34</a></div></div>
+<div class="ttc" id="aclass_multi_server_html_a031128913fae39403819203793ee2f6c"><div class="ttname"><a href="class_multi_server.html#a031128913fae39403819203793ee2f6c">MultiServer::_isRunning</a></div><div class="ttdeci">bool _isRunning</div><div class="ttdoc">서버 루프 실행 여부를 나타내는 플래그.</div><div class="ttdef"><b>Definition</b> <a href="#l00136">MultiServer.h:136</a></div></div>
+<div class="ttc" id="aclass_multi_server_html_a05f2fbce39f97a4aea3ca4e8a5f76520"><div class="ttname"><a href="class_multi_server.html#a05f2fbce39f97a4aea3ca4e8a5f76520">MultiServer::Result</a></div><div class="ttdeci">Result</div><div class="ttdef"><b>Definition</b> <a href="#l00040">MultiServer.h:41</a></div></div>
+<div class="ttc" id="aclass_multi_server_html_a05f2fbce39f97a4aea3ca4e8a5f76520a3138f8a215e46f7c6130d18a39975651"><div class="ttname"><a href="class_multi_server.html#a05f2fbce39f97a4aea3ca4e8a5f76520a3138f8a215e46f7c6130d18a39975651">MultiServer::Result::SERVER_STOPPED</a></div><div class="ttdeci">@ SERVER_STOPPED</div><div class="ttdoc">서버가 정상적으로 중지됨 (메인 루프 종료 신호로 사용).</div><div class="ttdef"><b>Definition</b> <a href="#l00045">MultiServer.h:45</a></div></div>
+<div class="ttc" id="aclass_multi_server_html_a05f2fbce39f97a4aea3ca4e8a5f76520a51d2a797b58df1fe8da2c085dca4a579"><div class="ttname"><a href="class_multi_server.html#a05f2fbce39f97a4aea3ca4e8a5f76520a51d2a797b58df1fe8da2c085dca4a579">MultiServer::Result::FAIL_LOOP</a></div><div class="ttdeci">@ FAIL_LOOP</div><div class="ttdoc">서버 메인 루프 실행 중 오류 발생.(예 : select 실패).</div><div class="ttdef"><b>Definition</b> <a href="#l00044">MultiServer.h:44</a></div></div>
+<div class="ttc" id="aclass_multi_server_html_a05f2fbce39f97a4aea3ca4e8a5f76520aca35fd19fc398dd5c1dbbbd88349422c"><div class="ttname"><a href="class_multi_server.html#a05f2fbce39f97a4aea3ca4e8a5f76520aca35fd19fc398dd5c1dbbbd88349422c">MultiServer::Result::FAIL_START</a></div><div class="ttdeci">@ FAIL_START</div><div class="ttdoc">서버 시작에 실패함 (예: 포트를 바인드하거나 리슨하지 못함).</div><div class="ttdef"><b>Definition</b> <a href="#l00043">MultiServer.h:43</a></div></div>
+<div class="ttc" id="aclass_multi_server_html_a05f2fbce39f97a4aea3ca4e8a5f76520ad0749aaba8b833466dfcbb0428e4f89c"><div class="ttname"><a href="class_multi_server.html#a05f2fbce39f97a4aea3ca4e8a5f76520ad0749aaba8b833466dfcbb0428e4f89c">MultiServer::Result::SUCCESS</a></div><div class="ttdeci">@ SUCCESS</div><div class="ttdoc">서버 작업(시작 또는 루프)이 성공적으로 완료됨.</div><div class="ttdef"><b>Definition</b> <a href="#l00042">MultiServer.h:42</a></div></div>
+<div class="ttc" id="aclass_multi_server_html_a0759e5145e1876a3553447bae830a54a"><div class="ttname"><a href="class_multi_server.html#a0759e5145e1876a3553447bae830a54a">MultiServer::isRunning</a></div><div class="ttdeci">bool isRunning() const</div><div class="ttdoc">서버가 현재 실행 중인지 여부를 확인합니다.</div><div class="ttdef"><b>Definition</b> <a href="_multi_server_8cpp_source.html#l00137">MultiServer.cpp:137</a></div></div>
+<div class="ttc" id="aclass_multi_server_html_a09b33835c30ec6ac63e354484030234f"><div class="ttname"><a href="class_multi_server.html#a09b33835c30ec6ac63e354484030234f">MultiServer::announceJoin</a></div><div class="ttdeci">void announceJoin(int client_index)</div><div class="ttdoc">새로운 클라이언트가 참가했음을 모든 클라이언트에게 알립니다.</div><div class="ttdef"><b>Definition</b> <a href="_multi_server_8cpp_source.html#l00247">MultiServer.cpp:247</a></div></div>
+<div class="ttc" id="aclass_multi_server_html_a145530f5cb105a12c3a4662e7ef0b262"><div class="ttname"><a href="class_multi_server.html#a145530f5cb105a12c3a4662e7ef0b262">MultiServer::announceLeave</a></div><div class="ttdeci">void announceLeave(int client_index)</div><div class="ttdoc">특정 클라이언트가 떠났음을 모든 클라이언트에게 알립니다.</div><div class="ttdef"><b>Definition</b> <a href="_multi_server_8cpp_source.html#l00263">MultiServer.cpp:263</a></div></div>
+<div class="ttc" id="aclass_multi_server_html_a1aa185a63a212c8cacc3a22c9e612671"><div class="ttname"><a href="class_multi_server.html#a1aa185a63a212c8cacc3a22c9e612671">MultiServer::_port</a></div><div class="ttdeci">int _port</div><div class="ttdoc">서버가 수신 대기하는 TCP 포트 번호.</div><div class="ttdef"><b>Definition</b> <a href="#l00126">MultiServer.h:126</a></div></div>
+<div class="ttc" id="aclass_multi_server_html_a3c6ab56d025fbb50dd1521716f859eef"><div class="ttname"><a href="class_multi_server.html#a3c6ab56d025fbb50dd1521716f859eef">MultiServer::startServer</a></div><div class="ttdeci">MultiServer::Result startServer()</div><div class="ttdoc">서버를 시작하여 리스닝 소켓을 초기화하고 클라이언트 수신을 시작합니다.</div><div class="ttdef"><b>Definition</b> <a href="_multi_server_8cpp_source.html#l00026">MultiServer.cpp:26</a></div></div>
+<div class="ttc" id="aclass_multi_server_html_a424e220806ae76d40dad3212f57f7f69"><div class="ttname"><a href="class_multi_server.html#a424e220806ae76d40dad3212f57f7f69">MultiServer::sendWelcomeMessage</a></div><div class="ttdeci">void sendWelcomeMessage(int client_index)</div><div class="ttdoc">새로 연결된 클라이언트에게 환영 메시지를 보냅니다.</div><div class="ttdef"><b>Definition</b> <a href="_multi_server_8cpp_source.html#l00225">MultiServer.cpp:225</a></div></div>
+<div class="ttc" id="aclass_multi_server_html_a6422120bbd44de002830c98f4f5cdfe5"><div class="ttname"><a href="class_multi_server.html#a6422120bbd44de002830c98f4f5cdfe5">MultiServer::_selectManager</a></div><div class="ttdeci">SelectManager _selectManager</div><div class="ttdoc">fd_set 구성 및 select() 호출하는 객체.</div><div class="ttdef"><b>Definition</b> <a href="#l00132">MultiServer.h:132</a></div></div>
+<div class="ttc" id="aclass_multi_server_html_a6857ad878617b15ac2d6ec72958ff2f8"><div class="ttname"><a href="class_multi_server.html#a6857ad878617b15ac2d6ec72958ff2f8">MultiServer::operator=</a></div><div class="ttdeci">MultiServer &amp; operator=(MultiServer &amp;&amp;obj)=delete</div></div>
+<div class="ttc" id="aclass_multi_server_html_a914389fbf7e944b4b80ccf8f609c2316"><div class="ttname"><a href="class_multi_server.html#a914389fbf7e944b4b80ccf8f609c2316">MultiServer::stop</a></div><div class="ttdeci">void stop()</div><div class="ttdoc">서버에 더 이상 새로운 연결을 받지 말고 메인 루프를 종료하도록 신호를 보냅니다.</div><div class="ttdef"><b>Definition</b> <a href="_multi_server_8cpp_source.html#l00128">MultiServer.cpp:128</a></div></div>
+<div class="ttc" id="aclass_multi_server_html_ab3aad1e5dff2a3b472378c6dfc1e03e2"><div class="ttname"><a href="class_multi_server.html#ab3aad1e5dff2a3b472378c6dfc1e03e2">MultiServer::MultiServer</a></div><div class="ttdeci">MultiServer(const MultiServer &amp;obj)=delete</div></div>
+<div class="ttc" id="aclass_multi_server_html_ab43ad74d162ad0db0fb8ce85c96f2152"><div class="ttname"><a href="class_multi_server.html#ab43ad74d162ad0db0fb8ce85c96f2152">MultiServer::_clientManager</a></div><div class="ttdeci">ClientManager _clientManager</div><div class="ttdoc">연결된 클라이언트 소켓들과 별칭을 관리하는 객체.</div><div class="ttdef"><b>Definition</b> <a href="#l00130">MultiServer.h:130</a></div></div>
+<div class="ttc" id="aclass_multi_server_html_ac435f2f0311227fbd1534b83b2f1c661"><div class="ttname"><a href="class_multi_server.html#ac435f2f0311227fbd1534b83b2f1c661">MultiServer::_tcpSocket</a></div><div class="ttdeci">TCPSocket _tcpSocket</div><div class="ttdoc">리스닝(클라이언트 받기용) TCP 소켓(create, bind, listen, accept 관리).</div><div class="ttdef"><b>Definition</b> <a href="#l00128">MultiServer.h:128</a></div></div>
+<div class="ttc" id="aclass_multi_server_html_ad08dd4f1558c2fa37977075fd9668454"><div class="ttname"><a href="class_multi_server.html#ad08dd4f1558c2fa37977075fd9668454">MultiServer::MultiServer</a></div><div class="ttdeci">MultiServer(int port)</div><div class="ttdoc">지정된 포트 번호로 MultiServer를 생성합니다.</div><div class="ttdef"><b>Definition</b> <a href="_multi_server_8cpp_source.html#l00014">MultiServer.cpp:14</a></div></div>
+<div class="ttc" id="aclass_multi_server_html_adce90ff32f0a97f736d59263d836447e"><div class="ttname"><a href="class_multi_server.html#adce90ff32f0a97f736d59263d836447e">MultiServer::handleClientMessage</a></div><div class="ttdeci">bool handleClientMessage(int client_index)</div><div class="ttdoc">지정된 인덱스의 클라이언트로부터 들어온 메시지를 처리합니다.</div><div class="ttdef"><b>Definition</b> <a href="_multi_server_8cpp_source.html#l00172">MultiServer.cpp:172</a></div></div>
+<div class="ttc" id="aclass_multi_server_html_add5af07e493ad545ee82b7d966481a47"><div class="ttname"><a href="class_multi_server.html#add5af07e493ad545ee82b7d966481a47">MultiServer::runServerLoop</a></div><div class="ttdeci">MultiServer::Result runServerLoop()</div><div class="ttdoc">메인 서버 루프를 실행하여 클라이언트 연결 및 메시지 처리를 수행합니다.</div><div class="ttdef"><b>Definition</b> <a href="_multi_server_8cpp_source.html#l00054">MultiServer.cpp:54</a></div></div>
+<div class="ttc" id="aclass_multi_server_html_ae4799250c000becd9277b69d188ad648"><div class="ttname"><a href="class_multi_server.html#ae4799250c000becd9277b69d188ad648">MultiServer::handleNewConnection</a></div><div class="ttdeci">bool handleNewConnection()</div><div class="ttdoc">새로운 클라이언트 연결을 수락하여 ClientManager에 등록합니다.</div><div class="ttdef"><b>Definition</b> <a href="_multi_server_8cpp_source.html#l00142">MultiServer.cpp:142</a></div></div>
+<div class="ttc" id="aclass_multi_server_html_ae5b77230b0dc9bfff431219a08a21b88"><div class="ttname"><a href="class_multi_server.html#ae5b77230b0dc9bfff431219a08a21b88">MultiServer::makeWecomeMessage</a></div><div class="ttdeci">std::string makeWecomeMessage(const std::string &amp;nickname, int connectedClientCount)</div><div class="ttdoc">새로 연결된 클라이언트를 위한 환영 메시지를 생성합니다.</div><div class="ttdef"><b>Definition</b> <a href="_multi_server_8cpp_source.html#l00277">MultiServer.cpp:277</a></div></div>
+<div class="ttc" id="aclass_multi_server_html_ae6e9f083d34175fbca6c38f562daab3d"><div class="ttname"><a href="class_multi_server.html#ae6e9f083d34175fbca6c38f562daab3d">MultiServer::~MultiServer</a></div><div class="ttdeci">~MultiServer()</div><div class="ttdoc">소멸자. 서버 리소스를 정리합니다.</div><div class="ttdef"><b>Definition</b> <a href="_multi_server_8cpp_source.html#l00020">MultiServer.cpp:20</a></div></div>
+<div class="ttc" id="aclass_multi_server_html_ae86a59c8b6b6943298db5bd0d5c37a29"><div class="ttname"><a href="class_multi_server.html#ae86a59c8b6b6943298db5bd0d5c37a29">MultiServer::MultiServer</a></div><div class="ttdeci">MultiServer(MultiServer &amp;&amp;obj)=delete</div></div>
+<div class="ttc" id="aclass_multi_server_html_af88cc615fbb8ae5ff2f26a23e5c6b0e9"><div class="ttname"><a href="class_multi_server.html#af88cc615fbb8ae5ff2f26a23e5c6b0e9">MultiServer::_messageSender</a></div><div class="ttdeci">MessageSender _messageSender</div><div class="ttdoc">서버에서 클라이언트들에게 메시지를 보내는 객체.</div><div class="ttdef"><b>Definition</b> <a href="#l00134">MultiServer.h:134</a></div></div>
+<div class="ttc" id="aclass_multi_server_html_afce4e70caa3021b2657d55d84cb03fdc"><div class="ttname"><a href="class_multi_server.html#afce4e70caa3021b2657d55d84cb03fdc">MultiServer::operator=</a></div><div class="ttdeci">MultiServer &amp; operator=(const MultiServer &amp;obj)=delete</div></div>
+<div class="ttc" id="aclass_select_manager_html"><div class="ttname"><a href="class_select_manager.html">SelectManager</a></div><div class="ttdoc">소켓 집합을 관리하고 select()를 사용하여 네트워크 I/O를 다중화합니다.</div><div class="ttdef"><b>Definition</b> <a href="_select_manager_8h_source.html#l00027">SelectManager.h:28</a></div></div>
+<div class="ttc" id="aclass_t_c_p_socket_html"><div class="ttname"><a href="class_t_c_p_socket.html">TCPSocket</a></div><div class="ttdoc">TCP 서버 소켓과 그 기본 동작(생성, 바인드, 연결 대기, 연결 수락, 종료)을 캡슐화합니다.</div><div class="ttdef"><b>Definition</b> <a href="_t_c_p_socket_8h_source.html#l00026">TCPSocket.h:27</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_abbf5edca481bc51d1cdb4c1a782205f.html">SocketBuild</a></li><li class="navelem"><a href="_multi_server_8h.html">MultiServer.h</a></li>
+    <li class="footer">다음에 의해 생성됨 :  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

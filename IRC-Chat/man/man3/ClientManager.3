@@ -1,0 +1,356 @@
+.TH "ClientManager" 3 "Version 1.0.0" "ChatMultiServerDoxygen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ClientManager \- 서버에서 고정된 수의 클라이언트 소켓과 별칭을 관리하는 클래스입니다\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <ClientManager\&.h>\fP
+.SS "Public 멤버 함수"
+
+.in +1c
+.ti -1c
+.RI "\fBClientManager\fP ()"
+.br
+.RI "ClientManager를 생성하고 내부 데이터를 초기화합니다\&. "
+.ti -1c
+.RI "\fB~ClientManager\fP ()"
+.br
+.RI "ClientManager의 소멸자입니다\&. 관리하는 모든 클라이언트 소켓을 닫습니다\&. "
+.ti -1c
+.RI "\fBClientManager\fP (const \fBClientManager\fP &obj)=delete"
+.br
+.ti -1c
+.RI "\fBClientManager\fP & \fBoperator=\fP (const \fBClientManager\fP &obj)=delete"
+.br
+.ti -1c
+.RI "\fBClientManager\fP (\fBClientManager\fP &&obj)=delete"
+.br
+.ti -1c
+.RI "\fBClientManager\fP & \fBoperator=\fP (\fBClientManager\fP &&obj)=delete"
+.br
+.ti -1c
+.RI "int \fBaddClient\fP (SOCKET client_socket)"
+.br
+.RI "새로운 클라이언트 소켓을 관리자에 추가하고 별칭을 할당합니다\&. "
+.ti -1c
+.RI "bool \fBremoveClient\fP (int client_index)"
+.br
+.RI "지정한 인덱스의 클라이언트 소켓을 제거합니다\&. "
+.ti -1c
+.RI "SOCKET \fBgetClientSocket\fP (int client_index) const"
+.br
+.RI "주어진 클라이언트 인덱스에 대한 소켓을 가져옵니다\&. "
+.ti -1c
+.RI "int \fBgetConnectedClientCount\fP () const"
+.br
+.RI "현재 연결된(관리 중인) 클라이언트의 수를 반환합니다\&. "
+.ti -1c
+.RI "bool \fBisValidIndex\fP (int client_index) const"
+.br
+.RI "클라이언트 인덱스가 유효한 범위 내인지를 확인합니다\&. "
+.ti -1c
+.RI "int \fBgetAllSockets\fP (SOCKET *sockets, int max_count) const"
+.br
+.RI "모든 활성 클라이언트 소켓을 주어진 배열에 복사합니다\&. "
+.ti -1c
+.RI "std::string \fBgetClientNickname\fP (int client_index) const"
+.br
+.RI "주어진 인덱스가 유효하다면 클라이언트 자동 생성 별칭을 반환합니다\&. "
+.in -1c
+.SS "정적 Public 속성"
+
+.in +1c
+.ti -1c
+.RI "static const int \fBMAX_CLIENTS\fP = 10"
+.br
+.RI "서버에서 동시에 관리할 수 있는 최대 클라이언트 수입니다\&. "
+.in -1c
+.SS "Private 멤버 함수"
+
+.in +1c
+.ti -1c
+.RI "void \fBinitalizeClientSockets\fP ()"
+.br
+.RI "클라이언트 소켓 배열의 모든 소켓을 INVALID_SOCKET으로 설정 초기화합니다\&. "
+.ti -1c
+.RI "void \fBinitalizeAvailableList\fP ()"
+.br
+.RI "사용 가능한 클라이언트 인덱스 (0 ~ MAX_CLIENTS-1) 목록을 초기화합니다\&. "
+.ti -1c
+.RI "int \fBgetNextIndex\fP ()"
+.br
+.RI "새 연결에 사용할 사용 가능한 클라이언트 인덱스를 가져옵니다\&. "
+.in -1c
+.SS "Private 속성"
+
+.in +1c
+.ti -1c
+.RI "std::array< SOCKET, \fBMAX_CLIENTS\fP > \fB_clientSockets\fP"
+.br
+.RI "클라이언트 소켓 배열 (크기 MAX_CLIENTS)\&. 사용되지 않은 슬롯에는 INVALID_SOCKET\&. "
+.ti -1c
+.RI "std::priority_queue< int, std::vector< int >, std::greater< int > > \fB_availableList\fP"
+.br
+.RI "재사용을 위한 가용 인덱스 목록 (우선순위 큐)\&. "
+.ti -1c
+.RI "int \fB_connectedSocketCount\fP"
+.br
+.RI "현재 연결된 클라이언트 소켓 개수\&. "
+.in -1c
+.SH "상세한 설명"
+.PP 
+서버에서 고정된 수의 클라이언트 소켓과 별칭을 관리하는 클래스입니다\&. 
+
+이 클래스는 클라이언트 연결 추가/제거, 활성 소켓 추적, 각 클라이언트에 고유 별칭 할당을 담당합니다\&.
+.br
+ 최대 MAX_CLIENTS개의 클라이언트를 동시 관리할 수 있습니다\&. 
+.PP
+\fBClientManager\&.h\fP 파일의 \fB30\fP 번째 라인에서 정의되었습니다\&.
+.SH "생성자 & 소멸자 문서화"
+.PP 
+.SS "ClientManager::ClientManager ()"
+
+.PP
+ClientManager를 생성하고 내부 데이터를 초기화합니다\&. 
+.PP
+\fB주의\fP
+.RS 4
+클라이언트 소켓 배열과 사용 가능한 인덱스 목록을 초기화합니다\&.
+.br
+ 모든 클라이언트 슬롯은 초기에는 비어 있습니다\&. 
+.RE
+.PP
+
+.PP
+\fBClientManager\&.cpp\fP 파일의 \fB13\fP 번째 라인에서 정의되었습니다\&.
+.SS "ClientManager::~ClientManager ()"
+
+.PP
+ClientManager의 소멸자입니다\&. 관리하는 모든 클라이언트 소켓을 닫습니다\&. 
+.PP
+\fB주의\fP
+.RS 4
+배열에 열린 모든 클라이언트 소켓이 닫힙니다\&.
+.br
+ 서버를 종료할 때 ClientManager를 소멸시켜 자원을 해제해야 합니다\&. 
+.RE
+.PP
+
+.PP
+\fBClientManager\&.cpp\fP 파일의 \fB21\fP 번째 라인에서 정의되었습니다\&.
+.SS "ClientManager::ClientManager (const \fBClientManager\fP & obj)\fR [delete]\fP"
+
+.SS "ClientManager::ClientManager (\fBClientManager\fP && obj)\fR [delete]\fP"
+
+.SH "멤버 함수 문서화"
+.PP 
+.SS "int ClientManager::addClient (SOCKET client_socket)"
+
+.PP
+새로운 클라이언트 소켓을 관리자에 추가하고 별칭을 할당합니다\&. 
+.PP
+\fB매개변수\fP
+.RS 4
+\fI[IN]\fP SOCKET client_socket : 추가할 클라이언트 소켓 (accept된 연결 소켓)\&. 
+.RE
+.PP
+\fB반환값\fP
+.RS 4
+int : 새 클라이언트에 할당된 인덱스(0 ~ MAX_CLIENTS-1), 추가 실패 시 -1\&. 
+.RE
+.PP
+\fB주의\fP
+.RS 4
+클라이언트에게 "Player_{N}" 형식의 별칭이 부여됩니다 (N은 인덱스)\&. 
+.RE
+.PP
+
+.PP
+\fBClientManager\&.cpp\fP 파일의 \fB34\fP 번째 라인에서 정의되었습니다\&.
+.SS "int ClientManager::getAllSockets (SOCKET * sockets, int max_count) const"
+
+.PP
+모든 활성 클라이언트 소켓을 주어진 배열에 복사합니다\&. 
+.PP
+\fB매개변수\fP
+.RS 4
+\fI[OUT]\fP SOCKET* sockets : 클라이언트 소켓 핸들을 저장할 배열\&. 
+.br
+\fI[IN]\fP int max_count : 배열이 담을 수 있는 최대 소켓 개수\&. 
+.RE
+.PP
+\fB반환값\fP
+.RS 4
+int : 실제 배열에 복사된 클라이언트 소켓의 개수\&. 
+.RE
+.PP
+\fB주의\fP
+.RS 4
+현재 모든 클라이언트 소켓 목록을 얻는 데 사용합니다\&. 
+.RE
+.PP
+
+.PP
+\fBClientManager\&.cpp\fP 파일의 \fB106\fP 번째 라인에서 정의되었습니다\&.
+.SS "std::string ClientManager::getClientNickname (int client_index) const"
+
+.PP
+주어진 인덱스가 유효하다면 클라이언트 자동 생성 별칭을 반환합니다\&. 
+.PP
+\fB매개변수\fP
+.RS 4
+\fI[IN]\fP int client_index : 클라이언트의 인덱스\&. 
+.RE
+.PP
+\fB반환값\fP
+.RS 4
+std::string : 해당 클라이언트의 별칭 (예: "Player_5"), 인덱스가 유효하지 않으면 "Player_Unknown"\&. 
+.RE
+.PP
+
+.PP
+\fBClientManager\&.cpp\fP 파일의 \fB122\fP 번째 라인에서 정의되었습니다\&.
+.SS "SOCKET ClientManager::getClientSocket (int client_index) const"
+
+.PP
+주어진 클라이언트 인덱스에 대한 소켓을 가져옵니다\&. 
+.PP
+\fB매개변수\fP
+.RS 4
+\fI[IN]\fP int client_index : 소켓을 요청할 클라이언트의 인덱스\&. 
+.RE
+.PP
+\fB반환값\fP
+.RS 4
+SOCKET : 해당 인덱스의 클라이언트 소켓(유효하지 않으면 INVALID_SOCKET)\&. 
+.RE
+.PP
+
+.PP
+\fBClientManager\&.cpp\fP 파일의 \fB86\fP 번째 라인에서 정의되었습니다\&.
+.SS "int ClientManager::getConnectedClientCount () const"
+
+.PP
+현재 연결된(관리 중인) 클라이언트의 수를 반환합니다\&. 
+.PP
+\fB반환값\fP
+.RS 4
+int : 연결된 클라이언트 개수\&. 
+.RE
+.PP
+
+.PP
+\fBClientManager\&.cpp\fP 파일의 \fB96\fP 번째 라인에서 정의되었습니다\&.
+.SS "int ClientManager::getNextIndex ()\fR [private]\fP"
+
+.PP
+새 연결에 사용할 사용 가능한 클라이언트 인덱스를 가져옵니다\&. 
+.PP
+\fB반환값\fP
+.RS 4
+int : 사용 가능한 인덱스 (0 ~ MAX_CLIENTS-1) 또는 서버에 빈 슬롯이 없을 경우 -1\&. 
+.RE
+.PP
+
+.PP
+\fBClientManager\&.cpp\fP 파일의 \fB160\fP 번째 라인에서 정의되었습니다\&.
+.SS "void ClientManager::initalizeAvailableList ()\fR [private]\fP"
+
+.PP
+사용 가능한 클라이언트 인덱스 (0 ~ MAX_CLIENTS-1) 목록을 초기화합니다\&. 
+.PP
+\fB반환값\fP
+.RS 4
+없음\&. 
+.RE
+.PP
+
+.PP
+\fBClientManager\&.cpp\fP 파일의 \fB150\fP 번째 라인에서 정의되었습니다\&.
+.SS "void ClientManager::initalizeClientSockets ()\fR [private]\fP"
+
+.PP
+클라이언트 소켓 배열의 모든 소켓을 INVALID_SOCKET으로 설정 초기화합니다\&. 
+.PP
+\fB반환값\fP
+.RS 4
+없음\&. 
+.RE
+.PP
+
+.PP
+\fBClientManager\&.cpp\fP 파일의 \fB140\fP 번째 라인에서 정의되었습니다\&.
+.SS "bool ClientManager::isValidIndex (int client_index) const"
+
+.PP
+클라이언트 인덱스가 유효한 범위 내인지를 확인합니다\&. 
+.PP
+\fB매개변수\fP
+.RS 4
+\fI[IN]\fP int client_index : 검증할 클라이언트 인덱스\&. 
+.RE
+.PP
+\fB반환값\fP
+.RS 4
+bool : 인덱스가 유효한 범위(0 ~ MAX_CLIENTS - 1)이면 true, 아니면 false\&. 
+.RE
+.PP
+
+.PP
+\fBClientManager\&.cpp\fP 파일의 \fB101\fP 번째 라인에서 정의되었습니다\&.
+.SS "\fBClientManager\fP & ClientManager::operator= (\fBClientManager\fP && obj)\fR [delete]\fP"
+
+.SS "\fBClientManager\fP & ClientManager::operator= (const \fBClientManager\fP & obj)\fR [delete]\fP"
+
+.SS "bool ClientManager::removeClient (int client_index)"
+
+.PP
+지정한 인덱스의 클라이언트 소켓을 제거합니다\&. 
+.PP
+\fB매개변수\fP
+.RS 4
+\fI[IN]\fP int client_index : 제거할 클라이언트의 인덱스\&. 
+.RE
+.PP
+\fB반환값\fP
+.RS 4
+bool : 제거에 성공하면 true, 인덱스가 잘못되었거나 실패 시 false\&. 
+.RE
+.PP
+
+.PP
+\fBClientManager\&.cpp\fP 파일의 \fB58\fP 번째 라인에서 정의되었습니다\&.
+.SH "멤버 데이터 문서화"
+.PP 
+.SS "std::priority_queue<int, std::vector<int>, std::greater<int> > ClientManager::_availableList\fR [private]\fP"
+
+.PP
+재사용을 위한 가용 인덱스 목록 (우선순위 큐)\&. 
+.PP
+\fBClientManager\&.h\fP 파일의 \fB130\fP 번째 라인에서 정의되었습니다\&.
+.SS "std::array<SOCKET, \fBMAX_CLIENTS\fP> ClientManager::_clientSockets\fR [private]\fP"
+
+.PP
+클라이언트 소켓 배열 (크기 MAX_CLIENTS)\&. 사용되지 않은 슬롯에는 INVALID_SOCKET\&. 
+.PP
+\fBClientManager\&.h\fP 파일의 \fB127\fP 번째 라인에서 정의되었습니다\&.
+.SS "int ClientManager::_connectedSocketCount\fR [private]\fP"
+
+.PP
+현재 연결된 클라이언트 소켓 개수\&. 
+.PP
+\fBClientManager\&.h\fP 파일의 \fB133\fP 번째 라인에서 정의되었습니다\&.
+.SS "const int ClientManager::MAX_CLIENTS = 10\fR [static]\fP"
+
+.PP
+서버에서 동시에 관리할 수 있는 최대 클라이언트 수입니다\&. 
+.PP
+\fBClientManager\&.h\fP 파일의 \fB35\fP 번째 라인에서 정의되었습니다\&.
+
+.SH "작성자"
+.PP 
+소스 코드로부터 ChatMultiServerDoxygen를 위해 Doxygen에 의해 자동으로 생성됨\&.

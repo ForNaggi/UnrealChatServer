@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['_5favailablelist_0',['_availableList',['../class_client_manager.html#ac0a2fcf1bfd32fee35171a48ee92edbf',1,'ClientManager']]],
+  ['_5fclientmanager_1',['_clientManager',['../class_multi_server.html#ab43ad74d162ad0db0fb8ce85c96f2152',1,'MultiServer']]],
+  ['_5fclientsocket_2',['_clientSocket',['../class_message_receiver.html#a2905ffef925668d0c802ad1fdf28dab6',1,'MessageReceiver']]],
+  ['_5fclientsockets_3',['_clientSockets',['../class_client_manager.html#aa0b45296671fe2f5471e900a4c6520e7',1,'ClientManager']]],
+  ['_5fconnectedsocketcount_4',['_connectedSocketCount',['../class_client_manager.html#a77ff4acb1ed9631a2abf3b121cb809ea',1,'ClientManager']]],
+  ['_5fcopyset_5',['_copySet',['../class_select_manager.html#a9867d9457e5bd481c1b6e829932e310c',1,'SelectManager']]],
+  ['_5fisrunning_6',['_isRunning',['../class_multi_server.html#a031128913fae39403819203793ee2f6c',1,'MultiServer']]],
+  ['_5flastmessage_7',['_lastMessage',['../class_message_receiver.html#a9e44455ed76f630e9bb73614033cfabe',1,'MessageReceiver']]],
+  ['_5fmessagesender_8',['_messageSender',['../class_multi_server.html#af88cc615fbb8ae5ff2f26a23e5c6b0e9',1,'MultiServer']]],
+  ['_5fmultiserver_9',['_multiServer',['../class_program.html#ae2c0ef9389cacfee338ccfe6e3a36469',1,'Program']]],
+  ['_5foriginset_10',['_originSet',['../class_select_manager.html#abba6d4ec35ce6c709985333d27b00e77',1,'SelectManager']]],
+  ['_5fport_11',['_port',['../class_multi_server.html#a1aa185a63a212c8cacc3a22c9e612671',1,'MultiServer']]],
+  ['_5fselectmanager_12',['_selectManager',['../class_multi_server.html#a6422120bbd44de002830c98f4f5cdfe5',1,'MultiServer']]],
+  ['_5fsocketcount_13',['_socketCount',['../class_select_manager.html#a3c885ce2cc540e6d7acf4d47178bb97f',1,'SelectManager']]],
+  ['_5fsocketiniter_14',['_socketIniter',['../class_program.html#a2316692413f16195ab641e3e32ca8cf2',1,'Program']]],
+  ['_5ftcpsocket_15',['_tcpSocket',['../class_multi_server.html#ac435f2f0311227fbd1534b83b2f1c661',1,'MultiServer::_tcpSocket'],['../class_t_c_p_socket.html#a17836ac496897cff17892d7c05d1f742',1,'TCPSocket::_tcpSocket']]],
+  ['_5fwsadata_16',['_wsaData',['../class_socket_initer.html#a63a389260b896a3d534262cc971e85d8',1,'SocketIniter']]]
+];

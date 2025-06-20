@@ -1,0 +1,28 @@
+\doxysection{Socket\+Build/\+Select\+Manager.h 파일 참조}
+\hypertarget{_select_manager_8h}{}\label{_select_manager_8h}\index{SocketBuild/SelectManager.h@{SocketBuild/SelectManager.h}}
+
+
+여러 소켓에 대한 {\ttfamily select()} 호출을 관리하는 \doxylink{class_select_manager}{Select\+Manager} 클래스를 선언합니다.  
+
+
+{\ttfamily \#include $<$Win\+Sock2.\+h$>$}\newline
+\doxysubsubsection*{클래스}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_select_manager}{Select\+Manager}}
+\begin{DoxyCompactList}\small\item\em 소켓 집합을 관리하고 select()를 사용하여 네트워크 I/\+O를 다중화합니다. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+여러 소켓에 대한 {\ttfamily select()} 호출을 관리하는 \doxylink{class_select_manager}{Select\+Manager} 클래스를 선언합니다. 
+
+\begin{DoxyAuthor}{작성자}
+최성락 
+\end{DoxyAuthor}
+\begin{DoxyDate}{날짜}
+2025-\/06-\/17
+\end{DoxyDate}
+소켓 I/O 다중화를 위해 {\ttfamily select} 함수의 설정과 사용을 캡슐화합니다. 감시할 소켓 집합을 유지하고, 소켓이 준비되었는지, 타임아웃됐는지, 오류가 발생했는지를 나타내는 결과를 제공합니다. 
+
+\mbox{\hyperlink{_select_manager_8h_source}{Select\+Manager.\+h}} 파일에서 정의되었습니다.
+

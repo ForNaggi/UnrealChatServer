@@ -1,0 +1,183 @@
+\doxysection{Socket\+Initer 클래스 참조}
+\hypertarget{class_socket_initer}{}\label{class_socket_initer}\index{SocketIniter@{SocketIniter}}
+
+
+애플리케이션의 Win\+Sock 초기화와 종료를 수행합니다.  
+
+
+
+
+{\ttfamily \#include $<$Socket\+Initer.\+h$>$}
+
+\doxysubsubsection*{Public 타입}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{class_socket_initer_a4496e3849c4f7eb7be8a9bdfbeda72fe}{Result}} \{ \mbox{\hyperlink{class_socket_initer_a4496e3849c4f7eb7be8a9bdfbeda72feaaf0ccda13f4a879cac0e56bc6a75eba0}{FAIL\+\_\+\+SOCKET}}
+, \mbox{\hyperlink{class_socket_initer_a4496e3849c4f7eb7be8a9bdfbeda72feafa4b20112e3ea01a19c5333b8eb4c537}{SUCCESS\+\_\+\+SOCKET}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_socket_initer_ab7ca60d8f8da0df5eec7ea353183e3a3}{Socket\+Initer}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{class_socket_initer}{Socket\+Initer} 객체를 생성합니다 (이 시점에서는 WSAStartup을 호출하지 않습니다). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_socket_initer_aa83f6250a68e1875a3fd89c4be676d15}{\texorpdfstring{$\sim$}{\string~}\+Socket\+Initer}} ()
+\begin{DoxyCompactList}\small\item\em 소멸자입니다. WSACleanup을 호출하여 Win\+Sock을 정리합니다. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_socket_initer_a4496e3849c4f7eb7be8a9bdfbeda72fe}{Socket\+Initer\+::\+Result}} \mbox{\hyperlink{class_socket_initer_a4ce0c4a0794fc9eb469334e875eca9fb}{init}} ()
+\begin{DoxyCompactList}\small\item\em WSAStartup을 호출하여 Win\+Sock을 초기화하고 결과를 로그로 남깁니다. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_socket_initer_aecb544533fa7881bb7ee864bacd60aa9}{wsa\+Data\+To\+String}} () const
+\begin{DoxyCompactList}\small\item\em Win\+Sock 구현 버전에 대한 정보를 담은 문자열을 반환합니다. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+WSADATA \mbox{\hyperlink{class_socket_initer_a63a389260b896a3d534262cc971e85d8}{\+\_\+wsa\+Data}}
+\begin{DoxyCompactList}\small\item\em winsock 대한 정보를 담고 있습니다 (WSAStartup에 의해 설정됨). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+애플리케이션의 Win\+Sock 초기화와 종료를 수행합니다. 
+
+프로그램 시작 시 이 클래스를 사용하여 WSAStartup을 호출하고 필요한 소켓 DLL들을 로드합니다. ~\newline
+객체가 소멸될 때 WSACleanup을 호출하여 Win\+Sock을 종료합니다. ~\newline
+명시적으로 초기화를 수행하는 메서드와 디버깅을 위한 Win\+Sock 정보 출력 메서드를 제공합니다. 
+
+\mbox{\hyperlink{_socket_initer_8h_source}{Socket\+Initer.\+h}} 파일의 \mbox{\hyperlink{_socket_initer_8h_source_l00031}{31}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-enum-members}
+\Hypertarget{class_socket_initer_doc-enum-members}
+\doxysubsection{멤버 열거형 문서화}
+\Hypertarget{class_socket_initer_a4496e3849c4f7eb7be8a9bdfbeda72fe}\index{SocketIniter@{SocketIniter}!Result@{Result}}
+\index{Result@{Result}!SocketIniter@{SocketIniter}}
+\doxysubsubsection{\texorpdfstring{Result}{Result}}
+{\footnotesize\ttfamily \label{class_socket_initer_a4496e3849c4f7eb7be8a9bdfbeda72fe} 
+enum class \mbox{\hyperlink{class_socket_initer_a4496e3849c4f7eb7be8a9bdfbeda72fe}{Socket\+Initer\+::\+Result}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}[2]{열거형 멤버}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAIL\_SOCKET@{FAIL\_SOCKET}!SocketIniter@{SocketIniter}}\index{SocketIniter@{SocketIniter}!FAIL\_SOCKET@{FAIL\_SOCKET}}}\Hypertarget{class_socket_initer_a4496e3849c4f7eb7be8a9bdfbeda72feaaf0ccda13f4a879cac0e56bc6a75eba0}\label{class_socket_initer_a4496e3849c4f7eb7be8a9bdfbeda72feaaf0ccda13f4a879cac0e56bc6a75eba0} 
+FAIL\+\_\+\+SOCKET&Win\+Sock 초기화 실패. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SUCCESS\_SOCKET@{SUCCESS\_SOCKET}!SocketIniter@{SocketIniter}}\index{SocketIniter@{SocketIniter}!SUCCESS\_SOCKET@{SUCCESS\_SOCKET}}}\Hypertarget{class_socket_initer_a4496e3849c4f7eb7be8a9bdfbeda72feafa4b20112e3ea01a19c5333b8eb4c537}\label{class_socket_initer_a4496e3849c4f7eb7be8a9bdfbeda72feafa4b20112e3ea01a19c5333b8eb4c537} 
+SUCCESS\+\_\+\+SOCKET&Win\+Sock 초기화 성공. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\mbox{\hyperlink{_socket_initer_8h_source}{Socket\+Initer.\+h}} 파일의 \mbox{\hyperlink{_socket_initer_8h_source_l00039}{39}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_socket_initer_doc-constructors}
+\doxysubsection{생성자 \& 소멸자 문서화}
+\Hypertarget{class_socket_initer_ab7ca60d8f8da0df5eec7ea353183e3a3}\index{SocketIniter@{SocketIniter}!SocketIniter@{SocketIniter}}
+\index{SocketIniter@{SocketIniter}!SocketIniter@{SocketIniter}}
+\doxysubsubsection{\texorpdfstring{SocketIniter()}{SocketIniter()}}
+{\footnotesize\ttfamily \label{class_socket_initer_ab7ca60d8f8da0df5eec7ea353183e3a3} 
+Socket\+Initer\+::\+Socket\+Initer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\doxylink{class_socket_initer}{Socket\+Initer} 객체를 생성합니다 (이 시점에서는 WSAStartup을 호출하지 않습니다). 
+
+\begin{DoxyReturn}{반환값}
+없음.
+\end{DoxyReturn}
+내부 WSADATA 구조체를 초기화합니다. ~\newline
+생성 후 실제 Win\+Sock 초기화를 위해 \doxylink{class_socket_initer_a4ce0c4a0794fc9eb469334e875eca9fb}{init()}를 호출해야 합니다. 
+
+\mbox{\hyperlink{_socket_initer_8cpp_source}{Socket\+Initer.\+cpp}} 파일의 \mbox{\hyperlink{_socket_initer_8cpp_source_l00016}{16}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_socket_initer_aa83f6250a68e1875a3fd89c4be676d15}\index{SocketIniter@{SocketIniter}!````~SocketIniter@{\texorpdfstring{$\sim$}{\string~}SocketIniter}}
+\index{````~SocketIniter@{\texorpdfstring{$\sim$}{\string~}SocketIniter}!SocketIniter@{SocketIniter}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}SocketIniter()}{\string~SocketIniter()}}
+{\footnotesize\ttfamily \label{class_socket_initer_aa83f6250a68e1875a3fd89c4be676d15} 
+Socket\+Initer\+::\texorpdfstring{$\sim$}{\string~}\+Socket\+Initer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+소멸자입니다. WSACleanup을 호출하여 Win\+Sock을 정리합니다. 
+
+\begin{DoxyReturn}{반환값}
+없음.
+\end{DoxyReturn}
+\begin{DoxyNote}{주의}
+소멸자가 실행되기 전에 모든 소켓을 닫아야 합니다. ~\newline
+WSACleanup은 WSAStartup에서 할당한 자원을 해제합니다. 
+\end{DoxyNote}
+
+
+\mbox{\hyperlink{_socket_initer_8cpp_source}{Socket\+Initer.\+cpp}} 파일의 \mbox{\hyperlink{_socket_initer_8cpp_source_l00022}{22}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_socket_initer_doc-func-members}
+\doxysubsection{멤버 함수 문서화}
+\Hypertarget{class_socket_initer_a4ce0c4a0794fc9eb469334e875eca9fb}\index{SocketIniter@{SocketIniter}!init@{init}}
+\index{init@{init}!SocketIniter@{SocketIniter}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{class_socket_initer_a4ce0c4a0794fc9eb469334e875eca9fb} 
+\mbox{\hyperlink{class_socket_initer_a4496e3849c4f7eb7be8a9bdfbeda72fe}{Socket\+Initer\+::\+Result}} Socket\+Initer\+::init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+WSAStartup을 호출하여 Win\+Sock을 초기화하고 결과를 로그로 남깁니다. 
+
+\begin{DoxyReturn}{반환값}
+\doxylink{class_socket_initer_a4496e3849c4f7eb7be8a9bdfbeda72fe}{Socket\+Initer\+::\+Result} \+: 초기화에 성공하면 SUCCESS\+\_\+\+SOCKET, 실패하면 FAIL\+\_\+\+SOCKET을 반환합니다.
+\end{DoxyReturn}
+\begin{DoxyNote}{주의}
+이 메서드는 프로그램 시작 시 한 번만 호출해야 합니다. ~\newline
+Win\+Sock 버전 2.\+2를 시작하도록 시도합니다. ~\newline
+성공하면 Win\+Sock 구현 세부 정보를 얻기 위해 \doxylink{class_socket_initer_aecb544533fa7881bb7ee864bacd60aa9}{wsa\+Data\+To\+String()}을 호출할 수 있습니다. 
+\end{DoxyNote}
+
+
+\mbox{\hyperlink{_socket_initer_8cpp_source}{Socket\+Initer.\+cpp}} 파일의 \mbox{\hyperlink{_socket_initer_8cpp_source_l00029}{29}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_socket_initer_aecb544533fa7881bb7ee864bacd60aa9}\index{SocketIniter@{SocketIniter}!wsaDataToString@{wsaDataToString}}
+\index{wsaDataToString@{wsaDataToString}!SocketIniter@{SocketIniter}}
+\doxysubsubsection{\texorpdfstring{wsaDataToString()}{wsaDataToString()}}
+{\footnotesize\ttfamily \label{class_socket_initer_aecb544533fa7881bb7ee864bacd60aa9} 
+std\+::string Socket\+Initer\+::wsa\+Data\+To\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Win\+Sock 구현 버전에 대한 정보를 담은 문자열을 반환합니다. 
+
+\begin{DoxyReturn}{반환값}
+std\+::string \+: WSADATA 구조체의 세부 정보(예\+: 버전, 설명)를 담은 문자열입니다. 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_socket_initer_8cpp_source}{Socket\+Initer.\+cpp}} 파일의 \mbox{\hyperlink{_socket_initer_8cpp_source_l00053}{53}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_socket_initer_doc-variable-members}
+\doxysubsection{멤버 데이터 문서화}
+\Hypertarget{class_socket_initer_a63a389260b896a3d534262cc971e85d8}\index{SocketIniter@{SocketIniter}!\_wsaData@{\_wsaData}}
+\index{\_wsaData@{\_wsaData}!SocketIniter@{SocketIniter}}
+\doxysubsubsection{\texorpdfstring{\_wsaData}{\_wsaData}}
+{\footnotesize\ttfamily \label{class_socket_initer_a63a389260b896a3d534262cc971e85d8} 
+WSADATA Socket\+Initer\+::\+\_\+wsa\+Data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+winsock 대한 정보를 담고 있습니다 (WSAStartup에 의해 설정됨). 
+
+
+
+\mbox{\hyperlink{_socket_initer_8h_source}{Socket\+Initer.\+h}} 파일의 \mbox{\hyperlink{_socket_initer_8h_source_l00089}{89}} 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일들로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+Socket\+Build/\mbox{\hyperlink{_socket_initer_8h}{Socket\+Initer.\+h}}\item 
+Socket\+Build/\mbox{\hyperlink{_socket_initer_8cpp}{Socket\+Initer.\+cpp}}\end{DoxyCompactItemize}

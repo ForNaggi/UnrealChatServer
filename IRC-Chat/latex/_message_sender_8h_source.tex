@@ -1,0 +1,53 @@
+\doxysection{Message\+Sender.\+h}
+\hypertarget{_message_sender_8h_source}{}\label{_message_sender_8h_source}\index{SocketBuild/MessageSender.h@{SocketBuild/MessageSender.h}}
+\mbox{\hyperlink{_message_sender_8h}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00002}00002\ \textcolor{preprocessor}{\#pragma\ execution\_character\_set("{}utf-\/8"{})}}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <WinSock2.h>}}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00033}\mbox{\hyperlink{class_message_sender}{00033}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_message_sender_aa321d0dc36acf6be88aef94bb5034394}{MessageSender}}}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00034}00034\ \{}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00035}00035\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00037}\mbox{\hyperlink{class_message_sender_a5248ffecb79f289d82d1b36cc818b07c}{00037}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_message_sender_a5248ffecb79f289d82d1b36cc818b07c}{NEW\_LINE}};}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00039}00039\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00044}\mbox{\hyperlink{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6}{00044}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6}{Result}}}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00047}\mbox{\hyperlink{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6ad0749aaba8b833466dfcbb0428e4f89c}{00047}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6ad0749aaba8b833466dfcbb0428e4f89c}{SUCCESS}},\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00048}\mbox{\hyperlink{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6abd102e4c73a7f738259a9a01637ab64b}{00048}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6abd102e4c73a7f738259a9a01637ab64b}{PARTIAL\_FAIL}},\ \ \ }
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00049}\mbox{\hyperlink{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6a7628844138ab8556995e305083582f2e}{00049}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6a7628844138ab8556995e305083582f2e}{TOTAL\_FAIL}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00050}00050\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00052}00052\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_message_sender_aa321d0dc36acf6be88aef94bb5034394}{MessageSender}}();}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00067}00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_message_sender_a27a5403473e3a612c6769ff592b401fc}{\string~MessageSender}}();}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 복사\ 생성자\ 및\ 복사\ 할당\ 연산자\ 삭제.}}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00070}\mbox{\hyperlink{class_message_sender_ae3c3abe62e05f12d7790f7b7555d2e66}{00070}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_message_sender_ae3c3abe62e05f12d7790f7b7555d2e66}{MessageSender}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_message_sender_aa321d0dc36acf6be88aef94bb5034394}{MessageSender}}\&\ obj)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00071}\mbox{\hyperlink{class_message_sender_a5dbebdee78d2aa2ecdfaa4c13a097d1f}{00071}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_message_sender_aa321d0dc36acf6be88aef94bb5034394}{MessageSender}}\&\ \mbox{\hyperlink{class_message_sender_a5dbebdee78d2aa2ecdfaa4c13a097d1f}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_message_sender_aa321d0dc36acf6be88aef94bb5034394}{MessageSender}}\&\ obj)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 이동\ 생성자\ 및\ 이동\ 할당\ 연산자\ 삭제.}}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00074}\mbox{\hyperlink{class_message_sender_aa869c6d4d97fc57612cb6b2c908a9ceb}{00074}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_message_sender_aa869c6d4d97fc57612cb6b2c908a9ceb}{MessageSender}}(\mbox{\hyperlink{class_message_sender_aa321d0dc36acf6be88aef94bb5034394}{MessageSender}}\&\&\ obj)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00075}\mbox{\hyperlink{class_message_sender_aa70980a491224c0b2fc2721df809ebb8}{00075}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_message_sender_aa321d0dc36acf6be88aef94bb5034394}{MessageSender}}\&\ \mbox{\hyperlink{class_message_sender_aa70980a491224c0b2fc2721df809ebb8}{operator=}}(\mbox{\hyperlink{class_message_sender_aa321d0dc36acf6be88aef94bb5034394}{MessageSender}}\&\&\ obj)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00077}00077\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00078}00078\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00091}00091\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6}{MessageSender::Result}}\ \mbox{\hyperlink{class_message_sender_a3f6af29e17dde94dd77185894269507a}{broadcast}}(\textcolor{keyword}{const}\ std::string\&\ message,\ SOCKET*\ sockets,\ \textcolor{keywordtype}{int}\ socket\_count);}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00106}00106\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6}{MessageSender::Result}}\ \mbox{\hyperlink{class_message_sender_a443ea21c185f7696656d0cf96b056069}{multicast}}(\textcolor{keyword}{const}\ std::string\&\ message,\ SOCKET*\ sockets,\ \textcolor{keywordtype}{int}\ socket\_count,\ SOCKET\ except\_socket);}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00107}00107\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00115}00115\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_message_sender_a67e3eb7b76c96cfb8e27830d0b8df1b0}{unicast}}(\textcolor{keyword}{const}\ std::string\&\ message,\ SOCKET\ target\_socket);}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00117}00117\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00125}00125\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{class_message_sender_a63e61042531f4ee9721ca9574abf3c1a}{formatMessage}}(\textcolor{keyword}{const}\ std::string\&\ message)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00136}00136\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_message_sender_a15c206bd3902e00d02e8ef76ffb7bfef}{sendMessage}}(\textcolor{keyword}{const}\ std::string\&\ formatted\_mssage,\ SOCKET\ target\_socket);}
+\DoxyCodeLine{\Hypertarget{_message_sender_8h_source_l00137}00137\ \};}
+
+\end{DoxyCode}

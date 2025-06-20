@@ -1,0 +1,329 @@
+\doxysection{Message\+Sender 클래스 참조}
+\hypertarget{class_message_sender}{}\label{class_message_sender}\index{MessageSender@{MessageSender}}
+
+
+서버에서 클라이언트 소켓으로 메시지를 보내는 기능을 제공하는 클래스입니다.  
+
+
+
+
+{\ttfamily \#include $<$Message\+Sender.\+h$>$}
+
+\doxysubsubsection*{Public 타입}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6}{Result}} \{ \mbox{\hyperlink{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6ad0749aaba8b833466dfcbb0428e4f89c}{SUCCESS}}
+, \mbox{\hyperlink{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6abd102e4c73a7f738259a9a01637ab64b}{PARTIAL\+\_\+\+FAIL}}
+, \mbox{\hyperlink{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6a7628844138ab8556995e305083582f2e}{TOTAL\+\_\+\+FAIL}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_message_sender_aa321d0dc36acf6be88aef94bb5034394}{Message\+Sender}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{class_message_sender}{Message\+Sender} 생성자. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_message_sender_a27a5403473e3a612c6769ff592b401fc}{\texorpdfstring{$\sim$}{\string~}\+Message\+Sender}} ()
+\begin{DoxyCompactList}\small\item\em 소멸자. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_message_sender_ae3c3abe62e05f12d7790f7b7555d2e66}{Message\+Sender}} (const \mbox{\hyperlink{class_message_sender}{Message\+Sender}} \&obj)=delete
+\item 
+\mbox{\hyperlink{class_message_sender}{Message\+Sender}} \& \mbox{\hyperlink{class_message_sender_a5dbebdee78d2aa2ecdfaa4c13a097d1f}{operator=}} (const \mbox{\hyperlink{class_message_sender}{Message\+Sender}} \&obj)=delete
+\item 
+\mbox{\hyperlink{class_message_sender_aa869c6d4d97fc57612cb6b2c908a9ceb}{Message\+Sender}} (\mbox{\hyperlink{class_message_sender}{Message\+Sender}} \&\&obj)=delete
+\item 
+\mbox{\hyperlink{class_message_sender}{Message\+Sender}} \& \mbox{\hyperlink{class_message_sender_aa70980a491224c0b2fc2721df809ebb8}{operator=}} (\mbox{\hyperlink{class_message_sender}{Message\+Sender}} \&\&obj)=delete
+\item 
+\mbox{\hyperlink{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6}{Message\+Sender\+::\+Result}} \mbox{\hyperlink{class_message_sender_a3f6af29e17dde94dd77185894269507a}{broadcast}} (const std\+::string \&message, SOCKET \texorpdfstring{$\ast$}{*}sockets, int socket\+\_\+count)
+\begin{DoxyCompactList}\small\item\em 모든 클라이언트에게 메시지를 전송합니다. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6}{Message\+Sender\+::\+Result}} \mbox{\hyperlink{class_message_sender_a443ea21c185f7696656d0cf96b056069}{multicast}} (const std\+::string \&message, SOCKET \texorpdfstring{$\ast$}{*}sockets, int socket\+\_\+count, SOCKET except\+\_\+socket)
+\begin{DoxyCompactList}\small\item\em 특정 클라이언트를 제외한 모든 클라이언트에게 메시지를 보냅니다. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_message_sender_a67e3eb7b76c96cfb8e27830d0b8df1b0}{unicast}} (const std\+::string \&message, SOCKET target\+\_\+socket)
+\begin{DoxyCompactList}\small\item\em 하나의 클라이언트 소켓에만 메시지를 전송합니다. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{정적 Public 속성}
+\begin{DoxyCompactItemize}
+\item 
+static const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_message_sender_a5248ffecb79f289d82d1b36cc818b07c}{NEW\+\_\+\+LINE}} = "{}\textbackslash{}r\textbackslash{}n"{}
+\begin{DoxyCompactList}\small\item\em 메시지 끝에 붙일 개행 구분자 (소스 파일에서 정의됨). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{class_message_sender_a63e61042531f4ee9721ca9574abf3c1a}{format\+Message}} (const std\+::string \&message) const
+\begin{DoxyCompactList}\small\item\em 주어진 메시지 끝에 개행 문자를 추가한 문자열을 반환합니다. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_message_sender_a15c206bd3902e00d02e8ef76ffb7bfef}{send\+Message}} (const std\+::string \&formatted\+\_\+mssage, SOCKET target\+\_\+socket)
+\begin{DoxyCompactList}\small\item\em 이미 포맷된 메시지를 특정 클라이언트 소켓으로 전송합니다. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+서버에서 클라이언트 소켓으로 메시지를 보내는 기능을 제공하는 클래스입니다. 
+
+이 클래스는 서버 메시지의 다양한 전달 모드를 구현합니다.
+\begin{DoxyItemize}
+\item Broadcast \+: 모든 연결된 클라이언트에게 메시지 전송.
+\item Multicast \+: 특정 클라이언트를 제외한 다수에게 메시지 전송.
+\item Unicast \+: 한 클라이언트에게만 메세지 전송.
+\end{DoxyItemize}
+
+내부적으로 개행 문자(NEW\+\_\+\+LINE 상수)를 메시지 끝에 추가하여 포맷팅합니다. ~\newline
+전송 작업 결과를 나타내는 \doxylink{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6}{Result} 열거형을 사용합니다. 
+
+\mbox{\hyperlink{_message_sender_8h_source}{Message\+Sender.\+h}} 파일의 \mbox{\hyperlink{_message_sender_8h_source_l00033}{33}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-enum-members}
+\Hypertarget{class_message_sender_doc-enum-members}
+\doxysubsection{멤버 열거형 문서화}
+\Hypertarget{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6}\index{MessageSender@{MessageSender}!Result@{Result}}
+\index{Result@{Result}!MessageSender@{MessageSender}}
+\doxysubsubsection{\texorpdfstring{Result}{Result}}
+{\footnotesize\ttfamily \label{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6} 
+enum class \mbox{\hyperlink{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6}{Message\+Sender\+::\+Result}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}[2]{열거형 멤버}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SUCCESS@{SUCCESS}!MessageSender@{MessageSender}}\index{MessageSender@{MessageSender}!SUCCESS@{SUCCESS}}}\Hypertarget{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6ad0749aaba8b833466dfcbb0428e4f89c}\label{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6ad0749aaba8b833466dfcbb0428e4f89c} 
+SUCCESS&모든 대상에게 메시지를 성공적으로 전송함. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PARTIAL\_FAIL@{PARTIAL\_FAIL}!MessageSender@{MessageSender}}\index{MessageSender@{MessageSender}!PARTIAL\_FAIL@{PARTIAL\_FAIL}}}\Hypertarget{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6abd102e4c73a7f738259a9a01637ab64b}\label{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6abd102e4c73a7f738259a9a01637ab64b} 
+PARTIAL\+\_\+\+FAIL&메시지가 일부 대상에게만 전송되고 일부 대상에게는 전송 실패함. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TOTAL\_FAIL@{TOTAL\_FAIL}!MessageSender@{MessageSender}}\index{MessageSender@{MessageSender}!TOTAL\_FAIL@{TOTAL\_FAIL}}}\Hypertarget{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6a7628844138ab8556995e305083582f2e}\label{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6a7628844138ab8556995e305083582f2e} 
+TOTAL\+\_\+\+FAIL&메시지를 어떤 대상에게도 보내지 못함. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\mbox{\hyperlink{_message_sender_8h_source}{Message\+Sender.\+h}} 파일의 \mbox{\hyperlink{_message_sender_8h_source_l00044}{44}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_message_sender_doc-constructors}
+\doxysubsection{생성자 \& 소멸자 문서화}
+\Hypertarget{class_message_sender_aa321d0dc36acf6be88aef94bb5034394}\index{MessageSender@{MessageSender}!MessageSender@{MessageSender}}
+\index{MessageSender@{MessageSender}!MessageSender@{MessageSender}}
+\doxysubsubsection{\texorpdfstring{MessageSender()}{MessageSender()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_message_sender_aa321d0dc36acf6be88aef94bb5034394} 
+Message\+Sender\+::\+Message\+Sender (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\doxylink{class_message_sender}{Message\+Sender} 생성자. 
+
+\begin{DoxyReturn}{반환값}
+없음. 
+\end{DoxyReturn}
+\begin{DoxyNote}{주의}
+이 생성자에서는 특별한 초기화가 일어나지 않습니다. 
+\end{DoxyNote}
+
+
+\mbox{\hyperlink{_message_sender_8cpp_source}{Message\+Sender.\+cpp}} 파일의 \mbox{\hyperlink{_message_sender_8cpp_source_l00015}{15}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_message_sender_a27a5403473e3a612c6769ff592b401fc}\index{MessageSender@{MessageSender}!````~MessageSender@{\texorpdfstring{$\sim$}{\string~}MessageSender}}
+\index{````~MessageSender@{\texorpdfstring{$\sim$}{\string~}MessageSender}!MessageSender@{MessageSender}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MessageSender()}{\string~MessageSender()}}
+{\footnotesize\ttfamily \label{class_message_sender_a27a5403473e3a612c6769ff592b401fc} 
+Message\+Sender\+::\texorpdfstring{$\sim$}{\string~}\+Message\+Sender (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+소멸자. 
+
+\begin{DoxyReturn}{반환값}
+없음. 
+\end{DoxyReturn}
+\begin{DoxyNote}{주의}
+이 소멸자에서는 해제할 동적 자원이 없습니다. 
+\end{DoxyNote}
+
+
+\mbox{\hyperlink{_message_sender_8cpp_source}{Message\+Sender.\+cpp}} 파일의 \mbox{\hyperlink{_message_sender_8cpp_source_l00020}{20}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_message_sender_ae3c3abe62e05f12d7790f7b7555d2e66}\index{MessageSender@{MessageSender}!MessageSender@{MessageSender}}
+\index{MessageSender@{MessageSender}!MessageSender@{MessageSender}}
+\doxysubsubsection{\texorpdfstring{MessageSender()}{MessageSender()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_message_sender_ae3c3abe62e05f12d7790f7b7555d2e66} 
+Message\+Sender\+::\+Message\+Sender (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_message_sender}{Message\+Sender}} \&}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_message_sender_aa869c6d4d97fc57612cb6b2c908a9ceb}\index{MessageSender@{MessageSender}!MessageSender@{MessageSender}}
+\index{MessageSender@{MessageSender}!MessageSender@{MessageSender}}
+\doxysubsubsection{\texorpdfstring{MessageSender()}{MessageSender()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_message_sender_aa869c6d4d97fc57612cb6b2c908a9ceb} 
+Message\+Sender\+::\+Message\+Sender (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_message_sender}{Message\+Sender}} \&\&}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_message_sender_doc-func-members}
+\doxysubsection{멤버 함수 문서화}
+\Hypertarget{class_message_sender_a3f6af29e17dde94dd77185894269507a}\index{MessageSender@{MessageSender}!broadcast@{broadcast}}
+\index{broadcast@{broadcast}!MessageSender@{MessageSender}}
+\doxysubsubsection{\texorpdfstring{broadcast()}{broadcast()}}
+{\footnotesize\ttfamily \label{class_message_sender_a3f6af29e17dde94dd77185894269507a} 
+\mbox{\hyperlink{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6}{Message\+Sender\+::\+Result}} Message\+Sender\+::broadcast (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{, }\item[{SOCKET \texorpdfstring{$\ast$}{*}}]{sockets}{, }\item[{int}]{socket\+\_\+count}{}\end{DoxyParamCaption})}
+
+
+
+모든 클라이언트에게 메시지를 전송합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em \mbox{[}\+IN\mbox{]}} & const std\+::string\& message \+: 보낼 메시지 텍스트. \\
+\hline
+{\em \mbox{[}\+IN\mbox{]}} & SOCKET\texorpdfstring{$\ast$}{*} sockets \+: 메시지를 보낼 클라이언트 소켓들의 배열. \\
+\hline
+{\em \mbox{[}\+IN\mbox{]}} & int socket\+\_\+count \+: 배열에 포함된 소켓 개수 (전송할 클라이언트 수). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+\doxylink{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6}{Message\+Sender\+::\+Result} \+: 전송 작업 결과 상태 값 (SUCCESS, PARTIAL\+\_\+\+FAIL 또는 TOTAL\+\_\+\+FAIL).
+\end{DoxyReturn}
+주어진 메시지를 배열에 있는 모든 클라이언트 소켓에 전송합니다. ~\newline
+하나 이상의 전송에 실패하면 결과 코드가 부분 실패 또는 전체 실패로 표시됩니다. 
+
+\mbox{\hyperlink{_message_sender_8cpp_source}{Message\+Sender.\+cpp}} 파일의 \mbox{\hyperlink{_message_sender_8cpp_source_l00025}{25}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_message_sender_a63e61042531f4ee9721ca9574abf3c1a}\index{MessageSender@{MessageSender}!formatMessage@{formatMessage}}
+\index{formatMessage@{formatMessage}!MessageSender@{MessageSender}}
+\doxysubsubsection{\texorpdfstring{formatMessage()}{formatMessage()}}
+{\footnotesize\ttfamily \label{class_message_sender_a63e61042531f4ee9721ca9574abf3c1a} 
+std\+::string Message\+Sender\+::format\+Message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+주어진 메시지 끝에 개행 문자를 추가한 문자열을 반환합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em \mbox{[}\+IN\mbox{]}} & const std\+::string\& message \+: 원본 메시지 텍스트. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+std\+::string \+: 개행 문자가 추가된 메시지 문자열. 
+\end{DoxyReturn}
+\begin{DoxyNote}{주의}
+NEW\+\_\+\+LINE 상수를 주어진 메시지 끝에 추가한 문자열을 반환합니다. 
+\end{DoxyNote}
+
+
+\mbox{\hyperlink{_message_sender_8cpp_source}{Message\+Sender.\+cpp}} 파일의 \mbox{\hyperlink{_message_sender_8cpp_source_l00128}{128}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_message_sender_a443ea21c185f7696656d0cf96b056069}\index{MessageSender@{MessageSender}!multicast@{multicast}}
+\index{multicast@{multicast}!MessageSender@{MessageSender}}
+\doxysubsubsection{\texorpdfstring{multicast()}{multicast()}}
+{\footnotesize\ttfamily \label{class_message_sender_a443ea21c185f7696656d0cf96b056069} 
+\mbox{\hyperlink{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6}{Message\+Sender\+::\+Result}} Message\+Sender\+::multicast (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{, }\item[{SOCKET \texorpdfstring{$\ast$}{*}}]{sockets}{, }\item[{int}]{socket\+\_\+count}{, }\item[{SOCKET}]{except\+\_\+socket}{}\end{DoxyParamCaption})}
+
+
+
+특정 클라이언트를 제외한 모든 클라이언트에게 메시지를 보냅니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em \mbox{[}\+IN\mbox{]}} & const std\+::string\& message \+: 보낼 메시지 텍스트. \\
+\hline
+{\em \mbox{[}\+IN\mbox{]}} & SOCKET\texorpdfstring{$\ast$}{*} sockets \+: 메시지를 보낼 클라이언트 소켓들의 배열. \\
+\hline
+{\em \mbox{[}\+IN\mbox{]}} & int socket\+\_\+count \+: 배열에 포함된 소켓 개수 (전송할 클라이언트 수). \\
+\hline
+{\em \mbox{[}\+IN\mbox{]}} & SOCKET except\+\_\+socket \+: 메시지를 보내지 않을 클라이언트의 소켓. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+\doxylink{class_message_sender_a39e62bd3398a07e5fddfa8f1e4d4b0f6}{Message\+Sender\+::\+Result} \+: 전송 작업 결과 상태 값 (SUCCESS, PARTIAL\+\_\+\+FAIL 또는 TOTAL\+\_\+\+FAIL).
+\end{DoxyReturn}
+소켓 리스트에서 {\ttfamily except\+\_\+socket}으로 지정된 소켓을 제외한 모든 소켓에 메시지를 전송합니다. ~\newline
+한 클라이언트를 제외한 다른 클라이언트에게 메시지를 전달할 때 사용합니다. 
+
+\mbox{\hyperlink{_message_sender_8cpp_source}{Message\+Sender.\+cpp}} 파일의 \mbox{\hyperlink{_message_sender_8cpp_source_l00066}{66}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_message_sender_a5dbebdee78d2aa2ecdfaa4c13a097d1f}\index{MessageSender@{MessageSender}!operator=@{operator=}}
+\index{operator=@{operator=}!MessageSender@{MessageSender}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_message_sender_a5dbebdee78d2aa2ecdfaa4c13a097d1f} 
+\mbox{\hyperlink{class_message_sender}{Message\+Sender}} \& Message\+Sender\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_message_sender}{Message\+Sender}} \&}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_message_sender_aa70980a491224c0b2fc2721df809ebb8}\index{MessageSender@{MessageSender}!operator=@{operator=}}
+\index{operator=@{operator=}!MessageSender@{MessageSender}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_message_sender_aa70980a491224c0b2fc2721df809ebb8} 
+\mbox{\hyperlink{class_message_sender}{Message\+Sender}} \& Message\+Sender\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_message_sender}{Message\+Sender}} \&\&}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_message_sender_a15c206bd3902e00d02e8ef76ffb7bfef}\index{MessageSender@{MessageSender}!sendMessage@{sendMessage}}
+\index{sendMessage@{sendMessage}!MessageSender@{MessageSender}}
+\doxysubsubsection{\texorpdfstring{sendMessage()}{sendMessage()}}
+{\footnotesize\ttfamily \label{class_message_sender_a15c206bd3902e00d02e8ef76ffb7bfef} 
+bool Message\+Sender\+::send\+Message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{formatted\+\_\+message}{, }\item[{SOCKET}]{target\+\_\+socket}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+이미 포맷된 메시지를 특정 클라이언트 소켓으로 전송합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em \mbox{[}\+IN\mbox{]}} & const std\+::string\& formatted\+\_\+mssage \+: 개행 문자까지 포함된 메시지 문자열. \\
+\hline
+{\em \mbox{[}\+IN\mbox{]}} & SOCKET target\+\_\+socket \+: 메시지를 보낼 대상 클라이언트 소켓. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+bool \+: 메시지 전송에 성공하면 true, 실패하면 false.
+\end{DoxyReturn}
+\begin{DoxyNote}{주의}
+broadcast, multicast, unicast 함수 내부에서 실제 전송을 담당하는 핵심 구현 함수입니다. 
+\end{DoxyNote}
+
+
+\mbox{\hyperlink{_message_sender_8cpp_source}{Message\+Sender.\+cpp}} 파일의 \mbox{\hyperlink{_message_sender_8cpp_source_l00134}{134}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_message_sender_a67e3eb7b76c96cfb8e27830d0b8df1b0}\index{MessageSender@{MessageSender}!unicast@{unicast}}
+\index{unicast@{unicast}!MessageSender@{MessageSender}}
+\doxysubsubsection{\texorpdfstring{unicast()}{unicast()}}
+{\footnotesize\ttfamily \label{class_message_sender_a67e3eb7b76c96cfb8e27830d0b8df1b0} 
+bool Message\+Sender\+::unicast (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{, }\item[{SOCKET}]{target\+\_\+socket}{}\end{DoxyParamCaption})}
+
+
+
+하나의 클라이언트 소켓에만 메시지를 전송합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em \mbox{[}\+IN\mbox{]}} & const std\+::string\& message \+: 보낼 메시지 텍스트. \\
+\hline
+{\em \mbox{[}\+IN\mbox{]}} & SOCKET target\+\_\+socket \+: 메시지를 보낼 대상 클라이언트의 소켓. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+\+: bool 메시지 전송에 성공하면 true, 실패하면 false. 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_message_sender_8cpp_source}{Message\+Sender.\+cpp}} 파일의 \mbox{\hyperlink{_message_sender_8cpp_source_l00116}{116}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_message_sender_doc-variable-members}
+\doxysubsection{멤버 데이터 문서화}
+\Hypertarget{class_message_sender_a5248ffecb79f289d82d1b36cc818b07c}\index{MessageSender@{MessageSender}!NEW\_LINE@{NEW\_LINE}}
+\index{NEW\_LINE@{NEW\_LINE}!MessageSender@{MessageSender}}
+\doxysubsubsection{\texorpdfstring{NEW\_LINE}{NEW\_LINE}}
+{\footnotesize\ttfamily \label{class_message_sender_a5248ffecb79f289d82d1b36cc818b07c} 
+const char \texorpdfstring{$\ast$}{*} Message\+Sender\+::\+NEW\+\_\+\+LINE = "{}\textbackslash{}r\textbackslash{}n"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+메시지 끝에 붙일 개행 구분자 (소스 파일에서 정의됨). 
+
+
+
+\mbox{\hyperlink{_message_sender_8h_source}{Message\+Sender.\+h}} 파일의 \mbox{\hyperlink{_message_sender_8h_source_l00037}{37}} 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일들로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+Socket\+Build/\mbox{\hyperlink{_message_sender_8h}{Message\+Sender.\+h}}\item 
+Socket\+Build/\mbox{\hyperlink{_message_sender_8cpp}{Message\+Sender.\+cpp}}\end{DoxyCompactItemize}

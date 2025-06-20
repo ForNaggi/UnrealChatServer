@@ -1,3 +1,12 @@
+ï»¿#pragma execution_character_set("utf-8")
+
+/**
+ * @file MessageSender.cpp
+ * @brief MessageSender.h êµ¬í˜„ë¶€.
+ * @author ìµœì„±ë½
+ * @date 2025-06-17
+ */
+
 #include "MessageSender.h"
 #include "DebugHelper.h"
 
@@ -5,27 +14,27 @@ const char* MessageSender::NEW_LINE = "\r\n";
 
 MessageSender::MessageSender()
 {
-    LOG_DEBUG("MessageSender °´Ã¼¸¦ »ı¼ºÇÕ´Ï´Ù.");
+    LOG_DEBUG("MessageSender ê°ì²´ë¥¼ ìƒì„±í•©ë‹ˆë‹¤.");
 }
 
 MessageSender::~MessageSender()
 {
-    LOG_DEBUG("MessageSender °´Ã¼¸¦ »èÁ¦ÇÕ´Ï´Ù.");
+    LOG_DEBUG("MessageSender ê°ì²´ë¥¼ ì‚­ì œí•©ë‹ˆë‹¤.");
 }
 
 MessageSender::Result MessageSender::broadcast(const std::string& message, SOCKET* sockets, int socket_count)
 {
-    // Àü¼ÛÇÒ ¼ÒÄÏÀÌ ¾ø´Â °æ¿ì.
+    // ì „ì†¡í•  ì†Œì¼“ì´ ì—†ëŠ” ê²½ìš°.
     if (socket_count == 0)
     {
-        LOG_DEBUG("Àü¼ÛÇÒ Å¬¶óÀÌ¾ğÆ®°¡ ¾ø½À´Ï´Ù.");
+        LOG_DEBUG("ì „ì†¡í•  í´ë¼ì´ì–¸íŠ¸ê°€ ì—†ìŠµë‹ˆë‹¤.");
         return (MessageSender::Result::TOTAL_FAIL);
     }
 
-    // Å¬¶óÀÌ¾ğÆ®·Î º¸³¾ ¸Ş¼¼Áö·Î Æ÷¸äÇÕ´Ï´Ù.
+    // í´ë¼ì´ì–¸íŠ¸ë¡œ ë³´ë‚¼ ë©”ì„¸ì§€ë¡œ í¬ë©§í•©ë‹ˆë‹¤.
     std::string formatted_message = this->formatMessage(message);
 
-    // Àü¼Û ¼º°ø ¼ö.
+    // ì „ì†¡ ì„±ê³µ ìˆ˜.
     int success_count = 0;
 
     for (int i = 0; i < socket_count; ++i)
@@ -36,36 +45,36 @@ MessageSender::Result MessageSender::broadcast(const std::string& message, SOCKE
         }
     }
 
-    // °á°ú¿¡ µû¸¥ ºĞ±â.
+    // ê²°ê³¼ì— ë”°ë¥¸ ë¶„ê¸°.
     if (success_count == socket_count)
     {
-        LOG_INFO("ºê·ÎµåÄ³½ºÆ® ¼º°ø: " + message);
+        LOG_INFO("ë¸Œë¡œë“œìºìŠ¤íŠ¸ ì„±ê³µ: " + message);
         return (MessageSender::Result::SUCCESS);
     }
     else if (success_count > 0)
     {
-        LOG_WARN("ºê·ÎµåÄ³½ºÆ® ºÎºĞ ½ÇÆĞ: " + std::to_string(success_count) + "/" + std::to_string(socket_count));
+        LOG_WARN("ë¸Œë¡œë“œìºìŠ¤íŠ¸ ë¶€ë¶„ ì‹¤íŒ¨: " + std::to_string(success_count) + "/" + std::to_string(socket_count));
         return (MessageSender::Result::PARTIAL_FAIL);
     }
     else
     {
-        LOG_ERROR("ºê·ÎµåÄ³½ºÆ® ½ÇÆĞ");
+        LOG_ERROR("ë¸Œë¡œë“œìºìŠ¤íŠ¸ ì‹¤íŒ¨");
         return (MessageSender::Result::TOTAL_FAIL);
     }
 }
 
 MessageSender::Result MessageSender::multicast(const std::string& message, SOCKET* sockets, int socket_count, SOCKET except_socket)
 {
-    // Àü¼ÛÇÒ ¼ÒÄÏÀÌ ¾ø´Â °æ¿ì.
+    // ì „ì†¡í•  ì†Œì¼“ì´ ì—†ëŠ” ê²½ìš°.
     if (socket_count == 0)
     {
-        LOG_DEBUG("Àü¼ÛÇÒ Å¬¶óÀÌ¾ğÆ®°¡ ¾ø½À´Ï´Ù.");
+        LOG_DEBUG("ì „ì†¡í•  í´ë¼ì´ì–¸íŠ¸ê°€ ì—†ìŠµë‹ˆë‹¤.");
         return (MessageSender::Result::TOTAL_FAIL);
     }
 
-    // Å¬¶óÀÌ¾ğÆ®·Î º¸³¾ ¸Ş¼¼Áö·Î Æ÷¸äÇÕ´Ï´Ù.
+    // í´ë¼ì´ì–¸íŠ¸ë¡œ ë³´ë‚¼ ë©”ì„¸ì§€ë¡œ í¬ë©§í•©ë‹ˆë‹¤.
     std::string formatted_message = this->formatMessage(message);
-    // Á¦¿ÜµÈ Å¬¶óÀÌ¾ğÆ®¸¦ Á¦¿ÜÇÏ°í °¹¼ö¸¦ ¸Â­ ¾ßÇÏ±â ¶§¹®¿¡ µÎ°³ÀÇ º¯¼ö·Î ³ª´²¼­ ÀúÀåÇÑ´Ù.
+    // ì œì™¸ëœ í´ë¼ì´ì–¸íŠ¸ë¥¼ ì œì™¸í•˜ê³  ê°¯ìˆ˜ë¥¼ ë§ì·…ì•¼í•˜ê¸° ë•Œë¬¸ì— ë‘ê°œì˜ ë³€ìˆ˜ë¡œ ë‚˜ëˆ ì„œ ì €ì¥í•œë‹¤.
     int success_count = 0;
     int target_count = 0;
 
@@ -81,25 +90,25 @@ MessageSender::Result MessageSender::multicast(const std::string& message, SOCKE
         }
     }
 
-    // °á°ú¿¡ µû¸¥ ºĞ±â.
+    // ê²°ê³¼ì— ë”°ë¥¸ ë¶„ê¸°.
     if (target_count == 0)
     {
-        LOG_DEBUG("Àü¼ÛÇÒ ´ë»óÀÌ ¾ø½À´Ï´Ù.");
+        LOG_DEBUG("ì „ì†¡í•  ëŒ€ìƒì´ ì—†ìŠµë‹ˆë‹¤.");
         return (MessageSender::Result::SUCCESS);
     }
     else if (success_count == target_count)
     {
-        LOG_INFO("¸ÖÆ¼Ä³½ºÆ® ¼º°ø: " + message);
+        LOG_INFO("ë©€í‹°ìºìŠ¤íŠ¸ ì„±ê³µ: " + message);
         return (MessageSender::Result::SUCCESS);
     }
     else if (success_count > 0)
     {
-        LOG_WARN("¸ÖÆ¼Ä³½ºÆ® ºÎºĞ ½ÇÆĞ: " + std::to_string(success_count) + "/" + std::to_string(target_count));
+        LOG_WARN("ë©€í‹°ìºìŠ¤íŠ¸ ë¶€ë¶„ ì‹¤íŒ¨: " + std::to_string(success_count) + "/" + std::to_string(target_count));
         return (MessageSender::Result::PARTIAL_FAIL);
     }
     else
     {
-        LOG_ERROR("¸ÖÆ¼Ä³½ºÆ® ½ÇÆĞ.");
+        LOG_ERROR("ë©€í‹°ìºìŠ¤íŠ¸ ì‹¤íŒ¨.");
         return (MessageSender::Result::TOTAL_FAIL);
     }
 }
@@ -108,7 +117,7 @@ bool MessageSender::unicast(const std::string& message, SOCKET target_socket)
 {
     if (target_socket == INVALID_SOCKET)
     {
-        LOG_WARN("À¯È¿ÇÏÁö ¾ÊÀº ¼ÒÄÏ¿¡ ¸Ş¼¼Áö Àü¼Û ½Ãµµ");
+        LOG_WARN("ìœ íš¨í•˜ì§€ ì•Šì€ ì†Œì¼“ì— ë©”ì„¸ì§€ ì „ì†¡ ì‹œë„");
         return (false);
     }
 
@@ -118,27 +127,27 @@ bool MessageSender::unicast(const std::string& message, SOCKET target_socket)
 
 std::string MessageSender::formatMessage(const std::string& message) const
 {
-    // ¸Ş¼¼Áö¿¡ °³Çà ¹®ÀÚ¸¦ Ãß°¡ÇÕ´Ï´Ù.
+    // ë©”ì„¸ì§€ì— ê°œí–‰ ë¬¸ìë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.
     return (message + MessageSender::NEW_LINE);
 }
 
 bool MessageSender::sendMessage(const std::string& formatted_mssage, SOCKET target_socket)
 {
-    // Àü¼ÛÇÒ Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏÀ» È®ÀÎÇÕ´Ï´Ù.
+    // ì „ì†¡í•  í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ì„ í™•ì¸í•©ë‹ˆë‹¤.
     if (target_socket == INVALID_SOCKET)
     {
         return (false);
     }
 
-    // send ÇÔ¼ö·Î ¸Ş¼¼Áö¸¦ Àü¼ÛÇÕ´Ï´Ù.
+    // send í•¨ìˆ˜ë¡œ ë©”ì„¸ì§€ë¥¼ ì „ì†¡í•©ë‹ˆë‹¤.
     int send_result = send(target_socket, formatted_mssage.c_str(), (int)formatted_mssage.length(), 0);
 
     if (send_result == SOCKET_ERROR)
     {
-        LOG_DEBUG("¸Ş¼¼Áö Àü¼Û ½ÇÆĞ - ¼ÒÄÏ: " + std::to_string(target_socket) + ", ¿¡·¯: " + std::to_string(WSAGetLastError()));
+        LOG_DEBUG("ë©”ì„¸ì§€ ì „ì†¡ ì‹¤íŒ¨ - ì†Œì¼“: " + std::to_string(target_socket) + ", ì—ëŸ¬: " + std::to_string(WSAGetLastError()));
         return (false);
     }
 
-    LOG_DEBUG("¸Ş¼¼Áö Àü¼Û ¼º°ø - ¹ÙÀÌÆ®: " + std::to_string(send_result));
+    LOG_DEBUG("ë©”ì„¸ì§€ ì „ì†¡ ì„±ê³µ - ë°”ì´íŠ¸: " + std::to_string(send_result));
     return (true);
 }

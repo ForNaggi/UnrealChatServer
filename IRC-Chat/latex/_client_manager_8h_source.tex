@@ -1,0 +1,70 @@
+\doxysection{Client\+Manager.\+h}
+\hypertarget{_client_manager_8h_source}{}\label{_client_manager_8h_source}\index{SocketBuild/ClientManager.h@{SocketBuild/ClientManager.h}}
+\mbox{\hyperlink{_client_manager_8h}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00012}00012\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00014}00014\ \textcolor{preprocessor}{\#pragma\ execution\_character\_set("{}utf-\/8"{})}}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <WinSock2.h>}}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00030}\mbox{\hyperlink{class_client_manager}{00030}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_client_manager_ad68355fab62dffa97b8ddc8df4509f7e}{ClientManager}}}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00031}00031\ \{}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00032}00032\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00035}\mbox{\hyperlink{class_client_manager_a27f5637b4a9704be93ee219073a253c4}{00035}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_client_manager_a27f5637b4a9704be93ee219073a253c4}{MAX\_CLIENTS}}\ =\ 10;}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00037}00037\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_client_manager_ad68355fab62dffa97b8ddc8df4509f7e}{ClientManager}}();}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_client_manager_af605d4fa9dab04b9874bf307277cd8a3}{\string~ClientManager}}();}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 복사\ 생성자\ 및\ 복사\ 할당\ 연산자\ 삭제.}}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00056}\mbox{\hyperlink{class_client_manager_a37d31724165934a20c2823029ac5a279}{00056}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_client_manager_a37d31724165934a20c2823029ac5a279}{ClientManager}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_client_manager_ad68355fab62dffa97b8ddc8df4509f7e}{ClientManager}}\&\ obj)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00057}\mbox{\hyperlink{class_client_manager_a291ced1a562e8d1949529cbcb12b29c2}{00057}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_client_manager_ad68355fab62dffa97b8ddc8df4509f7e}{ClientManager}}\&\ \mbox{\hyperlink{class_client_manager_a291ced1a562e8d1949529cbcb12b29c2}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_client_manager_ad68355fab62dffa97b8ddc8df4509f7e}{ClientManager}}\&\ obj)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 이동\ 생성자\ 및\ 이동\ 할당\ 연산자\ 삭제.}}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00060}\mbox{\hyperlink{class_client_manager_a9d693661783baaa2e2cdeae3ab171530}{00060}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_client_manager_a9d693661783baaa2e2cdeae3ab171530}{ClientManager}}(\mbox{\hyperlink{class_client_manager_ad68355fab62dffa97b8ddc8df4509f7e}{ClientManager}}\&\&\ obj)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00061}\mbox{\hyperlink{class_client_manager_ac6a66de5ca44b4d221ba95d7349f0761}{00061}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_client_manager_ad68355fab62dffa97b8ddc8df4509f7e}{ClientManager}}\&\ \mbox{\hyperlink{class_client_manager_ac6a66de5ca44b4d221ba95d7349f0761}{operator=}}(\mbox{\hyperlink{class_client_manager_ad68355fab62dffa97b8ddc8df4509f7e}{ClientManager}}\&\&\ obj)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00063}00063\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_client_manager_a21dbc00f745e70bd7bedecd0eec58216}{addClient}}(SOCKET\ client\_socket);}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00081}00081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_client_manager_a7aa6a242406b89805af82cd1125615f9}{removeClient}}(\textcolor{keywordtype}{int}\ client\_index);}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00089}00089\ \ \ \ \ \ \ \ \ SOCKET\ \mbox{\hyperlink{class_client_manager_aa7b5f1568b654a830228f7836b6d7d8f}{getClientSocket}}(\textcolor{keywordtype}{int}\ client\_index)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00090}00090\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00096}00096\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_client_manager_a7edb4e75534d2fcf47eaa6eb74a07b5c}{getConnectedClientCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00104}00104\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_client_manager_a55aa31e4af748cacf58cc9dff5754baf}{isValidIndex}}(\textcolor{keywordtype}{int}\ client\_index)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00114}00114\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_client_manager_a0b9e41a03d66cdaa066f1fb1a766ec05}{getAllSockets}}(SOCKET*\ sockets,\ \textcolor{keywordtype}{int}\ max\_count)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00122}00122\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{class_client_manager_a80a36f778aeaf517224416333b228d1a}{getClientNickname}}(\textcolor{keywordtype}{int}\ client\_index)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00124}00124\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00125}00125\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00127}\mbox{\hyperlink{class_client_manager_aa0b45296671fe2f5471e900a4c6520e7}{00127}}\ \ \ \ \ \ \ \ \ std::array<SOCKET,\ MAX\_CLIENTS>\ \mbox{\hyperlink{class_client_manager_aa0b45296671fe2f5471e900a4c6520e7}{\_clientSockets}};}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00130}\mbox{\hyperlink{class_client_manager_ac0a2fcf1bfd32fee35171a48ee92edbf}{00130}}\ \ \ \ \ \ \ \ \ std::priority\_queue<int,\ std::vector<int>,\ std::greater<int>>\ \mbox{\hyperlink{class_client_manager_ac0a2fcf1bfd32fee35171a48ee92edbf}{\_availableList}};}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00133}\mbox{\hyperlink{class_client_manager_a77ff4acb1ed9631a2abf3b121cb809ea}{00133}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_client_manager_a77ff4acb1ed9631a2abf3b121cb809ea}{\_connectedSocketCount}};}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00135}00135\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00136}00136\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00142}00142\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_manager_af345e743923ae3b4a306523f4d1edada}{initalizeClientSockets}}();}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00149}00149\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_manager_a7f614a1ed7b2dc16361fc6d94eb71c81}{initalizeAvailableList}}();}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00156}00156\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_client_manager_a6f80a54c17fbb4d64916bf188e63d290}{getNextIndex}}();}
+\DoxyCodeLine{\Hypertarget{_client_manager_8h_source_l00157}00157\ \};}
+
+\end{DoxyCode}

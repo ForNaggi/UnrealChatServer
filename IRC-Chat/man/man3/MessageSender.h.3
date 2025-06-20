@@ -1,0 +1,50 @@
+.TH "SocketBuild/MessageSender.h" 3 "Version 1.0.0" "ChatMultiServerDoxygen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SocketBuild/MessageSender.h \- 다양한 방식으로 클라이언트들에게 메시지를 전송하는 \fBMessageSender\fP 클래스를 선언합니다\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <WinSock2\&.h>\fP
+.br
+\fR#include <string>\fP
+.br
+
+.SS "클래스"
+
+.in +1c
+.ti -1c
+.RI "class \fBMessageSender\fP"
+.br
+.RI "서버에서 클라이언트 소켓으로 메시지를 보내는 기능을 제공하는 클래스입니다\&. "
+.in -1c
+.SH "상세한 설명"
+.PP 
+다양한 방식으로 클라이언트들에게 메시지를 전송하는 \fBMessageSender\fP 클래스를 선언합니다\&. 
+
+
+.PP
+\fB작성자\fP
+.RS 4
+최성락 
+.RE
+.PP
+\fB날짜\fP
+.RS 4
+2025-06-17
+.RE
+.PP
+모든 클라이언트에게 메시지를 보내는 브로드캐스트, 
+.br
+한 클라이언트를 제외한 모두에게 보내는 멀티캐스트, 
+.br
+특정 클라이언트에게만 보내는 유니캐스트 기능을 제공합니다\&. 
+.br
+메시지 포맷팅과 전송 결과 추적을 위한 유틸리티들을 포함합니다\&. 
+.PP
+\fBMessageSender\&.h\fP 파일에서 정의되었습니다\&.
+.SH "작성자"
+.PP 
+소스 코드로부터 ChatMultiServerDoxygen를 위해 Doxygen에 의해 자동으로 생성됨\&.

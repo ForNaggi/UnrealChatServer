@@ -1,84 +1,93 @@
+ï»¿#pragma execution_character_set("utf-8")
+
+/**
+ * @file MessageReceiver.cpp
+ * @brief MessageReceiver.h êµ¬í˜„ë¶€.
+ * @author ìµœì„±ë½
+ * @date 2025-06-17
+ */
+
 #include "MessageReceiver.h"
 #include "DebugHelper.h"
 
-MessageRecevier::MessageRecevier(SOCKET client_socket)
+MessageReceiver::MessageReceiver(SOCKET client_socket)
     : _clientSocket(client_socket), _lastMessage("")
 {
-    LOG_DEBUG("MessageRecevier °´Ã¼¸¦ »ı¼ºÇÕ´Ï´Ù.");
+    LOG_DEBUG("MessageReceiver ê°ì²´ë¥¼ ìƒì„±í•©ë‹ˆë‹¤.");
 }
 
-MessageRecevier::~MessageRecevier()
+MessageReceiver::~MessageReceiver()
 {
-    LOG_DEBUG("MessageManager °´Ã¼¸¦ »èÁ¦ÇÕ´Ï´Ù.");
+    LOG_DEBUG("MessageManager ê°ì²´ë¥¼ ì‚­ì œí•©ë‹ˆë‹¤.");
 }
 
-MessageRecevier::Result MessageRecevier::receiveMessage()
+MessageReceiver::Result MessageReceiver::receiveMessage()
 {
-    char buffer[MessageRecevier::BUFFER_SIZE];
+    char buffer[MessageReceiver::BUFFER_SIZE];
 
-    //recv ÇÔ¼ö´Â Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏÀÇ ¼ö½Å ¹öÆÛ¿¡¼­ µ¥ÀÌÅÍ¸¦ ÀĞ¾î¿É´Ï´Ù.
-    //  ÀÎÀÚ ¼³¸í:.
-    //      Ã¹ ¹øÂ° ÀÎÀÚ: µ¥ÀÌÅÍ¸¦ ÀĞÀ» ´ë»ó ¼ÒÄÏ (_clientSocket).
-    //      µÎ ¹øÂ° ÀÎÀÚ: ¼ö½Å µ¥ÀÌÅÍ¸¦ ÀúÀåÇÒ ¹öÆÛ (buffer).
-    //      ¼¼ ¹øÂ° ÀÎÀÚ: ÃÖ´ë ÀĞÀ» ¹ÙÀÌÆ® ¼ö (BUFFER_SIZE - 1).
-    //      ³× ¹øÂ° ÀÎÀÚ: ÇÃ·¡±× (ÀÏ¹İÀûÀ¸·Î 0 »ç¿ë).
-    //          MSG_PEEK : µ¥ÀÌÅÍ¸¦ ÀĞ´õ¶óµµ ¹öÆÛ¸¦ ¾ÈÁö¿ò (Çì´õ È®ÀÎ ½Ã »ç¿ëÇÒ ¼ö ÀÖÀ½).
-    //          MSG_OOB : ´ë¿ª ¿Ü µ¥ÀÌÅÍ ¼ö½Å.
-    //          MSG_WAITALL : ÀüÃ¼ ¹öÆÛ°¡ Ã¤¿öÁú ¶§±îÁö ´ë±â.
-    //  ¹İÈ¯°ªÀÎ receive_result´Â ´ÙÀ½À» ÀÇ¹ÌÇÕ´Ï´Ù:.
-    //      > 0: ½ÇÁ¦·Î ÀĞÀº ¹ÙÀÌÆ® ¼ö.
-    //      == 0: ¿¬°áÀÌ Á¤»óÀûÀ¸·Î Á¾·áµÊ.
-    //      < 0: ¿À·ù ¹ß»ı (¿¹: ¿¬°á ²÷±è ¶Ç´Â ³×Æ®¿öÅ© ¿À·ù).
+    //recv í•¨ìˆ˜ëŠ” í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ì˜ ìˆ˜ì‹  ë²„í¼ì—ì„œ ë°ì´í„°ë¥¼ ì½ì–´ì˜µë‹ˆë‹¤.
+    //  ì¸ì ì„¤ëª…:.
+    //      ì²« ë²ˆì§¸ ì¸ì: ë°ì´í„°ë¥¼ ì½ì„ ëŒ€ìƒ ì†Œì¼“ (_clientSocket).
+    //      ë‘ ë²ˆì§¸ ì¸ì: ìˆ˜ì‹  ë°ì´í„°ë¥¼ ì €ì¥í•  ë²„í¼ (buffer).
+    //      ì„¸ ë²ˆì§¸ ì¸ì: ìµœëŒ€ ì½ì„ ë°”ì´íŠ¸ ìˆ˜ (BUFFER_SIZE - 1).
+    //      ë„¤ ë²ˆì§¸ ì¸ì: í”Œë˜ê·¸ (ì¼ë°˜ì ìœ¼ë¡œ 0 ì‚¬ìš©).
+    //          MSG_PEEK : ë°ì´í„°ë¥¼ ì½ë”ë¼ë„ ë²„í¼ë¥¼ ì•ˆì§€ì›€ (í—¤ë” í™•ì¸ ì‹œ ì‚¬ìš©í•  ìˆ˜ ìˆìŒ).
+    //          MSG_OOB : ëŒ€ì—­ ì™¸ ë°ì´í„° ìˆ˜ì‹ .
+    //          MSG_WAITALL : ì „ì²´ ë²„í¼ê°€ ì±„ì›Œì§ˆ ë•Œê¹Œì§€ ëŒ€ê¸°.
+    //  ë°˜í™˜ê°’ì¸ receive_resultëŠ” ë‹¤ìŒì„ ì˜ë¯¸í•©ë‹ˆë‹¤:.
+    //      > 0: ì‹¤ì œë¡œ ì½ì€ ë°”ì´íŠ¸ ìˆ˜.
+    //      == 0: ì—°ê²°ì´ ì •ìƒì ìœ¼ë¡œ ì¢…ë£Œë¨.
+    //      < 0: ì˜¤ë¥˜ ë°œìƒ (ì˜ˆ: ì—°ê²° ëŠê¹€ ë˜ëŠ” ë„¤íŠ¸ì›Œí¬ ì˜¤ë¥˜).
     int receive_result = recv(this->_clientSocket, buffer, BUFFER_SIZE - 1, 0);
 
-    // ¼ö½ÅÀÌ Á¦´ë·Î ÀÌ·ç¾îÁø °æ¿ì.
+    // ìˆ˜ì‹ ì´ ì œëŒ€ë¡œ ì´ë£¨ì–´ì§„ ê²½ìš°.
     if (receive_result > 0)
     {
         buffer[receive_result] = '\0';
         this->_lastMessage = std::string(buffer);
 
-        LOG_INFO("¼ö½Å: " + this->_lastMessage);
-        // ¼ö½Å ¹ŞÀº ¹®ÀÚ¿­ÀÇ ÄÉ¸®Áö ¸®ÅÏÀ» Á¦°ÅÇÕ´Ï´Ù.
+        LOG_INFO("ìˆ˜ì‹ : " + this->_lastMessage);
+        // ìˆ˜ì‹  ë°›ì€ ë¬¸ìì—´ì˜ ì¼€ë¦¬ì§€ ë¦¬í„´ì„ ì œê±°í•©ë‹ˆë‹¤.
         cleanMessage(this->_lastMessage);
 
-        // ¼ö½Å¹ŞÀº ¹®ÀÚ¿­ÀÌ quitÀÎÁö¸¦ Ã¼Å©ÇÕ´Ï´Ù.
+        // ìˆ˜ì‹ ë°›ì€ ë¬¸ìì—´ì´ quitì¸ì§€ë¥¼ ì²´í¬í•©ë‹ˆë‹¤.
         if (isQuitCommand(this->_lastMessage))
         {
-            // ¸Â´Ù¸é.
-            return (MessageRecevier::Result::CLIENT_QUIT);
+            // ë§ë‹¤ë©´.
+            return (MessageReceiver::Result::CLIENT_QUIT);
         }
 
-        return (MessageRecevier::Result::SUCCESS);
+        return (MessageReceiver::Result::SUCCESS);
     }
-    // ¿¬°áÀÌ Á¤»óÀûÀ¸·Î Á¾·á.
+    // ì—°ê²°ì´ ì •ìƒì ìœ¼ë¡œ ì¢…ë£Œ.
     else if (receive_result == 0)
     {
-        LOG_INFO("Å¬¶óÀÌ¾ğÆ®°¡ ¿¬°áÀ» Á¾·áÇß½À´Ï´Ù.");
-        return (MessageRecevier::Result::CLIENT_DISCONNECTED);
+        LOG_INFO("í´ë¼ì´ì–¸íŠ¸ê°€ ì—°ê²°ì„ ì¢…ë£Œí–ˆìŠµë‹ˆë‹¤.");
+        return (MessageReceiver::Result::CLIENT_DISCONNECTED);
     }
-    // ¿À·ù ¹ß»ı.
+    // ì˜¤ë¥˜ ë°œìƒ.
     else
     {
-        LOG_ERROR("¸Ş½ÃÁö ¼ö½ÅÀ» ½ÇÆĞÇß½À´Ï´Ù.\n¿¡·¯ ÄÚµå: " + std::to_string(WSAGetLastError()));
-        return (MessageRecevier::Result::FAIL_RECEIVE);
+        LOG_ERROR("ë©”ì‹œì§€ ìˆ˜ì‹ ì„ ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.\nì—ëŸ¬ ì½”ë“œ: " + std::to_string(WSAGetLastError()));
+        return (MessageReceiver::Result::FAIL_RECEIVE);
     }
 }
 
-const std::string& MessageRecevier::getLastMessage() const
+const std::string& MessageReceiver::getLastMessage() const
 {
-    // ¸¶Áö¸· ¹®ÀÚ¿­À» ¹İÈ¯ÇÕ´Ï´Ù.
+    // ë§ˆì§€ë§‰ ë¬¸ìì—´ì„ ë°˜í™˜í•©ë‹ˆë‹¤.
     return (this->_lastMessage);
 }
 
-bool MessageRecevier::isQuitCommand(const std::string& message)
+bool MessageReceiver::isQuitCommand(const std::string& message) const
 {
-    // quit°¡ ¸ÂÀ¸¸é true, Æ²¸®¸é false.
+    // quitê°€ ë§ìœ¼ë©´ true, í‹€ë¦¬ë©´ false.
     return (message == "quit");
 }
 
-void MessageRecevier::cleanMessage(std::string& message)
+void MessageReceiver::cleanMessage(std::string& message)
 {
-    // Ä³¸®Áö ¸®ÅÏÀ» Á¦°ÅÇÕ´Ï´Ù.
+    // ìºë¦¬ì§€ ë¦¬í„´ì„ ì œê±°í•©ë‹ˆë‹¤.
     if (!message.empty() && message.back() == '\n')
     {
         message.pop_back();

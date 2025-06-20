@@ -1,0 +1,41 @@
+\doxysection{Memory\+Leak\+Helper.\+h}
+\hypertarget{_memory_leak_helper_8h_source}{}\label{_memory_leak_helper_8h_source}\index{SocketBuild/MemoryLeakHelper.h@{SocketBuild/MemoryLeakHelper.h}}
+\mbox{\hyperlink{_memory_leak_helper_8h}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00002}00002\ \textcolor{preprocessor}{\#pragma\ execution\_character\_set("{}utf-\/8"{})}}
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00015}00015\ \textcolor{comment}{//\ MSVC(컴파일러)일\ 경우.}}
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00016}00016\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00017}00017\ \ \ \ \ \textcolor{comment}{//\ malloc,\ calloc,\ realloc,\ free\ 같은\ 표준\ c\ 메모리\ 함수들이\ 디버그용\ 버전으로\ 치환됩니다.}}
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00018}\mbox{\hyperlink{_memory_leak_helper_8h_afc30e481f763a8d68a861dba91be7316}{00018}}\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_CRTDBG\_MAP\_ALLOC}}
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00019}00019\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00020}00020\ \textcolor{preprocessor}{\ \ \ \ \#include\ <crtdbg.h>}}
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00022}00022\ \ \ \ \ \textcolor{comment}{//\ 디버그\ 모드일\ 경우.}}
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00023}00023\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ \_DEBUG}}
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00032}\mbox{\hyperlink{_memory_leak_helper_8h_a95d1b97f67f97c7e0f27519372822f43}{00032}}\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ DBG\_NEW\ new\ (\ \_NORMAL\_BLOCK\ ,\ \_\_FILE\_\_\ ,\ \_\_LINE\_\_\ )}}
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00034}\mbox{\hyperlink{_memory_leak_helper_8h_a1ac41480eb2e4aadd52252ee550b630a}{00034}}\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ new\ DBG\_NEW}}
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00046}\mbox{\hyperlink{_memory_leak_helper_8h_aad3be9864b5d6e87802bbb352f265b8c}{00046}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_memory_leak_helper_8h_aad3be9864b5d6e87802bbb352f265b8c}{memory\_leak\_check}}()}
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \_CRTDBG\_ALLOC\_MEM\_DF\ :\ 메모리\ 할당\ 추적\ 정보를\ 기록.}}
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \_CRTDBG\_LEAK\_CHECK\_DF\ :\ 프로그램이\ 종료될\ 때\ 메모리\ 누수\ 보고서를\ 출력.}}
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \_CrtSetDbgFlag(\_CRTDBG\_ALLOC\_MEM\_DF\ |\ \_CRTDBG\_LEAK\_CHECK\_DF);}
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00060}\mbox{\hyperlink{_memory_leak_helper_8h_aed504a95fefe9c384f266415fd3bb2fe}{00060}}\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ RUN\_MEMORY\_LEAK\_CHECK\ memory\_leak\_check()}}
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00062}00062\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 디버그\ 모드가\ 아니면\ 작동\ 안되게\ 하려고\ 심어놓은\ 함수.}}
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_memory_leak_helper_8h_aad3be9864b5d6e87802bbb352f265b8c}{memory\_leak\_check}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 해당\ 표현은\ 컴파일\ 단계에서\ 완전히\ 삭제됩니다.}}
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00067}00067\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ RUN\_MEMORY\_LEAK\_CHECK\ ((void)0)}}
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00069}00069\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{_memory_leak_helper_8h_source_l00070}00070\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

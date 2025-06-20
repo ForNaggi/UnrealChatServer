@@ -1,0 +1,544 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ChatMultiServerDoxygen: SelectManager 클래스 참조</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ChatMultiServerDoxygen<span id="projectnumber">&#160;1.0.0</span>
+   </div>
+   <div id="projectbrief">this is the synopsis</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','검색',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('class_select_manager.html','','class_select_manager-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">로딩중...</div>
+<div class="SRStatus" id="Searching">검색중...</div>
+<div class="SRStatus" id="NoMatches">일치하는것 없음</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">SelectManager 클래스 참조</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>소켓 집합을 관리하고 select()를 사용하여 네트워크 I/O를 다중화합니다.  
+ <a href="#details">더 자세히 ...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_select_manager_8h_source.html">SelectManager.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 타입</h2></td></tr>
+<tr class="memitem:a54b9151953c8815d0178e2816a4085ec" id="r_a54b9151953c8815d0178e2816a4085ec"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54b9151953c8815d0178e2816a4085ec">Result</a> { <a class="el" href="#a54b9151953c8815d0178e2816a4085ecad0749aaba8b833466dfcbb0428e4f89c">SUCCESS</a>
+, <a class="el" href="#a54b9151953c8815d0178e2816a4085eca070a0fb40f6c308ab544b227660aadff">TIMEOUT</a>
+, <a class="el" href="#a54b9151953c8815d0178e2816a4085ecadd820d26a503ff5eff2d001703714e47">FAIL_SELECT</a>
+, <a class="el" href="#a54b9151953c8815d0178e2816a4085eca9577f71024a3ec9d5367f5bc34fe747f">NO_SOCKETS</a>
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 멤버 함수</h2></td></tr>
+<tr class="memitem:aa54c0ba1ef0f41c5f81b26c004ab553f" id="r_aa54c0ba1ef0f41c5f81b26c004ab553f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa54c0ba1ef0f41c5f81b26c004ab553f">SelectManager</a> ()</td></tr>
+<tr class="memdesc:aa54c0ba1ef0f41c5f81b26c004ab553f"><td class="mdescLeft">&#160;</td><td class="mdescRight">SelectManager를 생성하여 내부 소켓 집합을 초기화합니다.  <br /></td></tr>
+<tr class="memitem:a131302983d1dd7938f2bf7be5ee0486a" id="r_a131302983d1dd7938f2bf7be5ee0486a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a131302983d1dd7938f2bf7be5ee0486a">~SelectManager</a> ()</td></tr>
+<tr class="memdesc:a131302983d1dd7938f2bf7be5ee0486a"><td class="mdescLeft">&#160;</td><td class="mdescRight">SelectManager의 소멸자.  <br /></td></tr>
+<tr class="memitem:aed0a7f9325a1cf09f2b9e44be19b3828" id="r_aed0a7f9325a1cf09f2b9e44be19b3828"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed0a7f9325a1cf09f2b9e44be19b3828">SelectManager</a> (const <a class="el" href="class_select_manager.html">SelectManager</a> &amp;obj)=delete</td></tr>
+<tr class="memitem:a07c2e14e7ea606910c87d0bbfe12139a" id="r_a07c2e14e7ea606910c87d0bbfe12139a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_select_manager.html">SelectManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07c2e14e7ea606910c87d0bbfe12139a">operator=</a> (const <a class="el" href="class_select_manager.html">SelectManager</a> &amp;obj)=delete</td></tr>
+<tr class="memitem:a2560ba395a59e6b286ae9189e69f469c" id="r_a2560ba395a59e6b286ae9189e69f469c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2560ba395a59e6b286ae9189e69f469c">SelectManager</a> (<a class="el" href="class_select_manager.html">SelectManager</a> &amp;&amp;obj)=delete</td></tr>
+<tr class="memitem:a1eb9c0a662d6c30841563d8b63a60a3e" id="r_a1eb9c0a662d6c30841563d8b63a60a3e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_select_manager.html">SelectManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1eb9c0a662d6c30841563d8b63a60a3e">operator=</a> (<a class="el" href="class_select_manager.html">SelectManager</a> &amp;&amp;obj)=delete</td></tr>
+<tr class="memitem:a5cbd49ada4d6bbcceb45994b718f4249" id="r_a5cbd49ada4d6bbcceb45994b718f4249"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5cbd49ada4d6bbcceb45994b718f4249">setupFdSet</a> ()</td></tr>
+<tr class="memdesc:a5cbd49ada4d6bbcceb45994b718f4249"><td class="mdescLeft">&#160;</td><td class="mdescRight">새로운 select 작업을 위해 fd_set을 초기화하여 준비합니다.  <br /></td></tr>
+<tr class="memitem:a49708ec0ab5bb85c4084b85d7d708244" id="r_a49708ec0ab5bb85c4084b85d7d708244"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a49708ec0ab5bb85c4084b85d7d708244">addSocket</a> (SOCKET socket)</td></tr>
+<tr class="memdesc:a49708ec0ab5bb85c4084b85d7d708244"><td class="mdescLeft">&#160;</td><td class="mdescRight">select()로 모니터링할 소켓 집합에 소켓을 추가합니다.  <br /></td></tr>
+<tr class="memitem:aa481a33503a44eef343a271d64ae1f11" id="r_aa481a33503a44eef343a271d64ae1f11"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a54b9151953c8815d0178e2816a4085ec">SelectManager::Result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa481a33503a44eef343a271d64ae1f11">executeSelect</a> (int timeout_sec=1)</td></tr>
+<tr class="memdesc:aa481a33503a44eef343a271d64ae1f11"><td class="mdescLeft">&#160;</td><td class="mdescRight">현재 설정된 소켓 집합에 대해 select() 시스템 호출을 수행합니다.  <br /></td></tr>
+<tr class="memitem:a5c7e0df102640c1e4d92578b7081368f" id="r_a5c7e0df102640c1e4d92578b7081368f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c7e0df102640c1e4d92578b7081368f">isSocketReady</a> (SOCKET socket) const</td></tr>
+<tr class="memdesc:a5c7e0df102640c1e4d92578b7081368f"><td class="mdescLeft">&#160;</td><td class="mdescRight">해당 소켓이 "읽기 준비 완료"로 표시되었는지 확인합니다.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private 속성</h2></td></tr>
+<tr class="memitem:abba6d4ec35ce6c709985333d27b00e77" id="r_abba6d4ec35ce6c709985333d27b00e77"><td class="memItemLeft" align="right" valign="top">fd_set&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abba6d4ec35ce6c709985333d27b00e77">_originSet</a></td></tr>
+<tr class="memdesc:abba6d4ec35ce6c709985333d27b00e77"><td class="mdescLeft">&#160;</td><td class="mdescRight">재사용 가능한 원본 소켓 집합 (모니터링할 소켓들의 집합).  <br /></td></tr>
+<tr class="memitem:a9867d9457e5bd481c1b6e829932e310c" id="r_a9867d9457e5bd481c1b6e829932e310c"><td class="memItemLeft" align="right" valign="top">fd_set&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9867d9457e5bd481c1b6e829932e310c">_copySet</a></td></tr>
+<tr class="memdesc:a9867d9457e5bd481c1b6e829932e310c"><td class="mdescLeft">&#160;</td><td class="mdescRight">select()에 전달되는 소켓 집합의 복사본입니다 (select 호출 시 변경될 수 있음).  <br /></td></tr>
+<tr class="memitem:a3c885ce2cc540e6d7acf4d47178bb97f" id="r_a3c885ce2cc540e6d7acf4d47178bb97f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c885ce2cc540e6d7acf4d47178bb97f">_socketCount</a></td></tr>
+<tr class="memdesc:a3c885ce2cc540e6d7acf4d47178bb97f"><td class="mdescLeft">&#160;</td><td class="mdescRight">현재 집합에 포함된 소켓 개수입니다.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">상세한 설명</h2>
+<div class="textblock"><p>소켓 집합을 관리하고 select()를 사용하여 네트워크 I/O를 다중화합니다. </p>
+<p>SelectManager는 select에 필요한 fd_set 구조체를 래핑합니다. <br  />
+소켓을 추가하여 select 연산을 수행하는 메서드를 제공합니다. <br  />
+어떤 소켓에 수신 데이터가 있는지(읽기 준비 완료 상태인지)를 확인합니다. <br  />
+타임아웃 상황을 처리할 수 있습니다. </p>
+
+<p class="definition"><a class="el" href="_select_manager_8h_source.html">SelectManager.h</a> 파일의 <a class="el" href="_select_manager_8h_source.html#l00027">27</a> 번째 라인에서 정의되었습니다.</p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">멤버 열거형 문서화</h2>
+<a id="a54b9151953c8815d0178e2816a4085ec" name="a54b9151953c8815d0178e2816a4085ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54b9151953c8815d0178e2816a4085ec">&#9670;&#160;</a></span>Result</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a54b9151953c8815d0178e2816a4085ec">SelectManager::Result</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">열거형 멤버</th></tr><tr><td class="fieldname"><a id="a54b9151953c8815d0178e2816a4085ecad0749aaba8b833466dfcbb0428e4f89c" name="a54b9151953c8815d0178e2816a4085ecad0749aaba8b833466dfcbb0428e4f89c"></a>SUCCESS&#160;</td><td class="fielddoc"><p>select 호출에 성공, 적어도 하나의 소켓이 I/O 처리 준비가 된 경우. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a54b9151953c8815d0178e2816a4085eca070a0fb40f6c308ab544b227660aadff" name="a54b9151953c8815d0178e2816a4085eca070a0fb40f6c308ab544b227660aadff"></a>TIMEOUT&#160;</td><td class="fielddoc"><p>지정된 타임아웃 내에 아무 소켓에서도 활동이 없어 select가 타임아웃된 경우. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a54b9151953c8815d0178e2816a4085ecadd820d26a503ff5eff2d001703714e47" name="a54b9151953c8815d0178e2816a4085ecadd820d26a503ff5eff2d001703714e47"></a>FAIL_SELECT&#160;</td><td class="fielddoc"><p>select 호출이 실패한 경우 (예: 잘못된 소켓 등 오류로 인해). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a54b9151953c8815d0178e2816a4085eca9577f71024a3ec9d5367f5bc34fe747f" name="a54b9151953c8815d0178e2816a4085eca9577f71024a3ec9d5367f5bc34fe747f"></a>NO_SOCKETS&#160;</td><td class="fielddoc"><p>모니터링할 소켓이 하나도 설정되지 않은 경우 (select가 호출되지 않음). </p>
+</td></tr>
+</table>
+
+<p class="definition"><a class="el" href="_select_manager_8h_source.html">SelectManager.h</a> 파일의 <a class="el" href="_select_manager_8h_source.html#l00035">35</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">생성자 &amp; 소멸자 문서화</h2>
+<a id="aa54c0ba1ef0f41c5f81b26c004ab553f" name="aa54c0ba1ef0f41c5f81b26c004ab553f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa54c0ba1ef0f41c5f81b26c004ab553f">&#9670;&#160;</a></span>SelectManager() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SelectManager::SelectManager </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>SelectManager를 생성하여 내부 소켓 집합을 초기화합니다. </p>
+<dl class="section return"><dt>반환값</dt><dd>없음.</dd></dl>
+<p>빈 fd_set들을 준비합니다. </p>
+
+<p class="definition"><a class="el" href="_select_manager_8cpp_source.html">SelectManager.cpp</a> 파일의 <a class="el" href="_select_manager_8cpp_source.html#l00021">21</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="a131302983d1dd7938f2bf7be5ee0486a" name="a131302983d1dd7938f2bf7be5ee0486a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a131302983d1dd7938f2bf7be5ee0486a">&#9670;&#160;</a></span>~SelectManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SelectManager::~SelectManager </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>SelectManager의 소멸자. </p>
+<dl class="section return"><dt>반환값</dt><dd>없음.</dd></dl>
+<dl class="section note"><dt>주의</dt><dd>내부적으로 해제할 동적 리소스는 없습니다. </dd></dl>
+
+<p class="definition"><a class="el" href="_select_manager_8cpp_source.html">SelectManager.cpp</a> 파일의 <a class="el" href="_select_manager_8cpp_source.html#l00027">27</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="aed0a7f9325a1cf09f2b9e44be19b3828" name="aed0a7f9325a1cf09f2b9e44be19b3828"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed0a7f9325a1cf09f2b9e44be19b3828">&#9670;&#160;</a></span>SelectManager() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SelectManager::SelectManager </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_select_manager.html">SelectManager</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>obj</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2560ba395a59e6b286ae9189e69f469c" name="a2560ba395a59e6b286ae9189e69f469c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2560ba395a59e6b286ae9189e69f469c">&#9670;&#160;</a></span>SelectManager() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SelectManager::SelectManager </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_select_manager.html">SelectManager</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>obj</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">멤버 함수 문서화</h2>
+<a id="a49708ec0ab5bb85c4084b85d7d708244" name="a49708ec0ab5bb85c4084b85d7d708244"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49708ec0ab5bb85c4084b85d7d708244">&#9670;&#160;</a></span>addSocket()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SelectManager::addSocket </td>
+          <td>(</td>
+          <td class="paramtype">SOCKET</td>          <td class="paramname"><span class="paramname"><em>socket</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>select()로 모니터링할 소켓 집합에 소켓을 추가합니다. </p>
+<dl class="params"><dt>매개변수</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>SOCKET socket : 감시 목록에 추가할 소켓입니다. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>반환값</dt><dd>bool : 소켓이 정상적으로 추가되어 유효하면 true, 추가할 수 없으면 false를 반환합니다 (예: 소켓 개수 초과 또는 잘못된 소켓인 경우).</dd></dl>
+<p>해당 소켓을 내부 fd_set에 추가합니다. </p>
+
+<p class="definition"><a class="el" href="_select_manager_8cpp_source.html">SelectManager.cpp</a> 파일의 <a class="el" href="_select_manager_8cpp_source.html#l00041">41</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="aa481a33503a44eef343a271d64ae1f11" name="aa481a33503a44eef343a271d64ae1f11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa481a33503a44eef343a271d64ae1f11">&#9670;&#160;</a></span>executeSelect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a54b9151953c8815d0178e2816a4085ec">SelectManager::Result</a> SelectManager::executeSelect </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>timeout_sec</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>현재 설정된 소켓 집합에 대해 select() 시스템 호출을 수행합니다. </p>
+<dl class="params"><dt>매개변수</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>int timeout_sec : 이벤트를 기다릴 시간(초)입니다 (기본값: 1초). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>반환값</dt><dd><a class="el" href="#a54b9151953c8815d0178e2816a4085ec">SelectManager::Result</a> : select 연산의 결과를 반환합니다 (SUCCESS, TIMEOUT, FAIL_SELECT 또는 NO_SOCKETS).</dd></dl>
+<p>내부적으로 소켓 집합을 임시 복사본으로 만들고 select()를 호출합니다. <br  />
+하나 이상의 소켓이 준비되었다면 SUCCESS를 반환합니다. <br  />
+집합에 소켓이 없다면 select를 호출하지 않고 NO_SOCKETS를 반환합니다. <br  />
+타임아웃 시 TIMEOUT을, 오류 발생 시 FAIL_SELECT를 반환합니다. </p>
+
+<p class="definition"><a class="el" href="_select_manager_8cpp_source.html">SelectManager.cpp</a> 파일의 <a class="el" href="_select_manager_8cpp_source.html#l00058">58</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="a5c7e0df102640c1e4d92578b7081368f" name="a5c7e0df102640c1e4d92578b7081368f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c7e0df102640c1e4d92578b7081368f">&#9670;&#160;</a></span>isSocketReady()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SelectManager::isSocketReady </td>
+          <td>(</td>
+          <td class="paramtype">SOCKET</td>          <td class="paramname"><span class="paramname"><em>socket</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>해당 소켓이 "읽기 준비 완료"로 표시되었는지 확인합니다. </p>
+<dl class="params"><dt>매개변수</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>SOCKET socket : 확인할 소켓입니다. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>반환값</dt><dd>bool : 소켓에 읽을 데이터가 있어(select에 의해 fd_set에 설정된 경우) true를 반환하고, 그렇지 않으면 false를 반환합니다.</dd></dl>
+<dl class="section note"><dt>주의</dt><dd>이 메서드는 <a class="el" href="#aa481a33503a44eef343a271d64ae1f11" title="현재 설정된 소켓 집합에 대해 select() 시스템 호출을 수행합니다.">executeSelect()</a> 호출 후에 사용해야 합니다. <br  />
+select가 업데이트한 내부 fd_set 복사본을 검사합니다. </dd></dl>
+
+<p class="definition"><a class="el" href="_select_manager_8cpp_source.html">SelectManager.cpp</a> 파일의 <a class="el" href="_select_manager_8cpp_source.html#l00098">98</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="a07c2e14e7ea606910c87d0bbfe12139a" name="a07c2e14e7ea606910c87d0bbfe12139a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07c2e14e7ea606910c87d0bbfe12139a">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_select_manager.html">SelectManager</a> &amp; SelectManager::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_select_manager.html">SelectManager</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>obj</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1eb9c0a662d6c30841563d8b63a60a3e" name="a1eb9c0a662d6c30841563d8b63a60a3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1eb9c0a662d6c30841563d8b63a60a3e">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_select_manager.html">SelectManager</a> &amp; SelectManager::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_select_manager.html">SelectManager</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>obj</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5cbd49ada4d6bbcceb45994b718f4249" name="a5cbd49ada4d6bbcceb45994b718f4249"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cbd49ada4d6bbcceb45994b718f4249">&#9670;&#160;</a></span>setupFdSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SelectManager::setupFdSet </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>새로운 select 작업을 위해 fd_set을 초기화하여 준비합니다. </p>
+<dl class="section return"><dt>반환값</dt><dd>없음.</dd></dl>
+<p>내부 소켓 집합을 모두 비우고 소켓 개수를 0으로 재설정합니다. <br  />
+필요한 경우 (예: 서버 루프의 각 반복마다) 소켓을 다시 추가하기 전에 이 메서드를 호출하십시오. </p>
+
+<p class="definition"><a class="el" href="_select_manager_8cpp_source.html">SelectManager.cpp</a> 파일의 <a class="el" href="_select_manager_8cpp_source.html#l00032">32</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">멤버 데이터 문서화</h2>
+<a id="a9867d9457e5bd481c1b6e829932e310c" name="a9867d9457e5bd481c1b6e829932e310c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9867d9457e5bd481c1b6e829932e310c">&#9670;&#160;</a></span>_copySet</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">fd_set SelectManager::_copySet</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>select()에 전달되는 소켓 집합의 복사본입니다 (select 호출 시 변경될 수 있음). </p>
+
+<p class="definition"><a class="el" href="_select_manager_8h_source.html">SelectManager.h</a> 파일의 <a class="el" href="_select_manager_8h_source.html#l00125">125</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="abba6d4ec35ce6c709985333d27b00e77" name="abba6d4ec35ce6c709985333d27b00e77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abba6d4ec35ce6c709985333d27b00e77">&#9670;&#160;</a></span>_originSet</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">fd_set SelectManager::_originSet</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>재사용 가능한 원본 소켓 집합 (모니터링할 소켓들의 집합). </p>
+
+<p class="definition"><a class="el" href="_select_manager_8h_source.html">SelectManager.h</a> 파일의 <a class="el" href="_select_manager_8h_source.html#l00122">122</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="a3c885ce2cc540e6d7acf4d47178bb97f" name="a3c885ce2cc540e6d7acf4d47178bb97f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c885ce2cc540e6d7acf4d47178bb97f">&#9670;&#160;</a></span>_socketCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SelectManager::_socketCount</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>현재 집합에 포함된 소켓 개수입니다. </p>
+
+<p class="definition"><a class="el" href="_select_manager_8h_source.html">SelectManager.h</a> 파일의 <a class="el" href="_select_manager_8h_source.html#l00128">128</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<hr/>이 클래스에 대한 문서화 페이지는 다음의 파일들로부터 생성되었습니다.:<ul>
+<li>SocketBuild/<a class="el" href="_select_manager_8h_source.html">SelectManager.h</a></li>
+<li>SocketBuild/<a class="el" href="_select_manager_8cpp_source.html">SelectManager.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_select_manager.html">SelectManager</a></li>
+    <li class="footer">다음에 의해 생성됨 :  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

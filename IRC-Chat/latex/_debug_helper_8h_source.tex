@@ -1,0 +1,86 @@
+\doxysection{Debug\+Helper.\+h}
+\hypertarget{_debug_helper_8h_source}{}\label{_debug_helper_8h_source}\index{SocketBuild/DebugHelper.h@{SocketBuild/DebugHelper.h}}
+\mbox{\hyperlink{_debug_helper_8h}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00002}00002\ \textcolor{preprocessor}{\#pragma\ execution\_character\_set("{}utf-\/8"{})}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <iostream>}\ }
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <ctime>}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00027}\mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9}{00027}}\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9}{LogLevel}}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00028}00028\ \{}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00029}\mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9a551b723eafd6a31d444fcb2f5920fbd3}{00029}}\ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9a551b723eafd6a31d444fcb2f5920fbd3}{INFO}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00030}\mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9a059e9861e0400dfbe05c98a841f3f96b}{00030}}\ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9a059e9861e0400dfbe05c98a841f3f96b}{WARNING}},\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00031}\mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9a54b1238a675e3ebbad5d2aa5316c196a}{00031}}\ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9a54b1238a675e3ebbad5d2aa5316c196a}{ERRORZ}},\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00032}\mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9adc30ec20708ef7b0f641ef78b7880a15}{00032}}\ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9adc30ec20708ef7b0f641ef78b7880a15}{DEBUG}}\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00033}00033\ \};}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00041}\mbox{\hyperlink{_debug_helper_8h_af2666057acd4f3712030a3336a6d8968}{00041}}\ \textcolor{keyword}{inline}\ std::string\ \mbox{\hyperlink{_debug_helper_8h_af2666057acd4f3712030a3336a6d8968}{current\_time}}()}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00042}00042\ \{}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00043}00043\ \ \ \ \ time\_t\ now\ =\ time(\textcolor{keyword}{nullptr});\ \textcolor{comment}{//\ 현재\ 시간을\ 초\ 단위로\ 가져옴.}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00044}00044\ \ \ \ \ \textcolor{keyword}{struct\ }tm\ timeInfo;}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00045}00045\ \ \ \ \ localtime\_s(\&timeInfo\ ,\ \&now);}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00046}00046\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ buf[64];\ \ \ \ \ \ \ \ \textcolor{comment}{//\ 시간\ 관련\ 정보를\ 담을\ 배열\ -\/\ static\ 사용\ 재할당\ 안함.}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00047}00047\ \ \ \ \ \textcolor{comment}{//\ 해당\ 함수는\ (버퍼,\ 버퍼사이즈,\ 출력형식,\ 시간정보)를\ 받고\ buf에\ 출력형식대로\ 저장합니다.}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00048}00048\ \ \ \ \ strftime(buf,\ \textcolor{keyword}{sizeof}(buf),\ \textcolor{stringliteral}{"{}\%Y-\/\%m-\/\%d\ \%H:\%M:\%S"{}},\ \&timeInfo);}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00049}00049\ \ \ \ \ \textcolor{keywordflow}{return}\ std::string(buf);}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00050}00050\ \}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00059}\mbox{\hyperlink{_debug_helper_8h_a41857877494326c2bd54dff09bffee95}{00059}}\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{_debug_helper_8h_a41857877494326c2bd54dff09bffee95}{log\_level\_to\_string}}(\mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9}{LogLevel}}\ level)}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00060}00060\ \{}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00061}00061\ \ \ \ \ \textcolor{keywordflow}{switch}\ (level)\ \textcolor{comment}{//\ 로그에\ 해당하는\ 에러로\ switch합니다.}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00062}00062\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00063}00063\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9a551b723eafd6a31d444fcb2f5920fbd3}{LogLevel::INFO}}:\ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\ INFO\ "{}};}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00064}00064\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9a059e9861e0400dfbe05c98a841f3f96b}{LogLevel::WARNING}}:\ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\ WARNING\ "{}};}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00065}00065\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9a54b1238a675e3ebbad5d2aa5316c196a}{LogLevel::ERRORZ}}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\ ERROR\ "{}};}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00066}00066\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9adc30ec20708ef7b0f641ef78b7880a15}{LogLevel::DEBUG}}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\ DEBUG\ "{}};}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{default}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\ UNKNOWN\ "{}};}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00068}00068\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00069}00069\ \}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00085}\mbox{\hyperlink{_debug_helper_8h_ae07638b6926347629b2b3b8c6516564a}{00085}}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_debug_helper_8h_ae07638b6926347629b2b3b8c6516564a}{log}}(}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00086}00086\ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9}{LogLevel}}\ level,}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00087}00087\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ message,}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00088}00088\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ file\ =\ \textcolor{stringliteral}{"{}"{}},}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00089}00089\ \ \ \ \ \textcolor{keywordtype}{int}\ line\ =\ 0}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00090}00090\ )}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00091}00091\ \{}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00092}00092\ \ \ \ \ \textcolor{comment}{//\ DEBUG\ 모드가\ 아니면\ 해당\ 상수가\ 정의된\ 적이\ 없고\ DEBUG일\ 경우\ 리턴됩니다.}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00093}00093\ \textcolor{preprocessor}{\#ifndef\ \_DEBUG}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00094}00094\ \ \ \ \ \textcolor{keywordflow}{if}\ (level\ ==\ \mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9adc30ec20708ef7b0f641ef78b7880a15}{LogLevel::DEBUG}})}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00095}00095\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00096}00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00097}00097\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00098}00098\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00100}00100\ \ \ \ \ \textcolor{comment}{//\ 로그의\ 출력형식을\ 결정합니다.}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00101}00101\ \ \ \ \ std::ostream\&\ out\ =\ (level\ ==\ \mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9a54b1238a675e3ebbad5d2aa5316c196a}{LogLevel::ERRORZ}})\ ?\ std::cerr\ :\ std::cout;}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00103}00103\ \ \ \ \ \textcolor{comment}{//\ 로그\ 레벨\ 문자열을\ 가져옵니다.}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00104}00104\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ levelStr\ =\ \mbox{\hyperlink{_debug_helper_8h_a41857877494326c2bd54dff09bffee95}{log\_level\_to\_string}}(level);}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00106}00106\ \ \ \ \ \textcolor{comment}{//\ 아웃풋에\ 로그\ 타입과\ 시간을\ 추가합니다.}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00107}00107\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}["{}}\ <<\ levelStr\ <<\ \textcolor{stringliteral}{"{}]\ "{}}\ <<\ \mbox{\hyperlink{_debug_helper_8h_af2666057acd4f3712030a3336a6d8968}{current\_time}}();}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00109}00109\ \ \ \ \ \textcolor{comment}{//\ 파일과\ 코드라인\ 정보는\ ERROR와\ DEBUG에만\ 추가합니다.}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00110}00110\ \ \ \ \ \textcolor{keywordflow}{if}\ (level\ ==\ \mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9a54b1238a675e3ebbad5d2aa5316c196a}{LogLevel::ERRORZ}}\ ||\ level\ ==\ \mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9adc30ec20708ef7b0f641ef78b7880a15}{LogLevel::DEBUG}})}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00111}00111\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00112}00112\ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}\ ("{}}\ <<\ file\ <<\ \textcolor{stringliteral}{"{}:"{}}\ <<\ line\ <<\ \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00113}00113\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00115}00115\ \ \ \ \ \textcolor{comment}{//\ 아웃풋에\ 메세지를\ 추가합니다.(flush).}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00116}00116\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}\ -\/\ "{}}\ <<\ message\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00117}00117\ \}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00119}00119\ \textcolor{comment}{//\ 매크로로\ 정리.}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00127}\mbox{\hyperlink{_debug_helper_8h_a1df2a84bb8d3b43c8c49f1aff655190a}{00127}}\ \textcolor{preprocessor}{\#define\ LOG\_INFO(message)\ log(LogLevel::INFO,\ \ message)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00134}\mbox{\hyperlink{_debug_helper_8h_abfe0c293b360dc335041f1bc67b00647}{00134}}\ \textcolor{preprocessor}{\#define\ LOG\_WARN(message)\ log(LogLevel::WARNING,\ \ message)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00142}\mbox{\hyperlink{_debug_helper_8h_a27d98b18ba06759c6ef5c71b1e1a9904}{00142}}\ \textcolor{preprocessor}{\#define\ LOG\_ERROR(message)\ log(LogLevel::ERRORZ,\ message,\ \_\_FILE\_\_,\ \_\_LINE\_\_)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{_debug_helper_8h_source_l00151}\mbox{\hyperlink{_debug_helper_8h_a87f39d92adfc939c31320aaf4b9f7a37}{00151}}\ \textcolor{preprocessor}{\#define\ LOG\_DEBUG(message)\ log(LogLevel::DEBUG,\ message,\ \_\_FILE\_\_,\ \_\_LINE\_\_)}}
+
+\end{DoxyCode}
