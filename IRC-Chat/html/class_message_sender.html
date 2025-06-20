@@ -1,0 +1,578 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ChatMultiServerDoxygen: MessageSender 클래스 참조</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ChatMultiServerDoxygen<span id="projectnumber">&#160;1.0.0</span>
+   </div>
+   <div id="projectbrief">this is the synopsis</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','검색',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('class_message_sender.html','','class_message_sender-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">로딩중...</div>
+<div class="SRStatus" id="Searching">검색중...</div>
+<div class="SRStatus" id="NoMatches">일치하는것 없음</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">MessageSender 클래스 참조</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>서버에서 클라이언트 소켓으로 메시지를 보내는 기능을 제공하는 클래스입니다.  
+ <a href="#details">더 자세히 ...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_message_sender_8h_source.html">MessageSender.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 타입</h2></td></tr>
+<tr class="memitem:a39e62bd3398a07e5fddfa8f1e4d4b0f6" id="r_a39e62bd3398a07e5fddfa8f1e4d4b0f6"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39e62bd3398a07e5fddfa8f1e4d4b0f6">Result</a> { <a class="el" href="#a39e62bd3398a07e5fddfa8f1e4d4b0f6ad0749aaba8b833466dfcbb0428e4f89c">SUCCESS</a>
+, <a class="el" href="#a39e62bd3398a07e5fddfa8f1e4d4b0f6abd102e4c73a7f738259a9a01637ab64b">PARTIAL_FAIL</a>
+, <a class="el" href="#a39e62bd3398a07e5fddfa8f1e4d4b0f6a7628844138ab8556995e305083582f2e">TOTAL_FAIL</a>
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 멤버 함수</h2></td></tr>
+<tr class="memitem:aa321d0dc36acf6be88aef94bb5034394" id="r_aa321d0dc36acf6be88aef94bb5034394"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa321d0dc36acf6be88aef94bb5034394">MessageSender</a> ()</td></tr>
+<tr class="memdesc:aa321d0dc36acf6be88aef94bb5034394"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_message_sender.html" title="서버에서 클라이언트 소켓으로 메시지를 보내는 기능을 제공하는 클래스입니다.">MessageSender</a> 생성자.  <br /></td></tr>
+<tr class="memitem:a27a5403473e3a612c6769ff592b401fc" id="r_a27a5403473e3a612c6769ff592b401fc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27a5403473e3a612c6769ff592b401fc">~MessageSender</a> ()</td></tr>
+<tr class="memdesc:a27a5403473e3a612c6769ff592b401fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">소멸자.  <br /></td></tr>
+<tr class="memitem:ae3c3abe62e05f12d7790f7b7555d2e66" id="r_ae3c3abe62e05f12d7790f7b7555d2e66"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3c3abe62e05f12d7790f7b7555d2e66">MessageSender</a> (const <a class="el" href="class_message_sender.html">MessageSender</a> &amp;obj)=delete</td></tr>
+<tr class="memitem:a5dbebdee78d2aa2ecdfaa4c13a097d1f" id="r_a5dbebdee78d2aa2ecdfaa4c13a097d1f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_message_sender.html">MessageSender</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5dbebdee78d2aa2ecdfaa4c13a097d1f">operator=</a> (const <a class="el" href="class_message_sender.html">MessageSender</a> &amp;obj)=delete</td></tr>
+<tr class="memitem:aa869c6d4d97fc57612cb6b2c908a9ceb" id="r_aa869c6d4d97fc57612cb6b2c908a9ceb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa869c6d4d97fc57612cb6b2c908a9ceb">MessageSender</a> (<a class="el" href="class_message_sender.html">MessageSender</a> &amp;&amp;obj)=delete</td></tr>
+<tr class="memitem:aa70980a491224c0b2fc2721df809ebb8" id="r_aa70980a491224c0b2fc2721df809ebb8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_message_sender.html">MessageSender</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa70980a491224c0b2fc2721df809ebb8">operator=</a> (<a class="el" href="class_message_sender.html">MessageSender</a> &amp;&amp;obj)=delete</td></tr>
+<tr class="memitem:a3f6af29e17dde94dd77185894269507a" id="r_a3f6af29e17dde94dd77185894269507a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a39e62bd3398a07e5fddfa8f1e4d4b0f6">MessageSender::Result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f6af29e17dde94dd77185894269507a">broadcast</a> (const std::string &amp;message, SOCKET *sockets, int socket_count)</td></tr>
+<tr class="memdesc:a3f6af29e17dde94dd77185894269507a"><td class="mdescLeft">&#160;</td><td class="mdescRight">모든 클라이언트에게 메시지를 전송합니다.  <br /></td></tr>
+<tr class="memitem:a443ea21c185f7696656d0cf96b056069" id="r_a443ea21c185f7696656d0cf96b056069"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a39e62bd3398a07e5fddfa8f1e4d4b0f6">MessageSender::Result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a443ea21c185f7696656d0cf96b056069">multicast</a> (const std::string &amp;message, SOCKET *sockets, int socket_count, SOCKET except_socket)</td></tr>
+<tr class="memdesc:a443ea21c185f7696656d0cf96b056069"><td class="mdescLeft">&#160;</td><td class="mdescRight">특정 클라이언트를 제외한 모든 클라이언트에게 메시지를 보냅니다.  <br /></td></tr>
+<tr class="memitem:a67e3eb7b76c96cfb8e27830d0b8df1b0" id="r_a67e3eb7b76c96cfb8e27830d0b8df1b0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67e3eb7b76c96cfb8e27830d0b8df1b0">unicast</a> (const std::string &amp;message, SOCKET target_socket)</td></tr>
+<tr class="memdesc:a67e3eb7b76c96cfb8e27830d0b8df1b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">하나의 클라이언트 소켓에만 메시지를 전송합니다.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+정적 Public 속성</h2></td></tr>
+<tr class="memitem:a5248ffecb79f289d82d1b36cc818b07c" id="r_a5248ffecb79f289d82d1b36cc818b07c"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5248ffecb79f289d82d1b36cc818b07c">NEW_LINE</a> = &quot;\r\n&quot;</td></tr>
+<tr class="memdesc:a5248ffecb79f289d82d1b36cc818b07c"><td class="mdescLeft">&#160;</td><td class="mdescRight">메시지 끝에 붙일 개행 구분자 (소스 파일에서 정의됨).  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private 멤버 함수</h2></td></tr>
+<tr class="memitem:a63e61042531f4ee9721ca9574abf3c1a" id="r_a63e61042531f4ee9721ca9574abf3c1a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63e61042531f4ee9721ca9574abf3c1a">formatMessage</a> (const std::string &amp;message) const</td></tr>
+<tr class="memdesc:a63e61042531f4ee9721ca9574abf3c1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">주어진 메시지 끝에 개행 문자를 추가한 문자열을 반환합니다.  <br /></td></tr>
+<tr class="memitem:a15c206bd3902e00d02e8ef76ffb7bfef" id="r_a15c206bd3902e00d02e8ef76ffb7bfef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15c206bd3902e00d02e8ef76ffb7bfef">sendMessage</a> (const std::string &amp;formatted_mssage, SOCKET target_socket)</td></tr>
+<tr class="memdesc:a15c206bd3902e00d02e8ef76ffb7bfef"><td class="mdescLeft">&#160;</td><td class="mdescRight">이미 포맷된 메시지를 특정 클라이언트 소켓으로 전송합니다.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">상세한 설명</h2>
+<div class="textblock"><p>서버에서 클라이언트 소켓으로 메시지를 보내는 기능을 제공하는 클래스입니다. </p>
+<p>이 클래스는 서버 메시지의 다양한 전달 모드를 구현합니다.</p><ul>
+<li>Broadcast : 모든 연결된 클라이언트에게 메시지 전송.</li>
+<li>Multicast : 특정 클라이언트를 제외한 다수에게 메시지 전송.</li>
+<li>Unicast : 한 클라이언트에게만 메세지 전송.</li>
+</ul>
+<p>내부적으로 개행 문자(NEW_LINE 상수)를 메시지 끝에 추가하여 포맷팅합니다. <br  />
+전송 작업 결과를 나타내는 <a class="el" href="#a39e62bd3398a07e5fddfa8f1e4d4b0f6">Result</a> 열거형을 사용합니다. </p>
+
+<p class="definition"><a class="el" href="_message_sender_8h_source.html">MessageSender.h</a> 파일의 <a class="el" href="_message_sender_8h_source.html#l00033">33</a> 번째 라인에서 정의되었습니다.</p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">멤버 열거형 문서화</h2>
+<a id="a39e62bd3398a07e5fddfa8f1e4d4b0f6" name="a39e62bd3398a07e5fddfa8f1e4d4b0f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39e62bd3398a07e5fddfa8f1e4d4b0f6">&#9670;&#160;</a></span>Result</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a39e62bd3398a07e5fddfa8f1e4d4b0f6">MessageSender::Result</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">열거형 멤버</th></tr><tr><td class="fieldname"><a id="a39e62bd3398a07e5fddfa8f1e4d4b0f6ad0749aaba8b833466dfcbb0428e4f89c" name="a39e62bd3398a07e5fddfa8f1e4d4b0f6ad0749aaba8b833466dfcbb0428e4f89c"></a>SUCCESS&#160;</td><td class="fielddoc"><p>모든 대상에게 메시지를 성공적으로 전송함. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a39e62bd3398a07e5fddfa8f1e4d4b0f6abd102e4c73a7f738259a9a01637ab64b" name="a39e62bd3398a07e5fddfa8f1e4d4b0f6abd102e4c73a7f738259a9a01637ab64b"></a>PARTIAL_FAIL&#160;</td><td class="fielddoc"><p>메시지가 일부 대상에게만 전송되고 일부 대상에게는 전송 실패함. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a39e62bd3398a07e5fddfa8f1e4d4b0f6a7628844138ab8556995e305083582f2e" name="a39e62bd3398a07e5fddfa8f1e4d4b0f6a7628844138ab8556995e305083582f2e"></a>TOTAL_FAIL&#160;</td><td class="fielddoc"><p>메시지를 어떤 대상에게도 보내지 못함. </p>
+</td></tr>
+</table>
+
+<p class="definition"><a class="el" href="_message_sender_8h_source.html">MessageSender.h</a> 파일의 <a class="el" href="_message_sender_8h_source.html#l00044">44</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">생성자 &amp; 소멸자 문서화</h2>
+<a id="aa321d0dc36acf6be88aef94bb5034394" name="aa321d0dc36acf6be88aef94bb5034394"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa321d0dc36acf6be88aef94bb5034394">&#9670;&#160;</a></span>MessageSender() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MessageSender::MessageSender </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_message_sender.html" title="서버에서 클라이언트 소켓으로 메시지를 보내는 기능을 제공하는 클래스입니다.">MessageSender</a> 생성자. </p>
+<dl class="section return"><dt>반환값</dt><dd>없음. </dd></dl>
+<dl class="section note"><dt>주의</dt><dd>이 생성자에서는 특별한 초기화가 일어나지 않습니다. </dd></dl>
+
+<p class="definition"><a class="el" href="_message_sender_8cpp_source.html">MessageSender.cpp</a> 파일의 <a class="el" href="_message_sender_8cpp_source.html#l00015">15</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="a27a5403473e3a612c6769ff592b401fc" name="a27a5403473e3a612c6769ff592b401fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27a5403473e3a612c6769ff592b401fc">&#9670;&#160;</a></span>~MessageSender()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MessageSender::~MessageSender </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>소멸자. </p>
+<dl class="section return"><dt>반환값</dt><dd>없음. </dd></dl>
+<dl class="section note"><dt>주의</dt><dd>이 소멸자에서는 해제할 동적 자원이 없습니다. </dd></dl>
+
+<p class="definition"><a class="el" href="_message_sender_8cpp_source.html">MessageSender.cpp</a> 파일의 <a class="el" href="_message_sender_8cpp_source.html#l00020">20</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="ae3c3abe62e05f12d7790f7b7555d2e66" name="ae3c3abe62e05f12d7790f7b7555d2e66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3c3abe62e05f12d7790f7b7555d2e66">&#9670;&#160;</a></span>MessageSender() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MessageSender::MessageSender </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_message_sender.html">MessageSender</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>obj</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa869c6d4d97fc57612cb6b2c908a9ceb" name="aa869c6d4d97fc57612cb6b2c908a9ceb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa869c6d4d97fc57612cb6b2c908a9ceb">&#9670;&#160;</a></span>MessageSender() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MessageSender::MessageSender </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_message_sender.html">MessageSender</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>obj</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">멤버 함수 문서화</h2>
+<a id="a3f6af29e17dde94dd77185894269507a" name="a3f6af29e17dde94dd77185894269507a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f6af29e17dde94dd77185894269507a">&#9670;&#160;</a></span>broadcast()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a39e62bd3398a07e5fddfa8f1e4d4b0f6">MessageSender::Result</a> MessageSender::broadcast </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>message</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SOCKET *</td>          <td class="paramname"><span class="paramname"><em>sockets</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>socket_count</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>모든 클라이언트에게 메시지를 전송합니다. </p>
+<dl class="params"><dt>매개변수</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>const std::string&amp; message : 보낼 메시지 텍스트. </td></tr>
+    <tr><td class="paramname">[IN]</td><td>SOCKET* sockets : 메시지를 보낼 클라이언트 소켓들의 배열. </td></tr>
+    <tr><td class="paramname">[IN]</td><td>int socket_count : 배열에 포함된 소켓 개수 (전송할 클라이언트 수). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>반환값</dt><dd><a class="el" href="#a39e62bd3398a07e5fddfa8f1e4d4b0f6">MessageSender::Result</a> : 전송 작업 결과 상태 값 (SUCCESS, PARTIAL_FAIL 또는 TOTAL_FAIL).</dd></dl>
+<p>주어진 메시지를 배열에 있는 모든 클라이언트 소켓에 전송합니다. <br  />
+하나 이상의 전송에 실패하면 결과 코드가 부분 실패 또는 전체 실패로 표시됩니다. </p>
+
+<p class="definition"><a class="el" href="_message_sender_8cpp_source.html">MessageSender.cpp</a> 파일의 <a class="el" href="_message_sender_8cpp_source.html#l00025">25</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="a63e61042531f4ee9721ca9574abf3c1a" name="a63e61042531f4ee9721ca9574abf3c1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63e61042531f4ee9721ca9574abf3c1a">&#9670;&#160;</a></span>formatMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string MessageSender::formatMessage </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>message</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>주어진 메시지 끝에 개행 문자를 추가한 문자열을 반환합니다. </p>
+<dl class="params"><dt>매개변수</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>const std::string&amp; message : 원본 메시지 텍스트. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>반환값</dt><dd>std::string : 개행 문자가 추가된 메시지 문자열. </dd></dl>
+<dl class="section note"><dt>주의</dt><dd>NEW_LINE 상수를 주어진 메시지 끝에 추가한 문자열을 반환합니다. </dd></dl>
+
+<p class="definition"><a class="el" href="_message_sender_8cpp_source.html">MessageSender.cpp</a> 파일의 <a class="el" href="_message_sender_8cpp_source.html#l00128">128</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="a443ea21c185f7696656d0cf96b056069" name="a443ea21c185f7696656d0cf96b056069"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a443ea21c185f7696656d0cf96b056069">&#9670;&#160;</a></span>multicast()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a39e62bd3398a07e5fddfa8f1e4d4b0f6">MessageSender::Result</a> MessageSender::multicast </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>message</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SOCKET *</td>          <td class="paramname"><span class="paramname"><em>sockets</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>socket_count</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SOCKET</td>          <td class="paramname"><span class="paramname"><em>except_socket</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>특정 클라이언트를 제외한 모든 클라이언트에게 메시지를 보냅니다. </p>
+<dl class="params"><dt>매개변수</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>const std::string&amp; message : 보낼 메시지 텍스트. </td></tr>
+    <tr><td class="paramname">[IN]</td><td>SOCKET* sockets : 메시지를 보낼 클라이언트 소켓들의 배열. </td></tr>
+    <tr><td class="paramname">[IN]</td><td>int socket_count : 배열에 포함된 소켓 개수 (전송할 클라이언트 수). </td></tr>
+    <tr><td class="paramname">[IN]</td><td>SOCKET except_socket : 메시지를 보내지 않을 클라이언트의 소켓. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>반환값</dt><dd><a class="el" href="#a39e62bd3398a07e5fddfa8f1e4d4b0f6">MessageSender::Result</a> : 전송 작업 결과 상태 값 (SUCCESS, PARTIAL_FAIL 또는 TOTAL_FAIL).</dd></dl>
+<p>소켓 리스트에서 <span class="tt">except_socket</span>으로 지정된 소켓을 제외한 모든 소켓에 메시지를 전송합니다. <br  />
+한 클라이언트를 제외한 다른 클라이언트에게 메시지를 전달할 때 사용합니다. </p>
+
+<p class="definition"><a class="el" href="_message_sender_8cpp_source.html">MessageSender.cpp</a> 파일의 <a class="el" href="_message_sender_8cpp_source.html#l00066">66</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="a5dbebdee78d2aa2ecdfaa4c13a097d1f" name="a5dbebdee78d2aa2ecdfaa4c13a097d1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dbebdee78d2aa2ecdfaa4c13a097d1f">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_message_sender.html">MessageSender</a> &amp; MessageSender::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_message_sender.html">MessageSender</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>obj</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa70980a491224c0b2fc2721df809ebb8" name="aa70980a491224c0b2fc2721df809ebb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa70980a491224c0b2fc2721df809ebb8">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_message_sender.html">MessageSender</a> &amp; MessageSender::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_message_sender.html">MessageSender</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>obj</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a15c206bd3902e00d02e8ef76ffb7bfef" name="a15c206bd3902e00d02e8ef76ffb7bfef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15c206bd3902e00d02e8ef76ffb7bfef">&#9670;&#160;</a></span>sendMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MessageSender::sendMessage </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>formatted_message</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SOCKET</td>          <td class="paramname"><span class="paramname"><em>target_socket</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>이미 포맷된 메시지를 특정 클라이언트 소켓으로 전송합니다. </p>
+<dl class="params"><dt>매개변수</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>const std::string&amp; formatted_mssage : 개행 문자까지 포함된 메시지 문자열. </td></tr>
+    <tr><td class="paramname">[IN]</td><td>SOCKET target_socket : 메시지를 보낼 대상 클라이언트 소켓. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>반환값</dt><dd>bool : 메시지 전송에 성공하면 true, 실패하면 false.</dd></dl>
+<dl class="section note"><dt>주의</dt><dd>broadcast, multicast, unicast 함수 내부에서 실제 전송을 담당하는 핵심 구현 함수입니다. </dd></dl>
+
+<p class="definition"><a class="el" href="_message_sender_8cpp_source.html">MessageSender.cpp</a> 파일의 <a class="el" href="_message_sender_8cpp_source.html#l00134">134</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="a67e3eb7b76c96cfb8e27830d0b8df1b0" name="a67e3eb7b76c96cfb8e27830d0b8df1b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67e3eb7b76c96cfb8e27830d0b8df1b0">&#9670;&#160;</a></span>unicast()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MessageSender::unicast </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>message</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SOCKET</td>          <td class="paramname"><span class="paramname"><em>target_socket</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>하나의 클라이언트 소켓에만 메시지를 전송합니다. </p>
+<dl class="params"><dt>매개변수</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>const std::string&amp; message : 보낼 메시지 텍스트. </td></tr>
+    <tr><td class="paramname">[IN]</td><td>SOCKET target_socket : 메시지를 보낼 대상 클라이언트의 소켓. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>반환값</dt><dd>: bool 메시지 전송에 성공하면 true, 실패하면 false. </dd></dl>
+
+<p class="definition"><a class="el" href="_message_sender_8cpp_source.html">MessageSender.cpp</a> 파일의 <a class="el" href="_message_sender_8cpp_source.html#l00116">116</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">멤버 데이터 문서화</h2>
+<a id="a5248ffecb79f289d82d1b36cc818b07c" name="a5248ffecb79f289d82d1b36cc818b07c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5248ffecb79f289d82d1b36cc818b07c">&#9670;&#160;</a></span>NEW_LINE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * MessageSender::NEW_LINE = &quot;\r\n&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>메시지 끝에 붙일 개행 구분자 (소스 파일에서 정의됨). </p>
+
+<p class="definition"><a class="el" href="_message_sender_8h_source.html">MessageSender.h</a> 파일의 <a class="el" href="_message_sender_8h_source.html#l00037">37</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<hr/>이 클래스에 대한 문서화 페이지는 다음의 파일들로부터 생성되었습니다.:<ul>
+<li>SocketBuild/<a class="el" href="_message_sender_8h_source.html">MessageSender.h</a></li>
+<li>SocketBuild/<a class="el" href="_message_sender_8cpp_source.html">MessageSender.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_message_sender.html">MessageSender</a></li>
+    <li class="footer">다음에 의해 생성됨 :  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

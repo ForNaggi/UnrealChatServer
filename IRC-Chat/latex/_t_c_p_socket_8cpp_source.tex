@@ -1,0 +1,138 @@
+\doxysection{TCPSocket.\+cpp}
+\hypertarget{_t_c_p_socket_8cpp_source}{}\label{_t_c_p_socket_8cpp_source}\index{SocketBuild/TCPSocket.cpp@{SocketBuild/TCPSocket.cpp}}
+\mbox{\hyperlink{_t_c_p_socket_8cpp}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ execution\_character\_set("{}utf-\/8"{})}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_t_c_p_socket_8h}{TCPSocket.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_debug_helper_8h}{DebugHelper.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <ws2tcpip.h>}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00014}\mbox{\hyperlink{class_t_c_p_socket_a7a50427a401d1a6f3209d51818bad901}{00014}}\ \mbox{\hyperlink{class_t_c_p_socket_a7a50427a401d1a6f3209d51818bad901}{TCPSocket::TCPSocket}}()}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00015}00015\ \ \ \ \ :\ \mbox{\hyperlink{class_t_c_p_socket_a17836ac496897cff17892d7c05d1f742}{\_tcpSocket}}(INVALID\_SOCKET)}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00016}00016\ \{}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00017}00017\ \}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00019}\mbox{\hyperlink{class_t_c_p_socket_af357e6923a0f8adbbb8e46fab4523991}{00019}}\ \mbox{\hyperlink{class_t_c_p_socket_af357e6923a0f8adbbb8e46fab4523991}{TCPSocket::\string~TCPSocket}}()}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00020}00020\ \{}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00021}00021\ \ \ \ \ \mbox{\hyperlink{class_t_c_p_socket_af6072d318785a79e757998a73a1926e3}{closeTCPSocket}}();}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00022}00022\ \}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00024}\mbox{\hyperlink{class_t_c_p_socket_ad644dd13d2032ba5d5fb2f70f07458dc}{00024}}\ \mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209}{TCPSocket::Result}}\ \mbox{\hyperlink{class_t_c_p_socket_ad644dd13d2032ba5d5fb2f70f07458dc}{TCPSocket::createTCPSocket}}()}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00025}00025\ \{}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{comment}{//\ socket함수를\ 사용해서\ TCP\ 소켓을\ 생성합니다.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{comment}{//\ AF\_INET\ -\/\ IPv4를\ 의미.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00028}00028\ \ \ \ \ \textcolor{comment}{//\ SOCK\_STREAM\ -\/\ TCP\ 방식을\ 스트림\ 사용.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{comment}{//\ IPPROTO\_TCP\ -\/\ TCP\ 프로토콜\ 사용.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00030}00030\ \ \ \ \ this-\/>\mbox{\hyperlink{class_t_c_p_socket_a17836ac496897cff17892d7c05d1f742}{\_tcpSocket}}\ =\ socket(AF\_INET,\ SOCK\_STREAM,\ IPPROTO\_TCP);}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00032}00032\ \ \ \ \ \textcolor{comment}{//\ 소켓이\ 제대로\ 생성되었는지\ 확인.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{class_t_c_p_socket_a17836ac496897cff17892d7c05d1f742}{\_tcpSocket}}\ ==\ INVALID\_SOCKET)}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00034}00034\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a27d98b18ba06759c6ef5c71b1e1a9904}{LOG\_ERROR}}(\textcolor{stringliteral}{"{}tcp소켓\ 생성을\ 실패했습니다."{}});}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209ae91d869fabbc45334b126465fe181a48}{TCPSocket::Result::FAIL\_CREATE}});}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00037}00037\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00038}00038\ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a1df2a84bb8d3b43c8c49f1aff655190a}{LOG\_INFO}}(\textcolor{stringliteral}{"{}tcp소켓\ 생성을\ 성공했습니다."{}});}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209ad0749aaba8b833466dfcbb0428e4f89c}{TCPSocket::Result::SUCCESS}});}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00040}00040\ \}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00042}\mbox{\hyperlink{class_t_c_p_socket_a5b129a44ef126fcf7922dd200a1b10f7}{00042}}\ \mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209}{TCPSocket::Result}}\ \mbox{\hyperlink{class_t_c_p_socket_a5b129a44ef126fcf7922dd200a1b10f7}{TCPSocket::bindTCPSocket}}(\textcolor{keywordtype}{int}\ port)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00043}00043\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00044}00044\ \ \ \ \ \textcolor{comment}{//\ 네트워크\ 주소\ 정보를\ 담는\ 구조체.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00045}00045\ \ \ \ \ \textcolor{comment}{//\ sin\_family\ -\/\ 주소\ 체계\ (IPv4,\ IPv6).\ AF\_INET은\ IPv4를\ 의미.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00046}00046\ \ \ \ \ \textcolor{comment}{//\ sin\_addr.s\_addr\ -\/\ 수신\ IP,\ INADDR\_ANY는\ 모든\ IP에서\ 수신하겠다는\ 의미.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{comment}{//\ sin\_port\ -\/\ 포트\ 번호.\ htons\ -\/\ 네트워크\ 바이트\ 순서(빅엔디안)으로\ 변환해주는\ 함수.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00048}00048\ \ \ \ \ sockaddr\_in\ server\_addr\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00049}00049\ \ \ \ \ server\_addr.sin\_family\ =\ AF\_INET;}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00050}00050\ \ \ \ \ server\_addr.sin\_addr.s\_addr\ =\ INADDR\_ANY;}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00051}00051\ \ \ \ \ server\_addr.sin\_port\ =\ htons(port);}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{comment}{//\ 소켓과\ 네트워크\ 주소를\ 바인드해줍니다.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00054}00054\ \ \ \ \ \textcolor{comment}{//\ (sockaddr*)로\ 바꾸는\ 이유는\ c언어가\ 다형성이\ 없기\ 때문입니다.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{if}\ (bind(this-\/>\mbox{\hyperlink{class_t_c_p_socket_a17836ac496897cff17892d7c05d1f742}{\_tcpSocket}},\ (sockaddr*)\&server\_addr,\ \textcolor{keyword}{sizeof}(server\_addr))\ ==\ SOCKET\_ERROR)}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00056}00056\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a27d98b18ba06759c6ef5c71b1e1a9904}{LOG\_ERROR}}(\textcolor{stringliteral}{"{}소켓\ 바인드\ 실패했습니다.\(\backslash\)n에러코드:\ "{}}\ +\ std::to\_string(WSAGetLastError()));}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209aa3d9c9ddd9e1ac76615c92b42ce8026e}{TCPSocket::Result::FAIL\_BIND}});}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00059}00059\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00060}00060\ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a1df2a84bb8d3b43c8c49f1aff655190a}{LOG\_INFO}}(\textcolor{stringliteral}{"{}소켓이\ 포트\ "{}}\ +\ std::to\_string(port)\ +\ \textcolor{stringliteral}{"{}에\ 바인드되었습니다."{}});}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00061}00061\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209ad0749aaba8b833466dfcbb0428e4f89c}{TCPSocket::Result::SUCCESS}});}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00062}00062\ \}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00064}\mbox{\hyperlink{class_t_c_p_socket_ae197bb8adbd15a94b07c4e2437e61acb}{00064}}\ \mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209}{TCPSocket::Result}}\ \mbox{\hyperlink{class_t_c_p_socket_ae197bb8adbd15a94b07c4e2437e61acb}{TCPSocket::startListen}}()}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00065}00065\ \{}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00066}00066\ \ \ \ \ \textcolor{comment}{//\ 소켓을\ 수신\ 대기\ 상태로\ 전환해줍니다.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00067}00067\ \ \ \ \ \textcolor{comment}{//\ 매개변수\ 두번\ 째(int\ backlog)는\ 최대\ 연결\ 대기\ 큐의\ 크기를\ 의미힙니다.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00068}00068\ \ \ \ \ \textcolor{comment}{//\ 대기\ 큐가\ 크면\ 많은\ 클라이언트가\ 연결을\ 요청해도\ 대기한\ 뒤\ 연결할\ 수\ 있습니다.\ }}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00069}00069\ \ \ \ \ \textcolor{comment}{//\ SOMAXCONN는\ 시스템에서\ 사용할\ 수\ 잇는\ 최대값입니다.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00070}00070\ \ \ \ \ \textcolor{keywordflow}{if}\ (listen(this-\/>\mbox{\hyperlink{class_t_c_p_socket_a17836ac496897cff17892d7c05d1f742}{\_tcpSocket}},\ SOMAXCONN)\ ==\ SOCKET\_ERROR)}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00071}00071\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a27d98b18ba06759c6ef5c71b1e1a9904}{LOG\_ERROR}}(\textcolor{stringliteral}{"{}리슨\ 대기\ 시작이\ 실패했습니다.\(\backslash\)n에러코드:\ "{}}\ +\ std::to\_string(WSAGetLastError()));}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209ae717c150ec495ca490669de1aedcad7e}{TCPSocket::Result::FAIL\_LISTEN}});}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00074}00074\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00076}00076\ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a1df2a84bb8d3b43c8c49f1aff655190a}{LOG\_INFO}}(\textcolor{stringliteral}{"{}소켓이\ 클라이언트\ 연결을\ 대기하고\ 있습니다."{}});}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00077}00077\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_t_c_p_socket_a4cac285e312c44d43921a8bcc4e46209ad0749aaba8b833466dfcbb0428e4f89c}{TCPSocket::Result::SUCCESS}});}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00078}00078\ \}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00080}\mbox{\hyperlink{class_t_c_p_socket_a7819994c76c135eb2ae924dce636ee44}{00080}}\ SOCKET\ \mbox{\hyperlink{class_t_c_p_socket_a7819994c76c135eb2ae924dce636ee44}{TCPSocket::acceptConnection}}()}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00081}00081\ \{}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00082}00082\ \ \ \ \ \textcolor{comment}{//\ 클라이언트와\ 연결될\ 소켓입니다.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00083}00083\ \ \ \ \ SOCKET\ clientSocket\ =\ INVALID\_SOCKET;}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00085}00085\ \ \ \ \ \textcolor{comment}{//\ 클라이언트\ 소켓에\ 대한\ 정보를\ 담을\ 구조체입니다.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00086}00086\ \ \ \ \ sockaddr\_in\ client\_addr\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00087}00087\ \ \ \ \ \textcolor{keywordtype}{int}\ addr\_len\ =\ \textcolor{keyword}{sizeof}(client\_addr);}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00089}00089\ \ \ \ \ \textcolor{comment}{//\ accept\ 함수\ 실행\ 시\ 대기\ 큐에\ 있던\ 클라이언트\ 요청을\ 하나\ 꺼내옵니다.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00090}00090\ \ \ \ \ \textcolor{comment}{//\ accept\ 함수는\ 동기함수\ 임으로\ 클라이언트\ 연결까지\ 해당\ 함수에서\ 대기하게\ 됩니다.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00091}00091\ \ \ \ \ \textcolor{comment}{//\ 소켓\ 구조체를\ 새로\ 생성하여\ 커널에\ 등록합니다.\ 내부\ 정보를\ 클라이언트\ IP/Port\ 정보를\ 입력합니다.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00092}00092\ \ \ \ \ \textcolor{comment}{//\ 소켓을\ 반환하고\ 반환된\ 소켓은\ send()/recv()로\ 해당\ 클라이언트와\ 통신이\ 가능합니다.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00093}00093\ \ \ \ \ clientSocket\ =\ accept(this-\/>\mbox{\hyperlink{class_t_c_p_socket_a17836ac496897cff17892d7c05d1f742}{\_tcpSocket}},\ (sockaddr*)\&client\_addr,\ \&addr\_len);}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00094}00094\ \ \ \ \ \textcolor{keywordflow}{if}\ (clientSocket\ ==\ INVALID\_SOCKET)}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00095}00095\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a27d98b18ba06759c6ef5c71b1e1a9904}{LOG\_ERROR}}(\textcolor{stringliteral}{"{}클라이언트와\ 연결에\ 실패했습니다.\(\backslash\)n에러코드:\ "{}}\ +\ std::to\_string(WSAGetLastError()));}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (INVALID\_SOCKET);}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00098}00098\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00100}00100\ \ \ \ \ \textcolor{comment}{//\ 생성된\ 클라이언트\ 소켓에\ 대한\ 내부정보를\ 출력합니다.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00101}00101\ \ \ \ \ this-\/>\mbox{\hyperlink{class_t_c_p_socket_aed9cf3a16ecf4d5b2f22cde77f204454}{logClientInfo}}(client\_addr);}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00102}00102\ \ \ \ \ \textcolor{keywordflow}{return}\ (clientSocket);}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00103}00103\ \}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00105}\mbox{\hyperlink{class_t_c_p_socket_af6072d318785a79e757998a73a1926e3}{00105}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_c_p_socket_af6072d318785a79e757998a73a1926e3}{TCPSocket::closeTCPSocket}}()}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00106}00106\ \{}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00107}00107\ \ \ \ \ \textcolor{comment}{//\ 소켓이\ 열여있는지\ 확인합니다.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00108}00108\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{class_t_c_p_socket_a17836ac496897cff17892d7c05d1f742}{\_tcpSocket}}\ !=\ INVALID\_SOCKET)}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00109}00109\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 열여있다면\ 소켓을\ 닫고\ INVALID\_SOCKET으로\ 초기화합니다.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ closesocket(this-\/>\mbox{\hyperlink{class_t_c_p_socket_a17836ac496897cff17892d7c05d1f742}{\_tcpSocket}});}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_t_c_p_socket_a17836ac496897cff17892d7c05d1f742}{\_tcpSocket}}\ =\ INVALID\_SOCKET;}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a87f39d92adfc939c31320aaf4b9f7a37}{LOG\_DEBUG}}(\textcolor{stringliteral}{"{}소켓이\ 닫혔습니다"{}});}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00114}00114\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00115}00115\ \}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00117}\mbox{\hyperlink{class_t_c_p_socket_a6381da5b9062803c6556bfb779a7cac4}{00117}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_t_c_p_socket_a6381da5b9062803c6556bfb779a7cac4}{TCPSocket::isValid}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00118}00118\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00119}00119\ \ \ \ \ \textcolor{keywordflow}{return}\ (this-\/>\mbox{\hyperlink{class_t_c_p_socket_a17836ac496897cff17892d7c05d1f742}{\_tcpSocket}}\ !=\ INVALID\_SOCKET);}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00120}00120\ \}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00122}\mbox{\hyperlink{class_t_c_p_socket_aacfe19e3fe6987c557754e2c7fae8950}{00122}}\ SOCKET\ \mbox{\hyperlink{class_t_c_p_socket_aacfe19e3fe6987c557754e2c7fae8950}{TCPSocket::getSocket}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00123}00123\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00124}00124\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{class_t_c_p_socket_a17836ac496897cff17892d7c05d1f742}{\_tcpSocket}};}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00125}00125\ \}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00127}\mbox{\hyperlink{class_t_c_p_socket_aed9cf3a16ecf4d5b2f22cde77f204454}{00127}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_c_p_socket_aed9cf3a16ecf4d5b2f22cde77f204454}{TCPSocket::logClientInfo}}(\textcolor{keyword}{const}\ sockaddr\_in\&\ addr)}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00128}00128\ \{}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00129}00129\ \ \ \ \ \textcolor{comment}{//\ ip를\ 담을\ 배열.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00130}00130\ \ \ \ \ \textcolor{keywordtype}{char}\ client\_ip[INET\_ADDRSTRLEN];}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00132}00132\ \ \ \ \ \textcolor{comment}{//\ inet\_ntop는\ 바이트\ 배열을\ 리틀엔디안으로\ 변경합니다.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00133}00133\ \ \ \ \ inet\_ntop(AF\_INET,\ \&addr.sin\_addr,\ client\_ip,\ INET\_ADDRSTRLEN);}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00135}00135\ \ \ \ \ \textcolor{comment}{//\ ntohs\ 역시\ 바이트\ 배열을\ 리틀엔디안으로\ 변경합니다.}}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00136}00136\ \ \ \ \ std::string\ client\_info\ =\ std::string(client\_ip)\ +\ \textcolor{stringliteral}{"{}:"{}}\ +\ std::to\_string(ntohs(addr.sin\_port));}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00137}00137\ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a1df2a84bb8d3b43c8c49f1aff655190a}{LOG\_INFO}}(\textcolor{stringliteral}{"{}클라이언트가\ 연결되었습니다.\(\backslash\)n네트워크\ 주소:\ "{}}\ +\ client\_info);}
+\DoxyCodeLine{\Hypertarget{_t_c_p_socket_8cpp_source_l00138}00138\ \}}
+
+\end{DoxyCode}

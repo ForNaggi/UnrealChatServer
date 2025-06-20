@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ChatMultiServerDoxygen: SocketBuild/MessageReceiver.h 소스 파일</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ChatMultiServerDoxygen<span id="projectnumber">&#160;1.0.0</span>
+   </div>
+   <div id="projectbrief">this is the synopsis</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','검색',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('_message_receiver_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">로딩중...</div>
+<div class="SRStatus" id="Searching">검색중...</div>
+<div class="SRStatus" id="NoMatches">일치하는것 없음</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">MessageReceiver.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_message_receiver_8h.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#pragma execution_character_set(&quot;utf-8&quot;)</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;winsock2.h&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span></div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_message_receiver.html">   27</a></span><span class="keyword">class </span><a class="code hl_function" href="class_message_receiver.html#adb7ba8d5430ba18e8c226ba1f386981a">MessageReceiver</a></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>{</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span></div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="};">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="class_message_receiver.html#af74bce14070bbf4d0a0324acee430084">   35</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="class_message_receiver.html#af74bce14070bbf4d0a0324acee430084">Result</a></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_message_receiver.html#af74bce14070bbf4d0a0324acee430084ad0749aaba8b833466dfcbb0428e4f89c">   37</a></span>            <a class="code hl_enumvalue" href="class_message_receiver.html#af74bce14070bbf4d0a0324acee430084ad0749aaba8b833466dfcbb0428e4f89c">SUCCESS</a>,            </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="class_message_receiver.html#af74bce14070bbf4d0a0324acee430084ac6c8a4faea4d0b94dceb90a306074d2b">   38</a></span>            <a class="code hl_enumvalue" href="class_message_receiver.html#af74bce14070bbf4d0a0324acee430084ac6c8a4faea4d0b94dceb90a306074d2b">FAIL_RECEIVE</a>,       </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_message_receiver.html#af74bce14070bbf4d0a0324acee430084abc14f1ca70c7ca9704e7f3bd0a2ba383">   39</a></span>            <a class="code hl_enumvalue" href="class_message_receiver.html#af74bce14070bbf4d0a0324acee430084abc14f1ca70c7ca9704e7f3bd0a2ba383">FAIL_SEND</a>,          </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="class_message_receiver.html#af74bce14070bbf4d0a0324acee430084a31933f777c42ffbab532bc7ba2610c68">   40</a></span>            <a class="code hl_enumvalue" href="class_message_receiver.html#af74bce14070bbf4d0a0324acee430084a31933f777c42ffbab532bc7ba2610c68">CLIENT_QUIT</a>,        </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="class_message_receiver.html#af74bce14070bbf4d0a0324acee430084a50ba526e9a6ee61df579023c1e99817a">   41</a></span>            <a class="code hl_enumvalue" href="class_message_receiver.html#af74bce14070bbf4d0a0324acee430084a50ba526e9a6ee61df579023c1e99817a">CLIENT_DISCONNECTED</a> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        };</div>
+</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keyword">explicit</span> <a class="code hl_function" href="class_message_receiver.html#adb7ba8d5430ba18e8c226ba1f386981a">MessageReceiver</a>(SOCKET client_socket);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <a class="code hl_function" href="class_message_receiver.html#aae8d620cc02dea621ddb4a91b8438b1e">~MessageReceiver</a>();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="comment">// 복사 생성자 및 복사 할당 연산자 삭제.</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="class_message_receiver.html#a034ca3dbab55b482a4258f7e46f79cb1">   62</a></span>        <a class="code hl_function" href="class_message_receiver.html#a034ca3dbab55b482a4258f7e46f79cb1">MessageReceiver</a>(<span class="keyword">const</span> <a class="code hl_function" href="class_message_receiver.html#adb7ba8d5430ba18e8c226ba1f386981a">MessageReceiver</a>&amp; obj) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="class_message_receiver.html#a33fac997d6824751d4911d46edeb4faf">   63</a></span>        <a class="code hl_function" href="class_message_receiver.html#adb7ba8d5430ba18e8c226ba1f386981a">MessageReceiver</a>&amp; <a class="code hl_function" href="class_message_receiver.html#a33fac997d6824751d4911d46edeb4faf">operator=</a>(<span class="keyword">const</span> <a class="code hl_function" href="class_message_receiver.html#adb7ba8d5430ba18e8c226ba1f386981a">MessageReceiver</a>&amp; obj) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="comment">// 이동 생성자 및 이동 할당 연산자 삭제.</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="class_message_receiver.html#a94672dede89c25ab2452a9e3d199603e">   66</a></span>        <a class="code hl_function" href="class_message_receiver.html#a94672dede89c25ab2452a9e3d199603e">MessageReceiver</a>(<a class="code hl_function" href="class_message_receiver.html#adb7ba8d5430ba18e8c226ba1f386981a">MessageReceiver</a>&amp;&amp; obj) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="class_message_receiver.html#a074181d10e5b6299998deea9e6efa340">   67</a></span>        <a class="code hl_function" href="class_message_receiver.html#adb7ba8d5430ba18e8c226ba1f386981a">MessageReceiver</a>&amp; <a class="code hl_function" href="class_message_receiver.html#a074181d10e5b6299998deea9e6efa340">operator=</a>(<a class="code hl_function" href="class_message_receiver.html#adb7ba8d5430ba18e8c226ba1f386981a">MessageReceiver</a>&amp;&amp; obj) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <a class="code hl_enumeration" href="class_message_receiver.html#af74bce14070bbf4d0a0324acee430084">MessageReceiver::Result</a> <a class="code hl_function" href="class_message_receiver.html#a0c83ac3a7387ab21f74bc81d6640d9ec">receiveMessage</a>();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="class_message_receiver.html#a649a859e023ac92682659c83312c64ef">getLastMessage</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="class_message_receiver.html#af9984778a2d338b38cf108b16b47d718">isQuitCommand</a>(<span class="keyword">const</span> std::string&amp; message) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="class_message_receiver.html#a2905ffef925668d0c802ad1fdf28dab6">  104</a></span>        SOCKET <a class="code hl_variable" href="class_message_receiver.html#a2905ffef925668d0c802ad1fdf28dab6">_clientSocket</a>;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="class_message_receiver.html#a9e44455ed76f630e9bb73614033cfabe">  107</a></span>        std::string <a class="code hl_variable" href="class_message_receiver.html#a9e44455ed76f630e9bb73614033cfabe">_lastMessage</a>;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="class_message_receiver.html#a77e67dede82634157c9aeac775395a33">  110</a></span>        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="class_message_receiver.html#a77e67dede82634157c9aeac775395a33">BUFFER_SIZE</a> = 1024;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_message_receiver.html#ad7dce9c6a9e01f99ba458f8635d86fd5">cleanMessage</a>(std::string&amp; message);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>};</div>
+</div>
+<div class="ttc" id="aclass_message_receiver_html_a034ca3dbab55b482a4258f7e46f79cb1"><div class="ttname"><a href="class_message_receiver.html#a034ca3dbab55b482a4258f7e46f79cb1">MessageReceiver::MessageReceiver</a></div><div class="ttdeci">MessageReceiver(const MessageReceiver &amp;obj)=delete</div></div>
+<div class="ttc" id="aclass_message_receiver_html_a074181d10e5b6299998deea9e6efa340"><div class="ttname"><a href="class_message_receiver.html#a074181d10e5b6299998deea9e6efa340">MessageReceiver::operator=</a></div><div class="ttdeci">MessageReceiver &amp; operator=(MessageReceiver &amp;&amp;obj)=delete</div></div>
+<div class="ttc" id="aclass_message_receiver_html_a0c83ac3a7387ab21f74bc81d6640d9ec"><div class="ttname"><a href="class_message_receiver.html#a0c83ac3a7387ab21f74bc81d6640d9ec">MessageReceiver::receiveMessage</a></div><div class="ttdeci">MessageReceiver::Result receiveMessage()</div><div class="ttdoc">클라이언트 소켓으로부터 메시지를 수신하고 내부에 저장합니다.</div><div class="ttdef"><b>Definition</b> <a href="_message_receiver_8cpp_source.html#l00024">MessageReceiver.cpp:24</a></div></div>
+<div class="ttc" id="aclass_message_receiver_html_a2905ffef925668d0c802ad1fdf28dab6"><div class="ttname"><a href="class_message_receiver.html#a2905ffef925668d0c802ad1fdf28dab6">MessageReceiver::_clientSocket</a></div><div class="ttdeci">SOCKET _clientSocket</div><div class="ttdoc">통신에 사용하는 클라이언트 소켓.</div><div class="ttdef"><b>Definition</b> <a href="#l00104">MessageReceiver.h:104</a></div></div>
+<div class="ttc" id="aclass_message_receiver_html_a33fac997d6824751d4911d46edeb4faf"><div class="ttname"><a href="class_message_receiver.html#a33fac997d6824751d4911d46edeb4faf">MessageReceiver::operator=</a></div><div class="ttdeci">MessageReceiver &amp; operator=(const MessageReceiver &amp;obj)=delete</div></div>
+<div class="ttc" id="aclass_message_receiver_html_a649a859e023ac92682659c83312c64ef"><div class="ttname"><a href="class_message_receiver.html#a649a859e023ac92682659c83312c64ef">MessageReceiver::getLastMessage</a></div><div class="ttdeci">const std::string &amp; getLastMessage() const</div><div class="ttdoc">마지막으로 수신된 메시지를 반환합니다.</div><div class="ttdef"><b>Definition</b> <a href="_message_receiver_8cpp_source.html#l00076">MessageReceiver.cpp:76</a></div></div>
+<div class="ttc" id="aclass_message_receiver_html_a77e67dede82634157c9aeac775395a33"><div class="ttname"><a href="class_message_receiver.html#a77e67dede82634157c9aeac775395a33">MessageReceiver::BUFFER_SIZE</a></div><div class="ttdeci">static const int BUFFER_SIZE</div><div class="ttdoc">데이터 수신에 사용하는 버퍼 크기(바이트 단위).</div><div class="ttdef"><b>Definition</b> <a href="#l00110">MessageReceiver.h:110</a></div></div>
+<div class="ttc" id="aclass_message_receiver_html_a94672dede89c25ab2452a9e3d199603e"><div class="ttname"><a href="class_message_receiver.html#a94672dede89c25ab2452a9e3d199603e">MessageReceiver::MessageReceiver</a></div><div class="ttdeci">MessageReceiver(MessageReceiver &amp;&amp;obj)=delete</div></div>
+<div class="ttc" id="aclass_message_receiver_html_a9e44455ed76f630e9bb73614033cfabe"><div class="ttname"><a href="class_message_receiver.html#a9e44455ed76f630e9bb73614033cfabe">MessageReceiver::_lastMessage</a></div><div class="ttdeci">std::string _lastMessage</div><div class="ttdoc">가장 최근에 수신한 메시지.</div><div class="ttdef"><b>Definition</b> <a href="#l00107">MessageReceiver.h:107</a></div></div>
+<div class="ttc" id="aclass_message_receiver_html_aae8d620cc02dea621ddb4a91b8438b1e"><div class="ttname"><a href="class_message_receiver.html#aae8d620cc02dea621ddb4a91b8438b1e">MessageReceiver::~MessageReceiver</a></div><div class="ttdeci">~MessageReceiver()</div><div class="ttdoc">소멸자.</div><div class="ttdef"><b>Definition</b> <a href="_message_receiver_8cpp_source.html#l00019">MessageReceiver.cpp:19</a></div></div>
+<div class="ttc" id="aclass_message_receiver_html_ad7dce9c6a9e01f99ba458f8635d86fd5"><div class="ttname"><a href="class_message_receiver.html#ad7dce9c6a9e01f99ba458f8635d86fd5">MessageReceiver::cleanMessage</a></div><div class="ttdeci">void cleanMessage(std::string &amp;message)</div><div class="ttdoc">수신한 메시지 문자열에서 캐리지 리턴/뉴라인 문자를 제거합니다.</div><div class="ttdef"><b>Definition</b> <a href="_message_receiver_8cpp_source.html#l00088">MessageReceiver.cpp:88</a></div></div>
+<div class="ttc" id="aclass_message_receiver_html_adb7ba8d5430ba18e8c226ba1f386981a"><div class="ttname"><a href="class_message_receiver.html#adb7ba8d5430ba18e8c226ba1f386981a">MessageReceiver::MessageReceiver</a></div><div class="ttdeci">MessageReceiver(SOCKET client_socket)</div><div class="ttdoc">주어진 클라이언트 소켓에 대한 MessageReceiver 객체를 생성합니다.</div><div class="ttdef"><b>Definition</b> <a href="_message_receiver_8cpp_source.html#l00013">MessageReceiver.cpp:13</a></div></div>
+<div class="ttc" id="aclass_message_receiver_html_af74bce14070bbf4d0a0324acee430084"><div class="ttname"><a href="class_message_receiver.html#af74bce14070bbf4d0a0324acee430084">MessageReceiver::Result</a></div><div class="ttdeci">Result</div><div class="ttdef"><b>Definition</b> <a href="#l00035">MessageReceiver.h:36</a></div></div>
+<div class="ttc" id="aclass_message_receiver_html_af74bce14070bbf4d0a0324acee430084a31933f777c42ffbab532bc7ba2610c68"><div class="ttname"><a href="class_message_receiver.html#af74bce14070bbf4d0a0324acee430084a31933f777c42ffbab532bc7ba2610c68">MessageReceiver::Result::CLIENT_QUIT</a></div><div class="ttdeci">@ CLIENT_QUIT</div><div class="ttdoc">클라이언트가 quit 명령을 보냄</div><div class="ttdef"><b>Definition</b> <a href="#l00040">MessageReceiver.h:40</a></div></div>
+<div class="ttc" id="aclass_message_receiver_html_af74bce14070bbf4d0a0324acee430084a50ba526e9a6ee61df579023c1e99817a"><div class="ttname"><a href="class_message_receiver.html#af74bce14070bbf4d0a0324acee430084a50ba526e9a6ee61df579023c1e99817a">MessageReceiver::Result::CLIENT_DISCONNECTED</a></div><div class="ttdeci">@ CLIENT_DISCONNECTED</div><div class="ttdoc">클라이언트 연결이 예기치 않게 끊어짐</div><div class="ttdef"><b>Definition</b> <a href="#l00041">MessageReceiver.h:41</a></div></div>
+<div class="ttc" id="aclass_message_receiver_html_af74bce14070bbf4d0a0324acee430084abc14f1ca70c7ca9704e7f3bd0a2ba383"><div class="ttname"><a href="class_message_receiver.html#af74bce14070bbf4d0a0324acee430084abc14f1ca70c7ca9704e7f3bd0a2ba383">MessageReceiver::Result::FAIL_SEND</a></div><div class="ttdeci">@ FAIL_SEND</div><div class="ttdoc">필요한 응답 전송에 실패함</div><div class="ttdef"><b>Definition</b> <a href="#l00039">MessageReceiver.h:39</a></div></div>
+<div class="ttc" id="aclass_message_receiver_html_af74bce14070bbf4d0a0324acee430084ac6c8a4faea4d0b94dceb90a306074d2b"><div class="ttname"><a href="class_message_receiver.html#af74bce14070bbf4d0a0324acee430084ac6c8a4faea4d0b94dceb90a306074d2b">MessageReceiver::Result::FAIL_RECEIVE</a></div><div class="ttdeci">@ FAIL_RECEIVE</div><div class="ttdoc">메시지 수신에 실패함(예: recv 오류)</div><div class="ttdef"><b>Definition</b> <a href="#l00038">MessageReceiver.h:38</a></div></div>
+<div class="ttc" id="aclass_message_receiver_html_af74bce14070bbf4d0a0324acee430084ad0749aaba8b833466dfcbb0428e4f89c"><div class="ttname"><a href="class_message_receiver.html#af74bce14070bbf4d0a0324acee430084ad0749aaba8b833466dfcbb0428e4f89c">MessageReceiver::Result::SUCCESS</a></div><div class="ttdeci">@ SUCCESS</div><div class="ttdoc">메시지 수신에 성공함</div><div class="ttdef"><b>Definition</b> <a href="#l00037">MessageReceiver.h:37</a></div></div>
+<div class="ttc" id="aclass_message_receiver_html_af9984778a2d338b38cf108b16b47d718"><div class="ttname"><a href="class_message_receiver.html#af9984778a2d338b38cf108b16b47d718">MessageReceiver::isQuitCommand</a></div><div class="ttdeci">bool isQuitCommand(const std::string &amp;message) const</div><div class="ttdoc">주어진 메시지가 &quot;quit&quot; 명령인지 확인합니다.</div><div class="ttdef"><b>Definition</b> <a href="_message_receiver_8cpp_source.html#l00082">MessageReceiver.cpp:82</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_abbf5edca481bc51d1cdb4c1a782205f.html">SocketBuild</a></li><li class="navelem"><a href="_message_receiver_8h.html">MessageReceiver.h</a></li>
+    <li class="footer">다음에 의해 생성됨 :  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

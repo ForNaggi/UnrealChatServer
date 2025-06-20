@@ -1,0 +1,29 @@
+\doxysection{Socket\+Build/\+Message\+Receiver.h 파일 참조}
+\hypertarget{_message_receiver_8h}{}\label{_message_receiver_8h}\index{SocketBuild/MessageReceiver.h@{SocketBuild/MessageReceiver.h}}
+
+
+클라이언트로부터 들어오는 메시지를 처리하는 \doxylink{class_message_receiver}{Message\+Receiver} 클래스를 선언합니다.  
+
+
+{\ttfamily \#include $<$winsock2.\+h$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsubsection*{클래스}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_message_receiver}{Message\+Receiver}}
+\begin{DoxyCompactList}\small\item\em 클라이언트 소켓으로부터 들어오는 메시지를 처리하는 클래스입니다. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+클라이언트로부터 들어오는 메시지를 처리하는 \doxylink{class_message_receiver}{Message\+Receiver} 클래스를 선언합니다. 
+
+\begin{DoxyAuthor}{작성자}
+최성락 
+\end{DoxyAuthor}
+\begin{DoxyDate}{날짜}
+2025-\/06-\/17
+\end{DoxyDate}
+단일 클라이언트 소켓에서 메시지를 수신하고 파싱하는 역할을 담당합니다. 특정 명령(예\+: "{}quit"{})을 감지하고, 명령에 맞는 역할을 수행합니다. 
+
+\mbox{\hyperlink{_message_receiver_8h_source}{Message\+Receiver.\+h}} 파일에서 정의되었습니다.
+

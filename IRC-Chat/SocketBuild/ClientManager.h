@@ -1,145 +1,157 @@
+ï»¿/**
+ * @file ClientManager.h
+ * @brief ë‹¤ì¤‘ í´ë¼ì´ì–¸íŠ¸ ì±„íŒ… ì„œë²„ì—ì„œ í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ì„ ê´€ë¦¬í•˜ëŠ” ClientManager í´ë˜ìŠ¤ë¥¼ ì •ì˜í•©ë‹ˆë‹¤.
+ * @author ìµœì„±ë½
+ * @date 2025-06-17
+ *
+ * @details
+ * í´ë¼ì´ì–¸íŠ¸ ì—°ê²° ê´€ë¦¬ ê¸°ëŠ¥: ìƒˆë¡œìš´ í´ë¼ì´ì–¸íŠ¸ ì¶”ê°€, í´ë¼ì´ì–¸íŠ¸ ì œê±°, ì†Œì¼“ ì¡°íšŒ,
+ * ê³ ìœ í•œ ë‹‰ë„¤ì„(ì˜ˆ: "Player_1") ìƒì„± ë“±ì„ ìˆ˜í–‰í•©ë‹ˆë‹¤.
+ */
+
 #pragma once
+
+#pragma execution_character_set("utf-8")
 
 #include <WinSock2.h>
 #include <array>
 #include <string>
 #include <queue>
 
-/*
-** Å¬·¡½º¸í	:	ClientManager.
-** ¼³¸í		:	Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏ °ü¸®¸¦ ´ã´çÇÏ´Â Å¬·¡½ºÀÔ´Ï´Ù.
-*               Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏ Ãß°¡, Á¦°Å, Á¶È¸ ±â´É.
-*				°ÔÀÓ°ú Ã¤ÆÃ¿¡¼­ »ç¿ëÇÒ ´Ğ³×ÀÓÀ» »ı¼ºÇÕ´Ï´Ù.
-** ÃÊ±âÈ­	:	±âº» »ı¼ºÀÚ¸¸ »ç¿ë.
-*/
+/**
+ * @class ClientManager
+ * @brief ì„œë²„ì—ì„œ ê³ ì •ëœ ìˆ˜ì˜ í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ê³¼ ë³„ì¹­ì„ ê´€ë¦¬í•˜ëŠ” í´ë˜ìŠ¤ì…ë‹ˆë‹¤.
+ *
+ * @details
+ * ì´ í´ë˜ìŠ¤ëŠ” í´ë¼ì´ì–¸íŠ¸ ì—°ê²° ì¶”ê°€/ì œê±°, í™œì„± ì†Œì¼“ ì¶”ì ,
+ * ê° í´ë¼ì´ì–¸íŠ¸ì— ê³ ìœ  ë³„ì¹­ í• ë‹¹ì„ ë‹´ë‹¹í•©ë‹ˆë‹¤.<br>
+ * ìµœëŒ€ MAX_CLIENTSê°œì˜ í´ë¼ì´ì–¸íŠ¸ë¥¼ ë™ì‹œ ê´€ë¦¬í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
+ */
 class ClientManager
 {
 	public:
 		
-		// ÃÖ´ë Å¬¶óÀÌ¾ğÆ® ¼ö.
+		/// @brief ì„œë²„ì—ì„œ ë™ì‹œì— ê´€ë¦¬í•  ìˆ˜ ìˆëŠ” ìµœëŒ€ í´ë¼ì´ì–¸íŠ¸ ìˆ˜ì…ë‹ˆë‹¤.
 		static const int MAX_CLIENTS = 10;
 
 	public:
 
-		/*
-		** ÇÔ¼ö¸í	:	ClientManager.
-		** ¼³¸í		:	ClientManager °´Ã¼ »ı¼ºÀÚ.
-		*				_clientSockets, _availableList. _connectedSocketCount¸¦ ÃÊ±âÈ­ÇÕ´Ï´Ù.
-		** ÀÎÀÚ		:	¾øÀ½.
-		** ¹İÈ¯°ª	:	¾øÀ½.
-		*/
+		/**
+		 * @fn ClientManager::ClientManager()
+		 * @brief ClientManagerë¥¼ ìƒì„±í•˜ê³  ë‚´ë¶€ ë°ì´í„°ë¥¼ ì´ˆê¸°í™”í•©ë‹ˆë‹¤.
+		 * @note í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ ë°°ì—´ê³¼ ì‚¬ìš© ê°€ëŠ¥í•œ ì¸ë±ìŠ¤ ëª©ë¡ì„ ì´ˆê¸°í™”í•©ë‹ˆë‹¤.<br>
+		 *       ëª¨ë“  í´ë¼ì´ì–¸íŠ¸ ìŠ¬ë¡¯ì€ ì´ˆê¸°ì—ëŠ” ë¹„ì–´ ìˆìŠµë‹ˆë‹¤.
+		 */
 		ClientManager();
 
-		/*
-		** ÇÔ¼ö¸í	:	~ClientManager.
-		** ¼³¸í		:	ClientManager °´Ã¼ ¼Ò¸êÀÚ.
-		*				_clientSocketsÀÇ ¼ÒÄÏµéÀ» closeÇØÁİ´Ï´Ù.
-		** ÀÎÀÚ		:	¾øÀ½.
-		** ¹İÈ¯°ª	:	¾øÀ½.
-		*/
+		/**
+		 * @fn ClientManager::~ClientManager()
+		 * @brief ClientManagerì˜ ì†Œë©¸ìì…ë‹ˆë‹¤. ê´€ë¦¬í•˜ëŠ” ëª¨ë“  í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ì„ ë‹«ìŠµë‹ˆë‹¤.
+		 * @note ë°°ì—´ì— ì—´ë¦° ëª¨ë“  í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ì´ ë‹«í™ë‹ˆë‹¤.<br>
+		 *       ì„œë²„ë¥¼ ì¢…ë£Œí•  ë•Œ ClientManagerë¥¼ ì†Œë©¸ì‹œì¼œ ìì›ì„ í•´ì œí•´ì•¼ í•©ë‹ˆë‹¤.
+		 */
 		~ClientManager();
 
-		// º¹»ç »ı¼ºÀÚ ¹× º¹»ç ÇÒ´ç ¿¬»êÀÚ »èÁ¦.
+		// ë³µì‚¬ ìƒì„±ì ë° ë³µì‚¬ í• ë‹¹ ì—°ì‚°ì ì‚­ì œ.
 		ClientManager(const ClientManager& obj) = delete;
 		ClientManager& operator=(const ClientManager& obj) = delete;
 
-		// ÀÌµ¿ »ı¼ºÀÚ ¹× ÀÌµ¿ ÇÒ´ç ¿¬»êÀÚ »èÁ¦.
+		// ì´ë™ ìƒì„±ì ë° ì´ë™ í• ë‹¹ ì—°ì‚°ì ì‚­ì œ.
 		ClientManager(ClientManager&& obj) = delete;
 		ClientManager& operator=(ClientManager&& obj) = delete;
 
 	public:
 
-		/*
-		** ÇÔ¼ö¸í	:	addClient.
-		** ¼³¸í		:	»õ·Î¿î Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏÀ» Ãß°¡ÇÕ´Ï´Ù.
-		*				Å¬¶óÀÌ¾ğÆ®ÀÇ ´Ğ³×ÀÓÀ» ÇÒ´çÇÕ´Ï´Ù. (Player_{NUMBER} Çü½Ä).
-		** ÀÎÀÚ		:	SOCKET client_socket : Ãß°¡ÇÒ Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏ.
-		** ¹İÈ¯°ª	:	int : ÇÒ´çµÈ ÀÎµ¦½º, -1ÀÌ¸é ½ÇÆĞ.
-		*/
+		/**
+		 * @fn int ClientManager::addClient(SOCKET client_socket)
+		 * @brief ìƒˆë¡œìš´ í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ì„ ê´€ë¦¬ìì— ì¶”ê°€í•˜ê³  ë³„ì¹­ì„ í• ë‹¹í•©ë‹ˆë‹¤.
+		 * @param[IN] SOCKET client_socket : ì¶”ê°€í•  í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ (acceptëœ ì—°ê²° ì†Œì¼“).
+		 * @return int : ìƒˆ í´ë¼ì´ì–¸íŠ¸ì— í• ë‹¹ëœ ì¸ë±ìŠ¤(0 ~ MAX_CLIENTS-1), ì¶”ê°€ ì‹¤íŒ¨ ì‹œ -1.
+		 * @note í´ë¼ì´ì–¸íŠ¸ì—ê²Œ "Player_{N}" í˜•ì‹ì˜ ë³„ì¹­ì´ ë¶€ì—¬ë©ë‹ˆë‹¤ (Nì€ ì¸ë±ìŠ¤).
+		 */
 		int addClient(SOCKET client_socket);
 
-		/*
-		** ÇÔ¼ö¸í	:	removeClient.
-		** ¼³¸í		:	ÀÎÀÚ·Î ³Ñ¾î¿Â ÀÎµ¦½ºÀÇ Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏÀ» Á¦°ÅÇÕ´Ï´Ù.
-		** ÀÎÀÚ		:	int client_index : Á¦°ÅÇÒ Å¬¶óÀÌ¾ğÆ®ÀÇ ÀÎµ¦½º.
-		** ¹İÈ¯°ª	:	bool : ¼º°øÇÏ¸é true, ½ÇÆĞÇÏ¸é false.
-		*/
+
+		/**
+		 * @fn bool ClientManager::removeClient(int client_index)
+		 * @brief ì§€ì •í•œ ì¸ë±ìŠ¤ì˜ í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ì„ ì œê±°í•©ë‹ˆë‹¤.
+		 * @param[IN] int client_index : ì œê±°í•  í´ë¼ì´ì–¸íŠ¸ì˜ ì¸ë±ìŠ¤.
+		 * @return bool : ì œê±°ì— ì„±ê³µí•˜ë©´ true, ì¸ë±ìŠ¤ê°€ ì˜ëª»ë˜ì—ˆê±°ë‚˜ ì‹¤íŒ¨ ì‹œ false.
+		 */
 		bool removeClient(int client_index);
 
-		/*
-		** ÇÔ¼ö¸í	:	getClientSocket.
-		** ¼³¸í		:	ÀÎÀÚ·Î ³Ñ¾î¿Â ÀÎµ¦½º¿¡ ÇØ´çÇÏ´Â Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏÀ» ¸®ÅÏÇÕ´Ï´Ù.
-		** ÀÎÀÚ		:	int client_index : Å¬¶óÀÌ¾ğÆ® ÀÎµ¦½º.
-		** ¹İÈ¯°ª	:	SOCKET : ÀÎµ¦½º¿¡ ÇØ´çÇÏ´Â Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏ.
-		*/
+		/**
+		 * @fn SOCKET ClientManager::getClientSocket(int client_index) const
+		 * @brief ì£¼ì–´ì§„ í´ë¼ì´ì–¸íŠ¸ ì¸ë±ìŠ¤ì— ëŒ€í•œ ì†Œì¼“ì„ ê°€ì ¸ì˜µë‹ˆë‹¤.
+		 * @param[IN] int client_index : ì†Œì¼“ì„ ìš”ì²­í•  í´ë¼ì´ì–¸íŠ¸ì˜ ì¸ë±ìŠ¤.
+		 * @return SOCKET : í•´ë‹¹ ì¸ë±ìŠ¤ì˜ í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“(ìœ íš¨í•˜ì§€ ì•Šìœ¼ë©´ INVALID_SOCKET).
+		 */
 		SOCKET getClientSocket(int client_index) const;
-
-		/*
-		** ÇÔ¼ö¸í	:	getConnectedClientCount.
-		** ¼³¸í		:	ÇöÀç ¿¬°áµÈ Å¬¶óÀÌ¾ğÆ® ¼ö¸¦ ¹İÈ¯ÇÕ´Ï´Ù.
-		** ÀÎÀÚ		:	¾øÀ½.
-		** ¹İÈ¯°ª	:	int : ¿¬°áµÈ Å¬¶óÀÌ¾ğÆ® ¼ö.
-		*/
+		
+		/**
+		 * @fn int ClientManager::getConnectedClientCount() const
+		 * @brief í˜„ì¬ ì—°ê²°ëœ(ê´€ë¦¬ ì¤‘ì¸) í´ë¼ì´ì–¸íŠ¸ì˜ ìˆ˜ë¥¼ ë°˜í™˜í•©ë‹ˆë‹¤.
+		 * @return int : ì—°ê²°ëœ í´ë¼ì´ì–¸íŠ¸ ê°œìˆ˜.
+		 */
 		int getConnectedClientCount() const;
 
-		/*
-		** ÇÔ¼ö¸í	:	isValidIndex.
-		** ¼³¸í		:	ÀÎµ¦½º°¡ À¯È¿ÇÑÁö È®ÀÎÇÕ´Ï´Ù.
-		** ÀÎÀÚ		:	int client_index : È®ÀÎÇÒ ÀÎµ¦½º.
-		** ¹İÈ¯°ª	:	bool : À¯È¿ÇÏ¸é true, ¾Æ´Ï¸é false.
-		*/
+		/**
+		 * @fn bool ClientManager::isValidIndex(int client_index) const
+		 * @brief í´ë¼ì´ì–¸íŠ¸ ì¸ë±ìŠ¤ê°€ ìœ íš¨í•œ ë²”ìœ„ ë‚´ì¸ì§€ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
+		 * @param[IN] int client_index : ê²€ì¦í•  í´ë¼ì´ì–¸íŠ¸ ì¸ë±ìŠ¤.
+		 * @return bool : ì¸ë±ìŠ¤ê°€ ìœ íš¨í•œ ë²”ìœ„(0 ~ MAX_CLIENTS - 1)ì´ë©´ true, ì•„ë‹ˆë©´ false.
+		 */
 		bool isValidIndex(int client_index) const;
 
-		/*
-		** ÇÔ¼ö¸í	:	getAllSockets.
-		** ¼³¸í		:	¸ğµç À¯È¿ÇÑ Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏÀ» ¹è¿­·Î ¹İÈ¯ÇÕ´Ï´Ù.
-		** ÀÎÀÚ		:	SOCKET* sockets : Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏÀ» ÀúÀåÇÒ ¹è¿­.
-		*				int max_count : ¹è¿­ÀÇ ÃÖ´ë Å©±â.
-		** ¹İÈ¯°ª	:	int : º¹»çµÈ ¼ÒÄÏ ¼ö.
-		*/
+		/**
+		 * @fn int ClientManager::getAllSockets(SOCKET* sockets, int max_count) const
+		 * @brief ëª¨ë“  í™œì„± í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ì„ ì£¼ì–´ì§„ ë°°ì—´ì— ë³µì‚¬í•©ë‹ˆë‹¤.
+		 * @param[OUT] SOCKET* sockets : í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ í•¸ë“¤ì„ ì €ì¥í•  ë°°ì—´.
+		 * @param[IN] int max_count : ë°°ì—´ì´ ë‹´ì„ ìˆ˜ ìˆëŠ” ìµœëŒ€ ì†Œì¼“ ê°œìˆ˜.
+		 * @return int : ì‹¤ì œ ë°°ì—´ì— ë³µì‚¬ëœ í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ì˜ ê°œìˆ˜.
+		 * @note í˜„ì¬ ëª¨ë“  í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ ëª©ë¡ì„ ì–»ëŠ” ë° ì‚¬ìš©í•©ë‹ˆë‹¤.
+		 */
 		int getAllSockets(SOCKET* sockets, int max_count) const;
 
-		/*
-		** ÇÔ¼ö¸í	:	getClientNickname.
-		** ¼³¸í		:	Å¬¶óÀÌ¾ğÆ®ÀÇ »ı¼ºµÈ ´Ğ³×ÀÓÀ» ¹İÈ¯ÇÕ´Ï´Ù.
-		** ÀÎÀÚ		:	int client_index : Å¬¶óÀÌ¾ğÆ® ÀÎµ¦½º.
-		** ¹İÈ¯°ª	:	std::string : Å¬¶óÀÌ¾ğÆ® ´Ğ³×ÀÓ.
-		*/
+		/**
+		 * @fn std::string ClientManager::getClientNickname(int client_index) const
+		 * @brief ì£¼ì–´ì§„ ì¸ë±ìŠ¤ê°€ ìœ íš¨í•˜ë‹¤ë©´ í´ë¼ì´ì–¸íŠ¸ ìë™ ìƒì„± ë³„ì¹­ì„ ë°˜í™˜í•©ë‹ˆë‹¤.
+		 * @param[IN] int client_index : í´ë¼ì´ì–¸íŠ¸ì˜ ì¸ë±ìŠ¤.
+		 * @return std::string : í•´ë‹¹ í´ë¼ì´ì–¸íŠ¸ì˜ ë³„ì¹­ (ì˜ˆ: "Player_5"), ì¸ë±ìŠ¤ê°€ ìœ íš¨í•˜ì§€ ì•Šìœ¼ë©´ "Player_Unknown".
+		 */
 		std::string getClientNickname(int client_index) const;
 
 	private:
-		// Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏ ¹è¿­.
+		
+		/// @brief í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ ë°°ì—´ (í¬ê¸° MAX_CLIENTS). ì‚¬ìš©ë˜ì§€ ì•Šì€ ìŠ¬ë¡¯ì—ëŠ” INVALID_SOCKET.
 		std::array<SOCKET, MAX_CLIENTS> _clientSockets;
 
-		// Àç»ç¿ë °¡´ÉÇÑ ÀÎµ¦½º¸¦ °ü¸®ÇÏ´Â ¿ì¼±¼øÀ§ Å¥.
+		/// @brief ì¬ì‚¬ìš©ì„ ìœ„í•œ ê°€ìš© ì¸ë±ìŠ¤ ëª©ë¡ (ìš°ì„ ìˆœìœ„ í).
 		std::priority_queue<int, std::vector<int>, std::greater<int>> _availableList;
 
-		// ÇöÀç ¿¬°áµÈ Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏ ¼ö.
+		/// @brief í˜„ì¬ ì—°ê²°ëœ í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ ê°œìˆ˜.
 		int _connectedSocketCount;
 
 	private:
-
-		/*
-		** ÇÔ¼ö¸í	:	initalizeClientSockets.
-		** ¼³¸í		:	Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏ ¹è¿­À» ÃÊ±âÈ­ÇÕ´Ï´Ù.
-		** ÀÎÀÚ		:	¾øÀ½.
-		** ¹İÈ¯°ª	:	¿²À½.
-		*/
+		
+		/**
+		 * @fn void ClientManager::initalizeClientSockets()
+		 * @brief í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ ë°°ì—´ì˜ ëª¨ë“  ì†Œì¼“ì„ INVALID_SOCKETìœ¼ë¡œ ì„¤ì • ì´ˆê¸°í™”í•©ë‹ˆë‹¤.
+		 * @return ì—†ìŒ.
+		 */
 		void initalizeClientSockets();
 
-		/*
-		** ÇÔ¼ö¸í	:	initalizeAvailableList.
-		** ¼³¸í		:	»ç¿ë °¡´ÉÇÑ ÀÎµ¦½º Å¥¸¦ ÃÊ±âÈ­ÇÕ´Ï´Ù.
-		** ÀÎÀÚ		:	¾øÀ½.
-		** ¹İÈ¯°ª	:	¿²À½.
-		*/
+		/**
+		 * @fn void ClientManager::initalizeAvailableList()
+		 * @brief ì‚¬ìš© ê°€ëŠ¥í•œ í´ë¼ì´ì–¸íŠ¸ ì¸ë±ìŠ¤ (0 ~ MAX_CLIENTS-1) ëª©ë¡ì„ ì´ˆê¸°í™”í•©ë‹ˆë‹¤.
+		 * @return ì—†ìŒ.
+		 */
 		void initalizeAvailableList();
 
-		/*
-		** ÇÔ¼ö¸í	:	getNextIndex.
-		** ¼³¸í		:	Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏ ¹è¿­¿¡¼­ ´ÙÀ½À¸·Î »ç¿ë °¡´ÉÇÑ ÀÎµ¦½º¸¦ ¹İÈ¯ÇÕ´Ï´Ù.
-		** ÀÎÀÚ		:	¾øÀ½.
-		** ¹İÈ¯°ª	:	int : »ç¿ë °¡´ÉÇÑ ÀÎµ¦½º, ¾øÀ¸¸é -1.
-		*/
+		/**
+		 * @fn int ClientManager::getNextIndex()
+		 * @brief ìƒˆ ì—°ê²°ì— ì‚¬ìš©í•  ì‚¬ìš© ê°€ëŠ¥í•œ í´ë¼ì´ì–¸íŠ¸ ì¸ë±ìŠ¤ë¥¼ ê°€ì ¸ì˜µë‹ˆë‹¤.
+		 * @return int : ì‚¬ìš© ê°€ëŠ¥í•œ ì¸ë±ìŠ¤ (0 ~ MAX_CLIENTS-1) ë˜ëŠ” ì„œë²„ì— ë¹ˆ ìŠ¬ë¡¯ì´ ì—†ì„ ê²½ìš° -1.
+		 */
 		int getNextIndex();
 };

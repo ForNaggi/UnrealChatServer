@@ -1,0 +1,288 @@
+\doxysection{Socket\+Build/\+Debug\+Helper.h 파일 참조}
+\hypertarget{_debug_helper_8h}{}\label{_debug_helper_8h}\index{SocketBuild/DebugHelper.h@{SocketBuild/DebugHelper.h}}
+
+
+로깅 및 디버깅을 위한 유틸리티 함수와 정의들을 제공합니다.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+\doxysubsubsection*{매크로}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_debug_helper_8h_a1df2a84bb8d3b43c8c49f1aff655190a}{LOG\+\_\+\+INFO}}(message)
+\begin{DoxyCompactList}\small\item\em INFO 수준 로그 메시지를 출력하는 매크로. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_debug_helper_8h_abfe0c293b360dc335041f1bc67b00647}{LOG\+\_\+\+WARN}}(message)
+\begin{DoxyCompactList}\small\item\em WARNING 수준 로그 메시지를 출력하는 매크로. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_debug_helper_8h_a27d98b18ba06759c6ef5c71b1e1a9904}{LOG\+\_\+\+ERROR}}(message)
+\begin{DoxyCompactList}\small\item\em ERRORZ 수준 로그 메시지를 출력하는 매크로. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_debug_helper_8h_a87f39d92adfc939c31320aaf4b9f7a37}{LOG\+\_\+\+DEBUG}}(message)
+\begin{DoxyCompactList}\small\item\em 디버그 수준 로그 메시지를 출력하는 매크로. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{열거형 타입}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9}{Log\+Level}} \{ \mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9a551b723eafd6a31d444fcb2f5920fbd3}{INFO}}
+, \mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9a059e9861e0400dfbe05c98a841f3f96b}{WARNING}}
+, \mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9a54b1238a675e3ebbad5d2aa5316c196a}{ERRORZ}}
+, \mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9adc30ec20708ef7b0f641ef78b7880a15}{DEBUG}}
+ \}
+\begin{DoxyCompactList}\small\item\em 로그의 출력 유형을 정의합니다. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{_debug_helper_8h_af2666057acd4f3712030a3336a6d8968}{current\+\_\+time}} ()
+\begin{DoxyCompactList}\small\item\em 현재 시스템 시간을 포맷된 문자열로 반환합니다. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_debug_helper_8h_a41857877494326c2bd54dff09bffee95}{log\+\_\+level\+\_\+to\+\_\+string}} (\mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9}{Log\+Level}} level)
+\begin{DoxyCompactList}\small\item\em \doxylink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9}{Log\+Level} 열거값을 해당 문자열로 변환합니다. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_debug_helper_8h_ae07638b6926347629b2b3b8c6516564a}{log}} (\mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9}{Log\+Level}} level, const std\+::string \&message, const char \texorpdfstring{$\ast$}{*}file="{}"{}, int line=0)
+\begin{DoxyCompactList}\small\item\em 주어진 로그 레벨, 메시지를 로그 유형에 따라 파일명, 라인위치 정보와 함께 로그로 출력합니다. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+로깅 및 디버깅을 위한 유틸리티 함수와 정의들을 제공합니다. 
+
+\begin{DoxyAuthor}{작성자}
+최성락 
+\end{DoxyAuthor}
+\begin{DoxyDate}{날짜}
+2025-\/06-\/17
+\end{DoxyDate}
+로그 레벨 유형을 정의하고, 현재 시간, 로그 메시지 포맷을 위한 함수를 제공합니다.~\newline
+ 로그 레벨 유형을 선택하여 로그를 남길 수 있는 매크로들을 제공합니다. 
+
+\mbox{\hyperlink{_debug_helper_8h_source}{Debug\+Helper.\+h}} 파일에서 정의되었습니다.
+
+
+
+\label{doc-define-members}
+\Hypertarget{_debug_helper_8h_doc-define-members}
+\doxysubsection{매크로 문서화}
+\Hypertarget{_debug_helper_8h_a87f39d92adfc939c31320aaf4b9f7a37}\index{DebugHelper.h@{DebugHelper.h}!LOG\_DEBUG@{LOG\_DEBUG}}
+\index{LOG\_DEBUG@{LOG\_DEBUG}!DebugHelper.h@{DebugHelper.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_DEBUG}{LOG\_DEBUG}}
+{\footnotesize\ttfamily \label{_debug_helper_8h_a87f39d92adfc939c31320aaf4b9f7a37} 
+\#define LOG\+\_\+\+DEBUG(\begin{DoxyParamCaption}\item[{}]{message}{}\end{DoxyParamCaption})}
+
+{\bfseries 값\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{_debug_helper_8h_ae07638b6926347629b2b3b8c6516564a}{log}}(\mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9adc30ec20708ef7b0f641ef78b7880a15}{LogLevel::DEBUG}},\ message,\ \_\_FILE\_\_,\ \_\_LINE\_\_)}
+
+\end{DoxyCode}
+
+
+디버그 수준 로그 메시지를 출력하는 매크로. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em \mbox{[}\+IN\mbox{]}} & const std\+::string\& message \+: 로그로 남길 디버그 메시지. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{참고}
+\doxylink{_debug_helper_8h_ae07638b6926347629b2b3b8c6516564a}{log()} 
+\end{DoxySeeAlso}
+\begin{DoxyNote}{주의}
+이 매크로는 로그 출력에 소스 파일과 줄 번호를 포함합니다. ~\newline
+디버그 빌드에서만 활성됩니다. 
+\end{DoxyNote}
+
+
+\mbox{\hyperlink{_debug_helper_8h_source}{Debug\+Helper.\+h}} 파일의 \mbox{\hyperlink{_debug_helper_8h_source_l00151}{151}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{_debug_helper_8h_a27d98b18ba06759c6ef5c71b1e1a9904}\index{DebugHelper.h@{DebugHelper.h}!LOG\_ERROR@{LOG\_ERROR}}
+\index{LOG\_ERROR@{LOG\_ERROR}!DebugHelper.h@{DebugHelper.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_ERROR}{LOG\_ERROR}}
+{\footnotesize\ttfamily \label{_debug_helper_8h_a27d98b18ba06759c6ef5c71b1e1a9904} 
+\#define LOG\+\_\+\+ERROR(\begin{DoxyParamCaption}\item[{}]{message}{}\end{DoxyParamCaption})}
+
+{\bfseries 값\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{_debug_helper_8h_ae07638b6926347629b2b3b8c6516564a}{log}}(\mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9a54b1238a675e3ebbad5d2aa5316c196a}{LogLevel::ERRORZ}},\ message,\ \_\_FILE\_\_,\ \_\_LINE\_\_)}
+
+\end{DoxyCode}
+
+
+ERRORZ 수준 로그 메시지를 출력하는 매크로. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em \mbox{[}\+IN\mbox{]}} & const std\+::string\& message \+: 로그로 남길 오류 메시지. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{참고}
+\doxylink{_debug_helper_8h_ae07638b6926347629b2b3b8c6516564a}{log()} 
+\end{DoxySeeAlso}
+\begin{DoxyNote}{주의}
+이 매크로는 로그 출력에 소스 파일과 줄 번호를 포함합니다. 
+\end{DoxyNote}
+
+
+\mbox{\hyperlink{_debug_helper_8h_source}{Debug\+Helper.\+h}} 파일의 \mbox{\hyperlink{_debug_helper_8h_source_l00142}{142}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{_debug_helper_8h_a1df2a84bb8d3b43c8c49f1aff655190a}\index{DebugHelper.h@{DebugHelper.h}!LOG\_INFO@{LOG\_INFO}}
+\index{LOG\_INFO@{LOG\_INFO}!DebugHelper.h@{DebugHelper.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_INFO}{LOG\_INFO}}
+{\footnotesize\ttfamily \label{_debug_helper_8h_a1df2a84bb8d3b43c8c49f1aff655190a} 
+\#define LOG\+\_\+\+INFO(\begin{DoxyParamCaption}\item[{}]{message}{}\end{DoxyParamCaption})}
+
+{\bfseries 값\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{_debug_helper_8h_ae07638b6926347629b2b3b8c6516564a}{log}}(\mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9a551b723eafd6a31d444fcb2f5920fbd3}{LogLevel::INFO}},\ \ message)}
+
+\end{DoxyCode}
+
+
+INFO 수준 로그 메시지를 출력하는 매크로. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em \mbox{[}\+IN\mbox{]}} & const std\+::string\& message \+: 로그로 남길 일반 메시지. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{참고}
+\doxylink{_debug_helper_8h_ae07638b6926347629b2b3b8c6516564a}{log()} 
+\end{DoxySeeAlso}
+
+
+\mbox{\hyperlink{_debug_helper_8h_source}{Debug\+Helper.\+h}} 파일의 \mbox{\hyperlink{_debug_helper_8h_source_l00127}{127}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{_debug_helper_8h_abfe0c293b360dc335041f1bc67b00647}\index{DebugHelper.h@{DebugHelper.h}!LOG\_WARN@{LOG\_WARN}}
+\index{LOG\_WARN@{LOG\_WARN}!DebugHelper.h@{DebugHelper.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_WARN}{LOG\_WARN}}
+{\footnotesize\ttfamily \label{_debug_helper_8h_abfe0c293b360dc335041f1bc67b00647} 
+\#define LOG\+\_\+\+WARN(\begin{DoxyParamCaption}\item[{}]{message}{}\end{DoxyParamCaption})}
+
+{\bfseries 값\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{_debug_helper_8h_ae07638b6926347629b2b3b8c6516564a}{log}}(\mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9a059e9861e0400dfbe05c98a841f3f96b}{LogLevel::WARNING}},\ \ message)}
+
+\end{DoxyCode}
+
+
+WARNING 수준 로그 메시지를 출력하는 매크로. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em \mbox{[}\+IN\mbox{]}} & const std\+::string\& message \+: 로그로 남길 경고 메시지. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{참고}
+\doxylink{_debug_helper_8h_ae07638b6926347629b2b3b8c6516564a}{log()} 
+\end{DoxySeeAlso}
+
+
+\mbox{\hyperlink{_debug_helper_8h_source}{Debug\+Helper.\+h}} 파일의 \mbox{\hyperlink{_debug_helper_8h_source_l00134}{134}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-enum-members}
+\Hypertarget{_debug_helper_8h_doc-enum-members}
+\doxysubsection{열거형 타입 문서화}
+\Hypertarget{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9}\index{DebugHelper.h@{DebugHelper.h}!LogLevel@{LogLevel}}
+\index{LogLevel@{LogLevel}!DebugHelper.h@{DebugHelper.h}}
+\doxysubsubsection{\texorpdfstring{LogLevel}{LogLevel}}
+{\footnotesize\ttfamily \label{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9} 
+enum class \mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9}{Log\+Level}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+로그의 출력 유형을 정의합니다. 
+
+각 레벨은 로그 메시지의 중요도나 유형을 나타냅니다.~\newline
+ INFO는 일반, WARNING은 경고, ERROR는 오류, DEBUG는 디버깅용 메시지. \begin{DoxyEnumFields}[2]{열거형 멤버}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INFO@{INFO}!DebugHelper.h@{DebugHelper.h}}\index{DebugHelper.h@{DebugHelper.h}!INFO@{INFO}}}\Hypertarget{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9a551b723eafd6a31d444fcb2f5920fbd3}\label{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9a551b723eafd6a31d444fcb2f5920fbd3} 
+INFO&일반 메세지 레벨. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WARNING@{WARNING}!DebugHelper.h@{DebugHelper.h}}\index{DebugHelper.h@{DebugHelper.h}!WARNING@{WARNING}}}\Hypertarget{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9a059e9861e0400dfbe05c98a841f3f96b}\label{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9a059e9861e0400dfbe05c98a841f3f96b} 
+WARNING&경고 메시지 레벨. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERRORZ@{ERRORZ}!DebugHelper.h@{DebugHelper.h}}\index{DebugHelper.h@{DebugHelper.h}!ERRORZ@{ERRORZ}}}\Hypertarget{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9a54b1238a675e3ebbad5d2aa5316c196a}\label{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9a54b1238a675e3ebbad5d2aa5316c196a} 
+ERRORZ&오류 메시지 레벨. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DEBUG@{DEBUG}!DebugHelper.h@{DebugHelper.h}}\index{DebugHelper.h@{DebugHelper.h}!DEBUG@{DEBUG}}}\Hypertarget{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9adc30ec20708ef7b0f641ef78b7880a15}\label{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9adc30ec20708ef7b0f641ef78b7880a15} 
+DEBUG&디버그 메시지 레벨. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\mbox{\hyperlink{_debug_helper_8h_source}{Debug\+Helper.\+h}} 파일의 \mbox{\hyperlink{_debug_helper_8h_source_l00027}{27}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-func-members}
+\Hypertarget{_debug_helper_8h_doc-func-members}
+\doxysubsection{함수 문서화}
+\Hypertarget{_debug_helper_8h_af2666057acd4f3712030a3336a6d8968}\index{DebugHelper.h@{DebugHelper.h}!current\_time@{current\_time}}
+\index{current\_time@{current\_time}!DebugHelper.h@{DebugHelper.h}}
+\doxysubsubsection{\texorpdfstring{current\_time()}{current\_time()}}
+{\footnotesize\ttfamily \label{_debug_helper_8h_af2666057acd4f3712030a3336a6d8968} 
+std\+::string current\+\_\+time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+현재 시스템 시간을 포맷된 문자열로 반환합니다. 
+
+\begin{DoxyReturn}{반환값}
+std\+::string \+: "{}\+YYYY-\/\+MM-\/\+DD HH\+:\+MM\+:\+SS"{} 형식의 현재 시간 문자열. 
+\end{DoxyReturn}
+\begin{DoxyNote}{주의}
+예시 형식\+: "{}2025-\/06-\/04 13\+:45\+:30"{}. 로그 타임스탬프를 남길 때 유용합니다. 
+\end{DoxyNote}
+
+
+\mbox{\hyperlink{_debug_helper_8h_source}{Debug\+Helper.\+h}} 파일의 \mbox{\hyperlink{_debug_helper_8h_source_l00041}{41}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{_debug_helper_8h_ae07638b6926347629b2b3b8c6516564a}\index{DebugHelper.h@{DebugHelper.h}!log@{log}}
+\index{log@{log}!DebugHelper.h@{DebugHelper.h}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}}
+{\footnotesize\ttfamily \label{_debug_helper_8h_ae07638b6926347629b2b3b8c6516564a} 
+void log (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9}{Log\+Level}}}]{level}{, }\item[{const std\+::string \&}]{message}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{file}{ = {\ttfamily "{}"{}}, }\item[{int}]{line}{ = {\ttfamily 0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+주어진 로그 레벨, 메시지를 로그 유형에 따라 파일명, 라인위치 정보와 함께 로그로 출력합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em \mbox{[}\+IN\mbox{]}} & \doxylink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9}{Log\+Level} level \+: 로그 레벨 (INFO, WARNING, ERRORZ, DEBUG). \\
+\hline
+{\em \mbox{[}\+IN\mbox{]}} & const std\+::string\& message \+: 로그로 출력할 메시지 텍스트. \\
+\hline
+{\em \mbox{[}\+IN(default} & \+: "{}"{})\mbox{]} const char\texorpdfstring{$\ast$}{*} file \+: 로그 발생 소스 파일 이름 (ERRORZ/\+DEBUG 레벨에서 사용). \\
+\hline
+{\em \mbox{[}\+IN(default} & \+: 0)\mbox{]} int line \+: 로그 발생 소스 코드 줄 번호 (ERRORZ/\+DEBUG 레벨에서 사용). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+없음.
+\end{DoxyReturn}
+로그 레벨에 따라 출력 스트림을 결정합니다 (오류는 std\+::cerr, 그 외는 std\+::cout). 로그 앞부분에 타임스탬프와 레벨을 붙이고, ERRORZ와 DEBUG 레벨에서는 파일명과 라인 번호를 추가합니다. 디버그 모드가 아닌 빌드에서는 DEBUG 레벨 메시지는 출력되지 않습니다. 
+
+\mbox{\hyperlink{_debug_helper_8h_source}{Debug\+Helper.\+h}} 파일의 \mbox{\hyperlink{_debug_helper_8h_source_l00085}{85}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{_debug_helper_8h_a41857877494326c2bd54dff09bffee95}\index{DebugHelper.h@{DebugHelper.h}!log\_level\_to\_string@{log\_level\_to\_string}}
+\index{log\_level\_to\_string@{log\_level\_to\_string}!DebugHelper.h@{DebugHelper.h}}
+\doxysubsubsection{\texorpdfstring{log\_level\_to\_string()}{log\_level\_to\_string()}}
+{\footnotesize\ttfamily \label{_debug_helper_8h_a41857877494326c2bd54dff09bffee95} 
+const char \texorpdfstring{$\ast$}{*} log\+\_\+level\+\_\+to\+\_\+string (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9}{Log\+Level}}}]{level}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxylink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9}{Log\+Level} 열거값을 해당 문자열로 변환합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em \mbox{[}\+IN\mbox{]}} & \doxylink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9}{Log\+Level} level \+: \doxylink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9}{Log\+Level} 값 (예\+: \doxylink{_debug_helper_8h_aca1fd1d8935433e6ba2e3918214e07f9a551b723eafd6a31d444fcb2f5920fbd3}{Log\+Level\+::\+INFO}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+const char\texorpdfstring{$\ast$}{*} \+: 로그 레벨에 대응하는 문자열 (예\+: "{}\+INFO"{}, "{}\+ERROR"{} 등). 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_debug_helper_8h_source}{Debug\+Helper.\+h}} 파일의 \mbox{\hyperlink{_debug_helper_8h_source_l00059}{59}} 번째 라인에서 정의되었습니다.
+

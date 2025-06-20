@@ -1,3 +1,12 @@
+ï»¿#pragma execution_character_set("utf-8")
+
+/**
+ * @file ClientManager.cpp
+ * @brief ClientManager.h êµ¬í˜„ë¶€.
+ * @author ìµœì„±ë½
+ * @date 2025-06-17
+ */
+
 #include "ClientManager.h"
 #include "DebugHelper.h"
 
@@ -6,12 +15,12 @@ ClientManager::ClientManager()
 {
     initalizeClientSockets();
     initalizeAvailableList();
-    LOG_DEBUG("ClientManager °´Ã¼¸¦ »ı¼ºÇÕ´Ï´Ù.");
+    LOG_DEBUG("ClientManager ê°ì²´ë¥¼ ìƒì„±í•©ë‹ˆë‹¤.");
 }
 
 ClientManager::~ClientManager()
 {
-    // Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏ ¹è¿­ Á¤¸®.
+    // í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ ë°°ì—´ ì •ë¦¬.
     for (int i = 0; i < ClientManager::MAX_CLIENTS; ++i)
     {
         if (this->_clientSockets[i] != INVALID_SOCKET)
@@ -19,58 +28,58 @@ ClientManager::~ClientManager()
             closesocket(this->_clientSockets[i]);
         }
     }
-    LOG_DEBUG("ClientManager °´Ã¼¸¦ »èÁ¦ÇÕ´Ï´Ù.");
+    LOG_DEBUG("ClientManager ê°ì²´ë¥¼ ì‚­ì œí•©ë‹ˆë‹¤.");
 }
 
 int ClientManager::addClient(SOCKET client_socket)
 {
     if (client_socket == INVALID_SOCKET)
     {
-        LOG_WARN("À¯È¿ÇÏÁö ¾ÊÀº ¼ÒÄÏÀÔ´Ï´Ù.");
+        LOG_WARN("ìœ íš¨í•˜ì§€ ì•Šì€ ì†Œì¼“ì…ë‹ˆë‹¤.");
         return (-1);
     }
 
-    // »ç¿ë °¡´ÉÇÑ ÀÎµ¦½º °¡Á®¿À±â.
+    // ì‚¬ìš© ê°€ëŠ¥í•œ ì¸ë±ìŠ¤ ê°€ì ¸ì˜¤ê¸°.
     int index = this->getNextIndex();
     if (index == -1)
     {
-        LOG_WARN("Å¬¶óÀÌ¾ğÆ® Ãß°¡ ½ÇÆĞ: ÃÖ´ë Å¬¶óÀÌ¾ğÆ® ¼ö ÃÊ°ú");
+        LOG_WARN("í´ë¼ì´ì–¸íŠ¸ ì¶”ê°€ ì‹¤íŒ¨: ìµœëŒ€ í´ë¼ì´ì–¸íŠ¸ ìˆ˜ ì´ˆê³¼");
         return (-1);
     }
 
-    // Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏ ÀúÀå.
+    // í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ ì €ì¥.
     this->_clientSockets[index] = client_socket;
     this->_connectedSocketCount = this->_connectedSocketCount + 1;
 
-    LOG_INFO("Å¬¶óÀÌ¾ğÆ® Ãß°¡ ¼º°ø(player_" + std::to_string(index) + ")\n" + std::to_string(this->_connectedSocketCount) + "¸í");
+    LOG_INFO("í´ë¼ì´ì–¸íŠ¸ ì¶”ê°€ ì„±ê³µ(player_" + std::to_string(index) + ")\n" + std::to_string(this->_connectedSocketCount) + "ëª…");
     return (index);
 }
 
 bool ClientManager::removeClient(int client_index)
 {
-    // À¯È¿ÇÑ ÀÎµ¦½º ¹üÀ§ÀÎÁö¸¦ Ã¼Å©.
+    // ìœ íš¨í•œ ì¸ë±ìŠ¤ ë²”ìœ„ì¸ì§€ë¥¼ ì²´í¬.
     if (this->isValidIndex(client_index) == false)
     {
-        LOG_WARN("Å¬¶óÀÌ¾ğÆ® Á¦°Å ½ÇÆĞ: À¯È¿ÇÏÁö ¾ÊÀº ÀÎµ¦½º " + std::to_string(client_index));
+        LOG_WARN("í´ë¼ì´ì–¸íŠ¸ ì œê±° ì‹¤íŒ¨: ìœ íš¨í•˜ì§€ ì•Šì€ ì¸ë±ìŠ¤ " + std::to_string(client_index));
         return (false);
     }
 
-    // Å¬¶óÀÌ¾ğÆ®°¡ ¿¬°áµÇ¾î ÀÖ´ÂÁö È®ÀÎ.
+    // í´ë¼ì´ì–¸íŠ¸ê°€ ì—°ê²°ë˜ì–´ ìˆëŠ”ì§€ í™•ì¸.
     if (this->_clientSockets[client_index] == INVALID_SOCKET)
     {
-        LOG_WARN("Å¬¶óÀÌ¾ğÆ® Á¦°Å ½ÇÆĞ: ÀÌ¹Ì Á¦°ÅµÈ Å¬¶óÀÌ¾ğÆ® " + std::to_string(client_index));
+        LOG_WARN("í´ë¼ì´ì–¸íŠ¸ ì œê±° ì‹¤íŒ¨: ì´ë¯¸ ì œê±°ëœ í´ë¼ì´ì–¸íŠ¸ " + std::to_string(client_index));
         return (false);
     }
 
-    // ¼ÒÄÏ Á¤¸®.
+    // ì†Œì¼“ ì •ë¦¬.
     closesocket(this->_clientSockets[client_index]);
     this->_clientSockets[client_index] = INVALID_SOCKET;
     this->_connectedSocketCount = this->_connectedSocketCount - 1;
 
-    // »èÁ¦ÇÑ ¼ÒÄÏÀÇ ÀÎµ¦½º¸¦ Àç»ç¿ë Å¥¿¡ Ãß°¡.
+    // ì‚­ì œí•œ ì†Œì¼“ì˜ ì¸ë±ìŠ¤ë¥¼ ì¬ì‚¬ìš© íì— ì¶”ê°€.
     this->_availableList.push(client_index);
 
-    LOG_INFO("Å¬¶óÀÌ¾ğÆ® Á¦°Å ¿Ï·á(player_" + std::to_string(client_index) + ")\n³²Àº Á¢¼ÓÀÚ: " + std::to_string(this->_connectedSocketCount) + "¸í");
+    LOG_INFO("í´ë¼ì´ì–¸íŠ¸ ì œê±° ì™„ë£Œ(player_" + std::to_string(client_index) + ")\në‚¨ì€ ì ‘ì†ì: " + std::to_string(this->_connectedSocketCount) + "ëª…");
     return (true);
 }
 
@@ -112,45 +121,45 @@ int ClientManager::getAllSockets(SOCKET* sockets, int max_count) const
 
 std::string ClientManager::getClientNickname(int client_index) const
 {
-    // À¯È¿ÇÏÁö ¾ÊÀº ÀÎµ¦½º ¹üÀ§ÀÌ°Å³ª.
+    // ìœ íš¨í•˜ì§€ ì•Šì€ ì¸ë±ìŠ¤ ë²”ìœ„ì´ê±°ë‚˜.
     if (this->isValidIndex(client_index) == false)
     {
         return ("Player_Unknown");
     }
 
-    // ÇØ´ç ¼ÒÄÏÀÌ À¯È¿ÇÏÁö ¾Ê´Ù¸é
+    // í•´ë‹¹ ì†Œì¼“ì´ ìœ íš¨í•˜ì§€ ì•Šë‹¤ë©´
     if (this->_clientSockets[client_index] == INVALID_SOCKET)
     {
         return ("Player_Unknown");
     }
 
-    // Ç×»ó Player_{NUMBER} Çü½ÄÀ¸·Î ¹İÈ¯.
+    // í•­ìƒ Player_{NUMBER} í˜•ì‹ìœ¼ë¡œ ë°˜í™˜.
     return ("Player_" + std::to_string(client_index));
 }
 
 void ClientManager::initalizeClientSockets()
 {
-    // Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏ¹è¿­ÀÇ ¿ä¼ÒµéÀ» INVALID_SOCKETÀ¸·Î ÃÊ±âÈ­ÇÕ´Ï´Ù.
+    // í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ë°°ì—´ì˜ ìš”ì†Œë“¤ì„ INVALID_SOCKETìœ¼ë¡œ ì´ˆê¸°í™”í•©ë‹ˆë‹¤.
     for (int i = 0; i < ClientManager::MAX_CLIENTS; ++i)
     {
         this->_clientSockets[i] = INVALID_SOCKET;
     }
-    LOG_DEBUG("Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏÀ» ¿Ï·á.");
+    LOG_DEBUG("í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ì„ ì™„ë£Œ.");
 }
 
 void ClientManager::initalizeAvailableList()
 {
-    // ¿ì¼±¼øÀ§ Å¥¿¡ 0~9±îÁö ¼ıÀÚ¸¦ ³Ö¾î³õ½À´Ï´Ù.
+    // ìš°ì„ ìˆœìœ„ íì— 0~9ê¹Œì§€ ìˆ«ìë¥¼ ë„£ì–´ë†“ìŠµë‹ˆë‹¤.
     for (int i = 0; i < ClientManager::MAX_CLIENTS; ++i)
     {
         this->_availableList.push(i);
     }
-    LOG_DEBUG("»ç¿ë °¡´ÉÇÑ ÀÎµ¦½º Å¥ ÃÊ±âÈ­ ¿Ï·á.");
+    LOG_DEBUG("ì‚¬ìš© ê°€ëŠ¥í•œ ì¸ë±ìŠ¤ í ì´ˆê¸°í™” ì™„ë£Œ.");
 }
 
 int ClientManager::getNextIndex()
 {
-    // ¿ì¼± ¼øÀ§ Å¥°¡ ºñ¾ú´Ù¸é.
+    // ìš°ì„  ìˆœìœ„ íê°€ ë¹„ì—ˆë‹¤ë©´.
     if (this->_availableList.empty())
     {
         return (-1);

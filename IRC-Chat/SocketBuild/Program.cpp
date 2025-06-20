@@ -1,4 +1,14 @@
-﻿#include "Program.h"
+﻿#pragma execution_character_set("utf-8")
+
+
+/**
+ * @file Program.cpp
+ * @brief Program.h 구현부.
+ * @author 최성락
+ * @date 2025-06-17
+ */
+
+#include "Program.h"
 #include "DebugHelper.h"
 
 Program::Program()

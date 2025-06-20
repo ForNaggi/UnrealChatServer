@@ -1,0 +1,312 @@
+\doxysection{Select\+Manager 클래스 참조}
+\hypertarget{class_select_manager}{}\label{class_select_manager}\index{SelectManager@{SelectManager}}
+
+
+소켓 집합을 관리하고 select()를 사용하여 네트워크 I/\+O를 다중화합니다.  
+
+
+
+
+{\ttfamily \#include $<$Select\+Manager.\+h$>$}
+
+\doxysubsubsection*{Public 타입}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085ec}{Result}} \{ \mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085ecad0749aaba8b833466dfcbb0428e4f89c}{SUCCESS}}
+, \mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085eca070a0fb40f6c308ab544b227660aadff}{TIMEOUT}}
+, \mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085ecadd820d26a503ff5eff2d001703714e47}{FAIL\+\_\+\+SELECT}}
+, \mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085eca9577f71024a3ec9d5367f5bc34fe747f}{NO\+\_\+\+SOCKETS}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_select_manager_aa54c0ba1ef0f41c5f81b26c004ab553f}{Select\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Select\+Manager를 생성하여 내부 소켓 집합을 초기화합니다. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_select_manager_a131302983d1dd7938f2bf7be5ee0486a}{\texorpdfstring{$\sim$}{\string~}\+Select\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Select\+Manager의 소멸자. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_select_manager_aed0a7f9325a1cf09f2b9e44be19b3828}{Select\+Manager}} (const \mbox{\hyperlink{class_select_manager}{Select\+Manager}} \&obj)=delete
+\item 
+\mbox{\hyperlink{class_select_manager}{Select\+Manager}} \& \mbox{\hyperlink{class_select_manager_a07c2e14e7ea606910c87d0bbfe12139a}{operator=}} (const \mbox{\hyperlink{class_select_manager}{Select\+Manager}} \&obj)=delete
+\item 
+\mbox{\hyperlink{class_select_manager_a2560ba395a59e6b286ae9189e69f469c}{Select\+Manager}} (\mbox{\hyperlink{class_select_manager}{Select\+Manager}} \&\&obj)=delete
+\item 
+\mbox{\hyperlink{class_select_manager}{Select\+Manager}} \& \mbox{\hyperlink{class_select_manager_a1eb9c0a662d6c30841563d8b63a60a3e}{operator=}} (\mbox{\hyperlink{class_select_manager}{Select\+Manager}} \&\&obj)=delete
+\item 
+void \mbox{\hyperlink{class_select_manager_a5cbd49ada4d6bbcceb45994b718f4249}{setup\+Fd\+Set}} ()
+\begin{DoxyCompactList}\small\item\em 새로운 select 작업을 위해 fd\+\_\+set을 초기화하여 준비합니다. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_select_manager_a49708ec0ab5bb85c4084b85d7d708244}{add\+Socket}} (SOCKET socket)
+\begin{DoxyCompactList}\small\item\em select()로 모니터링할 소켓 집합에 소켓을 추가합니다. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085ec}{Select\+Manager\+::\+Result}} \mbox{\hyperlink{class_select_manager_aa481a33503a44eef343a271d64ae1f11}{execute\+Select}} (int timeout\+\_\+sec=1)
+\begin{DoxyCompactList}\small\item\em 현재 설정된 소켓 집합에 대해 select() 시스템 호출을 수행합니다. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_select_manager_a5c7e0df102640c1e4d92578b7081368f}{is\+Socket\+Ready}} (SOCKET socket) const
+\begin{DoxyCompactList}\small\item\em 해당 소켓이 "{}읽기 준비 완료"{}로 표시되었는지 확인합니다. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+fd\+\_\+set \mbox{\hyperlink{class_select_manager_abba6d4ec35ce6c709985333d27b00e77}{\+\_\+origin\+Set}}
+\begin{DoxyCompactList}\small\item\em 재사용 가능한 원본 소켓 집합 (모니터링할 소켓들의 집합). \end{DoxyCompactList}\item 
+fd\+\_\+set \mbox{\hyperlink{class_select_manager_a9867d9457e5bd481c1b6e829932e310c}{\+\_\+copy\+Set}}
+\begin{DoxyCompactList}\small\item\em select()에 전달되는 소켓 집합의 복사본입니다 (select 호출 시 변경될 수 있음). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_select_manager_a3c885ce2cc540e6d7acf4d47178bb97f}{\+\_\+socket\+Count}}
+\begin{DoxyCompactList}\small\item\em 현재 집합에 포함된 소켓 개수입니다. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+소켓 집합을 관리하고 select()를 사용하여 네트워크 I/\+O를 다중화합니다. 
+
+Select\+Manager는 select에 필요한 fd\+\_\+set 구조체를 래핑합니다. ~\newline
+소켓을 추가하여 select 연산을 수행하는 메서드를 제공합니다. ~\newline
+어떤 소켓에 수신 데이터가 있는지(읽기 준비 완료 상태인지)를 확인합니다. ~\newline
+타임아웃 상황을 처리할 수 있습니다. 
+
+\mbox{\hyperlink{_select_manager_8h_source}{Select\+Manager.\+h}} 파일의 \mbox{\hyperlink{_select_manager_8h_source_l00027}{27}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-enum-members}
+\Hypertarget{class_select_manager_doc-enum-members}
+\doxysubsection{멤버 열거형 문서화}
+\Hypertarget{class_select_manager_a54b9151953c8815d0178e2816a4085ec}\index{SelectManager@{SelectManager}!Result@{Result}}
+\index{Result@{Result}!SelectManager@{SelectManager}}
+\doxysubsubsection{\texorpdfstring{Result}{Result}}
+{\footnotesize\ttfamily \label{class_select_manager_a54b9151953c8815d0178e2816a4085ec} 
+enum class \mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085ec}{Select\+Manager\+::\+Result}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}[2]{열거형 멤버}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SUCCESS@{SUCCESS}!SelectManager@{SelectManager}}\index{SelectManager@{SelectManager}!SUCCESS@{SUCCESS}}}\Hypertarget{class_select_manager_a54b9151953c8815d0178e2816a4085ecad0749aaba8b833466dfcbb0428e4f89c}\label{class_select_manager_a54b9151953c8815d0178e2816a4085ecad0749aaba8b833466dfcbb0428e4f89c} 
+SUCCESS&select 호출에 성공, 적어도 하나의 소켓이 I/O 처리 준비가 된 경우. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TIMEOUT@{TIMEOUT}!SelectManager@{SelectManager}}\index{SelectManager@{SelectManager}!TIMEOUT@{TIMEOUT}}}\Hypertarget{class_select_manager_a54b9151953c8815d0178e2816a4085eca070a0fb40f6c308ab544b227660aadff}\label{class_select_manager_a54b9151953c8815d0178e2816a4085eca070a0fb40f6c308ab544b227660aadff} 
+TIMEOUT&지정된 타임아웃 내에 아무 소켓에서도 활동이 없어 select가 타임아웃된 경우. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAIL\_SELECT@{FAIL\_SELECT}!SelectManager@{SelectManager}}\index{SelectManager@{SelectManager}!FAIL\_SELECT@{FAIL\_SELECT}}}\Hypertarget{class_select_manager_a54b9151953c8815d0178e2816a4085ecadd820d26a503ff5eff2d001703714e47}\label{class_select_manager_a54b9151953c8815d0178e2816a4085ecadd820d26a503ff5eff2d001703714e47} 
+FAIL\+\_\+\+SELECT&select 호출이 실패한 경우 (예\+: 잘못된 소켓 등 오류로 인해). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NO\_SOCKETS@{NO\_SOCKETS}!SelectManager@{SelectManager}}\index{SelectManager@{SelectManager}!NO\_SOCKETS@{NO\_SOCKETS}}}\Hypertarget{class_select_manager_a54b9151953c8815d0178e2816a4085eca9577f71024a3ec9d5367f5bc34fe747f}\label{class_select_manager_a54b9151953c8815d0178e2816a4085eca9577f71024a3ec9d5367f5bc34fe747f} 
+NO\+\_\+\+SOCKETS&모니터링할 소켓이 하나도 설정되지 않은 경우 (select가 호출되지 않음). \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\mbox{\hyperlink{_select_manager_8h_source}{Select\+Manager.\+h}} 파일의 \mbox{\hyperlink{_select_manager_8h_source_l00035}{35}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_select_manager_doc-constructors}
+\doxysubsection{생성자 \& 소멸자 문서화}
+\Hypertarget{class_select_manager_aa54c0ba1ef0f41c5f81b26c004ab553f}\index{SelectManager@{SelectManager}!SelectManager@{SelectManager}}
+\index{SelectManager@{SelectManager}!SelectManager@{SelectManager}}
+\doxysubsubsection{\texorpdfstring{SelectManager()}{SelectManager()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_select_manager_aa54c0ba1ef0f41c5f81b26c004ab553f} 
+Select\+Manager\+::\+Select\+Manager (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Select\+Manager를 생성하여 내부 소켓 집합을 초기화합니다. 
+
+\begin{DoxyReturn}{반환값}
+없음.
+\end{DoxyReturn}
+빈 fd\+\_\+set들을 준비합니다. 
+
+\mbox{\hyperlink{_select_manager_8cpp_source}{Select\+Manager.\+cpp}} 파일의 \mbox{\hyperlink{_select_manager_8cpp_source_l00021}{21}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_select_manager_a131302983d1dd7938f2bf7be5ee0486a}\index{SelectManager@{SelectManager}!````~SelectManager@{\texorpdfstring{$\sim$}{\string~}SelectManager}}
+\index{````~SelectManager@{\texorpdfstring{$\sim$}{\string~}SelectManager}!SelectManager@{SelectManager}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}SelectManager()}{\string~SelectManager()}}
+{\footnotesize\ttfamily \label{class_select_manager_a131302983d1dd7938f2bf7be5ee0486a} 
+Select\+Manager\+::\texorpdfstring{$\sim$}{\string~}\+Select\+Manager (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Select\+Manager의 소멸자. 
+
+\begin{DoxyReturn}{반환값}
+없음.
+\end{DoxyReturn}
+\begin{DoxyNote}{주의}
+내부적으로 해제할 동적 리소스는 없습니다. 
+\end{DoxyNote}
+
+
+\mbox{\hyperlink{_select_manager_8cpp_source}{Select\+Manager.\+cpp}} 파일의 \mbox{\hyperlink{_select_manager_8cpp_source_l00027}{27}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_select_manager_aed0a7f9325a1cf09f2b9e44be19b3828}\index{SelectManager@{SelectManager}!SelectManager@{SelectManager}}
+\index{SelectManager@{SelectManager}!SelectManager@{SelectManager}}
+\doxysubsubsection{\texorpdfstring{SelectManager()}{SelectManager()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_select_manager_aed0a7f9325a1cf09f2b9e44be19b3828} 
+Select\+Manager\+::\+Select\+Manager (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_select_manager}{Select\+Manager}} \&}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_select_manager_a2560ba395a59e6b286ae9189e69f469c}\index{SelectManager@{SelectManager}!SelectManager@{SelectManager}}
+\index{SelectManager@{SelectManager}!SelectManager@{SelectManager}}
+\doxysubsubsection{\texorpdfstring{SelectManager()}{SelectManager()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_select_manager_a2560ba395a59e6b286ae9189e69f469c} 
+Select\+Manager\+::\+Select\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_select_manager}{Select\+Manager}} \&\&}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_select_manager_doc-func-members}
+\doxysubsection{멤버 함수 문서화}
+\Hypertarget{class_select_manager_a49708ec0ab5bb85c4084b85d7d708244}\index{SelectManager@{SelectManager}!addSocket@{addSocket}}
+\index{addSocket@{addSocket}!SelectManager@{SelectManager}}
+\doxysubsubsection{\texorpdfstring{addSocket()}{addSocket()}}
+{\footnotesize\ttfamily \label{class_select_manager_a49708ec0ab5bb85c4084b85d7d708244} 
+bool Select\+Manager\+::add\+Socket (\begin{DoxyParamCaption}\item[{SOCKET}]{socket}{}\end{DoxyParamCaption})}
+
+
+
+select()로 모니터링할 소켓 집합에 소켓을 추가합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em \mbox{[}\+IN\mbox{]}} & SOCKET socket \+: 감시 목록에 추가할 소켓입니다. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+bool \+: 소켓이 정상적으로 추가되어 유효하면 true, 추가할 수 없으면 false를 반환합니다 (예\+: 소켓 개수 초과 또는 잘못된 소켓인 경우).
+\end{DoxyReturn}
+해당 소켓을 내부 fd\+\_\+set에 추가합니다. 
+
+\mbox{\hyperlink{_select_manager_8cpp_source}{Select\+Manager.\+cpp}} 파일의 \mbox{\hyperlink{_select_manager_8cpp_source_l00041}{41}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_select_manager_aa481a33503a44eef343a271d64ae1f11}\index{SelectManager@{SelectManager}!executeSelect@{executeSelect}}
+\index{executeSelect@{executeSelect}!SelectManager@{SelectManager}}
+\doxysubsubsection{\texorpdfstring{executeSelect()}{executeSelect()}}
+{\footnotesize\ttfamily \label{class_select_manager_aa481a33503a44eef343a271d64ae1f11} 
+\mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085ec}{Select\+Manager\+::\+Result}} Select\+Manager\+::execute\+Select (\begin{DoxyParamCaption}\item[{int}]{timeout\+\_\+sec}{ = {\ttfamily 1}}\end{DoxyParamCaption})}
+
+
+
+현재 설정된 소켓 집합에 대해 select() 시스템 호출을 수행합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em \mbox{[}\+IN\mbox{]}} & int timeout\+\_\+sec \+: 이벤트를 기다릴 시간(초)입니다 (기본값\+: 1초). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+\doxylink{class_select_manager_a54b9151953c8815d0178e2816a4085ec}{Select\+Manager\+::\+Result} \+: select 연산의 결과를 반환합니다 (SUCCESS, TIMEOUT, FAIL\+\_\+\+SELECT 또는 NO\+\_\+\+SOCKETS).
+\end{DoxyReturn}
+내부적으로 소켓 집합을 임시 복사본으로 만들고 select()를 호출합니다. ~\newline
+하나 이상의 소켓이 준비되었다면 SUCCESS를 반환합니다. ~\newline
+집합에 소켓이 없다면 select를 호출하지 않고 NO\+\_\+\+SOCKETS를 반환합니다. ~\newline
+타임아웃 시 TIMEOUT을, 오류 발생 시 FAIL\+\_\+\+SELECT를 반환합니다. 
+
+\mbox{\hyperlink{_select_manager_8cpp_source}{Select\+Manager.\+cpp}} 파일의 \mbox{\hyperlink{_select_manager_8cpp_source_l00058}{58}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_select_manager_a5c7e0df102640c1e4d92578b7081368f}\index{SelectManager@{SelectManager}!isSocketReady@{isSocketReady}}
+\index{isSocketReady@{isSocketReady}!SelectManager@{SelectManager}}
+\doxysubsubsection{\texorpdfstring{isSocketReady()}{isSocketReady()}}
+{\footnotesize\ttfamily \label{class_select_manager_a5c7e0df102640c1e4d92578b7081368f} 
+bool Select\+Manager\+::is\+Socket\+Ready (\begin{DoxyParamCaption}\item[{SOCKET}]{socket}{}\end{DoxyParamCaption}) const}
+
+
+
+해당 소켓이 "{}읽기 준비 완료"{}로 표시되었는지 확인합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em \mbox{[}\+IN\mbox{]}} & SOCKET socket \+: 확인할 소켓입니다. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+bool \+: 소켓에 읽을 데이터가 있어(select에 의해 fd\+\_\+set에 설정된 경우) true를 반환하고, 그렇지 않으면 false를 반환합니다.
+\end{DoxyReturn}
+\begin{DoxyNote}{주의}
+이 메서드는 \doxylink{class_select_manager_aa481a33503a44eef343a271d64ae1f11}{execute\+Select()} 호출 후에 사용해야 합니다. ~\newline
+select가 업데이트한 내부 fd\+\_\+set 복사본을 검사합니다. 
+\end{DoxyNote}
+
+
+\mbox{\hyperlink{_select_manager_8cpp_source}{Select\+Manager.\+cpp}} 파일의 \mbox{\hyperlink{_select_manager_8cpp_source_l00098}{98}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_select_manager_a07c2e14e7ea606910c87d0bbfe12139a}\index{SelectManager@{SelectManager}!operator=@{operator=}}
+\index{operator=@{operator=}!SelectManager@{SelectManager}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_select_manager_a07c2e14e7ea606910c87d0bbfe12139a} 
+\mbox{\hyperlink{class_select_manager}{Select\+Manager}} \& Select\+Manager\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_select_manager}{Select\+Manager}} \&}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_select_manager_a1eb9c0a662d6c30841563d8b63a60a3e}\index{SelectManager@{SelectManager}!operator=@{operator=}}
+\index{operator=@{operator=}!SelectManager@{SelectManager}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_select_manager_a1eb9c0a662d6c30841563d8b63a60a3e} 
+\mbox{\hyperlink{class_select_manager}{Select\+Manager}} \& Select\+Manager\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_select_manager}{Select\+Manager}} \&\&}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_select_manager_a5cbd49ada4d6bbcceb45994b718f4249}\index{SelectManager@{SelectManager}!setupFdSet@{setupFdSet}}
+\index{setupFdSet@{setupFdSet}!SelectManager@{SelectManager}}
+\doxysubsubsection{\texorpdfstring{setupFdSet()}{setupFdSet()}}
+{\footnotesize\ttfamily \label{class_select_manager_a5cbd49ada4d6bbcceb45994b718f4249} 
+void Select\+Manager\+::setup\+Fd\+Set (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+새로운 select 작업을 위해 fd\+\_\+set을 초기화하여 준비합니다. 
+
+\begin{DoxyReturn}{반환값}
+없음.
+\end{DoxyReturn}
+내부 소켓 집합을 모두 비우고 소켓 개수를 0으로 재설정합니다. ~\newline
+필요한 경우 (예\+: 서버 루프의 각 반복마다) 소켓을 다시 추가하기 전에 이 메서드를 호출하십시오. 
+
+\mbox{\hyperlink{_select_manager_8cpp_source}{Select\+Manager.\+cpp}} 파일의 \mbox{\hyperlink{_select_manager_8cpp_source_l00032}{32}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_select_manager_doc-variable-members}
+\doxysubsection{멤버 데이터 문서화}
+\Hypertarget{class_select_manager_a9867d9457e5bd481c1b6e829932e310c}\index{SelectManager@{SelectManager}!\_copySet@{\_copySet}}
+\index{\_copySet@{\_copySet}!SelectManager@{SelectManager}}
+\doxysubsubsection{\texorpdfstring{\_copySet}{\_copySet}}
+{\footnotesize\ttfamily \label{class_select_manager_a9867d9457e5bd481c1b6e829932e310c} 
+fd\+\_\+set Select\+Manager\+::\+\_\+copy\+Set\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+select()에 전달되는 소켓 집합의 복사본입니다 (select 호출 시 변경될 수 있음). 
+
+
+
+\mbox{\hyperlink{_select_manager_8h_source}{Select\+Manager.\+h}} 파일의 \mbox{\hyperlink{_select_manager_8h_source_l00125}{125}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_select_manager_abba6d4ec35ce6c709985333d27b00e77}\index{SelectManager@{SelectManager}!\_originSet@{\_originSet}}
+\index{\_originSet@{\_originSet}!SelectManager@{SelectManager}}
+\doxysubsubsection{\texorpdfstring{\_originSet}{\_originSet}}
+{\footnotesize\ttfamily \label{class_select_manager_abba6d4ec35ce6c709985333d27b00e77} 
+fd\+\_\+set Select\+Manager\+::\+\_\+origin\+Set\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+재사용 가능한 원본 소켓 집합 (모니터링할 소켓들의 집합). 
+
+
+
+\mbox{\hyperlink{_select_manager_8h_source}{Select\+Manager.\+h}} 파일의 \mbox{\hyperlink{_select_manager_8h_source_l00122}{122}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_select_manager_a3c885ce2cc540e6d7acf4d47178bb97f}\index{SelectManager@{SelectManager}!\_socketCount@{\_socketCount}}
+\index{\_socketCount@{\_socketCount}!SelectManager@{SelectManager}}
+\doxysubsubsection{\texorpdfstring{\_socketCount}{\_socketCount}}
+{\footnotesize\ttfamily \label{class_select_manager_a3c885ce2cc540e6d7acf4d47178bb97f} 
+int Select\+Manager\+::\+\_\+socket\+Count\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+현재 집합에 포함된 소켓 개수입니다. 
+
+
+
+\mbox{\hyperlink{_select_manager_8h_source}{Select\+Manager.\+h}} 파일의 \mbox{\hyperlink{_select_manager_8h_source_l00128}{128}} 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일들로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+Socket\+Build/\mbox{\hyperlink{_select_manager_8h}{Select\+Manager.\+h}}\item 
+Socket\+Build/\mbox{\hyperlink{_select_manager_8cpp}{Select\+Manager.\+cpp}}\end{DoxyCompactItemize}

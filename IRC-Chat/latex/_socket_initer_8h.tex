@@ -1,0 +1,32 @@
+\doxysection{Socket\+Build/\+Socket\+Initer.h 파일 참조}
+\hypertarget{_socket_initer_8h}{}\label{_socket_initer_8h}\index{SocketBuild/SocketIniter.h@{SocketBuild/SocketIniter.h}}
+
+
+Win\+Sock(\+Windows Sockets API)을 초기화하기 위한 \doxylink{class_socket_initer}{Socket\+Initer} 클래스를 정의합니다.  
+
+
+{\ttfamily \#include $<$winsock2.\+h$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsubsection*{클래스}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_socket_initer}{Socket\+Initer}}
+\begin{DoxyCompactList}\small\item\em 애플리케이션의 Win\+Sock 초기화와 종료를 수행합니다. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+Win\+Sock(\+Windows Sockets API)을 초기화하기 위한 \doxylink{class_socket_initer}{Socket\+Initer} 클래스를 정의합니다. 
+
+\begin{DoxyAuthor}{작성자}
+최성락 
+\end{DoxyAuthor}
+\begin{DoxyDate}{날짜}
+2025-\/06-\/17
+\end{DoxyDate}
+이 클래스는 애플리케이션의 Win\+Sock 시작과 종료를 담당합니다. ~\newline
+\doxylink{class_socket_initer}{Socket\+Initer} 인스턴스를 생성하면 WSAStartup이 호출되어 네트워크 하부 시스템을 준비합니다. ~\newline
+인스턴스가 소멸될 때 WSACleanup이 호출되어 정리를 수행합니다. ~\newline
+Win\+Sock의 세부 정보를 문자열로 만들어 로그 등에 활용할 수 있습니다. 
+
+\mbox{\hyperlink{_socket_initer_8h_source}{Socket\+Initer.\+h}} 파일에서 정의되었습니다.
+

@@ -1,0 +1,51 @@
+\doxysection{Program.\+h}
+\hypertarget{_program_8h_source}{}\label{_program_8h_source}\index{SocketBuild/Program.h@{SocketBuild/Program.h}}
+\mbox{\hyperlink{_program_8h}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00002}00002\ \textcolor{preprocessor}{\#pragma\ execution\_character\_set("{}utf-\/8"{})}}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_socket_initer_8h}{SocketIniter.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_multi_server_8h}{MultiServer.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00029}\mbox{\hyperlink{class_program}{00029}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_program_aaefaa0df08f3484476fc4d61e97acbdc}{Program}}}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00030}00030\ \{}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00035}\mbox{\hyperlink{class_program_a5c86c74a26fc7c7584ce7575297347ad}{00035}}\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{class_program_a5c86c74a26fc7c7584ce7575297347ad}{Result}}}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00036}00036\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00037}\mbox{\hyperlink{class_program_a5c86c74a26fc7c7584ce7575297347adac2759effffc94bb9acc71d69fe3e8a1f}{00037}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_program_a5c86c74a26fc7c7584ce7575297347adac2759effffc94bb9acc71d69fe3e8a1f}{FAIL}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00038}\mbox{\hyperlink{class_program_a5c86c74a26fc7c7584ce7575297347adad0749aaba8b833466dfcbb0428e4f89c}{00038}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_program_a5c86c74a26fc7c7584ce7575297347adad0749aaba8b833466dfcbb0428e4f89c}{SUCCESS}}\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00039}00039\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00041}00041\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00050}00050\ \ \ \ \ \mbox{\hyperlink{class_program_aaefaa0df08f3484476fc4d61e97acbdc}{Program}}();}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00060}00060\ \ \ \ \ \mbox{\hyperlink{class_program_a986aef1c50e1d338a3315a47ba6df549}{\string~Program}}();}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00062}00062\ \ \ \ \ \textcolor{comment}{//\ 복사\ 생성자\ 및\ 복사\ 할당\ 연산자\ 삭제.}}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00063}\mbox{\hyperlink{class_program_a8ae6ae58d965fbb6771bb905206eb9a5}{00063}}\ \ \ \ \ \mbox{\hyperlink{class_program_a8ae6ae58d965fbb6771bb905206eb9a5}{Program}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_program_aaefaa0df08f3484476fc4d61e97acbdc}{Program}}\&\ obj)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00064}\mbox{\hyperlink{class_program_af0c7e1d33460868c3b657c68767b5083}{00064}}\ \ \ \ \ \mbox{\hyperlink{class_program_aaefaa0df08f3484476fc4d61e97acbdc}{Program}}\&\ \mbox{\hyperlink{class_program_af0c7e1d33460868c3b657c68767b5083}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_program_aaefaa0df08f3484476fc4d61e97acbdc}{Program}}\&\ obj)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00066}00066\ \ \ \ \ \textcolor{comment}{//\ 이동\ 생성자\ 및\ 이동\ 할당\ 연산자\ 삭제.}}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00067}\mbox{\hyperlink{class_program_ad1b5e5ed6544441e20323c6f2ba8bdb8}{00067}}\ \ \ \ \ \mbox{\hyperlink{class_program_ad1b5e5ed6544441e20323c6f2ba8bdb8}{Program}}(\mbox{\hyperlink{class_program_aaefaa0df08f3484476fc4d61e97acbdc}{Program}}\&\&\ obj)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00068}\mbox{\hyperlink{class_program_a1483899626ee04d36034fe35abe10a48}{00068}}\ \ \ \ \ \mbox{\hyperlink{class_program_aaefaa0df08f3484476fc4d61e97acbdc}{Program}}\&\ \mbox{\hyperlink{class_program_a1483899626ee04d36034fe35abe10a48}{operator=}}(\mbox{\hyperlink{class_program_aaefaa0df08f3484476fc4d61e97acbdc}{Program}}\&\&\ obj)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00070}00070\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00083}00083\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_program_ab7cb58a80ead351385709a33c4491db1}{run}}();}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00085}00085\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00087}\mbox{\hyperlink{class_program_a2316692413f16195ab641e3e32ca8cf2}{00087}}\ \ \ \ \ \mbox{\hyperlink{class_socket_initer}{SocketIniter}}\ \mbox{\hyperlink{class_program_a2316692413f16195ab641e3e32ca8cf2}{\_socketIniter}};}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00090}\mbox{\hyperlink{class_program_ae2c0ef9389cacfee338ccfe6e3a36469}{00090}}\ \ \ \ \ \mbox{\hyperlink{class_multi_server}{MultiServer}}\ \mbox{\hyperlink{class_program_ae2c0ef9389cacfee338ccfe6e3a36469}{\_multiServer}};}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00093}\mbox{\hyperlink{class_program_a385ed11a369ecec61603ef81daa4890e}{00093}}\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_program_a385ed11a369ecec61603ef81daa4890e}{SERVER\_PORT}}\ =\ 5500;}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00095}00095\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00105}00105\ \ \ \ \ \mbox{\hyperlink{class_program_a5c86c74a26fc7c7584ce7575297347ad}{Program::Result}}\ \mbox{\hyperlink{class_program_aa3a4b3daa45fa2dbb713d3b43d59840b}{initialize}}();}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00117}00117\ \ \ \ \ \mbox{\hyperlink{class_program_a5c86c74a26fc7c7584ce7575297347ad}{Program::Result}}\ \mbox{\hyperlink{class_program_a0ca01cb6c97834e6c4137c0a6520c6d9}{startMultiServer}}();}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00128}00128\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_program_a4fda9f162a36c7758c037116c3876536}{runServerLoop}}();}
+\DoxyCodeLine{\Hypertarget{_program_8h_source_l00129}00129\ \};}
+
+\end{DoxyCode}

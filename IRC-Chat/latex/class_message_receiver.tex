@@ -1,0 +1,333 @@
+\doxysection{Message\+Receiver 클래스 참조}
+\hypertarget{class_message_receiver}{}\label{class_message_receiver}\index{MessageReceiver@{MessageReceiver}}
+
+
+클라이언트 소켓으로부터 들어오는 메시지를 처리하는 클래스입니다.  
+
+
+
+
+{\ttfamily \#include $<$Message\+Receiver.\+h$>$}
+
+\doxysubsubsection*{Public 타입}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{class_message_receiver_af74bce14070bbf4d0a0324acee430084}{Result}} \{ \newline
+\mbox{\hyperlink{class_message_receiver_af74bce14070bbf4d0a0324acee430084ad0749aaba8b833466dfcbb0428e4f89c}{SUCCESS}}
+, \mbox{\hyperlink{class_message_receiver_af74bce14070bbf4d0a0324acee430084ac6c8a4faea4d0b94dceb90a306074d2b}{FAIL\+\_\+\+RECEIVE}}
+, \mbox{\hyperlink{class_message_receiver_af74bce14070bbf4d0a0324acee430084abc14f1ca70c7ca9704e7f3bd0a2ba383}{FAIL\+\_\+\+SEND}}
+, \mbox{\hyperlink{class_message_receiver_af74bce14070bbf4d0a0324acee430084a31933f777c42ffbab532bc7ba2610c68}{CLIENT\+\_\+\+QUIT}}
+, \newline
+\mbox{\hyperlink{class_message_receiver_af74bce14070bbf4d0a0324acee430084a50ba526e9a6ee61df579023c1e99817a}{CLIENT\+\_\+\+DISCONNECTED}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_message_receiver_adb7ba8d5430ba18e8c226ba1f386981a}{Message\+Receiver}} (SOCKET client\+\_\+socket)
+\begin{DoxyCompactList}\small\item\em 주어진 클라이언트 소켓에 대한 \doxylink{class_message_receiver}{Message\+Receiver} 객체를 생성합니다. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_message_receiver_aae8d620cc02dea621ddb4a91b8438b1e}{\texorpdfstring{$\sim$}{\string~}\+Message\+Receiver}} ()
+\begin{DoxyCompactList}\small\item\em 소멸자. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_message_receiver_a034ca3dbab55b482a4258f7e46f79cb1}{Message\+Receiver}} (const \mbox{\hyperlink{class_message_receiver}{Message\+Receiver}} \&obj)=delete
+\item 
+\mbox{\hyperlink{class_message_receiver}{Message\+Receiver}} \& \mbox{\hyperlink{class_message_receiver_a33fac997d6824751d4911d46edeb4faf}{operator=}} (const \mbox{\hyperlink{class_message_receiver}{Message\+Receiver}} \&obj)=delete
+\item 
+\mbox{\hyperlink{class_message_receiver_a94672dede89c25ab2452a9e3d199603e}{Message\+Receiver}} (\mbox{\hyperlink{class_message_receiver}{Message\+Receiver}} \&\&obj)=delete
+\item 
+\mbox{\hyperlink{class_message_receiver}{Message\+Receiver}} \& \mbox{\hyperlink{class_message_receiver_a074181d10e5b6299998deea9e6efa340}{operator=}} (\mbox{\hyperlink{class_message_receiver}{Message\+Receiver}} \&\&obj)=delete
+\item 
+\mbox{\hyperlink{class_message_receiver_af74bce14070bbf4d0a0324acee430084}{Message\+Receiver\+::\+Result}} \mbox{\hyperlink{class_message_receiver_a0c83ac3a7387ab21f74bc81d6640d9ec}{receive\+Message}} ()
+\begin{DoxyCompactList}\small\item\em 클라이언트 소켓으로부터 메시지를 수신하고 내부에 저장합니다. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{class_message_receiver_a649a859e023ac92682659c83312c64ef}{get\+Last\+Message}} () const
+\begin{DoxyCompactList}\small\item\em 마지막으로 수신된 메시지를 반환합니다. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_message_receiver_af9984778a2d338b38cf108b16b47d718}{is\+Quit\+Command}} (const std\+::string \&message) const
+\begin{DoxyCompactList}\small\item\em 주어진 메시지가 "{}quit"{} 명령인지 확인합니다. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_message_receiver_ad7dce9c6a9e01f99ba458f8635d86fd5}{clean\+Message}} (std\+::string \&message)
+\begin{DoxyCompactList}\small\item\em 수신한 메시지 문자열에서 캐리지 리턴/뉴라인 문자를 제거합니다. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+SOCKET \mbox{\hyperlink{class_message_receiver_a2905ffef925668d0c802ad1fdf28dab6}{\+\_\+client\+Socket}}
+\begin{DoxyCompactList}\small\item\em 통신에 사용하는 클라이언트 소켓. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_message_receiver_a9e44455ed76f630e9bb73614033cfabe}{\+\_\+last\+Message}}
+\begin{DoxyCompactList}\small\item\em 가장 최근에 수신한 메시지. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{정적 Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+static const int \mbox{\hyperlink{class_message_receiver_a77e67dede82634157c9aeac775395a33}{BUFFER\+\_\+\+SIZE}} = 1024
+\begin{DoxyCompactList}\small\item\em 데이터 수신에 사용하는 버퍼 크기(바이트 단위). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+클라이언트 소켓으로부터 들어오는 메시지를 처리하는 클래스입니다. 
+
+클라이언트 소켓을 전달받아 객체를 생성합니다. ~\newline
+소켓으로부터 메시지를 수신하여 저장하고, 특별한 명령(예\+: 종료 요청)이 있는지 확인합니다. ~\newline
+고정 크기 버퍼를 사용하여 수신된 데이터를 처리합니다. 
+
+\mbox{\hyperlink{_message_receiver_8h_source}{Message\+Receiver.\+h}} 파일의 \mbox{\hyperlink{_message_receiver_8h_source_l00027}{27}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-enum-members}
+\Hypertarget{class_message_receiver_doc-enum-members}
+\doxysubsection{멤버 열거형 문서화}
+\Hypertarget{class_message_receiver_af74bce14070bbf4d0a0324acee430084}\index{MessageReceiver@{MessageReceiver}!Result@{Result}}
+\index{Result@{Result}!MessageReceiver@{MessageReceiver}}
+\doxysubsubsection{\texorpdfstring{Result}{Result}}
+{\footnotesize\ttfamily \label{class_message_receiver_af74bce14070bbf4d0a0324acee430084} 
+enum class \mbox{\hyperlink{class_message_receiver_af74bce14070bbf4d0a0324acee430084}{Message\+Receiver\+::\+Result}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}[2]{열거형 멤버}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SUCCESS@{SUCCESS}!MessageReceiver@{MessageReceiver}}\index{MessageReceiver@{MessageReceiver}!SUCCESS@{SUCCESS}}}\Hypertarget{class_message_receiver_af74bce14070bbf4d0a0324acee430084ad0749aaba8b833466dfcbb0428e4f89c}\label{class_message_receiver_af74bce14070bbf4d0a0324acee430084ad0749aaba8b833466dfcbb0428e4f89c} 
+SUCCESS&메시지 수신에 성공함 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAIL\_RECEIVE@{FAIL\_RECEIVE}!MessageReceiver@{MessageReceiver}}\index{MessageReceiver@{MessageReceiver}!FAIL\_RECEIVE@{FAIL\_RECEIVE}}}\Hypertarget{class_message_receiver_af74bce14070bbf4d0a0324acee430084ac6c8a4faea4d0b94dceb90a306074d2b}\label{class_message_receiver_af74bce14070bbf4d0a0324acee430084ac6c8a4faea4d0b94dceb90a306074d2b} 
+FAIL\+\_\+\+RECEIVE&메시지 수신에 실패함(예\+: recv 오류) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAIL\_SEND@{FAIL\_SEND}!MessageReceiver@{MessageReceiver}}\index{MessageReceiver@{MessageReceiver}!FAIL\_SEND@{FAIL\_SEND}}}\Hypertarget{class_message_receiver_af74bce14070bbf4d0a0324acee430084abc14f1ca70c7ca9704e7f3bd0a2ba383}\label{class_message_receiver_af74bce14070bbf4d0a0324acee430084abc14f1ca70c7ca9704e7f3bd0a2ba383} 
+FAIL\+\_\+\+SEND&필요한 응답 전송에 실패함 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLIENT\_QUIT@{CLIENT\_QUIT}!MessageReceiver@{MessageReceiver}}\index{MessageReceiver@{MessageReceiver}!CLIENT\_QUIT@{CLIENT\_QUIT}}}\Hypertarget{class_message_receiver_af74bce14070bbf4d0a0324acee430084a31933f777c42ffbab532bc7ba2610c68}\label{class_message_receiver_af74bce14070bbf4d0a0324acee430084a31933f777c42ffbab532bc7ba2610c68} 
+CLIENT\+\_\+\+QUIT&클라이언트가 quit 명령을 보냄 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLIENT\_DISCONNECTED@{CLIENT\_DISCONNECTED}!MessageReceiver@{MessageReceiver}}\index{MessageReceiver@{MessageReceiver}!CLIENT\_DISCONNECTED@{CLIENT\_DISCONNECTED}}}\Hypertarget{class_message_receiver_af74bce14070bbf4d0a0324acee430084a50ba526e9a6ee61df579023c1e99817a}\label{class_message_receiver_af74bce14070bbf4d0a0324acee430084a50ba526e9a6ee61df579023c1e99817a} 
+CLIENT\+\_\+\+DISCONNECTED&클라이언트 연결이 예기치 않게 끊어짐 \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\mbox{\hyperlink{_message_receiver_8h_source}{Message\+Receiver.\+h}} 파일의 \mbox{\hyperlink{_message_receiver_8h_source_l00035}{35}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_message_receiver_doc-constructors}
+\doxysubsection{생성자 \& 소멸자 문서화}
+\Hypertarget{class_message_receiver_adb7ba8d5430ba18e8c226ba1f386981a}\index{MessageReceiver@{MessageReceiver}!MessageReceiver@{MessageReceiver}}
+\index{MessageReceiver@{MessageReceiver}!MessageReceiver@{MessageReceiver}}
+\doxysubsubsection{\texorpdfstring{MessageReceiver()}{MessageReceiver()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_message_receiver_adb7ba8d5430ba18e8c226ba1f386981a} 
+Message\+Receiver\+::\+Message\+Receiver (\begin{DoxyParamCaption}\item[{SOCKET}]{client\+\_\+socket}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+주어진 클라이언트 소켓에 대한 \doxylink{class_message_receiver}{Message\+Receiver} 객체를 생성합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em \mbox{[}\+IN\mbox{]}} & SOCKET client\+\_\+socket \+: 이 수신기가 메시지를 받을 클라이언트 소켓. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+없음. 
+\end{DoxyReturn}
+\begin{DoxyNote}{주의}
+SOCKET을 인자로 받는 이 생성자만 사용할 수 있으며, 내부 변수 초기화합니다. 
+\end{DoxyNote}
+
+
+\mbox{\hyperlink{_message_receiver_8cpp_source}{Message\+Receiver.\+cpp}} 파일의 \mbox{\hyperlink{_message_receiver_8cpp_source_l00013}{13}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_message_receiver_aae8d620cc02dea621ddb4a91b8438b1e}\index{MessageReceiver@{MessageReceiver}!````~MessageReceiver@{\texorpdfstring{$\sim$}{\string~}MessageReceiver}}
+\index{````~MessageReceiver@{\texorpdfstring{$\sim$}{\string~}MessageReceiver}!MessageReceiver@{MessageReceiver}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MessageReceiver()}{\string~MessageReceiver()}}
+{\footnotesize\ttfamily \label{class_message_receiver_aae8d620cc02dea621ddb4a91b8438b1e} 
+Message\+Receiver\+::\texorpdfstring{$\sim$}{\string~}\+Message\+Receiver (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+소멸자. 
+
+\begin{DoxyReturn}{반환값}
+없음. 
+\end{DoxyReturn}
+\begin{DoxyNote}{주의}
+클라이언트 소켓은 외부에서 관리되므로 이 소멸자는 소켓을 닫지 않습니다. 
+\end{DoxyNote}
+
+
+\mbox{\hyperlink{_message_receiver_8cpp_source}{Message\+Receiver.\+cpp}} 파일의 \mbox{\hyperlink{_message_receiver_8cpp_source_l00019}{19}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_message_receiver_a034ca3dbab55b482a4258f7e46f79cb1}\index{MessageReceiver@{MessageReceiver}!MessageReceiver@{MessageReceiver}}
+\index{MessageReceiver@{MessageReceiver}!MessageReceiver@{MessageReceiver}}
+\doxysubsubsection{\texorpdfstring{MessageReceiver()}{MessageReceiver()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_message_receiver_a034ca3dbab55b482a4258f7e46f79cb1} 
+Message\+Receiver\+::\+Message\+Receiver (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_message_receiver}{Message\+Receiver}} \&}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_message_receiver_a94672dede89c25ab2452a9e3d199603e}\index{MessageReceiver@{MessageReceiver}!MessageReceiver@{MessageReceiver}}
+\index{MessageReceiver@{MessageReceiver}!MessageReceiver@{MessageReceiver}}
+\doxysubsubsection{\texorpdfstring{MessageReceiver()}{MessageReceiver()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_message_receiver_a94672dede89c25ab2452a9e3d199603e} 
+Message\+Receiver\+::\+Message\+Receiver (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_message_receiver}{Message\+Receiver}} \&\&}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_message_receiver_doc-func-members}
+\doxysubsection{멤버 함수 문서화}
+\Hypertarget{class_message_receiver_ad7dce9c6a9e01f99ba458f8635d86fd5}\index{MessageReceiver@{MessageReceiver}!cleanMessage@{cleanMessage}}
+\index{cleanMessage@{cleanMessage}!MessageReceiver@{MessageReceiver}}
+\doxysubsubsection{\texorpdfstring{cleanMessage()}{cleanMessage()}}
+{\footnotesize\ttfamily \label{class_message_receiver_ad7dce9c6a9e01f99ba458f8635d86fd5} 
+void Message\+Receiver\+::clean\+Message (\begin{DoxyParamCaption}\item[{std\+::string \&}]{message}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+수신한 메시지 문자열에서 캐리지 리턴/뉴라인 문자를 제거합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em \mbox{[}\+IN,OUT\mbox{]}} & std\+::string\& message \+: 제거할 메시지 문자열. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+없음. 
+\end{DoxyReturn}
+\begin{DoxyNote}{주의}
+메시지를 수신한 후 호출되어, 메시지 끝의 개행 문자를 제거합니다. 
+\end{DoxyNote}
+
+
+\mbox{\hyperlink{_message_receiver_8cpp_source}{Message\+Receiver.\+cpp}} 파일의 \mbox{\hyperlink{_message_receiver_8cpp_source_l00088}{88}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_message_receiver_a649a859e023ac92682659c83312c64ef}\index{MessageReceiver@{MessageReceiver}!getLastMessage@{getLastMessage}}
+\index{getLastMessage@{getLastMessage}!MessageReceiver@{MessageReceiver}}
+\doxysubsubsection{\texorpdfstring{getLastMessage()}{getLastMessage()}}
+{\footnotesize\ttfamily \label{class_message_receiver_a649a859e023ac92682659c83312c64ef} 
+const std\+::string \& Message\+Receiver\+::get\+Last\+Message (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+마지막으로 수신된 메시지를 반환합니다. 
+
+\begin{DoxyReturn}{반환값}
+const std\+::string\& \+: 저장된 마지막 메시지 문자열에 대한 참조. 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_message_receiver_8cpp_source}{Message\+Receiver.\+cpp}} 파일의 \mbox{\hyperlink{_message_receiver_8cpp_source_l00076}{76}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_message_receiver_af9984778a2d338b38cf108b16b47d718}\index{MessageReceiver@{MessageReceiver}!isQuitCommand@{isQuitCommand}}
+\index{isQuitCommand@{isQuitCommand}!MessageReceiver@{MessageReceiver}}
+\doxysubsubsection{\texorpdfstring{isQuitCommand()}{isQuitCommand()}}
+{\footnotesize\ttfamily \label{class_message_receiver_af9984778a2d338b38cf108b16b47d718} 
+bool Message\+Receiver\+::is\+Quit\+Command (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{}\end{DoxyParamCaption}) const}
+
+
+
+주어진 메시지가 "{}quit"{} 명령인지 확인합니다. 
+
+
+\begin{DoxyParams}{매개변수}
+{\em \mbox{[}\+IN\mbox{]}} & const std\+::string\& message \+: 검사할 메시지 문자열. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+bool \+: 해당 메시지가 "{}quit"{}와 일치하면 true, 아니면 false. 
+\end{DoxyReturn}
+
+
+\mbox{\hyperlink{_message_receiver_8cpp_source}{Message\+Receiver.\+cpp}} 파일의 \mbox{\hyperlink{_message_receiver_8cpp_source_l00082}{82}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_message_receiver_a33fac997d6824751d4911d46edeb4faf}\index{MessageReceiver@{MessageReceiver}!operator=@{operator=}}
+\index{operator=@{operator=}!MessageReceiver@{MessageReceiver}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_message_receiver_a33fac997d6824751d4911d46edeb4faf} 
+\mbox{\hyperlink{class_message_receiver}{Message\+Receiver}} \& Message\+Receiver\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_message_receiver}{Message\+Receiver}} \&}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_message_receiver_a074181d10e5b6299998deea9e6efa340}\index{MessageReceiver@{MessageReceiver}!operator=@{operator=}}
+\index{operator=@{operator=}!MessageReceiver@{MessageReceiver}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_message_receiver_a074181d10e5b6299998deea9e6efa340} 
+\mbox{\hyperlink{class_message_receiver}{Message\+Receiver}} \& Message\+Receiver\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_message_receiver}{Message\+Receiver}} \&\&}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_message_receiver_a0c83ac3a7387ab21f74bc81d6640d9ec}\index{MessageReceiver@{MessageReceiver}!receiveMessage@{receiveMessage}}
+\index{receiveMessage@{receiveMessage}!MessageReceiver@{MessageReceiver}}
+\doxysubsubsection{\texorpdfstring{receiveMessage()}{receiveMessage()}}
+{\footnotesize\ttfamily \label{class_message_receiver_a0c83ac3a7387ab21f74bc81d6640d9ec} 
+\mbox{\hyperlink{class_message_receiver_af74bce14070bbf4d0a0324acee430084}{Message\+Receiver\+::\+Result}} Message\+Receiver\+::receive\+Message (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+클라이언트 소켓으로부터 메시지를 수신하고 내부에 저장합니다. 
+
+\begin{DoxyReturn}{반환값}
+\doxylink{class_message_receiver_af74bce14070bbf4d0a0324acee430084}{Message\+Receiver\+::\+Result} 수신 동작의 결과 상태 값.
+\end{DoxyReturn}
+클라이언트 소켓에서 데이터를 읽어들입니다. ~\newline
+성공 시 해당 데이터를 내부에 저장하여 \doxylink{class_message_receiver_a649a859e023ac92682659c83312c64ef}{get\+Last\+Message()}로 접근할 수 있습니다.
+
+\begin{DoxyNote}{주의}
+
+\begin{DoxyItemize}
+\item 메시지가 정상 수신되면 SUCCESS.
+\item 수신된 메세지가 "{}quit"{} 이면 CLIENT\+\_\+\+QUIT.
+\item 오류 발생 시 적절한 상태 값. 
+\end{DoxyItemize}
+\end{DoxyNote}
+
+
+\mbox{\hyperlink{_message_receiver_8cpp_source}{Message\+Receiver.\+cpp}} 파일의 \mbox{\hyperlink{_message_receiver_8cpp_source_l00024}{24}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_message_receiver_doc-variable-members}
+\doxysubsection{멤버 데이터 문서화}
+\Hypertarget{class_message_receiver_a2905ffef925668d0c802ad1fdf28dab6}\index{MessageReceiver@{MessageReceiver}!\_clientSocket@{\_clientSocket}}
+\index{\_clientSocket@{\_clientSocket}!MessageReceiver@{MessageReceiver}}
+\doxysubsubsection{\texorpdfstring{\_clientSocket}{\_clientSocket}}
+{\footnotesize\ttfamily \label{class_message_receiver_a2905ffef925668d0c802ad1fdf28dab6} 
+SOCKET Message\+Receiver\+::\+\_\+client\+Socket\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+통신에 사용하는 클라이언트 소켓. 
+
+
+
+\mbox{\hyperlink{_message_receiver_8h_source}{Message\+Receiver.\+h}} 파일의 \mbox{\hyperlink{_message_receiver_8h_source_l00104}{104}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_message_receiver_a9e44455ed76f630e9bb73614033cfabe}\index{MessageReceiver@{MessageReceiver}!\_lastMessage@{\_lastMessage}}
+\index{\_lastMessage@{\_lastMessage}!MessageReceiver@{MessageReceiver}}
+\doxysubsubsection{\texorpdfstring{\_lastMessage}{\_lastMessage}}
+{\footnotesize\ttfamily \label{class_message_receiver_a9e44455ed76f630e9bb73614033cfabe} 
+std\+::string Message\+Receiver\+::\+\_\+last\+Message\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+가장 최근에 수신한 메시지. 
+
+
+
+\mbox{\hyperlink{_message_receiver_8h_source}{Message\+Receiver.\+h}} 파일의 \mbox{\hyperlink{_message_receiver_8h_source_l00107}{107}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_message_receiver_a77e67dede82634157c9aeac775395a33}\index{MessageReceiver@{MessageReceiver}!BUFFER\_SIZE@{BUFFER\_SIZE}}
+\index{BUFFER\_SIZE@{BUFFER\_SIZE}!MessageReceiver@{MessageReceiver}}
+\doxysubsubsection{\texorpdfstring{BUFFER\_SIZE}{BUFFER\_SIZE}}
+{\footnotesize\ttfamily \label{class_message_receiver_a77e67dede82634157c9aeac775395a33} 
+const int Message\+Receiver\+::\+BUFFER\+\_\+\+SIZE = 1024\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+데이터 수신에 사용하는 버퍼 크기(바이트 단위). 
+
+
+
+\mbox{\hyperlink{_message_receiver_8h_source}{Message\+Receiver.\+h}} 파일의 \mbox{\hyperlink{_message_receiver_8h_source_l00110}{110}} 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일들로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+Socket\+Build/\mbox{\hyperlink{_message_receiver_8h}{Message\+Receiver.\+h}}\item 
+Socket\+Build/\mbox{\hyperlink{_message_receiver_8cpp}{Message\+Receiver.\+cpp}}\end{DoxyCompactItemize}

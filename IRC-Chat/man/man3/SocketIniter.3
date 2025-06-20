@@ -1,0 +1,158 @@
+.TH "SocketIniter" 3 "Version 1.0.0" "ChatMultiServerDoxygen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SocketIniter \- 애플리케이션의 WinSock 초기화와 종료를 수행합니다\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <SocketIniter\&.h>\fP
+.SS "Public 타입"
+
+.in +1c
+.ti -1c
+.RI "enum class \fBResult\fP { \fBFAIL_SOCKET\fP, \fBSUCCESS_SOCKET\fP }"
+.br
+.in -1c
+.SS "Public 멤버 함수"
+
+.in +1c
+.ti -1c
+.RI "\fBSocketIniter\fP ()"
+.br
+.RI "\fBSocketIniter\fP 객체를 생성합니다 (이 시점에서는 WSAStartup을 호출하지 않습니다)\&. "
+.ti -1c
+.RI "\fB~SocketIniter\fP ()"
+.br
+.RI "소멸자입니다\&. WSACleanup을 호출하여 WinSock을 정리합니다\&. "
+.ti -1c
+.RI "\fBSocketIniter::Result\fP \fBinit\fP ()"
+.br
+.RI "WSAStartup을 호출하여 WinSock을 초기화하고 결과를 로그로 남깁니다\&. "
+.ti -1c
+.RI "std::string \fBwsaDataToString\fP () const"
+.br
+.RI "WinSock 구현 버전에 대한 정보를 담은 문자열을 반환합니다\&. "
+.in -1c
+.SS "Private 속성"
+
+.in +1c
+.ti -1c
+.RI "WSADATA \fB_wsaData\fP"
+.br
+.RI "winsock 대한 정보를 담고 있습니다 (WSAStartup에 의해 설정됨)\&. "
+.in -1c
+.SH "상세한 설명"
+.PP 
+애플리케이션의 WinSock 초기화와 종료를 수행합니다\&. 
+
+프로그램 시작 시 이 클래스를 사용하여 WSAStartup을 호출하고 필요한 소켓 DLL들을 로드합니다\&. 
+.br
+객체가 소멸될 때 WSACleanup을 호출하여 WinSock을 종료합니다\&. 
+.br
+명시적으로 초기화를 수행하는 메서드와 디버깅을 위한 WinSock 정보 출력 메서드를 제공합니다\&. 
+.PP
+\fBSocketIniter\&.h\fP 파일의 \fB31\fP 번째 라인에서 정의되었습니다\&.
+.SH "멤버 열거형 문서화"
+.PP 
+.SS "enum class \fBSocketIniter::Result\fP\fR [strong]\fP"
+
+.PP
+\fB열거형 멤버\fP
+.in +1c
+.TP
+\f(BIFAIL_SOCKET \fP
+WinSock 초기화 실패\&. 
+.TP
+\f(BISUCCESS_SOCKET \fP
+WinSock 초기화 성공\&. 
+.PP
+\fBSocketIniter\&.h\fP 파일의 \fB39\fP 번째 라인에서 정의되었습니다\&.
+.SH "생성자 & 소멸자 문서화"
+.PP 
+.SS "SocketIniter::SocketIniter ()"
+
+.PP
+\fBSocketIniter\fP 객체를 생성합니다 (이 시점에서는 WSAStartup을 호출하지 않습니다)\&. 
+.PP
+\fB반환값\fP
+.RS 4
+없음\&.
+.RE
+.PP
+내부 WSADATA 구조체를 초기화합니다\&. 
+.br
+생성 후 실제 WinSock 초기화를 위해 \fBinit()\fP를 호출해야 합니다\&. 
+.PP
+\fBSocketIniter\&.cpp\fP 파일의 \fB16\fP 번째 라인에서 정의되었습니다\&.
+.SS "SocketIniter::~SocketIniter ()"
+
+.PP
+소멸자입니다\&. WSACleanup을 호출하여 WinSock을 정리합니다\&. 
+.PP
+\fB반환값\fP
+.RS 4
+없음\&.
+.RE
+.PP
+\fB주의\fP
+.RS 4
+소멸자가 실행되기 전에 모든 소켓을 닫아야 합니다\&. 
+.br
+WSACleanup은 WSAStartup에서 할당한 자원을 해제합니다\&. 
+.RE
+.PP
+
+.PP
+\fBSocketIniter\&.cpp\fP 파일의 \fB22\fP 번째 라인에서 정의되었습니다\&.
+.SH "멤버 함수 문서화"
+.PP 
+.SS "\fBSocketIniter::Result\fP SocketIniter::init ()"
+
+.PP
+WSAStartup을 호출하여 WinSock을 초기화하고 결과를 로그로 남깁니다\&. 
+.PP
+\fB반환값\fP
+.RS 4
+\fBSocketIniter::Result\fP : 초기화에 성공하면 SUCCESS_SOCKET, 실패하면 FAIL_SOCKET을 반환합니다\&.
+.RE
+.PP
+\fB주의\fP
+.RS 4
+이 메서드는 프로그램 시작 시 한 번만 호출해야 합니다\&. 
+.br
+WinSock 버전 2\&.2를 시작하도록 시도합니다\&. 
+.br
+성공하면 WinSock 구현 세부 정보를 얻기 위해 \fBwsaDataToString()\fP을 호출할 수 있습니다\&. 
+.RE
+.PP
+
+.PP
+\fBSocketIniter\&.cpp\fP 파일의 \fB29\fP 번째 라인에서 정의되었습니다\&.
+.SS "std::string SocketIniter::wsaDataToString () const"
+
+.PP
+WinSock 구현 버전에 대한 정보를 담은 문자열을 반환합니다\&. 
+.PP
+\fB반환값\fP
+.RS 4
+std::string : WSADATA 구조체의 세부 정보(예: 버전, 설명)를 담은 문자열입니다\&. 
+.RE
+.PP
+
+.PP
+\fBSocketIniter\&.cpp\fP 파일의 \fB53\fP 번째 라인에서 정의되었습니다\&.
+.SH "멤버 데이터 문서화"
+.PP 
+.SS "WSADATA SocketIniter::_wsaData\fR [private]\fP"
+
+.PP
+winsock 대한 정보를 담고 있습니다 (WSAStartup에 의해 설정됨)\&. 
+.PP
+\fBSocketIniter\&.h\fP 파일의 \fB89\fP 번째 라인에서 정의되었습니다\&.
+
+.SH "작성자"
+.PP 
+소스 코드로부터 ChatMultiServerDoxygen를 위해 Doxygen에 의해 자동으로 생성됨\&.

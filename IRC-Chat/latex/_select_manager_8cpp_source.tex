@@ -1,0 +1,103 @@
+\doxysection{Select\+Manager.\+cpp}
+\hypertarget{_select_manager_8cpp_source}{}\label{_select_manager_8cpp_source}\index{SocketBuild/SelectManager.cpp@{SocketBuild/SelectManager.cpp}}
+\mbox{\hyperlink{_select_manager_8cpp}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ execution\_character\_set("{}utf-\/8"{})}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_select_manager_8h}{SelectManager.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_debug_helper_8h}{DebugHelper.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00013}\mbox{\hyperlink{_select_manager_8cpp_a9ec424aade58692fdfb0c7f5a9b1c714}{00013}}\ \textcolor{keyword}{static}\ timeval\ \mbox{\hyperlink{_select_manager_8cpp_a9ec424aade58692fdfb0c7f5a9b1c714}{make\_timer}}(\textcolor{keywordtype}{long}\ sec,\ \textcolor{keywordtype}{long}\ usec)}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00014}00014\ \{}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00015}00015\ \ \ \ \ timeval\ timeout;}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00016}00016\ \ \ \ \ timeout.tv\_sec\ =\ sec;}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00017}00017\ \ \ \ \ timeout.tv\_usec\ =\ usec;}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{keywordflow}{return}\ (timeout);}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00019}00019\ \}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00021}\mbox{\hyperlink{class_select_manager_aa54c0ba1ef0f41c5f81b26c004ab553f}{00021}}\ \mbox{\hyperlink{class_select_manager_aa54c0ba1ef0f41c5f81b26c004ab553f}{SelectManager::SelectManager}}()}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00022}00022\ \ \ \ \ :\ \mbox{\hyperlink{class_select_manager_abba6d4ec35ce6c709985333d27b00e77}{\_originSet}}(),\ \mbox{\hyperlink{class_select_manager_a9867d9457e5bd481c1b6e829932e310c}{\_copySet}}(),\ \mbox{\hyperlink{class_select_manager_a3c885ce2cc540e6d7acf4d47178bb97f}{\_socketCount}}(0)}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00023}00023\ \{}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00024}00024\ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a87f39d92adfc939c31320aaf4b9f7a37}{LOG\_DEBUG}}(\textcolor{stringliteral}{"{}SelectManager\ 객체를\ 생성합니다."{}});}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00025}00025\ \}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00027}\mbox{\hyperlink{class_select_manager_a131302983d1dd7938f2bf7be5ee0486a}{00027}}\ \mbox{\hyperlink{class_select_manager_a131302983d1dd7938f2bf7be5ee0486a}{SelectManager::\string~SelectManager}}()}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00028}00028\ \{}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00029}00029\ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a87f39d92adfc939c31320aaf4b9f7a37}{LOG\_DEBUG}}(\textcolor{stringliteral}{"{}SelectManager\ 객체를\ 삭제합니다."{}});}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00030}00030\ \}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00032}\mbox{\hyperlink{class_select_manager_a5cbd49ada4d6bbcceb45994b718f4249}{00032}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_select_manager_a5cbd49ada4d6bbcceb45994b718f4249}{SelectManager::setupFdSet}}()}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00033}00033\ \{}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00034}00034\ \ \ \ \ \textcolor{comment}{//\ fd\_set\ 초기화.}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00035}00035\ \ \ \ \ FD\_ZERO(\&this-\/>\mbox{\hyperlink{class_select_manager_abba6d4ec35ce6c709985333d27b00e77}{\_originSet}});}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00036}00036\ \ \ \ \ this-\/>\mbox{\hyperlink{class_select_manager_a3c885ce2cc540e6d7acf4d47178bb97f}{\_socketCount}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00038}00038\ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a87f39d92adfc939c31320aaf4b9f7a37}{LOG\_DEBUG}}(\textcolor{stringliteral}{"{}fd\_set과\ 소켓\ count를\ 초기화합니다."{}});}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00039}00039\ \}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00041}\mbox{\hyperlink{class_select_manager_a49708ec0ab5bb85c4084b85d7d708244}{00041}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_select_manager_a49708ec0ab5bb85c4084b85d7d708244}{SelectManager::addSocket}}(SOCKET\ socket)}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00042}00042\ \{}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00043}00043\ \ \ \ \ \textcolor{comment}{//\ 유효한\ 소켓인지\ 확인합니다.}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{if}\ (socket\ ==\ INVALID\_SOCKET)}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00045}00045\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_abfe0c293b360dc335041f1bc67b00647}{LOG\_WARN}}(\textcolor{stringliteral}{"{}클라이언트\ 소켓\ 등록\ 시\ 유효하지\ 않은\ 소켓이\ 확인되었습니다."{}});}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00048}00048\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00050}00050\ \ \ \ \ \textcolor{comment}{//\ fd\_set에\ 클라이언트\ 소켓을\ 추가합니다.}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00051}00051\ \ \ \ \ FD\_SET(socket,\ \&this-\/>\mbox{\hyperlink{class_select_manager_abba6d4ec35ce6c709985333d27b00e77}{\_originSet}});}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00052}00052\ \ \ \ \ this-\/>\mbox{\hyperlink{class_select_manager_a3c885ce2cc540e6d7acf4d47178bb97f}{\_socketCount}}\ =\ this-\/>\mbox{\hyperlink{class_select_manager_a3c885ce2cc540e6d7acf4d47178bb97f}{\_socketCount}}\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00054}00054\ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a87f39d92adfc939c31320aaf4b9f7a37}{LOG\_DEBUG}}(\textcolor{stringliteral}{"{}클라이언트\ 소켓이\ fd\_set에\ 추가되었습니다.:\(\backslash\)n현재\ 소켓\ 수\ :\ "{}}\ +\ std::to\_string(this-\/>\mbox{\hyperlink{class_select_manager_a3c885ce2cc540e6d7acf4d47178bb97f}{\_socketCount}}));}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00056}00056\ \}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00058}\mbox{\hyperlink{class_select_manager_aa481a33503a44eef343a271d64ae1f11}{00058}}\ \mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085ec}{SelectManager::Result}}\ \mbox{\hyperlink{class_select_manager_aa481a33503a44eef343a271d64ae1f11}{SelectManager::executeSelect}}(\textcolor{keywordtype}{int}\ timeout\_sec)}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00059}00059\ \{}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00060}00060\ \ \ \ \ \textcolor{comment}{//\ 감시할\ 소켓이\ 없으면\ 바로\ 탈출합니다.}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00061}00061\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{class_select_manager_a3c885ce2cc540e6d7acf4d47178bb97f}{\_socketCount}}\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00062}00062\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a87f39d92adfc939c31320aaf4b9f7a37}{LOG\_DEBUG}}(\textcolor{stringliteral}{"{}감시할\ 소켓이\ 없습니다."{}});}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085eca9577f71024a3ec9d5367f5bc34fe747f}{SelectManager::Result::NO\_SOCKETS}});}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00065}00065\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00067}00067\ \ \ \ \ \textcolor{comment}{//\ fd\_set을\ 복사합니다.}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00068}00068\ \ \ \ \ \textcolor{comment}{//\ select\ 함수가\ 인자의\ fd\_set을\ 수정하므로\ 원본을\ 수정하지\ 않기\ 위해\ 복사해서\ 사용합니다.}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00069}00069\ \ \ \ \ this-\/>\mbox{\hyperlink{class_select_manager_a9867d9457e5bd481c1b6e829932e310c}{\_copySet}}\ =\ this-\/>\mbox{\hyperlink{class_select_manager_abba6d4ec35ce6c709985333d27b00e77}{\_originSet}};}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00071}00071\ \ \ \ \ \textcolor{comment}{//\ select에\ 사용할\ timeout\ 설정.}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00072}00072\ \ \ \ \ timeval\ timeout\ =\ \mbox{\hyperlink{_select_manager_8cpp_a9ec424aade58692fdfb0c7f5a9b1c714}{make\_timer}}(timeout\_sec,\ 0);}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00074}00074\ \ \ \ \ \textcolor{comment}{//\ Windows에서는\ select함수의\ 첫번\ 째\ 매개변수가\ 무시됩니다.(원래는\ 최대\ 값의\ 소켓\ id).}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00075}00075\ \ \ \ \ \textcolor{comment}{//\ 읽기\ 준비가\ 된\ 소켓을\ 수를\ 리턴합니다.}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00076}00076\ \ \ \ \ \textcolor{keywordtype}{int}\ result\ =\ select(0,\ \&this-\/>\mbox{\hyperlink{class_select_manager_a9867d9457e5bd481c1b6e829932e310c}{\_copySet}},\ \textcolor{keyword}{nullptr},\ \textcolor{keyword}{nullptr},\ \&timeout);}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00078}00078\ \ \ \ \ \textcolor{comment}{//\ select\ 결과에\ 따른\ 분기.}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00079}00079\ \ \ \ \ \textcolor{keywordflow}{if}\ (result\ ==\ SOCKET\_ERROR)}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00080}00080\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a27d98b18ba06759c6ef5c71b1e1a9904}{LOG\_ERROR}}(\textcolor{stringliteral}{"{}slect\ 함수\ 실행\ 실패\(\backslash\)n\ 에러\ 코드:\ "{}}\ +\ std::to\_string(WSAGetLastError()));}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085ecadd820d26a503ff5eff2d001703714e47}{SelectManager::Result::FAIL\_SELECT}});}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00083}00083\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00084}00084\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (result\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00085}00085\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 타임아웃\ 발생.}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a87f39d92adfc939c31320aaf4b9f7a37}{LOG\_DEBUG}}(\textcolor{stringliteral}{"{}select\ 타임아웃\ 발생"{}});}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085eca070a0fb40f6c308ab544b227660aadff}{SelectManager::Result::TIMEOUT}});}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00089}00089\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00090}00090\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00091}00091\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 하나\ 이상의\ 소켓이\ 준비됨.}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_debug_helper_8h_a87f39d92adfc939c31320aaf4b9f7a37}{LOG\_DEBUG}}(\textcolor{stringliteral}{"{}select\ 성공,\ 준비된\ 소켓\ 수:\ "{}}\ +\ std::to\_string(result));}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085ecad0749aaba8b833466dfcbb0428e4f89c}{SelectManager::Result::SUCCESS}});}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00095}00095\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00096}00096\ \}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00098}\mbox{\hyperlink{class_select_manager_a5c7e0df102640c1e4d92578b7081368f}{00098}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_select_manager_a5c7e0df102640c1e4d92578b7081368f}{SelectManager::isSocketReady}}(SOCKET\ socket)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00099}00099\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00100}00100\ \ \ \ \ \textcolor{comment}{//\ FD\_ISSET를\ 사용하여\ fd\_set에서\ 소켓이\ 읽기가\ 준비되었는지\ 체크합니다.}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00101}00101\ \ \ \ \ \textcolor{comment}{//\ select()\ 실행\ 후\ 복사된\ fd\_set에는\ 읽기가\ 준비된\ 소켓만\ 남아있습니다.}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00102}00102\ \ \ \ \ \textcolor{keywordflow}{return}\ (FD\_ISSET(socket,\ \&this-\/>\mbox{\hyperlink{class_select_manager_a9867d9457e5bd481c1b6e829932e310c}{\_copySet}}));}
+\DoxyCodeLine{\Hypertarget{_select_manager_8cpp_source_l00103}00103\ \}}
+
+\end{DoxyCode}

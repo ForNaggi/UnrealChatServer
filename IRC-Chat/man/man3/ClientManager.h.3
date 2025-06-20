@@ -1,0 +1,48 @@
+.TH "SocketBuild/ClientManager.h" 3 "Version 1.0.0" "ChatMultiServerDoxygen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SocketBuild/ClientManager.h \- 다중 클라이언트 채팅 서버에서 클라이언트 소켓을 관리하는 \fBClientManager\fP 클래스를 정의합니다\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <WinSock2\&.h>\fP
+.br
+\fR#include <array>\fP
+.br
+\fR#include <string>\fP
+.br
+\fR#include <queue>\fP
+.br
+
+.SS "클래스"
+
+.in +1c
+.ti -1c
+.RI "class \fBClientManager\fP"
+.br
+.RI "서버에서 고정된 수의 클라이언트 소켓과 별칭을 관리하는 클래스입니다\&. "
+.in -1c
+.SH "상세한 설명"
+.PP 
+다중 클라이언트 채팅 서버에서 클라이언트 소켓을 관리하는 \fBClientManager\fP 클래스를 정의합니다\&. 
+
+
+.PP
+\fB작성자\fP
+.RS 4
+최성락 
+.RE
+.PP
+\fB날짜\fP
+.RS 4
+2025-06-17
+.RE
+.PP
+클라이언트 연결 관리 기능: 새로운 클라이언트 추가, 클라이언트 제거, 소켓 조회, 고유한 닉네임(예: "Player_1") 생성 등을 수행합니다\&. 
+.PP
+\fBClientManager\&.h\fP 파일에서 정의되었습니다\&.
+.SH "작성자"
+.PP 
+소스 코드로부터 ChatMultiServerDoxygen를 위해 Doxygen에 의해 자동으로 생성됨\&.

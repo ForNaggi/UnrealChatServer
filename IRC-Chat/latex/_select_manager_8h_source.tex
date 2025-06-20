@@ -1,0 +1,55 @@
+\doxysection{Select\+Manager.\+h}
+\hypertarget{_select_manager_8h_source}{}\label{_select_manager_8h_source}\index{SocketBuild/SelectManager.h@{SocketBuild/SelectManager.h}}
+\mbox{\hyperlink{_select_manager_8h}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00002}00002\ \textcolor{preprocessor}{\#pragma\ execution\_character\_set("{}utf-\/8"{})}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <WinSock2.h>}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00027}\mbox{\hyperlink{class_select_manager}{00027}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_select_manager_aa54c0ba1ef0f41c5f81b26c004ab553f}{SelectManager}}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00028}00028\ \{}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00029}00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00035}\mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085ec}{00035}}\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085ec}{Result}}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00036}00036\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00037}\mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085ecad0749aaba8b833466dfcbb0428e4f89c}{00037}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085ecad0749aaba8b833466dfcbb0428e4f89c}{SUCCESS}},\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00038}\mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085eca070a0fb40f6c308ab544b227660aadff}{00038}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085eca070a0fb40f6c308ab544b227660aadff}{TIMEOUT}},\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00039}\mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085ecadd820d26a503ff5eff2d001703714e47}{00039}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085ecadd820d26a503ff5eff2d001703714e47}{FAIL\_SELECT}},\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00040}\mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085eca9577f71024a3ec9d5367f5bc34fe747f}{00040}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085eca9577f71024a3ec9d5367f5bc34fe747f}{NO\_SOCKETS}}\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00041}00041\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00043}00043\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00052}00052\ \ \ \ \ \mbox{\hyperlink{class_select_manager_aa54c0ba1ef0f41c5f81b26c004ab553f}{SelectManager}}();}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00061}00061\ \ \ \ \ \mbox{\hyperlink{class_select_manager_a131302983d1dd7938f2bf7be5ee0486a}{\string~SelectManager}}();}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00063}00063\ \ \ \ \ \textcolor{comment}{//\ 복사\ 생성자\ 및\ 복사\ 할당\ 연산자\ 삭제.}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00064}\mbox{\hyperlink{class_select_manager_aed0a7f9325a1cf09f2b9e44be19b3828}{00064}}\ \ \ \ \ \mbox{\hyperlink{class_select_manager_aed0a7f9325a1cf09f2b9e44be19b3828}{SelectManager}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_select_manager_aa54c0ba1ef0f41c5f81b26c004ab553f}{SelectManager}}\&\ obj)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00065}\mbox{\hyperlink{class_select_manager_a07c2e14e7ea606910c87d0bbfe12139a}{00065}}\ \ \ \ \ \mbox{\hyperlink{class_select_manager_aa54c0ba1ef0f41c5f81b26c004ab553f}{SelectManager}}\&\ \mbox{\hyperlink{class_select_manager_a07c2e14e7ea606910c87d0bbfe12139a}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_select_manager_aa54c0ba1ef0f41c5f81b26c004ab553f}{SelectManager}}\&\ obj)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00067}00067\ \ \ \ \ \textcolor{comment}{//\ 이동\ 생성자\ 및\ 이동\ 할당\ 연산자\ 삭제.}}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00068}\mbox{\hyperlink{class_select_manager_a2560ba395a59e6b286ae9189e69f469c}{00068}}\ \ \ \ \ \mbox{\hyperlink{class_select_manager_a2560ba395a59e6b286ae9189e69f469c}{SelectManager}}(\mbox{\hyperlink{class_select_manager_aa54c0ba1ef0f41c5f81b26c004ab553f}{SelectManager}}\&\&\ obj)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00069}\mbox{\hyperlink{class_select_manager_a1eb9c0a662d6c30841563d8b63a60a3e}{00069}}\ \ \ \ \ \mbox{\hyperlink{class_select_manager_aa54c0ba1ef0f41c5f81b26c004ab553f}{SelectManager}}\&\ \mbox{\hyperlink{class_select_manager_a1eb9c0a662d6c30841563d8b63a60a3e}{operator=}}(\mbox{\hyperlink{class_select_manager_aa54c0ba1ef0f41c5f81b26c004ab553f}{SelectManager}}\&\&\ obj)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00071}00071\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00081}00081\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_select_manager_a5cbd49ada4d6bbcceb45994b718f4249}{setupFdSet}}();}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00092}00092\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_select_manager_a49708ec0ab5bb85c4084b85d7d708244}{addSocket}}(SOCKET\ socket);}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00106}00106\ \ \ \ \ \mbox{\hyperlink{class_select_manager_a54b9151953c8815d0178e2816a4085ec}{SelectManager::Result}}\ \mbox{\hyperlink{class_select_manager_aa481a33503a44eef343a271d64ae1f11}{executeSelect}}(\textcolor{keywordtype}{int}\ timeout\_sec\ =\ 1);}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00118}00118\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_select_manager_a5c7e0df102640c1e4d92578b7081368f}{isSocketReady}}(SOCKET\ socket)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00120}00120\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00122}\mbox{\hyperlink{class_select_manager_abba6d4ec35ce6c709985333d27b00e77}{00122}}\ \ \ \ \ fd\_set\ \mbox{\hyperlink{class_select_manager_abba6d4ec35ce6c709985333d27b00e77}{\_originSet}};}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00125}\mbox{\hyperlink{class_select_manager_a9867d9457e5bd481c1b6e829932e310c}{00125}}\ \ \ \ \ fd\_set\ \mbox{\hyperlink{class_select_manager_a9867d9457e5bd481c1b6e829932e310c}{\_copySet}};}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00128}\mbox{\hyperlink{class_select_manager_a3c885ce2cc540e6d7acf4d47178bb97f}{00128}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \mbox{\hyperlink{class_select_manager_a3c885ce2cc540e6d7acf4d47178bb97f}{\_socketCount}};}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00129}00129\ \};}
+\DoxyCodeLine{\Hypertarget{_select_manager_8h_source_l00130}00130\ }
+
+\end{DoxyCode}

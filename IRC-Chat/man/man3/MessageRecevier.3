@@ -1,0 +1,148 @@
+.TH "MessageRecevier" 3 "Version 1.0.0" "ChatMultiServerDoxygen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MessageRecevier
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <MessageReceiver\&.h>\fP
+.SS "Public 타입"
+
+.in +1c
+.ti -1c
+.RI "enum class \fBResult\fP { \fBSUCCESS\fP, \fBFAIL_RECEIVE\fP, \fBFAIL_SEND\fP, \fBCLIENT_QUIT\fP, \fBCLIENT_DISCONNECTED\fP }"
+.br
+.in -1c
+.SS "Public 멤버 함수"
+
+.in +1c
+.ti -1c
+.RI "\fBMessageRecevier\fP (SOCKET client_socket)"
+.br
+.ti -1c
+.RI "\fB~MessageRecevier\fP ()"
+.br
+.ti -1c
+.RI "\fBMessageRecevier\fP (const \fBMessageRecevier\fP &obj)=delete"
+.br
+.ti -1c
+.RI "\fBMessageRecevier\fP & \fBoperator=\fP (const \fBMessageRecevier\fP &obj)=delete"
+.br
+.ti -1c
+.RI "\fBMessageRecevier\fP (\fBMessageRecevier\fP &&obj)=delete"
+.br
+.ti -1c
+.RI "\fBMessageRecevier\fP & \fBoperator=\fP (\fBMessageRecevier\fP &&obj)=delete"
+.br
+.ti -1c
+.RI "\fBMessageRecevier::Result\fP \fBreceiveMessage\fP ()"
+.br
+.ti -1c
+.RI "const std::string & \fBgetLastMessage\fP () const"
+.br
+.ti -1c
+.RI "bool \fBisQuitCommand\fP (const std::string &message)"
+.br
+.in -1c
+.SS "Private 멤버 함수"
+
+.in +1c
+.ti -1c
+.RI "void \fBcleanMessage\fP (std::string &message)"
+.br
+.in -1c
+.SS "Private 속성"
+
+.in +1c
+.ti -1c
+.RI "SOCKET \fB_clientSocket\fP"
+.br
+.ti -1c
+.RI "std::string \fB_lastMessage\fP"
+.br
+.in -1c
+.SS "정적 Private 속성"
+
+.in +1c
+.ti -1c
+.RI "static const int \fBBUFFER_SIZE\fP = 1024"
+.br
+.in -1c
+.SH "상세한 설명"
+.PP 
+\fBMessageReceiver\&.h\fP 파일의 \fB12\fP 번째 라인에서 정의되었습니다\&.
+.SH "멤버 열거형 문서화"
+.PP 
+.SS "enum class \fBMessageRecevier::Result\fP\fR [strong]\fP"
+
+.PP
+\fB열거형 멤버\fP
+.in +1c
+.TP
+\f(BISUCCESS \fP
+.TP
+\f(BIFAIL_RECEIVE \fP
+.TP
+\f(BIFAIL_SEND \fP
+.TP
+\f(BICLIENT_QUIT \fP
+.TP
+\f(BICLIENT_DISCONNECTED \fP
+.PP
+\fBMessageReceiver\&.h\fP 파일의 \fB17\fP 번째 라인에서 정의되었습니다\&.
+.SH "생성자 & 소멸자 문서화"
+.PP 
+.SS "MessageRecevier::MessageRecevier (SOCKET client_socket)\fR [explicit]\fP"
+
+.PP
+\fBMessageReceiver\&.cpp\fP 파일의 \fB5\fP 번째 라인에서 정의되었습니다\&.
+.SS "MessageRecevier::~MessageRecevier ()"
+
+.PP
+\fBMessageReceiver\&.cpp\fP 파일의 \fB11\fP 번째 라인에서 정의되었습니다\&.
+.SS "MessageRecevier::MessageRecevier (const \fBMessageRecevier\fP & obj)\fR [delete]\fP"
+
+.SS "MessageRecevier::MessageRecevier (\fBMessageRecevier\fP && obj)\fR [delete]\fP"
+
+.SH "멤버 함수 문서화"
+.PP 
+.SS "void MessageRecevier::cleanMessage (std::string & message)\fR [private]\fP"
+
+.PP
+\fBMessageReceiver\&.cpp\fP 파일의 \fB80\fP 번째 라인에서 정의되었습니다\&.
+.SS "const std::string & MessageRecevier::getLastMessage () const"
+
+.PP
+\fBMessageReceiver\&.cpp\fP 파일의 \fB68\fP 번째 라인에서 정의되었습니다\&.
+.SS "bool MessageRecevier::isQuitCommand (const std::string & message)"
+
+.PP
+\fBMessageReceiver\&.cpp\fP 파일의 \fB74\fP 번째 라인에서 정의되었습니다\&.
+.SS "\fBMessageRecevier\fP & MessageRecevier::operator= (const \fBMessageRecevier\fP & obj)\fR [delete]\fP"
+
+.SS "\fBMessageRecevier\fP & MessageRecevier::operator= (\fBMessageRecevier\fP && obj)\fR [delete]\fP"
+
+.SS "\fBMessageRecevier::Result\fP MessageRecevier::receiveMessage ()"
+
+.PP
+\fBMessageReceiver\&.cpp\fP 파일의 \fB16\fP 번째 라인에서 정의되었습니다\&.
+.SH "멤버 데이터 문서화"
+.PP 
+.SS "SOCKET MessageRecevier::_clientSocket\fR [private]\fP"
+
+.PP
+\fBMessageReceiver\&.h\fP 파일의 \fB78\fP 번째 라인에서 정의되었습니다\&.
+.SS "std::string MessageRecevier::_lastMessage\fR [private]\fP"
+
+.PP
+\fBMessageReceiver\&.h\fP 파일의 \fB81\fP 번째 라인에서 정의되었습니다\&.
+.SS "const int MessageRecevier::BUFFER_SIZE = 1024\fR [static]\fP, \fR [private]\fP"
+
+.PP
+\fBMessageReceiver\&.h\fP 파일의 \fB84\fP 번째 라인에서 정의되었습니다\&.
+
+.SH "작성자"
+.PP 
+소스 코드로부터 ChatMultiServerDoxygen를 위해 Doxygen에 의해 자동으로 생성됨\&.

@@ -1,0 +1,875 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ChatMultiServerDoxygen: MultiServer 클래스 참조</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ChatMultiServerDoxygen<span id="projectnumber">&#160;1.0.0</span>
+   </div>
+   <div id="projectbrief">this is the synopsis</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','검색',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('class_multi_server.html','','class_multi_server-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">로딩중...</div>
+<div class="SRStatus" id="Searching">검색중...</div>
+<div class="SRStatus" id="NoMatches">일치하는것 없음</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">MultiServer 클래스 참조</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>select 기반 루프를 통해 다중 클라이언트 채팅 서버를 관리하는 클래스입니다.  
+ <a href="#details">더 자세히 ...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_multi_server_8h_source.html">MultiServer.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 타입</h2></td></tr>
+<tr class="memitem:a05f2fbce39f97a4aea3ca4e8a5f76520" id="r_a05f2fbce39f97a4aea3ca4e8a5f76520"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05f2fbce39f97a4aea3ca4e8a5f76520">Result</a> { <a class="el" href="#a05f2fbce39f97a4aea3ca4e8a5f76520ad0749aaba8b833466dfcbb0428e4f89c">SUCCESS</a>
+, <a class="el" href="#a05f2fbce39f97a4aea3ca4e8a5f76520aca35fd19fc398dd5c1dbbbd88349422c">FAIL_START</a>
+, <a class="el" href="#a05f2fbce39f97a4aea3ca4e8a5f76520a51d2a797b58df1fe8da2c085dca4a579">FAIL_LOOP</a>
+, <a class="el" href="#a05f2fbce39f97a4aea3ca4e8a5f76520a3138f8a215e46f7c6130d18a39975651">SERVER_STOPPED</a>
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 멤버 함수</h2></td></tr>
+<tr class="memitem:ad08dd4f1558c2fa37977075fd9668454" id="r_ad08dd4f1558c2fa37977075fd9668454"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad08dd4f1558c2fa37977075fd9668454">MultiServer</a> (int port)</td></tr>
+<tr class="memdesc:ad08dd4f1558c2fa37977075fd9668454"><td class="mdescLeft">&#160;</td><td class="mdescRight">지정된 포트 번호로 MultiServer를 생성합니다.  <br /></td></tr>
+<tr class="memitem:ae6e9f083d34175fbca6c38f562daab3d" id="r_ae6e9f083d34175fbca6c38f562daab3d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6e9f083d34175fbca6c38f562daab3d">~MultiServer</a> ()</td></tr>
+<tr class="memdesc:ae6e9f083d34175fbca6c38f562daab3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">소멸자. 서버 리소스를 정리합니다.  <br /></td></tr>
+<tr class="memitem:ab3aad1e5dff2a3b472378c6dfc1e03e2" id="r_ab3aad1e5dff2a3b472378c6dfc1e03e2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab3aad1e5dff2a3b472378c6dfc1e03e2">MultiServer</a> (const <a class="el" href="class_multi_server.html">MultiServer</a> &amp;obj)=delete</td></tr>
+<tr class="memitem:afce4e70caa3021b2657d55d84cb03fdc" id="r_afce4e70caa3021b2657d55d84cb03fdc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_multi_server.html">MultiServer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afce4e70caa3021b2657d55d84cb03fdc">operator=</a> (const <a class="el" href="class_multi_server.html">MultiServer</a> &amp;obj)=delete</td></tr>
+<tr class="memitem:ae86a59c8b6b6943298db5bd0d5c37a29" id="r_ae86a59c8b6b6943298db5bd0d5c37a29"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae86a59c8b6b6943298db5bd0d5c37a29">MultiServer</a> (<a class="el" href="class_multi_server.html">MultiServer</a> &amp;&amp;obj)=delete</td></tr>
+<tr class="memitem:a6857ad878617b15ac2d6ec72958ff2f8" id="r_a6857ad878617b15ac2d6ec72958ff2f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_multi_server.html">MultiServer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6857ad878617b15ac2d6ec72958ff2f8">operator=</a> (<a class="el" href="class_multi_server.html">MultiServer</a> &amp;&amp;obj)=delete</td></tr>
+<tr class="memitem:a3c6ab56d025fbb50dd1521716f859eef" id="r_a3c6ab56d025fbb50dd1521716f859eef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a05f2fbce39f97a4aea3ca4e8a5f76520">MultiServer::Result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c6ab56d025fbb50dd1521716f859eef">startServer</a> ()</td></tr>
+<tr class="memdesc:a3c6ab56d025fbb50dd1521716f859eef"><td class="mdescLeft">&#160;</td><td class="mdescRight">서버를 시작하여 리스닝 소켓을 초기화하고 클라이언트 수신을 시작합니다.  <br /></td></tr>
+<tr class="memitem:add5af07e493ad545ee82b7d966481a47" id="r_add5af07e493ad545ee82b7d966481a47"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a05f2fbce39f97a4aea3ca4e8a5f76520">MultiServer::Result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add5af07e493ad545ee82b7d966481a47">runServerLoop</a> ()</td></tr>
+<tr class="memdesc:add5af07e493ad545ee82b7d966481a47"><td class="mdescLeft">&#160;</td><td class="mdescRight">메인 서버 루프를 실행하여 클라이언트 연결 및 메시지 처리를 수행합니다.  <br /></td></tr>
+<tr class="memitem:a914389fbf7e944b4b80ccf8f609c2316" id="r_a914389fbf7e944b4b80ccf8f609c2316"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a914389fbf7e944b4b80ccf8f609c2316">stop</a> ()</td></tr>
+<tr class="memdesc:a914389fbf7e944b4b80ccf8f609c2316"><td class="mdescLeft">&#160;</td><td class="mdescRight">서버에 더 이상 새로운 연결을 받지 말고 메인 루프를 종료하도록 신호를 보냅니다.  <br /></td></tr>
+<tr class="memitem:a0759e5145e1876a3553447bae830a54a" id="r_a0759e5145e1876a3553447bae830a54a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0759e5145e1876a3553447bae830a54a">isRunning</a> () const</td></tr>
+<tr class="memdesc:a0759e5145e1876a3553447bae830a54a"><td class="mdescLeft">&#160;</td><td class="mdescRight">서버가 현재 실행 중인지 여부를 확인합니다.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private 멤버 함수</h2></td></tr>
+<tr class="memitem:ae4799250c000becd9277b69d188ad648" id="r_ae4799250c000becd9277b69d188ad648"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae4799250c000becd9277b69d188ad648">handleNewConnection</a> ()</td></tr>
+<tr class="memdesc:ae4799250c000becd9277b69d188ad648"><td class="mdescLeft">&#160;</td><td class="mdescRight">새로운 클라이언트 연결을 수락하여 ClientManager에 등록합니다.  <br /></td></tr>
+<tr class="memitem:adce90ff32f0a97f736d59263d836447e" id="r_adce90ff32f0a97f736d59263d836447e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adce90ff32f0a97f736d59263d836447e">handleClientMessage</a> (int client_index)</td></tr>
+<tr class="memdesc:adce90ff32f0a97f736d59263d836447e"><td class="mdescLeft">&#160;</td><td class="mdescRight">지정된 인덱스의 클라이언트로부터 들어온 메시지를 처리합니다.  <br /></td></tr>
+<tr class="memitem:a424e220806ae76d40dad3212f57f7f69" id="r_a424e220806ae76d40dad3212f57f7f69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a424e220806ae76d40dad3212f57f7f69">sendWelcomeMessage</a> (int client_index)</td></tr>
+<tr class="memdesc:a424e220806ae76d40dad3212f57f7f69"><td class="mdescLeft">&#160;</td><td class="mdescRight">새로 연결된 클라이언트에게 환영 메시지를 보냅니다.  <br /></td></tr>
+<tr class="memitem:a09b33835c30ec6ac63e354484030234f" id="r_a09b33835c30ec6ac63e354484030234f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09b33835c30ec6ac63e354484030234f">announceJoin</a> (int client_index)</td></tr>
+<tr class="memdesc:a09b33835c30ec6ac63e354484030234f"><td class="mdescLeft">&#160;</td><td class="mdescRight">새로운 클라이언트가 참가했음을 모든 클라이언트에게 알립니다.  <br /></td></tr>
+<tr class="memitem:a145530f5cb105a12c3a4662e7ef0b262" id="r_a145530f5cb105a12c3a4662e7ef0b262"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a145530f5cb105a12c3a4662e7ef0b262">announceLeave</a> (int client_index)</td></tr>
+<tr class="memdesc:a145530f5cb105a12c3a4662e7ef0b262"><td class="mdescLeft">&#160;</td><td class="mdescRight">특정 클라이언트가 떠났음을 모든 클라이언트에게 알립니다.  <br /></td></tr>
+<tr class="memitem:ae5b77230b0dc9bfff431219a08a21b88" id="r_ae5b77230b0dc9bfff431219a08a21b88"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5b77230b0dc9bfff431219a08a21b88">makeWecomeMessage</a> (const std::string &amp;nickname, int connectedClientCount)</td></tr>
+<tr class="memdesc:ae5b77230b0dc9bfff431219a08a21b88"><td class="mdescLeft">&#160;</td><td class="mdescRight">새로 연결된 클라이언트를 위한 환영 메시지를 생성합니다.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private 속성</h2></td></tr>
+<tr class="memitem:a1aa185a63a212c8cacc3a22c9e612671" id="r_a1aa185a63a212c8cacc3a22c9e612671"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1aa185a63a212c8cacc3a22c9e612671">_port</a></td></tr>
+<tr class="memdesc:a1aa185a63a212c8cacc3a22c9e612671"><td class="mdescLeft">&#160;</td><td class="mdescRight">서버가 수신 대기하는 TCP 포트 번호.  <br /></td></tr>
+<tr class="memitem:ac435f2f0311227fbd1534b83b2f1c661" id="r_ac435f2f0311227fbd1534b83b2f1c661"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_t_c_p_socket.html">TCPSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac435f2f0311227fbd1534b83b2f1c661">_tcpSocket</a></td></tr>
+<tr class="memdesc:ac435f2f0311227fbd1534b83b2f1c661"><td class="mdescLeft">&#160;</td><td class="mdescRight">리스닝(클라이언트 받기용) TCP 소켓(create, bind, listen, accept 관리).  <br /></td></tr>
+<tr class="memitem:ab43ad74d162ad0db0fb8ce85c96f2152" id="r_ab43ad74d162ad0db0fb8ce85c96f2152"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_client_manager.html">ClientManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab43ad74d162ad0db0fb8ce85c96f2152">_clientManager</a></td></tr>
+<tr class="memdesc:ab43ad74d162ad0db0fb8ce85c96f2152"><td class="mdescLeft">&#160;</td><td class="mdescRight">연결된 클라이언트 소켓들과 별칭을 관리하는 객체.  <br /></td></tr>
+<tr class="memitem:a6422120bbd44de002830c98f4f5cdfe5" id="r_a6422120bbd44de002830c98f4f5cdfe5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_select_manager.html">SelectManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6422120bbd44de002830c98f4f5cdfe5">_selectManager</a></td></tr>
+<tr class="memdesc:a6422120bbd44de002830c98f4f5cdfe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">fd_set 구성 및 select() 호출하는 객체.  <br /></td></tr>
+<tr class="memitem:af88cc615fbb8ae5ff2f26a23e5c6b0e9" id="r_af88cc615fbb8ae5ff2f26a23e5c6b0e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_message_sender.html">MessageSender</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af88cc615fbb8ae5ff2f26a23e5c6b0e9">_messageSender</a></td></tr>
+<tr class="memdesc:af88cc615fbb8ae5ff2f26a23e5c6b0e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">서버에서 클라이언트들에게 메시지를 보내는 객체.  <br /></td></tr>
+<tr class="memitem:a031128913fae39403819203793ee2f6c" id="r_a031128913fae39403819203793ee2f6c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a031128913fae39403819203793ee2f6c">_isRunning</a></td></tr>
+<tr class="memdesc:a031128913fae39403819203793ee2f6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">서버 루프 실행 여부를 나타내는 플래그.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">상세한 설명</h2>
+<div class="textblock"><p>select 기반 루프를 통해 다중 클라이언트 채팅 서버를 관리하는 클래스입니다. </p>
+<p><a class="el" href="class_multi_server.html" title="select 기반 루프를 통해 다중 클라이언트 채팅 서버를 관리하는 클래스입니다.">MultiServer</a> 클래스는 지정된 포트에서 서버를 시작합니다. <br  />
+신규 클라이언트 연결을 받아들입니다. <br  />
+등록된 클라이언트로부터 메시지를 수신합니다. (<a class="el" href="class_message_receiver.html" title="클라이언트 소켓으로부터 들어오는 메시지를 처리하는 클래스입니다.">MessageReceiver</a> 사용). <br  />
+등록된 클라이언트들에게 메시지를 발송합니다. (<a class="el" href="class_message_sender.html" title="서버에서 클라이언트 소켓으로 메시지를 보내는 기능을 제공하는 클래스입니다.">MessageSender</a> 사용). <br  />
+서버 동작 전반을 관리합니다. <br  />
+각 단계에서의 오류를 나타내는 결과 상태 값(Result)을 제공합니다. </p>
+
+<p class="definition"><a class="el" href="_multi_server_8h_source.html">MultiServer.h</a> 파일의 <a class="el" href="_multi_server_8h_source.html#l00033">33</a> 번째 라인에서 정의되었습니다.</p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">멤버 열거형 문서화</h2>
+<a id="a05f2fbce39f97a4aea3ca4e8a5f76520" name="a05f2fbce39f97a4aea3ca4e8a5f76520"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05f2fbce39f97a4aea3ca4e8a5f76520">&#9670;&#160;</a></span>Result</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a05f2fbce39f97a4aea3ca4e8a5f76520">MultiServer::Result</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">열거형 멤버</th></tr><tr><td class="fieldname"><a id="a05f2fbce39f97a4aea3ca4e8a5f76520ad0749aaba8b833466dfcbb0428e4f89c" name="a05f2fbce39f97a4aea3ca4e8a5f76520ad0749aaba8b833466dfcbb0428e4f89c"></a>SUCCESS&#160;</td><td class="fielddoc"><p>서버 작업(시작 또는 루프)이 성공적으로 완료됨. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a05f2fbce39f97a4aea3ca4e8a5f76520aca35fd19fc398dd5c1dbbbd88349422c" name="a05f2fbce39f97a4aea3ca4e8a5f76520aca35fd19fc398dd5c1dbbbd88349422c"></a>FAIL_START&#160;</td><td class="fielddoc"><p>서버 시작에 실패함 (예: 포트를 바인드하거나 리슨하지 못함). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a05f2fbce39f97a4aea3ca4e8a5f76520a51d2a797b58df1fe8da2c085dca4a579" name="a05f2fbce39f97a4aea3ca4e8a5f76520a51d2a797b58df1fe8da2c085dca4a579"></a>FAIL_LOOP&#160;</td><td class="fielddoc"><p>서버 메인 루프 실행 중 오류 발생.(예 : select 실패). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a05f2fbce39f97a4aea3ca4e8a5f76520a3138f8a215e46f7c6130d18a39975651" name="a05f2fbce39f97a4aea3ca4e8a5f76520a3138f8a215e46f7c6130d18a39975651"></a>SERVER_STOPPED&#160;</td><td class="fielddoc"><p>서버가 정상적으로 중지됨 (메인 루프 종료 신호로 사용). </p>
+</td></tr>
+</table>
+
+<p class="definition"><a class="el" href="_multi_server_8h_source.html">MultiServer.h</a> 파일의 <a class="el" href="_multi_server_8h_source.html#l00040">40</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">생성자 &amp; 소멸자 문서화</h2>
+<a id="ad08dd4f1558c2fa37977075fd9668454" name="ad08dd4f1558c2fa37977075fd9668454"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad08dd4f1558c2fa37977075fd9668454">&#9670;&#160;</a></span>MultiServer() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MultiServer::MultiServer </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>port</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>지정된 포트 번호로 MultiServer를 생성합니다. </p>
+<dl class="params"><dt>매개변수</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>int port : 서버가 클라이언트 연결을 대기할 TCP 포트 번호. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>반환값</dt><dd>없음.</dd></dl>
+<p>내부 구성 요소들(리스닝 소켓, 관리 객체 등)을 초기화합니다. <br  />
+서버는 아직 시작되지 않은 상태입니다. <br  />
+서버를 실제로 시작하려면 <a class="el" href="#a3c6ab56d025fbb50dd1521716f859eef" title="서버를 시작하여 리스닝 소켓을 초기화하고 클라이언트 수신을 시작합니다.">startServer()</a>를 호출해야 합니다. </p>
+
+<p class="definition"><a class="el" href="_multi_server_8cpp_source.html">MultiServer.cpp</a> 파일의 <a class="el" href="_multi_server_8cpp_source.html#l00014">14</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="ae6e9f083d34175fbca6c38f562daab3d" name="ae6e9f083d34175fbca6c38f562daab3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6e9f083d34175fbca6c38f562daab3d">&#9670;&#160;</a></span>~MultiServer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MultiServer::~MultiServer </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>소멸자. 서버 리소스를 정리합니다. </p>
+<dl class="section return"><dt>반환값</dt><dd>없음. </dd></dl>
+<dl class="section note"><dt>주의</dt><dd>소멸 시 서버가 중지되고 모든 소켓이 닫혀있어야 합니다. <br  />
+관리하던 구성 요소들은 각각의 소멸자를 통해 정리됩니다. </dd></dl>
+
+<p class="definition"><a class="el" href="_multi_server_8cpp_source.html">MultiServer.cpp</a> 파일의 <a class="el" href="_multi_server_8cpp_source.html#l00020">20</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="ab3aad1e5dff2a3b472378c6dfc1e03e2" name="ab3aad1e5dff2a3b472378c6dfc1e03e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3aad1e5dff2a3b472378c6dfc1e03e2">&#9670;&#160;</a></span>MultiServer() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MultiServer::MultiServer </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_multi_server.html">MultiServer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>obj</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae86a59c8b6b6943298db5bd0d5c37a29" name="ae86a59c8b6b6943298db5bd0d5c37a29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae86a59c8b6b6943298db5bd0d5c37a29">&#9670;&#160;</a></span>MultiServer() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MultiServer::MultiServer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_multi_server.html">MultiServer</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>obj</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">멤버 함수 문서화</h2>
+<a id="a09b33835c30ec6ac63e354484030234f" name="a09b33835c30ec6ac63e354484030234f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09b33835c30ec6ac63e354484030234f">&#9670;&#160;</a></span>announceJoin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MultiServer::announceJoin </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>client_index</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>새로운 클라이언트가 참가했음을 모든 클라이언트에게 알립니다. </p>
+<dl class="params"><dt>매개변수</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>int client_index : 새로 참가한 클라이언트의 인덱스. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>반환값</dt><dd>없음.</dd></dl>
+<p>새로 참여한 클라이언트를 제외한 나머지 모든 클라이언트들에게 <br  />
+해당 클라이언트가 채팅방에 참여했음을 알리는 메시지를 전송합니다. </p>
+
+<p class="definition"><a class="el" href="_multi_server_8cpp_source.html">MultiServer.cpp</a> 파일의 <a class="el" href="_multi_server_8cpp_source.html#l00247">247</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="a145530f5cb105a12c3a4662e7ef0b262" name="a145530f5cb105a12c3a4662e7ef0b262"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a145530f5cb105a12c3a4662e7ef0b262">&#9670;&#160;</a></span>announceLeave()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MultiServer::announceLeave </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>client_index</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>특정 클라이언트가 떠났음을 모든 클라이언트에게 알립니다. </p>
+<dl class="params"><dt>매개변수</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>int client_index : 떠나는 클라이언트의 인덱스. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>반환값</dt><dd>없음.</dd></dl>
+<p>나머지 클라이언트들에게 주어진 인덱스의 클라이언트가 채팅을 떠났음을 알리는 메시지를 방송합니다. </p>
+
+<p class="definition"><a class="el" href="_multi_server_8cpp_source.html">MultiServer.cpp</a> 파일의 <a class="el" href="_multi_server_8cpp_source.html#l00263">263</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="adce90ff32f0a97f736d59263d836447e" name="adce90ff32f0a97f736d59263d836447e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adce90ff32f0a97f736d59263d836447e">&#9670;&#160;</a></span>handleClientMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MultiServer::handleClientMessage </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>client_index</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>지정된 인덱스의 클라이언트로부터 들어온 메시지를 처리합니다. </p>
+<dl class="params"><dt>매개변수</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>int client_index : ClientManager에서 관리하는 클라이언트의 인덱스. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>반환값</dt><dd>bool : 클라이언트 메시지를 성공적으로 처리한 경우 true를 반환하고, 연결 종료가 필요하면 false를 반환합니다 (예: "quit").</dd></dl>
+<p>메인 루프에서 클라이언트 소켓에 읽기 이벤트가 발생하면 호출됩니다. <br  />
+MessageReceiver를 사용하여 해당 클라이언트의 메시지를 받아옵니다. <br  />
+클라이언트가 quit 명령을 보내거나 연결이 끊어진 경우 적절히 처리합니다. <br  />
+외에 정상적인 메세지는 MessageSender를 통해 다른 클라이언트들에게 메시지를 전달합니다. <br  />
+함수가 false를 반환하면 해당 클라이언트를 제거해야 함을 의미합니다. </p>
+
+<p class="definition"><a class="el" href="_multi_server_8cpp_source.html">MultiServer.cpp</a> 파일의 <a class="el" href="_multi_server_8cpp_source.html#l00172">172</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="ae4799250c000becd9277b69d188ad648" name="ae4799250c000becd9277b69d188ad648"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4799250c000becd9277b69d188ad648">&#9670;&#160;</a></span>handleNewConnection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MultiServer::handleNewConnection </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>새로운 클라이언트 연결을 수락하여 ClientManager에 등록합니다. </p>
+<dl class="section return"><dt>반환값</dt><dd>bool : 새로운 클라이언트를 성공적으로 추가했으면 true, accept 실패 또는 최대 클라이언트 초과 시 false.</dd></dl>
+<p>메인 루프 내부에서 새로운 연결 발생이 감지되었을 때 호출됩니다. <br  />
+TCPSocket을 통해 연결을 accept하고 ClientManager에 등록합니다. <br  />
+새 클라이언트에게 환영 메시지를 보내고 다른 클라이언트들에게 참여를 알립니다. </p>
+
+<p class="definition"><a class="el" href="_multi_server_8cpp_source.html">MultiServer.cpp</a> 파일의 <a class="el" href="_multi_server_8cpp_source.html#l00142">142</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="a0759e5145e1876a3553447bae830a54a" name="a0759e5145e1876a3553447bae830a54a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0759e5145e1876a3553447bae830a54a">&#9670;&#160;</a></span>isRunning()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MultiServer::isRunning </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>서버가 현재 실행 중인지 여부를 확인합니다. </p>
+<dl class="section return"><dt>반환값</dt><dd>bool : 서버가 시작되어 아직 중지되지 않았으면 true, 그 외의 경우 false. </dd></dl>
+
+<p class="definition"><a class="el" href="_multi_server_8cpp_source.html">MultiServer.cpp</a> 파일의 <a class="el" href="_multi_server_8cpp_source.html#l00137">137</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="ae5b77230b0dc9bfff431219a08a21b88" name="ae5b77230b0dc9bfff431219a08a21b88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5b77230b0dc9bfff431219a08a21b88">&#9670;&#160;</a></span>makeWecomeMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string MultiServer::makeWecomeMessage </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>nickname</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>connectedClientCount</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>새로 연결된 클라이언트를 위한 환영 메시지를 생성합니다. </p>
+<dl class="params"><dt>매개변수</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>const std::string&amp; nickname : 새 클라이언트의 닉네임. </td></tr>
+    <tr><td class="paramname">[IN]</td><td>int connectedClientCount : 현재 연결된 클라이언트의 총 수 (이번 클라이언트 포함). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>반환값</dt><dd>std::string 새 클라이언트를 위한 환영 메시지 문자열.</dd></dl>
+<p>=== 채팅 서버에 오신 것을 환영합니다! === <br  />
+현재 접속자 수: &lt;connectedClientCount&gt;명 <br  />
+'quit'를 입력하면 종료됩니다. </p>
+
+<p class="definition"><a class="el" href="_multi_server_8cpp_source.html">MultiServer.cpp</a> 파일의 <a class="el" href="_multi_server_8cpp_source.html#l00277">277</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="afce4e70caa3021b2657d55d84cb03fdc" name="afce4e70caa3021b2657d55d84cb03fdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afce4e70caa3021b2657d55d84cb03fdc">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_multi_server.html">MultiServer</a> &amp; MultiServer::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_multi_server.html">MultiServer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>obj</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6857ad878617b15ac2d6ec72958ff2f8" name="a6857ad878617b15ac2d6ec72958ff2f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6857ad878617b15ac2d6ec72958ff2f8">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_multi_server.html">MultiServer</a> &amp; MultiServer::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_multi_server.html">MultiServer</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>obj</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="add5af07e493ad545ee82b7d966481a47" name="add5af07e493ad545ee82b7d966481a47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add5af07e493ad545ee82b7d966481a47">&#9670;&#160;</a></span>runServerLoop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a05f2fbce39f97a4aea3ca4e8a5f76520">MultiServer::Result</a> MultiServer::runServerLoop </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>메인 서버 루프를 실행하여 클라이언트 연결 및 메시지 처리를 수행합니다. </p>
+<dl class="section return"><dt>반환값</dt><dd><a class="el" href="#a05f2fbce39f97a4aea3ca4e8a5f76520">MultiServer::Result</a> : 정상 종료 시 SERVER_STOPPED, 오류로 루프가 종료되면 FAIL_LOOP.</dd></dl>
+<p>클라이언트 추가, 메시지 송수신, 에러 처리 등을 수행합니다. select()를 사용하여 소켓들의 상태를 감시하는 루프에 진입합니다.</p><ul>
+<li>새로운 클라이언트 연결을 받아들입니다. (ClientManager에 등록).</li>
+<li>기존 클라이언트들의 메시지를 수신합니다. (<a class="el" href="class_message_receiver.html" title="클라이언트 소켓으로부터 들어오는 메시지를 처리하는 클래스입니다.">MessageReceiver</a> 사용).</li>
+<li>클라이언트에게 받은 메시지를 다른 클라이언트들에게 전달합니다. (<a class="el" href="class_message_sender.html" title="서버에서 클라이언트 소켓으로 메시지를 보내는 기능을 제공하는 클래스입니다.">MessageSender</a> 사용). <span class="tt"><a class="el" href="#a914389fbf7e944b4b80ccf8f609c2316" title="서버에 더 이상 새로운 연결을 받지 말고 메인 루프를 종료하도록 신호를 보냅니다.">stop()</a></span>이 호출되거나 치명적인 오류가 발생할 때까지 루프를 지속합니다. </li>
+</ul>
+
+<p class="definition"><a class="el" href="_multi_server_8cpp_source.html">MultiServer.cpp</a> 파일의 <a class="el" href="_multi_server_8cpp_source.html#l00054">54</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="a424e220806ae76d40dad3212f57f7f69" name="a424e220806ae76d40dad3212f57f7f69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a424e220806ae76d40dad3212f57f7f69">&#9670;&#160;</a></span>sendWelcomeMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MultiServer::sendWelcomeMessage </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>client_index</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>새로 연결된 클라이언트에게 환영 메시지를 보냅니다. </p>
+<dl class="params"><dt>매개변수</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>int client_index : ClientManager에서 할당한 새 클라이언트의 인덱스. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>반환값</dt><dd>없음.</dd></dl>
+<p>새로 연결된 클라이언트의 닉네임과 현재 접속 중인 클라이언트 수를 포함한 <br  />
+환영 메시지를 생성하여 해당 클라이언트에게 전송합니다. </p>
+
+<p class="definition"><a class="el" href="_multi_server_8cpp_source.html">MultiServer.cpp</a> 파일의 <a class="el" href="_multi_server_8cpp_source.html#l00225">225</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="a3c6ab56d025fbb50dd1521716f859eef" name="a3c6ab56d025fbb50dd1521716f859eef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c6ab56d025fbb50dd1521716f859eef">&#9670;&#160;</a></span>startServer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a05f2fbce39f97a4aea3ca4e8a5f76520">MultiServer::Result</a> MultiServer::startServer </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>서버를 시작하여 리스닝 소켓을 초기화하고 클라이언트 수신을 시작합니다. </p>
+<dl class="section return"><dt>반환값</dt><dd><a class="el" href="#a05f2fbce39f97a4aea3ca4e8a5f76520">MultiServer::Result</a> : 서버 리스닝을 시작했으면 SUCCESS, 실패하면 FAIL_START (예: 소켓 오류 등).</dd></dl>
+<p>TCP 리스닝 소켓을 설정합니다(지정된 포트에 바인드하고 listen 호출). <br  />
+성공하면 서버가 클라이언트 연결 대기 상태가 됩니다. </p>
+
+<p class="definition"><a class="el" href="_multi_server_8cpp_source.html">MultiServer.cpp</a> 파일의 <a class="el" href="_multi_server_8cpp_source.html#l00026">26</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="a914389fbf7e944b4b80ccf8f609c2316" name="a914389fbf7e944b4b80ccf8f609c2316"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a914389fbf7e944b4b80ccf8f609c2316">&#9670;&#160;</a></span>stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MultiServer::stop </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>서버에 더 이상 새로운 연결을 받지 말고 메인 루프를 종료하도록 신호를 보냅니다. </p>
+<dl class="section return"><dt>반환값</dt><dd>없음.</dd></dl>
+<dl class="section note"><dt>주의</dt><dd>이 함수를 호출하면 내부적으로 서버 종료 플래그를 설정합니다. <br  />
+루프가 종료되고 자원이 해제됩니다. </dd></dl>
+
+<p class="definition"><a class="el" href="_multi_server_8cpp_source.html">MultiServer.cpp</a> 파일의 <a class="el" href="_multi_server_8cpp_source.html#l00128">128</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">멤버 데이터 문서화</h2>
+<a id="ab43ad74d162ad0db0fb8ce85c96f2152" name="ab43ad74d162ad0db0fb8ce85c96f2152"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab43ad74d162ad0db0fb8ce85c96f2152">&#9670;&#160;</a></span>_clientManager</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_client_manager.html">ClientManager</a> MultiServer::_clientManager</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>연결된 클라이언트 소켓들과 별칭을 관리하는 객체. </p>
+
+<p class="definition"><a class="el" href="_multi_server_8h_source.html">MultiServer.h</a> 파일의 <a class="el" href="_multi_server_8h_source.html#l00130">130</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="a031128913fae39403819203793ee2f6c" name="a031128913fae39403819203793ee2f6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a031128913fae39403819203793ee2f6c">&#9670;&#160;</a></span>_isRunning</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MultiServer::_isRunning</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>서버 루프 실행 여부를 나타내는 플래그. </p>
+
+<p class="definition"><a class="el" href="_multi_server_8h_source.html">MultiServer.h</a> 파일의 <a class="el" href="_multi_server_8h_source.html#l00136">136</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="af88cc615fbb8ae5ff2f26a23e5c6b0e9" name="af88cc615fbb8ae5ff2f26a23e5c6b0e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af88cc615fbb8ae5ff2f26a23e5c6b0e9">&#9670;&#160;</a></span>_messageSender</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_message_sender.html">MessageSender</a> MultiServer::_messageSender</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>서버에서 클라이언트들에게 메시지를 보내는 객체. </p>
+
+<p class="definition"><a class="el" href="_multi_server_8h_source.html">MultiServer.h</a> 파일의 <a class="el" href="_multi_server_8h_source.html#l00134">134</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="a1aa185a63a212c8cacc3a22c9e612671" name="a1aa185a63a212c8cacc3a22c9e612671"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1aa185a63a212c8cacc3a22c9e612671">&#9670;&#160;</a></span>_port</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MultiServer::_port</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>서버가 수신 대기하는 TCP 포트 번호. </p>
+
+<p class="definition"><a class="el" href="_multi_server_8h_source.html">MultiServer.h</a> 파일의 <a class="el" href="_multi_server_8h_source.html#l00126">126</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="a6422120bbd44de002830c98f4f5cdfe5" name="a6422120bbd44de002830c98f4f5cdfe5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6422120bbd44de002830c98f4f5cdfe5">&#9670;&#160;</a></span>_selectManager</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_select_manager.html">SelectManager</a> MultiServer::_selectManager</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>fd_set 구성 및 select() 호출하는 객체. </p>
+
+<p class="definition"><a class="el" href="_multi_server_8h_source.html">MultiServer.h</a> 파일의 <a class="el" href="_multi_server_8h_source.html#l00132">132</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="ac435f2f0311227fbd1534b83b2f1c661" name="ac435f2f0311227fbd1534b83b2f1c661"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac435f2f0311227fbd1534b83b2f1c661">&#9670;&#160;</a></span>_tcpSocket</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_t_c_p_socket.html">TCPSocket</a> MultiServer::_tcpSocket</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>리스닝(클라이언트 받기용) TCP 소켓(create, bind, listen, accept 관리). </p>
+
+<p class="definition"><a class="el" href="_multi_server_8h_source.html">MultiServer.h</a> 파일의 <a class="el" href="_multi_server_8h_source.html#l00128">128</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<hr/>이 클래스에 대한 문서화 페이지는 다음의 파일들로부터 생성되었습니다.:<ul>
+<li>SocketBuild/<a class="el" href="_multi_server_8h_source.html">MultiServer.h</a></li>
+<li>SocketBuild/<a class="el" href="_multi_server_8cpp_source.html">MultiServer.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_multi_server.html">MultiServer</a></li>
+    <li class="footer">다음에 의해 생성됨 :  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

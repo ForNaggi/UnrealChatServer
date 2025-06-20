@@ -1,0 +1,442 @@
+.TH "MultiServer" 3 "Version 1.0.0" "ChatMultiServerDoxygen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MultiServer \- select 기반 루프를 통해 다중 클라이언트 채팅 서버를 관리하는 클래스입니다\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <MultiServer\&.h>\fP
+.SS "Public 타입"
+
+.in +1c
+.ti -1c
+.RI "enum class \fBResult\fP { \fBSUCCESS\fP, \fBFAIL_START\fP, \fBFAIL_LOOP\fP, \fBSERVER_STOPPED\fP }"
+.br
+.in -1c
+.SS "Public 멤버 함수"
+
+.in +1c
+.ti -1c
+.RI "\fBMultiServer\fP (int port)"
+.br
+.RI "지정된 포트 번호로 MultiServer를 생성합니다\&. "
+.ti -1c
+.RI "\fB~MultiServer\fP ()"
+.br
+.RI "소멸자\&. 서버 리소스를 정리합니다\&. "
+.ti -1c
+.RI "\fBMultiServer\fP (const \fBMultiServer\fP &obj)=delete"
+.br
+.ti -1c
+.RI "\fBMultiServer\fP & \fBoperator=\fP (const \fBMultiServer\fP &obj)=delete"
+.br
+.ti -1c
+.RI "\fBMultiServer\fP (\fBMultiServer\fP &&obj)=delete"
+.br
+.ti -1c
+.RI "\fBMultiServer\fP & \fBoperator=\fP (\fBMultiServer\fP &&obj)=delete"
+.br
+.ti -1c
+.RI "\fBMultiServer::Result\fP \fBstartServer\fP ()"
+.br
+.RI "서버를 시작하여 리스닝 소켓을 초기화하고 클라이언트 수신을 시작합니다\&. "
+.ti -1c
+.RI "\fBMultiServer::Result\fP \fBrunServerLoop\fP ()"
+.br
+.RI "메인 서버 루프를 실행하여 클라이언트 연결 및 메시지 처리를 수행합니다\&. "
+.ti -1c
+.RI "void \fBstop\fP ()"
+.br
+.RI "서버에 더 이상 새로운 연결을 받지 말고 메인 루프를 종료하도록 신호를 보냅니다\&. "
+.ti -1c
+.RI "bool \fBisRunning\fP () const"
+.br
+.RI "서버가 현재 실행 중인지 여부를 확인합니다\&. "
+.in -1c
+.SS "Private 멤버 함수"
+
+.in +1c
+.ti -1c
+.RI "bool \fBhandleNewConnection\fP ()"
+.br
+.RI "새로운 클라이언트 연결을 수락하여 ClientManager에 등록합니다\&. "
+.ti -1c
+.RI "bool \fBhandleClientMessage\fP (int client_index)"
+.br
+.RI "지정된 인덱스의 클라이언트로부터 들어온 메시지를 처리합니다\&. "
+.ti -1c
+.RI "void \fBsendWelcomeMessage\fP (int client_index)"
+.br
+.RI "새로 연결된 클라이언트에게 환영 메시지를 보냅니다\&. "
+.ti -1c
+.RI "void \fBannounceJoin\fP (int client_index)"
+.br
+.RI "새로운 클라이언트가 참가했음을 모든 클라이언트에게 알립니다\&. "
+.ti -1c
+.RI "void \fBannounceLeave\fP (int client_index)"
+.br
+.RI "특정 클라이언트가 떠났음을 모든 클라이언트에게 알립니다\&. "
+.ti -1c
+.RI "std::string \fBmakeWecomeMessage\fP (const std::string &nickname, int connectedClientCount)"
+.br
+.RI "새로 연결된 클라이언트를 위한 환영 메시지를 생성합니다\&. "
+.in -1c
+.SS "Private 속성"
+
+.in +1c
+.ti -1c
+.RI "int \fB_port\fP"
+.br
+.RI "서버가 수신 대기하는 TCP 포트 번호\&. "
+.ti -1c
+.RI "\fBTCPSocket\fP \fB_tcpSocket\fP"
+.br
+.RI "리스닝(클라이언트 받기용) TCP 소켓(create, bind, listen, accept 관리)\&. "
+.ti -1c
+.RI "\fBClientManager\fP \fB_clientManager\fP"
+.br
+.RI "연결된 클라이언트 소켓들과 별칭을 관리하는 객체\&. "
+.ti -1c
+.RI "\fBSelectManager\fP \fB_selectManager\fP"
+.br
+.RI "fd_set 구성 및 select() 호출하는 객체\&. "
+.ti -1c
+.RI "\fBMessageSender\fP \fB_messageSender\fP"
+.br
+.RI "서버에서 클라이언트들에게 메시지를 보내는 객체\&. "
+.ti -1c
+.RI "bool \fB_isRunning\fP"
+.br
+.RI "서버 루프 실행 여부를 나타내는 플래그\&. "
+.in -1c
+.SH "상세한 설명"
+.PP 
+select 기반 루프를 통해 다중 클라이언트 채팅 서버를 관리하는 클래스입니다\&. 
+
+\fBMultiServer\fP 클래스는 지정된 포트에서 서버를 시작합니다\&. 
+.br
+신규 클라이언트 연결을 받아들입니다\&. 
+.br
+등록된 클라이언트로부터 메시지를 수신합니다\&. (\fBMessageReceiver\fP 사용)\&. 
+.br
+등록된 클라이언트들에게 메시지를 발송합니다\&. (\fBMessageSender\fP 사용)\&. 
+.br
+서버 동작 전반을 관리합니다\&. 
+.br
+각 단계에서의 오류를 나타내는 결과 상태 값(Result)을 제공합니다\&. 
+.PP
+\fBMultiServer\&.h\fP 파일의 \fB33\fP 번째 라인에서 정의되었습니다\&.
+.SH "멤버 열거형 문서화"
+.PP 
+.SS "enum class \fBMultiServer::Result\fP\fR [strong]\fP"
+
+.PP
+\fB열거형 멤버\fP
+.in +1c
+.TP
+\f(BISUCCESS \fP
+서버 작업(시작 또는 루프)이 성공적으로 완료됨\&. 
+.TP
+\f(BIFAIL_START \fP
+서버 시작에 실패함 (예: 포트를 바인드하거나 리슨하지 못함)\&. 
+.TP
+\f(BIFAIL_LOOP \fP
+서버 메인 루프 실행 중 오류 발생\&.(예 : select 실패)\&. 
+.TP
+\f(BISERVER_STOPPED \fP
+서버가 정상적으로 중지됨 (메인 루프 종료 신호로 사용)\&. 
+.PP
+\fBMultiServer\&.h\fP 파일의 \fB40\fP 번째 라인에서 정의되었습니다\&.
+.SH "생성자 & 소멸자 문서화"
+.PP 
+.SS "MultiServer::MultiServer (int port)\fR [explicit]\fP"
+
+.PP
+지정된 포트 번호로 MultiServer를 생성합니다\&. 
+.PP
+\fB매개변수\fP
+.RS 4
+\fI[IN]\fP int port : 서버가 클라이언트 연결을 대기할 TCP 포트 번호\&. 
+.RE
+.PP
+\fB반환값\fP
+.RS 4
+없음\&.
+.RE
+.PP
+내부 구성 요소들(리스닝 소켓, 관리 객체 등)을 초기화합니다\&. 
+.br
+서버는 아직 시작되지 않은 상태입니다\&. 
+.br
+서버를 실제로 시작하려면 \fBstartServer()\fP를 호출해야 합니다\&. 
+.PP
+\fBMultiServer\&.cpp\fP 파일의 \fB14\fP 번째 라인에서 정의되었습니다\&.
+.SS "MultiServer::~MultiServer ()"
+
+.PP
+소멸자\&. 서버 리소스를 정리합니다\&. 
+.PP
+\fB반환값\fP
+.RS 4
+없음\&. 
+.RE
+.PP
+\fB주의\fP
+.RS 4
+소멸 시 서버가 중지되고 모든 소켓이 닫혀있어야 합니다\&. 
+.br
+관리하던 구성 요소들은 각각의 소멸자를 통해 정리됩니다\&. 
+.RE
+.PP
+
+.PP
+\fBMultiServer\&.cpp\fP 파일의 \fB20\fP 번째 라인에서 정의되었습니다\&.
+.SS "MultiServer::MultiServer (const \fBMultiServer\fP & obj)\fR [delete]\fP"
+
+.SS "MultiServer::MultiServer (\fBMultiServer\fP && obj)\fR [delete]\fP"
+
+.SH "멤버 함수 문서화"
+.PP 
+.SS "void MultiServer::announceJoin (int client_index)\fR [private]\fP"
+
+.PP
+새로운 클라이언트가 참가했음을 모든 클라이언트에게 알립니다\&. 
+.PP
+\fB매개변수\fP
+.RS 4
+\fI[IN]\fP int client_index : 새로 참가한 클라이언트의 인덱스\&. 
+.RE
+.PP
+\fB반환값\fP
+.RS 4
+없음\&.
+.RE
+.PP
+새로 참여한 클라이언트를 제외한 나머지 모든 클라이언트들에게 
+.br
+해당 클라이언트가 채팅방에 참여했음을 알리는 메시지를 전송합니다\&. 
+.PP
+\fBMultiServer\&.cpp\fP 파일의 \fB247\fP 번째 라인에서 정의되었습니다\&.
+.SS "void MultiServer::announceLeave (int client_index)\fR [private]\fP"
+
+.PP
+특정 클라이언트가 떠났음을 모든 클라이언트에게 알립니다\&. 
+.PP
+\fB매개변수\fP
+.RS 4
+\fI[IN]\fP int client_index : 떠나는 클라이언트의 인덱스\&. 
+.RE
+.PP
+\fB반환값\fP
+.RS 4
+없음\&.
+.RE
+.PP
+나머지 클라이언트들에게 주어진 인덱스의 클라이언트가 채팅을 떠났음을 알리는 메시지를 방송합니다\&. 
+.PP
+\fBMultiServer\&.cpp\fP 파일의 \fB263\fP 번째 라인에서 정의되었습니다\&.
+.SS "bool MultiServer::handleClientMessage (int client_index)\fR [private]\fP"
+
+.PP
+지정된 인덱스의 클라이언트로부터 들어온 메시지를 처리합니다\&. 
+.PP
+\fB매개변수\fP
+.RS 4
+\fI[IN]\fP int client_index : ClientManager에서 관리하는 클라이언트의 인덱스\&. 
+.RE
+.PP
+\fB반환값\fP
+.RS 4
+bool : 클라이언트 메시지를 성공적으로 처리한 경우 true를 반환하고, 연결 종료가 필요하면 false를 반환합니다 (예: "quit")\&.
+.RE
+.PP
+메인 루프에서 클라이언트 소켓에 읽기 이벤트가 발생하면 호출됩니다\&. 
+.br
+MessageReceiver를 사용하여 해당 클라이언트의 메시지를 받아옵니다\&. 
+.br
+클라이언트가 quit 명령을 보내거나 연결이 끊어진 경우 적절히 처리합니다\&. 
+.br
+외에 정상적인 메세지는 MessageSender를 통해 다른 클라이언트들에게 메시지를 전달합니다\&. 
+.br
+함수가 false를 반환하면 해당 클라이언트를 제거해야 함을 의미합니다\&. 
+.PP
+\fBMultiServer\&.cpp\fP 파일의 \fB172\fP 번째 라인에서 정의되었습니다\&.
+.SS "bool MultiServer::handleNewConnection ()\fR [private]\fP"
+
+.PP
+새로운 클라이언트 연결을 수락하여 ClientManager에 등록합니다\&. 
+.PP
+\fB반환값\fP
+.RS 4
+bool : 새로운 클라이언트를 성공적으로 추가했으면 true, accept 실패 또는 최대 클라이언트 초과 시 false\&.
+.RE
+.PP
+메인 루프 내부에서 새로운 연결 발생이 감지되었을 때 호출됩니다\&. 
+.br
+TCPSocket을 통해 연결을 accept하고 ClientManager에 등록합니다\&. 
+.br
+새 클라이언트에게 환영 메시지를 보내고 다른 클라이언트들에게 참여를 알립니다\&. 
+.PP
+\fBMultiServer\&.cpp\fP 파일의 \fB142\fP 번째 라인에서 정의되었습니다\&.
+.SS "bool MultiServer::isRunning () const"
+
+.PP
+서버가 현재 실행 중인지 여부를 확인합니다\&. 
+.PP
+\fB반환값\fP
+.RS 4
+bool : 서버가 시작되어 아직 중지되지 않았으면 true, 그 외의 경우 false\&. 
+.RE
+.PP
+
+.PP
+\fBMultiServer\&.cpp\fP 파일의 \fB137\fP 번째 라인에서 정의되었습니다\&.
+.SS "std::string MultiServer::makeWecomeMessage (const std::string & nickname, int connectedClientCount)\fR [private]\fP"
+
+.PP
+새로 연결된 클라이언트를 위한 환영 메시지를 생성합니다\&. 
+.PP
+\fB매개변수\fP
+.RS 4
+\fI[IN]\fP const std::string& nickname : 새 클라이언트의 닉네임\&. 
+.br
+\fI[IN]\fP int connectedClientCount : 현재 연결된 클라이언트의 총 수 (이번 클라이언트 포함)\&. 
+.RE
+.PP
+\fB반환값\fP
+.RS 4
+std::string 새 클라이언트를 위한 환영 메시지 문자열\&.
+.RE
+.PP
+=== 채팅 서버에 오신 것을 환영합니다! === 
+.br
+현재 접속자 수: <connectedClientCount>명 
+.br
+'quit'를 입력하면 종료됩니다\&. 
+.PP
+\fBMultiServer\&.cpp\fP 파일의 \fB277\fP 번째 라인에서 정의되었습니다\&.
+.SS "\fBMultiServer\fP & MultiServer::operator= (const \fBMultiServer\fP & obj)\fR [delete]\fP"
+
+.SS "\fBMultiServer\fP & MultiServer::operator= (\fBMultiServer\fP && obj)\fR [delete]\fP"
+
+.SS "\fBMultiServer::Result\fP MultiServer::runServerLoop ()"
+
+.PP
+메인 서버 루프를 실행하여 클라이언트 연결 및 메시지 처리를 수행합니다\&. 
+.PP
+\fB반환값\fP
+.RS 4
+\fBMultiServer::Result\fP : 정상 종료 시 SERVER_STOPPED, 오류로 루프가 종료되면 FAIL_LOOP\&.
+.RE
+.PP
+클라이언트 추가, 메시지 송수신, 에러 처리 등을 수행합니다\&. select()를 사용하여 소켓들의 상태를 감시하는 루프에 진입합니다\&.
+.IP "\(bu" 2
+새로운 클라이언트 연결을 받아들입니다\&. (ClientManager에 등록)\&.
+.IP "\(bu" 2
+기존 클라이언트들의 메시지를 수신합니다\&. (\fBMessageReceiver\fP 사용)\&.
+.IP "\(bu" 2
+클라이언트에게 받은 메시지를 다른 클라이언트들에게 전달합니다\&. (\fBMessageSender\fP 사용)\&. \fR\fBstop()\fP\fP이 호출되거나 치명적인 오류가 발생할 때까지 루프를 지속합니다\&. 
+.PP
+
+.PP
+\fBMultiServer\&.cpp\fP 파일의 \fB54\fP 번째 라인에서 정의되었습니다\&.
+.SS "void MultiServer::sendWelcomeMessage (int client_index)\fR [private]\fP"
+
+.PP
+새로 연결된 클라이언트에게 환영 메시지를 보냅니다\&. 
+.PP
+\fB매개변수\fP
+.RS 4
+\fI[IN]\fP int client_index : ClientManager에서 할당한 새 클라이언트의 인덱스\&. 
+.RE
+.PP
+\fB반환값\fP
+.RS 4
+없음\&.
+.RE
+.PP
+새로 연결된 클라이언트의 닉네임과 현재 접속 중인 클라이언트 수를 포함한 
+.br
+환영 메시지를 생성하여 해당 클라이언트에게 전송합니다\&. 
+.PP
+\fBMultiServer\&.cpp\fP 파일의 \fB225\fP 번째 라인에서 정의되었습니다\&.
+.SS "\fBMultiServer::Result\fP MultiServer::startServer ()"
+
+.PP
+서버를 시작하여 리스닝 소켓을 초기화하고 클라이언트 수신을 시작합니다\&. 
+.PP
+\fB반환값\fP
+.RS 4
+\fBMultiServer::Result\fP : 서버 리스닝을 시작했으면 SUCCESS, 실패하면 FAIL_START (예: 소켓 오류 등)\&.
+.RE
+.PP
+TCP 리스닝 소켓을 설정합니다(지정된 포트에 바인드하고 listen 호출)\&. 
+.br
+성공하면 서버가 클라이언트 연결 대기 상태가 됩니다\&. 
+.PP
+\fBMultiServer\&.cpp\fP 파일의 \fB26\fP 번째 라인에서 정의되었습니다\&.
+.SS "void MultiServer::stop ()"
+
+.PP
+서버에 더 이상 새로운 연결을 받지 말고 메인 루프를 종료하도록 신호를 보냅니다\&. 
+.PP
+\fB반환값\fP
+.RS 4
+없음\&.
+.RE
+.PP
+\fB주의\fP
+.RS 4
+이 함수를 호출하면 내부적으로 서버 종료 플래그를 설정합니다\&. 
+.br
+루프가 종료되고 자원이 해제됩니다\&. 
+.RE
+.PP
+
+.PP
+\fBMultiServer\&.cpp\fP 파일의 \fB128\fP 번째 라인에서 정의되었습니다\&.
+.SH "멤버 데이터 문서화"
+.PP 
+.SS "\fBClientManager\fP MultiServer::_clientManager\fR [private]\fP"
+
+.PP
+연결된 클라이언트 소켓들과 별칭을 관리하는 객체\&. 
+.PP
+\fBMultiServer\&.h\fP 파일의 \fB130\fP 번째 라인에서 정의되었습니다\&.
+.SS "bool MultiServer::_isRunning\fR [private]\fP"
+
+.PP
+서버 루프 실행 여부를 나타내는 플래그\&. 
+.PP
+\fBMultiServer\&.h\fP 파일의 \fB136\fP 번째 라인에서 정의되었습니다\&.
+.SS "\fBMessageSender\fP MultiServer::_messageSender\fR [private]\fP"
+
+.PP
+서버에서 클라이언트들에게 메시지를 보내는 객체\&. 
+.PP
+\fBMultiServer\&.h\fP 파일의 \fB134\fP 번째 라인에서 정의되었습니다\&.
+.SS "int MultiServer::_port\fR [private]\fP"
+
+.PP
+서버가 수신 대기하는 TCP 포트 번호\&. 
+.PP
+\fBMultiServer\&.h\fP 파일의 \fB126\fP 번째 라인에서 정의되었습니다\&.
+.SS "\fBSelectManager\fP MultiServer::_selectManager\fR [private]\fP"
+
+.PP
+fd_set 구성 및 select() 호출하는 객체\&. 
+.PP
+\fBMultiServer\&.h\fP 파일의 \fB132\fP 번째 라인에서 정의되었습니다\&.
+.SS "\fBTCPSocket\fP MultiServer::_tcpSocket\fR [private]\fP"
+
+.PP
+리스닝(클라이언트 받기용) TCP 소켓(create, bind, listen, accept 관리)\&. 
+.PP
+\fBMultiServer\&.h\fP 파일의 \fB128\fP 번째 라인에서 정의되었습니다\&.
+
+.SH "작성자"
+.PP 
+소스 코드로부터 ChatMultiServerDoxygen를 위해 Doxygen에 의해 자동으로 생성됨\&.

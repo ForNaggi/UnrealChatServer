@@ -1,0 +1,108 @@
+.TH "SocketBuild/MemoryLeakHelper.h" 3 "Version 1.0.0" "ChatMultiServerDoxygen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SocketBuild/MemoryLeakHelper.h \- 디버그 모드(MSVC 전용)의 메모리 누수 감지 유틸리티\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <stdlib\&.h>\fP
+.br
+\fR#include <crtdbg\&.h>\fP
+.br
+
+.SS "매크로"
+
+.in +1c
+.ti -1c
+.RI "#define \fB_CRTDBG_MAP_ALLOC\fP"
+.br
+.ti -1c
+.RI "#define \fBDBG_NEW\fP   \fBnew\fP ( _NORMAL_BLOCK , __FILE__ , __LINE__ )"
+.br
+.RI "new 연산자를 대체하여 파일과 라인 정보를 포함시키는 매크로 (디버그 모드)\&. "
+.ti -1c
+.RI "#define \fBnew\fP   \fBDBG_NEW\fP"
+.br
+.RI "디버그 빌드에서 전역 new를 DBG_NEW로 재정의\&. "
+.ti -1c
+.RI "#define \fBRUN_MEMORY_LEAK_CHECK\fP   \fBmemory_leak_check\fP()"
+.br
+.RI "\fBmemory_leak_check()\fP 함수를 실행하는 매크로 (디버그 모드 전용)\&. "
+.in -1c
+.SS "함수"
+
+.in +1c
+.ti -1c
+.RI "void \fBmemory_leak_check\fP ()"
+.br
+.RI "프로그램 종료 시 메모리 누수를 확인합니다 (디버그 모드 전용)\&. "
+.in -1c
+.SH "상세한 설명"
+.PP 
+디버그 모드(MSVC 전용)의 메모리 누수 감지 유틸리티\&. 
+
+
+.PP
+\fB작성자\fP
+.RS 4
+최성락 
+.RE
+.PP
+\fB날짜\fP
+.RS 4
+2025-06-17
+.RE
+.PP
+디버그 모드에서 메모리 할당 추적과 종료 시 누수 체크를 가능하게 하는 매크로와 함수를 정의합니다\&. 
+.br
+(릴리스 모드에서는 효과가 없습니다\&.) 
+.PP
+\fBMemoryLeakHelper\&.h\fP 파일에서 정의되었습니다\&.
+.SH "매크로 문서화"
+.PP 
+.SS "#define _CRTDBG_MAP_ALLOC"
+
+.PP
+\fBMemoryLeakHelper\&.h\fP 파일의 \fB18\fP 번째 라인에서 정의되었습니다\&.
+.SS "#define DBG_NEW   \fBnew\fP ( _NORMAL_BLOCK , __FILE__ , __LINE__ )"
+
+.PP
+new 연산자를 대체하여 파일과 라인 정보를 포함시키는 매크로 (디버그 모드)\&. 디버그 빌드에서는 MSVC의 디버그 힙 할당을 사용하여 파일/라인 정보를 기록합니다\&. 
+.br
+예: \fRnew MyObject()\fP를 사용하면 \fRDBG_NEW MyObject()\fP로 확장됩니다\&. 
+.PP
+\fBMemoryLeakHelper\&.h\fP 파일의 \fB32\fP 번째 라인에서 정의되었습니다\&.
+.SS "#define new   \fBDBG_NEW\fP"
+
+.PP
+디버그 빌드에서 전역 new를 DBG_NEW로 재정의\&. 
+.PP
+\fBMemoryLeakHelper\&.h\fP 파일의 \fB34\fP 번째 라인에서 정의되었습니다\&.
+.SS "#define RUN_MEMORY_LEAK_CHECK   \fBmemory_leak_check\fP()"
+
+.PP
+\fBmemory_leak_check()\fP 함수를 실행하는 매크로 (디버그 모드 전용)\&. 이 매크로를 추가하면 프로그램 종료 시 자동으로 메모리 누수 체크를 수행합니다\&. 
+.PP
+\fBMemoryLeakHelper\&.h\fP 파일의 \fB60\fP 번째 라인에서 정의되었습니다\&.
+.SH "함수 문서화"
+.PP 
+.SS "void memory_leak_check ()\fR [inline]\fP"
+
+.PP
+프로그램 종료 시 메모리 누수를 확인합니다 (디버그 모드 전용)\&. 
+.PP
+\fB반환값\fP
+.RS 4
+없음\&.
+.RE
+.PP
+이 함수를 (또는 RUN_MEMORY_LEAK_CHECK 매크로를) 프로그램 종료 시 호출하면 메모리 누수 리포트를 출력합니다\&. 
+.br
+내부적으로 CRT 플래그를 설정하여 종료 시 메모리 누수를 덤프합니다\&. 
+.PP
+\fBMemoryLeakHelper\&.h\fP 파일의 \fB46\fP 번째 라인에서 정의되었습니다\&.
+.SH "작성자"
+.PP 
+소스 코드로부터 ChatMultiServerDoxygen를 위해 Doxygen에 의해 자동으로 생성됨\&.

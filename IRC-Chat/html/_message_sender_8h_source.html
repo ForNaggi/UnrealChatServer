@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ChatMultiServerDoxygen: SocketBuild/MessageSender.h 소스 파일</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ChatMultiServerDoxygen<span id="projectnumber">&#160;1.0.0</span>
+   </div>
+   <div id="projectbrief">this is the synopsis</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','검색',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('_message_sender_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">로딩중...</div>
+<div class="SRStatus" id="Searching">검색중...</div>
+<div class="SRStatus" id="NoMatches">일치하는것 없음</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">MessageSender.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_message_sender_8h.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#pragma execution_character_set(&quot;utf-8&quot;)</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;WinSock2.h&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span></div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="class_message_sender.html">   33</a></span><span class="keyword">class </span><a class="code hl_function" href="class_message_sender.html#aa321d0dc36acf6be88aef94bb5034394">MessageSender</a></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>{</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_message_sender.html#a5248ffecb79f289d82d1b36cc818b07c">   37</a></span>        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_variable" href="class_message_sender.html#a5248ffecb79f289d82d1b36cc818b07c">NEW_LINE</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="};">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_message_sender.html#a39e62bd3398a07e5fddfa8f1e4d4b0f6">   44</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="class_message_sender.html#a39e62bd3398a07e5fddfa8f1e4d4b0f6">Result</a></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="class_message_sender.html#a39e62bd3398a07e5fddfa8f1e4d4b0f6ad0749aaba8b833466dfcbb0428e4f89c">   47</a></span>            <a class="code hl_enumvalue" href="class_message_sender.html#a39e62bd3398a07e5fddfa8f1e4d4b0f6ad0749aaba8b833466dfcbb0428e4f89c">SUCCESS</a>,     </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="class_message_sender.html#a39e62bd3398a07e5fddfa8f1e4d4b0f6abd102e4c73a7f738259a9a01637ab64b">   48</a></span>            <a class="code hl_enumvalue" href="class_message_sender.html#a39e62bd3398a07e5fddfa8f1e4d4b0f6abd102e4c73a7f738259a9a01637ab64b">PARTIAL_FAIL</a>,   </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="class_message_sender.html#a39e62bd3398a07e5fddfa8f1e4d4b0f6a7628844138ab8556995e305083582f2e">   49</a></span>            <a class="code hl_enumvalue" href="class_message_sender.html#a39e62bd3398a07e5fddfa8f1e4d4b0f6a7628844138ab8556995e305083582f2e">TOTAL_FAIL</a>,       </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        };</div>
+</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <a class="code hl_function" href="class_message_sender.html#aa321d0dc36acf6be88aef94bb5034394">MessageSender</a>();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <a class="code hl_function" href="class_message_sender.html#a27a5403473e3a612c6769ff592b401fc">~MessageSender</a>();</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="comment">// 복사 생성자 및 복사 할당 연산자 삭제.</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="class_message_sender.html#ae3c3abe62e05f12d7790f7b7555d2e66">   70</a></span>        <a class="code hl_function" href="class_message_sender.html#ae3c3abe62e05f12d7790f7b7555d2e66">MessageSender</a>(<span class="keyword">const</span> <a class="code hl_function" href="class_message_sender.html#aa321d0dc36acf6be88aef94bb5034394">MessageSender</a>&amp; obj) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="class_message_sender.html#a5dbebdee78d2aa2ecdfaa4c13a097d1f">   71</a></span>        <a class="code hl_function" href="class_message_sender.html#aa321d0dc36acf6be88aef94bb5034394">MessageSender</a>&amp; <a class="code hl_function" href="class_message_sender.html#a5dbebdee78d2aa2ecdfaa4c13a097d1f">operator=</a>(<span class="keyword">const</span> <a class="code hl_function" href="class_message_sender.html#aa321d0dc36acf6be88aef94bb5034394">MessageSender</a>&amp; obj) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="comment">// 이동 생성자 및 이동 할당 연산자 삭제.</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="class_message_sender.html#aa869c6d4d97fc57612cb6b2c908a9ceb">   74</a></span>        <a class="code hl_function" href="class_message_sender.html#aa869c6d4d97fc57612cb6b2c908a9ceb">MessageSender</a>(<a class="code hl_function" href="class_message_sender.html#aa321d0dc36acf6be88aef94bb5034394">MessageSender</a>&amp;&amp; obj) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="class_message_sender.html#aa70980a491224c0b2fc2721df809ebb8">   75</a></span>        <a class="code hl_function" href="class_message_sender.html#aa321d0dc36acf6be88aef94bb5034394">MessageSender</a>&amp; <a class="code hl_function" href="class_message_sender.html#aa70980a491224c0b2fc2721df809ebb8">operator=</a>(<a class="code hl_function" href="class_message_sender.html#aa321d0dc36acf6be88aef94bb5034394">MessageSender</a>&amp;&amp; obj) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <a class="code hl_enumeration" href="class_message_sender.html#a39e62bd3398a07e5fddfa8f1e4d4b0f6">MessageSender::Result</a> <a class="code hl_function" href="class_message_sender.html#a3f6af29e17dde94dd77185894269507a">broadcast</a>(<span class="keyword">const</span> std::string&amp; message, SOCKET* sockets, <span class="keywordtype">int</span> socket_count);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <a class="code hl_enumeration" href="class_message_sender.html#a39e62bd3398a07e5fddfa8f1e4d4b0f6">MessageSender::Result</a> <a class="code hl_function" href="class_message_sender.html#a443ea21c185f7696656d0cf96b056069">multicast</a>(<span class="keyword">const</span> std::string&amp; message, SOCKET* sockets, <span class="keywordtype">int</span> socket_count, SOCKET except_socket);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="class_message_sender.html#a67e3eb7b76c96cfb8e27830d0b8df1b0">unicast</a>(<span class="keyword">const</span> std::string&amp; message, SOCKET target_socket);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        std::string <a class="code hl_function" href="class_message_sender.html#a63e61042531f4ee9721ca9574abf3c1a">formatMessage</a>(<span class="keyword">const</span> std::string&amp; message) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="class_message_sender.html#a15c206bd3902e00d02e8ef76ffb7bfef">sendMessage</a>(<span class="keyword">const</span> std::string&amp; formatted_mssage, SOCKET target_socket);</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>};</div>
+</div>
+<div class="ttc" id="aclass_message_sender_html_a15c206bd3902e00d02e8ef76ffb7bfef"><div class="ttname"><a href="class_message_sender.html#a15c206bd3902e00d02e8ef76ffb7bfef">MessageSender::sendMessage</a></div><div class="ttdeci">bool sendMessage(const std::string &amp;formatted_mssage, SOCKET target_socket)</div><div class="ttdoc">이미 포맷된 메시지를 특정 클라이언트 소켓으로 전송합니다.</div><div class="ttdef"><b>Definition</b> <a href="_message_sender_8cpp_source.html#l00134">MessageSender.cpp:134</a></div></div>
+<div class="ttc" id="aclass_message_sender_html_a27a5403473e3a612c6769ff592b401fc"><div class="ttname"><a href="class_message_sender.html#a27a5403473e3a612c6769ff592b401fc">MessageSender::~MessageSender</a></div><div class="ttdeci">~MessageSender()</div><div class="ttdoc">소멸자.</div><div class="ttdef"><b>Definition</b> <a href="_message_sender_8cpp_source.html#l00020">MessageSender.cpp:20</a></div></div>
+<div class="ttc" id="aclass_message_sender_html_a39e62bd3398a07e5fddfa8f1e4d4b0f6"><div class="ttname"><a href="class_message_sender.html#a39e62bd3398a07e5fddfa8f1e4d4b0f6">MessageSender::Result</a></div><div class="ttdeci">Result</div><div class="ttdef"><b>Definition</b> <a href="#l00044">MessageSender.h:45</a></div></div>
+<div class="ttc" id="aclass_message_sender_html_a39e62bd3398a07e5fddfa8f1e4d4b0f6a7628844138ab8556995e305083582f2e"><div class="ttname"><a href="class_message_sender.html#a39e62bd3398a07e5fddfa8f1e4d4b0f6a7628844138ab8556995e305083582f2e">MessageSender::Result::TOTAL_FAIL</a></div><div class="ttdeci">@ TOTAL_FAIL</div><div class="ttdoc">메시지를 어떤 대상에게도 보내지 못함.</div><div class="ttdef"><b>Definition</b> <a href="#l00049">MessageSender.h:49</a></div></div>
+<div class="ttc" id="aclass_message_sender_html_a39e62bd3398a07e5fddfa8f1e4d4b0f6abd102e4c73a7f738259a9a01637ab64b"><div class="ttname"><a href="class_message_sender.html#a39e62bd3398a07e5fddfa8f1e4d4b0f6abd102e4c73a7f738259a9a01637ab64b">MessageSender::Result::PARTIAL_FAIL</a></div><div class="ttdeci">@ PARTIAL_FAIL</div><div class="ttdoc">메시지가 일부 대상에게만 전송되고 일부 대상에게는 전송 실패함.</div><div class="ttdef"><b>Definition</b> <a href="#l00048">MessageSender.h:48</a></div></div>
+<div class="ttc" id="aclass_message_sender_html_a39e62bd3398a07e5fddfa8f1e4d4b0f6ad0749aaba8b833466dfcbb0428e4f89c"><div class="ttname"><a href="class_message_sender.html#a39e62bd3398a07e5fddfa8f1e4d4b0f6ad0749aaba8b833466dfcbb0428e4f89c">MessageSender::Result::SUCCESS</a></div><div class="ttdeci">@ SUCCESS</div><div class="ttdoc">모든 대상에게 메시지를 성공적으로 전송함.</div><div class="ttdef"><b>Definition</b> <a href="#l00047">MessageSender.h:47</a></div></div>
+<div class="ttc" id="aclass_message_sender_html_a3f6af29e17dde94dd77185894269507a"><div class="ttname"><a href="class_message_sender.html#a3f6af29e17dde94dd77185894269507a">MessageSender::broadcast</a></div><div class="ttdeci">MessageSender::Result broadcast(const std::string &amp;message, SOCKET *sockets, int socket_count)</div><div class="ttdoc">모든 클라이언트에게 메시지를 전송합니다.</div><div class="ttdef"><b>Definition</b> <a href="_message_sender_8cpp_source.html#l00025">MessageSender.cpp:25</a></div></div>
+<div class="ttc" id="aclass_message_sender_html_a443ea21c185f7696656d0cf96b056069"><div class="ttname"><a href="class_message_sender.html#a443ea21c185f7696656d0cf96b056069">MessageSender::multicast</a></div><div class="ttdeci">MessageSender::Result multicast(const std::string &amp;message, SOCKET *sockets, int socket_count, SOCKET except_socket)</div><div class="ttdoc">특정 클라이언트를 제외한 모든 클라이언트에게 메시지를 보냅니다.</div><div class="ttdef"><b>Definition</b> <a href="_message_sender_8cpp_source.html#l00066">MessageSender.cpp:66</a></div></div>
+<div class="ttc" id="aclass_message_sender_html_a5248ffecb79f289d82d1b36cc818b07c"><div class="ttname"><a href="class_message_sender.html#a5248ffecb79f289d82d1b36cc818b07c">MessageSender::NEW_LINE</a></div><div class="ttdeci">static const char * NEW_LINE</div><div class="ttdoc">메시지 끝에 붙일 개행 구분자 (소스 파일에서 정의됨).</div><div class="ttdef"><b>Definition</b> <a href="#l00037">MessageSender.h:37</a></div></div>
+<div class="ttc" id="aclass_message_sender_html_a5dbebdee78d2aa2ecdfaa4c13a097d1f"><div class="ttname"><a href="class_message_sender.html#a5dbebdee78d2aa2ecdfaa4c13a097d1f">MessageSender::operator=</a></div><div class="ttdeci">MessageSender &amp; operator=(const MessageSender &amp;obj)=delete</div></div>
+<div class="ttc" id="aclass_message_sender_html_a63e61042531f4ee9721ca9574abf3c1a"><div class="ttname"><a href="class_message_sender.html#a63e61042531f4ee9721ca9574abf3c1a">MessageSender::formatMessage</a></div><div class="ttdeci">std::string formatMessage(const std::string &amp;message) const</div><div class="ttdoc">주어진 메시지 끝에 개행 문자를 추가한 문자열을 반환합니다.</div><div class="ttdef"><b>Definition</b> <a href="_message_sender_8cpp_source.html#l00128">MessageSender.cpp:128</a></div></div>
+<div class="ttc" id="aclass_message_sender_html_a67e3eb7b76c96cfb8e27830d0b8df1b0"><div class="ttname"><a href="class_message_sender.html#a67e3eb7b76c96cfb8e27830d0b8df1b0">MessageSender::unicast</a></div><div class="ttdeci">bool unicast(const std::string &amp;message, SOCKET target_socket)</div><div class="ttdoc">하나의 클라이언트 소켓에만 메시지를 전송합니다.</div><div class="ttdef"><b>Definition</b> <a href="_message_sender_8cpp_source.html#l00116">MessageSender.cpp:116</a></div></div>
+<div class="ttc" id="aclass_message_sender_html_aa321d0dc36acf6be88aef94bb5034394"><div class="ttname"><a href="class_message_sender.html#aa321d0dc36acf6be88aef94bb5034394">MessageSender::MessageSender</a></div><div class="ttdeci">MessageSender()</div><div class="ttdoc">MessageSender 생성자.</div><div class="ttdef"><b>Definition</b> <a href="_message_sender_8cpp_source.html#l00015">MessageSender.cpp:15</a></div></div>
+<div class="ttc" id="aclass_message_sender_html_aa70980a491224c0b2fc2721df809ebb8"><div class="ttname"><a href="class_message_sender.html#aa70980a491224c0b2fc2721df809ebb8">MessageSender::operator=</a></div><div class="ttdeci">MessageSender &amp; operator=(MessageSender &amp;&amp;obj)=delete</div></div>
+<div class="ttc" id="aclass_message_sender_html_aa869c6d4d97fc57612cb6b2c908a9ceb"><div class="ttname"><a href="class_message_sender.html#aa869c6d4d97fc57612cb6b2c908a9ceb">MessageSender::MessageSender</a></div><div class="ttdeci">MessageSender(MessageSender &amp;&amp;obj)=delete</div></div>
+<div class="ttc" id="aclass_message_sender_html_ae3c3abe62e05f12d7790f7b7555d2e66"><div class="ttname"><a href="class_message_sender.html#ae3c3abe62e05f12d7790f7b7555d2e66">MessageSender::MessageSender</a></div><div class="ttdeci">MessageSender(const MessageSender &amp;obj)=delete</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_abbf5edca481bc51d1cdb4c1a782205f.html">SocketBuild</a></li><li class="navelem"><a href="_message_sender_8h.html">MessageSender.h</a></li>
+    <li class="footer">다음에 의해 생성됨 :  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

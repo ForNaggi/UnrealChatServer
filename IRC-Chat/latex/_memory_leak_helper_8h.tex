@@ -1,0 +1,122 @@
+\doxysection{Socket\+Build/\+Memory\+Leak\+Helper.h 파일 참조}
+\hypertarget{_memory_leak_helper_8h}{}\label{_memory_leak_helper_8h}\index{SocketBuild/MemoryLeakHelper.h@{SocketBuild/MemoryLeakHelper.h}}
+
+
+디버그 모드(MSVC 전용)의 메모리 누수 감지 유틸리티.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$crtdbg.\+h$>$}\newline
+\doxysubsubsection*{매크로}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_memory_leak_helper_8h_afc30e481f763a8d68a861dba91be7316}{\+\_\+\+CRTDBG\+\_\+\+MAP\+\_\+\+ALLOC}}
+\item 
+\#define \mbox{\hyperlink{_memory_leak_helper_8h_a95d1b97f67f97c7e0f27519372822f43}{DBG\+\_\+\+NEW}}~\mbox{\hyperlink{_memory_leak_helper_8h_a1ac41480eb2e4aadd52252ee550b630a}{new}} ( \+\_\+\+NORMAL\+\_\+\+BLOCK , \+\_\+\+\_\+\+FILE\+\_\+\+\_\+ , \+\_\+\+\_\+\+LINE\+\_\+\+\_\+ )
+\begin{DoxyCompactList}\small\item\em new 연산자를 대체하여 파일과 라인 정보를 포함시키는 매크로 (디버그 모드). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_memory_leak_helper_8h_a1ac41480eb2e4aadd52252ee550b630a}{new}}~\mbox{\hyperlink{_memory_leak_helper_8h_a95d1b97f67f97c7e0f27519372822f43}{DBG\+\_\+\+NEW}}
+\begin{DoxyCompactList}\small\item\em 디버그 빌드에서 전역 new를 DBG\+\_\+\+NEW로 재정의. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_memory_leak_helper_8h_aed504a95fefe9c384f266415fd3bb2fe}{RUN\+\_\+\+MEMORY\+\_\+\+LEAK\+\_\+\+CHECK}}~\mbox{\hyperlink{_memory_leak_helper_8h_aad3be9864b5d6e87802bbb352f265b8c}{memory\+\_\+leak\+\_\+check}}()
+\begin{DoxyCompactList}\small\item\em \doxylink{_memory_leak_helper_8h_aad3be9864b5d6e87802bbb352f265b8c}{memory\+\_\+leak\+\_\+check()} 함수를 실행하는 매크로 (디버그 모드 전용). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_memory_leak_helper_8h_aad3be9864b5d6e87802bbb352f265b8c}{memory\+\_\+leak\+\_\+check}} ()
+\begin{DoxyCompactList}\small\item\em 프로그램 종료 시 메모리 누수를 확인합니다 (디버그 모드 전용). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+디버그 모드(MSVC 전용)의 메모리 누수 감지 유틸리티. 
+
+\begin{DoxyAuthor}{작성자}
+최성락 
+\end{DoxyAuthor}
+\begin{DoxyDate}{날짜}
+2025-\/06-\/17
+\end{DoxyDate}
+디버그 모드에서 메모리 할당 추적과 종료 시 누수 체크를 가능하게 하는 매크로와 함수를 정의합니다. ~\newline
+(릴리스 모드에서는 효과가 없습니다.) 
+
+\mbox{\hyperlink{_memory_leak_helper_8h_source}{Memory\+Leak\+Helper.\+h}} 파일에서 정의되었습니다.
+
+
+
+\label{doc-define-members}
+\Hypertarget{_memory_leak_helper_8h_doc-define-members}
+\doxysubsection{매크로 문서화}
+\Hypertarget{_memory_leak_helper_8h_afc30e481f763a8d68a861dba91be7316}\index{MemoryLeakHelper.h@{MemoryLeakHelper.h}!\_CRTDBG\_MAP\_ALLOC@{\_CRTDBG\_MAP\_ALLOC}}
+\index{\_CRTDBG\_MAP\_ALLOC@{\_CRTDBG\_MAP\_ALLOC}!MemoryLeakHelper.h@{MemoryLeakHelper.h}}
+\doxysubsubsection{\texorpdfstring{\_CRTDBG\_MAP\_ALLOC}{\_CRTDBG\_MAP\_ALLOC}}
+{\footnotesize\ttfamily \label{_memory_leak_helper_8h_afc30e481f763a8d68a861dba91be7316} 
+\#define \+\_\+\+CRTDBG\+\_\+\+MAP\+\_\+\+ALLOC}
+
+
+
+\mbox{\hyperlink{_memory_leak_helper_8h_source}{Memory\+Leak\+Helper.\+h}} 파일의 \mbox{\hyperlink{_memory_leak_helper_8h_source_l00018}{18}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{_memory_leak_helper_8h_a95d1b97f67f97c7e0f27519372822f43}\index{MemoryLeakHelper.h@{MemoryLeakHelper.h}!DBG\_NEW@{DBG\_NEW}}
+\index{DBG\_NEW@{DBG\_NEW}!MemoryLeakHelper.h@{MemoryLeakHelper.h}}
+\doxysubsubsection{\texorpdfstring{DBG\_NEW}{DBG\_NEW}}
+{\footnotesize\ttfamily \label{_memory_leak_helper_8h_a95d1b97f67f97c7e0f27519372822f43} 
+\#define DBG\+\_\+\+NEW~\mbox{\hyperlink{_memory_leak_helper_8h_a1ac41480eb2e4aadd52252ee550b630a}{new}} ( \+\_\+\+NORMAL\+\_\+\+BLOCK , \+\_\+\+\_\+\+FILE\+\_\+\+\_\+ , \+\_\+\+\_\+\+LINE\+\_\+\+\_\+ )}
+
+
+
+new 연산자를 대체하여 파일과 라인 정보를 포함시키는 매크로 (디버그 모드). 
+
+디버그 빌드에서는 MSVC의 디버그 힙 할당을 사용하여 파일/라인 정보를 기록합니다. ~\newline
+예\+: {\ttfamily new My\+Object()}를 사용하면 {\ttfamily DBG\+\_\+\+NEW My\+Object()}로 확장됩니다. 
+
+\mbox{\hyperlink{_memory_leak_helper_8h_source}{Memory\+Leak\+Helper.\+h}} 파일의 \mbox{\hyperlink{_memory_leak_helper_8h_source_l00032}{32}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{_memory_leak_helper_8h_a1ac41480eb2e4aadd52252ee550b630a}\index{MemoryLeakHelper.h@{MemoryLeakHelper.h}!new@{new}}
+\index{new@{new}!MemoryLeakHelper.h@{MemoryLeakHelper.h}}
+\doxysubsubsection{\texorpdfstring{new}{new}}
+{\footnotesize\ttfamily \label{_memory_leak_helper_8h_a1ac41480eb2e4aadd52252ee550b630a} 
+\#define new~\mbox{\hyperlink{_memory_leak_helper_8h_a95d1b97f67f97c7e0f27519372822f43}{DBG\+\_\+\+NEW}}}
+
+
+
+디버그 빌드에서 전역 new를 DBG\+\_\+\+NEW로 재정의. 
+
+
+
+\mbox{\hyperlink{_memory_leak_helper_8h_source}{Memory\+Leak\+Helper.\+h}} 파일의 \mbox{\hyperlink{_memory_leak_helper_8h_source_l00034}{34}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{_memory_leak_helper_8h_aed504a95fefe9c384f266415fd3bb2fe}\index{MemoryLeakHelper.h@{MemoryLeakHelper.h}!RUN\_MEMORY\_LEAK\_CHECK@{RUN\_MEMORY\_LEAK\_CHECK}}
+\index{RUN\_MEMORY\_LEAK\_CHECK@{RUN\_MEMORY\_LEAK\_CHECK}!MemoryLeakHelper.h@{MemoryLeakHelper.h}}
+\doxysubsubsection{\texorpdfstring{RUN\_MEMORY\_LEAK\_CHECK}{RUN\_MEMORY\_LEAK\_CHECK}}
+{\footnotesize\ttfamily \label{_memory_leak_helper_8h_aed504a95fefe9c384f266415fd3bb2fe} 
+\#define RUN\+\_\+\+MEMORY\+\_\+\+LEAK\+\_\+\+CHECK~\mbox{\hyperlink{_memory_leak_helper_8h_aad3be9864b5d6e87802bbb352f265b8c}{memory\+\_\+leak\+\_\+check}}()}
+
+
+
+\doxylink{_memory_leak_helper_8h_aad3be9864b5d6e87802bbb352f265b8c}{memory\+\_\+leak\+\_\+check()} 함수를 실행하는 매크로 (디버그 모드 전용). 
+
+이 매크로를 추가하면 프로그램 종료 시 자동으로 메모리 누수 체크를 수행합니다. 
+
+\mbox{\hyperlink{_memory_leak_helper_8h_source}{Memory\+Leak\+Helper.\+h}} 파일의 \mbox{\hyperlink{_memory_leak_helper_8h_source_l00060}{60}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-func-members}
+\Hypertarget{_memory_leak_helper_8h_doc-func-members}
+\doxysubsection{함수 문서화}
+\Hypertarget{_memory_leak_helper_8h_aad3be9864b5d6e87802bbb352f265b8c}\index{MemoryLeakHelper.h@{MemoryLeakHelper.h}!memory\_leak\_check@{memory\_leak\_check}}
+\index{memory\_leak\_check@{memory\_leak\_check}!MemoryLeakHelper.h@{MemoryLeakHelper.h}}
+\doxysubsubsection{\texorpdfstring{memory\_leak\_check()}{memory\_leak\_check()}}
+{\footnotesize\ttfamily \label{_memory_leak_helper_8h_aad3be9864b5d6e87802bbb352f265b8c} 
+void memory\+\_\+leak\+\_\+check (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+프로그램 종료 시 메모리 누수를 확인합니다 (디버그 모드 전용). 
+
+\begin{DoxyReturn}{반환값}
+없음.
+\end{DoxyReturn}
+이 함수를 (또는 RUN\+\_\+\+MEMORY\+\_\+\+LEAK\+\_\+\+CHECK 매크로를) 프로그램 종료 시 호출하면 메모리 누수 리포트를 출력합니다. ~\newline
+내부적으로 CRT 플래그를 설정하여 종료 시 메모리 누수를 덤프합니다. 
+
+\mbox{\hyperlink{_memory_leak_helper_8h_source}{Memory\+Leak\+Helper.\+h}} 파일의 \mbox{\hyperlink{_memory_leak_helper_8h_source_l00046}{46}} 번째 라인에서 정의되었습니다.
+

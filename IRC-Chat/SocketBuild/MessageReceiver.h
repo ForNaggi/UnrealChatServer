@@ -1,93 +1,121 @@
-#pragma once
+ï»¿#pragma once
+#pragma execution_character_set("utf-8")
+
+/**
+ * @file MessageReceiver.h
+ * @brief í´ë¼ì´ì–¸íŠ¸ë¡œë¶€í„° ë“¤ì–´ì˜¤ëŠ” ë©”ì‹œì§€ë¥¼ ì²˜ë¦¬í•˜ëŠ” MessageReceiver í´ë˜ìŠ¤ë¥¼ ì„ ì–¸í•©ë‹ˆë‹¤.
+ * @author ìµœì„±ë½
+ * @date 2025-06-17
+ * 
+ * @details
+ * ë‹¨ì¼ í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ì—ì„œ ë©”ì‹œì§€ë¥¼ ìˆ˜ì‹ í•˜ê³  íŒŒì‹±í•˜ëŠ” ì—­í• ì„ ë‹´ë‹¹í•©ë‹ˆë‹¤.
+ * íŠ¹ì • ëª…ë ¹(ì˜ˆ: "quit")ì„ ê°ì§€í•˜ê³ , ëª…ë ¹ì— ë§ëŠ” ì—­í• ì„ ìˆ˜í–‰í•©ë‹ˆë‹¤.
+ */
 
 #include <winsock2.h>
 #include <string>
 
-/*
-** Å¬·¡½º¸í	:	MessageRecevier.
-** ¼³¸í		:	Å¬¶óÀÌ¾ğÆ®·ÎºÎÅÍ ¸Ş¼¼Áö ¼ö½ÅÀ» ´ã´çÇÏ´Â Å¬·¡½º.
-*               ¸Ş½ÃÁö ¼ö½Å, ÆÄ½Ì, ¸í·É¾î È®ÀÎ µî ¼ö½Å °ü·Ã Ã³¸® ´ã´ç.
-** ÃÊ±âÈ­	:	SOCKETÀ» ¸Å°³º¯¼ö·Î ¹Ş´Â »ı¼ºÀÚ¸¸ Çã¿ë.
-*/
-class MessageRecevier
+/**
+ * @class MessageReceiver
+ * @brief í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ìœ¼ë¡œë¶€í„° ë“¤ì–´ì˜¤ëŠ” ë©”ì‹œì§€ë¥¼ ì²˜ë¦¬í•˜ëŠ” í´ë˜ìŠ¤ì…ë‹ˆë‹¤.
+ *
+ * @details
+ * í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ì„ ì „ë‹¬ë°›ì•„ ê°ì²´ë¥¼ ìƒì„±í•©ë‹ˆë‹¤.
+ * <br>ì†Œì¼“ìœ¼ë¡œë¶€í„° ë©”ì‹œì§€ë¥¼ ìˆ˜ì‹ í•˜ì—¬ ì €ì¥í•˜ê³ , íŠ¹ë³„í•œ ëª…ë ¹(ì˜ˆ: ì¢…ë£Œ ìš”ì²­)ì´ ìˆëŠ”ì§€ í™•ì¸í•©ë‹ˆë‹¤. 
+ * <br>ê³ ì • í¬ê¸° ë²„í¼ë¥¼ ì‚¬ìš©í•˜ì—¬ ìˆ˜ì‹ ëœ ë°ì´í„°ë¥¼ ì²˜ë¦¬í•©ë‹ˆë‹¤.
+ */
+class MessageReceiver
 {
     public:
 
-        // ÇØ´ç Å¬·¡½ºÀÇ ¸Ş¼ÒµåÀÇ °á°ú¸¦ ³ªÅ¸³»´Â enum classÀÔ´Ï´Ù.
+        /**
+         * @enum MessageReceiver::Result
+         * @brief ë©”ì‹œì§€ ìˆ˜ì‹ ì˜ ê²°ê³¼ ìƒíƒœ ê°’.
+         */
         enum class Result
         {
-            SUCCESS,
-            FAIL_RECEIVE,
-            FAIL_SEND,
-            CLIENT_QUIT,
-            CLIENT_DISCONNECTED
+            SUCCESS,            ///< ë©”ì‹œì§€ ìˆ˜ì‹ ì— ì„±ê³µí•¨
+            FAIL_RECEIVE,       ///< ë©”ì‹œì§€ ìˆ˜ì‹ ì— ì‹¤íŒ¨í•¨(ì˜ˆ: recv ì˜¤ë¥˜)
+            FAIL_SEND,          ///< í•„ìš”í•œ ì‘ë‹µ ì „ì†¡ì— ì‹¤íŒ¨í•¨
+            CLIENT_QUIT,        ///< í´ë¼ì´ì–¸íŠ¸ê°€ quit ëª…ë ¹ì„ ë³´ëƒ„
+            CLIENT_DISCONNECTED ///< í´ë¼ì´ì–¸íŠ¸ ì—°ê²°ì´ ì˜ˆê¸°ì¹˜ ì•Šê²Œ ëŠì–´ì§
         };
-
-        /*
-        ** ¸Ş¼Òµå¸í	:	MessageRecevier.
-        ** ¼³¸í		:	MessageRecevier °´Ã¼ »ı¼ºÀÚ.
-        ** ÀÎÀÚ°ª	:	SOCKET client_socket : Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏ.
-        ** Ãâ·Â°ª	:	¾øÀ½.
-        */
-        explicit MessageRecevier(SOCKET client_socket);
-
-        /*
-        ** ¸Ş¼Òµå¸í	:	~MessageRecevier.
-        ** ¼³¸í		:	MessageRecevier °´Ã¼ ¼Ò¸êÀÚ.
-        ** ÀÎÀÚ°ª	:	¾øÀ½.
-        ** Ãâ·Â°ª	:	¾øÀ½.
-        */
-        ~MessageRecevier();
-
-        // º¹»ç »ı¼ºÀÚ ¹× º¹»ç ÇÒ´ç ¿¬»êÀÚ »èÁ¦.
-        MessageRecevier(const MessageRecevier& obj) = delete;
-        MessageRecevier& operator=(const MessageRecevier& obj) = delete;
-
-        // ÀÌµ¿ »ı¼ºÀÚ ¹× ÀÌµ¿ ÇÒ´ç ¿¬»êÀÚ »èÁ¦.
-        MessageRecevier(MessageRecevier&& obj) = delete;
-        MessageRecevier& operator=(MessageRecevier&& obj) = delete;
-
     public:
+        /**
+         * @fn MessageReceiver::MessageReceiver(SOCKET client_socket)
+         * @brief ì£¼ì–´ì§„ í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ì— ëŒ€í•œ MessageReceiver ê°ì²´ë¥¼ ìƒì„±í•©ë‹ˆë‹¤.
+         * @param[IN] SOCKET client_socket : ì´ ìˆ˜ì‹ ê¸°ê°€ ë©”ì‹œì§€ë¥¼ ë°›ì„ í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“.
+         * @return ì—†ìŒ.
+         * @note SOCKETì„ ì¸ìë¡œ ë°›ëŠ” ì´ ìƒì„±ìë§Œ ì‚¬ìš©í•  ìˆ˜ ìˆìœ¼ë©°, ë‚´ë¶€ ë³€ìˆ˜ ì´ˆê¸°í™”í•©ë‹ˆë‹¤.
+         */
+        explicit MessageReceiver(SOCKET client_socket);
 
-        /*
-        ** ¸Ş¼Òµå¸í	:	receiveMessage.
-        ** ¼³¸í		:	Å¬¶óÀÌ¾ğÆ®·ÎºÎÅÍ ¸Ş¼¼Áö¸¦ ¼ö½ÅÇÕ´Ï´Ù.
-        ** ÀÎÀÚ°ª	:	¾øÀ½.
-        ** Ãâ·Â°ª	:	MessageRecevier::Result : ¼º°ø/½ÇÆĞ °á°ú.
-        */
-        MessageRecevier::Result receiveMessage();
+        /**
+         * @fn MessageReceiver::~MessageReceiver()
+         * @brief ì†Œë©¸ì.
+         * @return ì—†ìŒ.
+         * @note í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ì€ ì™¸ë¶€ì—ì„œ ê´€ë¦¬ë˜ë¯€ë¡œ ì´ ì†Œë©¸ìëŠ” ì†Œì¼“ì„ ë‹«ì§€ ì•ŠìŠµë‹ˆë‹¤.
+         */
+        ~MessageReceiver();
 
-        /*
-        ** ¸Ş¼Òµå¸í	:	getLastMessage.
-        ** ¼³¸í		:	¸¶Áö¸·À¸·Î ¹ŞÀº ¸Ş½ÃÁö¸¦ ¹İÈ¯ÇÕ´Ï´Ù.
-        ** ÀÎÀÚ°ª	:	¾øÀ½.
-        ** Ãâ·Â°ª	:	const std::string& : ¸¶Áö¸· ¸Ş½ÃÁö.
-        */
+        // ë³µì‚¬ ìƒì„±ì ë° ë³µì‚¬ í• ë‹¹ ì—°ì‚°ì ì‚­ì œ.
+        MessageReceiver(const MessageReceiver& obj) = delete;
+        MessageReceiver& operator=(const MessageReceiver& obj) = delete;
+
+        // ì´ë™ ìƒì„±ì ë° ì´ë™ í• ë‹¹ ì—°ì‚°ì ì‚­ì œ.
+        MessageReceiver(MessageReceiver&& obj) = delete;
+        MessageReceiver& operator=(MessageReceiver&& obj) = delete;
+
+public:
+        /**
+         * @fn MessageReceiver::Result MessageReceiver::receiveMessage()
+         * @brief í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ìœ¼ë¡œë¶€í„° ë©”ì‹œì§€ë¥¼ ìˆ˜ì‹ í•˜ê³  ë‚´ë¶€ì— ì €ì¥í•©ë‹ˆë‹¤.
+         * @return MessageReceiver::Result ìˆ˜ì‹  ë™ì‘ì˜ ê²°ê³¼ ìƒíƒœ ê°’.
+         *
+         * @details
+         * í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ì—ì„œ ë°ì´í„°ë¥¼ ì½ì–´ë“¤ì…ë‹ˆë‹¤.
+         * <br>ì„±ê³µ ì‹œ í•´ë‹¹ ë°ì´í„°ë¥¼ ë‚´ë¶€ì— ì €ì¥í•˜ì—¬ getLastMessage()ë¡œ ì ‘ê·¼í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
+         * 
+         * @note
+         * - ë©”ì‹œì§€ê°€ ì •ìƒ ìˆ˜ì‹ ë˜ë©´ SUCCESS.
+         * - ìˆ˜ì‹ ëœ ë©”ì„¸ì§€ê°€ "quit" ì´ë©´ CLIENT_QUIT.
+         * - ì˜¤ë¥˜ ë°œìƒ ì‹œ ì ì ˆí•œ ìƒíƒœ ê°’.
+         */
+        MessageReceiver::Result receiveMessage();
+
+
+        /**
+         * @fn const std::string& MessageReceiver::getLastMessage() const
+         * @brief ë§ˆì§€ë§‰ìœ¼ë¡œ ìˆ˜ì‹ ëœ ë©”ì‹œì§€ë¥¼ ë°˜í™˜í•©ë‹ˆë‹¤.
+         * @return const std::string& : ì €ì¥ëœ ë§ˆì§€ë§‰ ë©”ì‹œì§€ ë¬¸ìì—´ì— ëŒ€í•œ ì°¸ì¡°.
+         */
         const std::string& getLastMessage() const;
 
-        /*
-        ** ¸Ş¼Òµå¸í	:	isQuitCommand.
-        ** ¼³¸í		:	¸Ş½ÃÁö°¡ "quit"ÀÎÁö È®ÀÎÇÕ´Ï´Ù.
-        ** ÀÎÀÚ°ª	:	const std::string& message : "quit"ÀÎÁö È®ÀÎÇÒ ¸Ş½ÃÁö.
-        ** Ãâ·Â°ª	:	bool : "quit"ÀÌ¸é true, ¾Æ´Ï¸é false.
-        */
-        bool isQuitCommand(const std::string& message);
+        /**
+         * @fn bool MessageReceiver::isQuitCommand(const std::string& message) const
+         * @brief ì£¼ì–´ì§„ ë©”ì‹œì§€ê°€ "quit" ëª…ë ¹ì¸ì§€ í™•ì¸í•©ë‹ˆë‹¤.
+         * @param[IN] const std::string& message : ê²€ì‚¬í•  ë©”ì‹œì§€ ë¬¸ìì—´.
+         * @return bool : í•´ë‹¹ ë©”ì‹œì§€ê°€ "quit"ì™€ ì¼ì¹˜í•˜ë©´ true, ì•„ë‹ˆë©´ false.
+         */
+        bool isQuitCommand(const std::string& message) const;
 
     private:
-        // Æ¯Á¤ Å¬¶óÀÌ¾ğÆ®¿Í Åë½ÅÇÏ´Â ¼ÒÄÏ.
+        /// @brief í†µì‹ ì— ì‚¬ìš©í•˜ëŠ” í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“.
         SOCKET _clientSocket;
 
-        // Å¬¶óÀÌ¾ğÆ®¿¡¼­ ¹ŞÀº ¸Ş¼¼Áö¸¦ ÀúÀåÇÏ´Â ¸â¹öº¯¼ö.
+        /// @brief ê°€ì¥ ìµœê·¼ì— ìˆ˜ì‹ í•œ ë©”ì‹œì§€.
         std::string _lastMessage;
 
-        // »ó¼ö ¹öÆÛ »çÀÌÁî.(recvÇÑ ¹ÙÀÌÆ®¸¦ ÀúÀåÇÒ ¹è¿­ÀÇ Å©±â).
+        /// ë°ì´í„° ìˆ˜ì‹ ì— ì‚¬ìš©í•˜ëŠ” ë²„í¼ í¬ê¸°(ë°”ì´íŠ¸ ë‹¨ìœ„).
         static const int BUFFER_SIZE = 1024;
 
-        /*
-        ** ¸Ş¼Òµå¸í	:	cleanMessage.
-        ** ¼³¸í		:	¸Ş½ÃÁö¿¡¼­ Ä³¸®Áö ¸®ÅÏÀ» Á¦°ÅÇÕ´Ï´Ù.
-        ** ÀÎÀÚ°ª	:	std::string& message : Á¤¸®ÇÒ ¸Ş½ÃÁö.
-        ** Ãâ·Â°ª	:	¾øÀ½.
-        */
+    private:
+        /**
+         * @fn void MessageReceiver::cleanMessage(std::string& message)
+         * @brief ìˆ˜ì‹ í•œ ë©”ì‹œì§€ ë¬¸ìì—´ì—ì„œ ìºë¦¬ì§€ ë¦¬í„´/ë‰´ë¼ì¸ ë¬¸ìë¥¼ ì œê±°í•©ë‹ˆë‹¤.
+         * @param[IN, OUT] std::string& message : ì œê±°í•  ë©”ì‹œì§€ ë¬¸ìì—´.
+         * @return ì—†ìŒ.
+         * @note ë©”ì‹œì§€ë¥¼ ìˆ˜ì‹ í•œ í›„ í˜¸ì¶œë˜ì–´, ë©”ì‹œì§€ ëì˜ ê°œí–‰ ë¬¸ìë¥¼ ì œê±°í•©ë‹ˆë‹¤.
+         */
         void cleanMessage(std::string& message);
 };

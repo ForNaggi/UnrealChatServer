@@ -1,0 +1,56 @@
+\doxysection{Message\+Receiver.\+h}
+\hypertarget{_message_receiver_8h_source}{}\label{_message_receiver_8h_source}\index{SocketBuild/MessageReceiver.h@{SocketBuild/MessageReceiver.h}}
+\mbox{\hyperlink{_message_receiver_8h}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00002}00002\ \textcolor{preprocessor}{\#pragma\ execution\_character\_set("{}utf-\/8"{})}}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <winsock2.h>}}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00027}\mbox{\hyperlink{class_message_receiver}{00027}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_message_receiver_adb7ba8d5430ba18e8c226ba1f386981a}{MessageReceiver}}}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00028}00028\ \{}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00029}00029\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00035}\mbox{\hyperlink{class_message_receiver_af74bce14070bbf4d0a0324acee430084}{00035}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{class_message_receiver_af74bce14070bbf4d0a0324acee430084}{Result}}}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00037}\mbox{\hyperlink{class_message_receiver_af74bce14070bbf4d0a0324acee430084ad0749aaba8b833466dfcbb0428e4f89c}{00037}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_message_receiver_af74bce14070bbf4d0a0324acee430084ad0749aaba8b833466dfcbb0428e4f89c}{SUCCESS}},\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00038}\mbox{\hyperlink{class_message_receiver_af74bce14070bbf4d0a0324acee430084ac6c8a4faea4d0b94dceb90a306074d2b}{00038}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_message_receiver_af74bce14070bbf4d0a0324acee430084ac6c8a4faea4d0b94dceb90a306074d2b}{FAIL\_RECEIVE}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00039}\mbox{\hyperlink{class_message_receiver_af74bce14070bbf4d0a0324acee430084abc14f1ca70c7ca9704e7f3bd0a2ba383}{00039}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_message_receiver_af74bce14070bbf4d0a0324acee430084abc14f1ca70c7ca9704e7f3bd0a2ba383}{FAIL\_SEND}},\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00040}\mbox{\hyperlink{class_message_receiver_af74bce14070bbf4d0a0324acee430084a31933f777c42ffbab532bc7ba2610c68}{00040}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_message_receiver_af74bce14070bbf4d0a0324acee430084a31933f777c42ffbab532bc7ba2610c68}{CLIENT\_QUIT}},\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00041}\mbox{\hyperlink{class_message_receiver_af74bce14070bbf4d0a0324acee430084a50ba526e9a6ee61df579023c1e99817a}{00041}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_message_receiver_af74bce14070bbf4d0a0324acee430084a50ba526e9a6ee61df579023c1e99817a}{CLIENT\_DISCONNECTED}}\ }
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00043}00043\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_message_receiver_adb7ba8d5430ba18e8c226ba1f386981a}{MessageReceiver}}(SOCKET\ client\_socket);}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_message_receiver_aae8d620cc02dea621ddb4a91b8438b1e}{\string~MessageReceiver}}();}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 복사\ 생성자\ 및\ 복사\ 할당\ 연산자\ 삭제.}}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00062}\mbox{\hyperlink{class_message_receiver_a034ca3dbab55b482a4258f7e46f79cb1}{00062}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_message_receiver_a034ca3dbab55b482a4258f7e46f79cb1}{MessageReceiver}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_message_receiver_adb7ba8d5430ba18e8c226ba1f386981a}{MessageReceiver}}\&\ obj)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00063}\mbox{\hyperlink{class_message_receiver_a33fac997d6824751d4911d46edeb4faf}{00063}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_message_receiver_adb7ba8d5430ba18e8c226ba1f386981a}{MessageReceiver}}\&\ \mbox{\hyperlink{class_message_receiver_a33fac997d6824751d4911d46edeb4faf}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_message_receiver_adb7ba8d5430ba18e8c226ba1f386981a}{MessageReceiver}}\&\ obj)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 이동\ 생성자\ 및\ 이동\ 할당\ 연산자\ 삭제.}}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00066}\mbox{\hyperlink{class_message_receiver_a94672dede89c25ab2452a9e3d199603e}{00066}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_message_receiver_a94672dede89c25ab2452a9e3d199603e}{MessageReceiver}}(\mbox{\hyperlink{class_message_receiver_adb7ba8d5430ba18e8c226ba1f386981a}{MessageReceiver}}\&\&\ obj)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00067}\mbox{\hyperlink{class_message_receiver_a074181d10e5b6299998deea9e6efa340}{00067}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_message_receiver_adb7ba8d5430ba18e8c226ba1f386981a}{MessageReceiver}}\&\ \mbox{\hyperlink{class_message_receiver_a074181d10e5b6299998deea9e6efa340}{operator=}}(\mbox{\hyperlink{class_message_receiver_adb7ba8d5430ba18e8c226ba1f386981a}{MessageReceiver}}\&\&\ obj)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00069}00069\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00084}00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_message_receiver_af74bce14070bbf4d0a0324acee430084}{MessageReceiver::Result}}\ \mbox{\hyperlink{class_message_receiver_a0c83ac3a7387ab21f74bc81d6640d9ec}{receiveMessage}}();}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00092}00092\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{class_message_receiver_a649a859e023ac92682659c83312c64ef}{getLastMessage}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00100}00100\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_message_receiver_af9984778a2d338b38cf108b16b47d718}{isQuitCommand}}(\textcolor{keyword}{const}\ std::string\&\ message)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00102}00102\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00104}\mbox{\hyperlink{class_message_receiver_a2905ffef925668d0c802ad1fdf28dab6}{00104}}\ \ \ \ \ \ \ \ \ SOCKET\ \mbox{\hyperlink{class_message_receiver_a2905ffef925668d0c802ad1fdf28dab6}{\_clientSocket}};}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00107}\mbox{\hyperlink{class_message_receiver_a9e44455ed76f630e9bb73614033cfabe}{00107}}\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{class_message_receiver_a9e44455ed76f630e9bb73614033cfabe}{\_lastMessage}};}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00110}\mbox{\hyperlink{class_message_receiver_a77e67dede82634157c9aeac775395a33}{00110}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_message_receiver_a77e67dede82634157c9aeac775395a33}{BUFFER\_SIZE}}\ =\ 1024;}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00112}00112\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00120}00120\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_message_receiver_ad7dce9c6a9e01f99ba458f8635d86fd5}{cleanMessage}}(std::string\&\ message);}
+\DoxyCodeLine{\Hypertarget{_message_receiver_8h_source_l00121}00121\ \};}
+
+\end{DoxyCode}

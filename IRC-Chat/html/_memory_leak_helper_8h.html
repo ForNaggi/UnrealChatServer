@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ChatMultiServerDoxygen: SocketBuild/MemoryLeakHelper.h 파일 참조</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ChatMultiServerDoxygen<span id="projectnumber">&#160;1.0.0</span>
+   </div>
+   <div id="projectbrief">this is the synopsis</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','검색',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('_memory_leak_helper_8h.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">로딩중...</div>
+<div class="SRStatus" id="Searching">검색중...</div>
+<div class="SRStatus" id="NoMatches">일치하는것 없음</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">MemoryLeakHelper.h 파일 참조</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>디버그 모드(MSVC 전용)의 메모리 누수 감지 유틸리티.  
+<a href="#details">더 자세히 ...</a></p>
+<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;crtdbg.h&gt;</code><br />
+</div>
+<p><a href="_memory_leak_helper_8h_source.html">이 파일의 소스 코드 페이지로 가기</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+매크로</h2></td></tr>
+<tr class="memitem:afc30e481f763a8d68a861dba91be7316" id="r_afc30e481f763a8d68a861dba91be7316"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc30e481f763a8d68a861dba91be7316">_CRTDBG_MAP_ALLOC</a></td></tr>
+<tr class="memitem:a95d1b97f67f97c7e0f27519372822f43" id="r_a95d1b97f67f97c7e0f27519372822f43"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95d1b97f67f97c7e0f27519372822f43">DBG_NEW</a>&#160;&#160;&#160;<a class="el" href="#a1ac41480eb2e4aadd52252ee550b630a">new</a> ( _NORMAL_BLOCK , __FILE__ , __LINE__ )</td></tr>
+<tr class="memdesc:a95d1b97f67f97c7e0f27519372822f43"><td class="mdescLeft">&#160;</td><td class="mdescRight">new 연산자를 대체하여 파일과 라인 정보를 포함시키는 매크로 (디버그 모드).  <br /></td></tr>
+<tr class="memitem:a1ac41480eb2e4aadd52252ee550b630a" id="r_a1ac41480eb2e4aadd52252ee550b630a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ac41480eb2e4aadd52252ee550b630a">new</a>&#160;&#160;&#160;<a class="el" href="#a95d1b97f67f97c7e0f27519372822f43">DBG_NEW</a></td></tr>
+<tr class="memdesc:a1ac41480eb2e4aadd52252ee550b630a"><td class="mdescLeft">&#160;</td><td class="mdescRight">디버그 빌드에서 전역 new를 DBG_NEW로 재정의.  <br /></td></tr>
+<tr class="memitem:aed504a95fefe9c384f266415fd3bb2fe" id="r_aed504a95fefe9c384f266415fd3bb2fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed504a95fefe9c384f266415fd3bb2fe">RUN_MEMORY_LEAK_CHECK</a>&#160;&#160;&#160;<a class="el" href="#aad3be9864b5d6e87802bbb352f265b8c">memory_leak_check</a>()</td></tr>
+<tr class="memdesc:aed504a95fefe9c384f266415fd3bb2fe"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="#aad3be9864b5d6e87802bbb352f265b8c" title="프로그램 종료 시 메모리 누수를 확인합니다 (디버그 모드 전용).">memory_leak_check()</a> 함수를 실행하는 매크로 (디버그 모드 전용).  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+함수</h2></td></tr>
+<tr class="memitem:aad3be9864b5d6e87802bbb352f265b8c" id="r_aad3be9864b5d6e87802bbb352f265b8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad3be9864b5d6e87802bbb352f265b8c">memory_leak_check</a> ()</td></tr>
+<tr class="memdesc:aad3be9864b5d6e87802bbb352f265b8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">프로그램 종료 시 메모리 누수를 확인합니다 (디버그 모드 전용).  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">상세한 설명</h2>
+<div class="textblock"><p>디버그 모드(MSVC 전용)의 메모리 누수 감지 유틸리티. </p>
+<dl class="section author"><dt>작성자</dt><dd>최성락 </dd></dl>
+<dl class="section date"><dt>날짜</dt><dd>2025-06-17</dd></dl>
+<p>디버그 모드에서 메모리 할당 추적과 종료 시 누수 체크를 가능하게 하는 매크로와 함수를 정의합니다. <br  />
+(릴리스 모드에서는 효과가 없습니다.) </p>
+
+<p class="definition"><a class="el" href="_memory_leak_helper_8h_source.html">MemoryLeakHelper.h</a> 파일에서 정의되었습니다.</p>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">매크로 문서화</h2>
+<a id="afc30e481f763a8d68a861dba91be7316" name="afc30e481f763a8d68a861dba91be7316"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc30e481f763a8d68a861dba91be7316">&#9670;&#160;</a></span>_CRTDBG_MAP_ALLOC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _CRTDBG_MAP_ALLOC</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"><a class="el" href="_memory_leak_helper_8h_source.html">MemoryLeakHelper.h</a> 파일의 <a class="el" href="_memory_leak_helper_8h_source.html#l00018">18</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="a95d1b97f67f97c7e0f27519372822f43" name="a95d1b97f67f97c7e0f27519372822f43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95d1b97f67f97c7e0f27519372822f43">&#9670;&#160;</a></span>DBG_NEW</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DBG_NEW&#160;&#160;&#160;<a class="el" href="#a1ac41480eb2e4aadd52252ee550b630a">new</a> ( _NORMAL_BLOCK , __FILE__ , __LINE__ )</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>new 연산자를 대체하여 파일과 라인 정보를 포함시키는 매크로 (디버그 모드). </p>
+<p>디버그 빌드에서는 MSVC의 디버그 힙 할당을 사용하여 파일/라인 정보를 기록합니다. <br  />
+예: <span class="tt">new MyObject()</span>를 사용하면 <span class="tt">DBG_NEW MyObject()</span>로 확장됩니다. </p>
+
+<p class="definition"><a class="el" href="_memory_leak_helper_8h_source.html">MemoryLeakHelper.h</a> 파일의 <a class="el" href="_memory_leak_helper_8h_source.html#l00032">32</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="a1ac41480eb2e4aadd52252ee550b630a" name="a1ac41480eb2e4aadd52252ee550b630a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ac41480eb2e4aadd52252ee550b630a">&#9670;&#160;</a></span>new</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define new&#160;&#160;&#160;<a class="el" href="#a95d1b97f67f97c7e0f27519372822f43">DBG_NEW</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>디버그 빌드에서 전역 new를 DBG_NEW로 재정의. </p>
+
+<p class="definition"><a class="el" href="_memory_leak_helper_8h_source.html">MemoryLeakHelper.h</a> 파일의 <a class="el" href="_memory_leak_helper_8h_source.html#l00034">34</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a id="aed504a95fefe9c384f266415fd3bb2fe" name="aed504a95fefe9c384f266415fd3bb2fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed504a95fefe9c384f266415fd3bb2fe">&#9670;&#160;</a></span>RUN_MEMORY_LEAK_CHECK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUN_MEMORY_LEAK_CHECK&#160;&#160;&#160;<a class="el" href="#aad3be9864b5d6e87802bbb352f265b8c">memory_leak_check</a>()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="#aad3be9864b5d6e87802bbb352f265b8c" title="프로그램 종료 시 메모리 누수를 확인합니다 (디버그 모드 전용).">memory_leak_check()</a> 함수를 실행하는 매크로 (디버그 모드 전용). </p>
+<p>이 매크로를 추가하면 프로그램 종료 시 자동으로 메모리 누수 체크를 수행합니다. </p>
+
+<p class="definition"><a class="el" href="_memory_leak_helper_8h_source.html">MemoryLeakHelper.h</a> 파일의 <a class="el" href="_memory_leak_helper_8h_source.html#l00060">60</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">함수 문서화</h2>
+<a id="aad3be9864b5d6e87802bbb352f265b8c" name="aad3be9864b5d6e87802bbb352f265b8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad3be9864b5d6e87802bbb352f265b8c">&#9670;&#160;</a></span>memory_leak_check()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void memory_leak_check </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>프로그램 종료 시 메모리 누수를 확인합니다 (디버그 모드 전용). </p>
+<dl class="section return"><dt>반환값</dt><dd>없음.</dd></dl>
+<p>이 함수를 (또는 RUN_MEMORY_LEAK_CHECK 매크로를) 프로그램 종료 시 호출하면 메모리 누수 리포트를 출력합니다. <br  />
+내부적으로 CRT 플래그를 설정하여 종료 시 메모리 누수를 덤프합니다. </p>
+
+<p class="definition"><a class="el" href="_memory_leak_helper_8h_source.html">MemoryLeakHelper.h</a> 파일의 <a class="el" href="_memory_leak_helper_8h_source.html#l00046">46</a> 번째 라인에서 정의되었습니다.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_abbf5edca481bc51d1cdb4c1a782205f.html">SocketBuild</a></li><li class="navelem"><a href="_memory_leak_helper_8h.html">MemoryLeakHelper.h</a></li>
+    <li class="footer">다음에 의해 생성됨 :  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

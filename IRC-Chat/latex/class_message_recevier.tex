@@ -1,0 +1,235 @@
+\doxysection{Message\+Recevier 클래스 참조}
+\hypertarget{class_message_recevier}{}\label{class_message_recevier}\index{MessageRecevier@{MessageRecevier}}
+
+
+{\ttfamily \#include $<$Message\+Receiver.\+h$>$}
+
+\doxysubsubsection*{Public 타입}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{class_message_recevier_aae22e43e0d63c49a029c595d4ec284a9}{Result}} \{ \newline
+\mbox{\hyperlink{class_message_recevier_aae22e43e0d63c49a029c595d4ec284a9ad0749aaba8b833466dfcbb0428e4f89c}{SUCCESS}}
+, \mbox{\hyperlink{class_message_recevier_aae22e43e0d63c49a029c595d4ec284a9ac6c8a4faea4d0b94dceb90a306074d2b}{FAIL\+\_\+\+RECEIVE}}
+, \mbox{\hyperlink{class_message_recevier_aae22e43e0d63c49a029c595d4ec284a9abc14f1ca70c7ca9704e7f3bd0a2ba383}{FAIL\+\_\+\+SEND}}
+, \mbox{\hyperlink{class_message_recevier_aae22e43e0d63c49a029c595d4ec284a9a31933f777c42ffbab532bc7ba2610c68}{CLIENT\+\_\+\+QUIT}}
+, \newline
+\mbox{\hyperlink{class_message_recevier_aae22e43e0d63c49a029c595d4ec284a9a50ba526e9a6ee61df579023c1e99817a}{CLIENT\+\_\+\+DISCONNECTED}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_message_recevier_a5cb6c99b0c2fa71538f235704b96caab}{Message\+Recevier}} (SOCKET client\+\_\+socket)
+\item 
+\mbox{\hyperlink{class_message_recevier_aba93f4e6042da58b21a20ee544dcc5e3}{\texorpdfstring{$\sim$}{\string~}\+Message\+Recevier}} ()
+\item 
+\mbox{\hyperlink{class_message_recevier_a2bd59563a7818774ace8f256f9ee8600}{Message\+Recevier}} (const \mbox{\hyperlink{class_message_recevier}{Message\+Recevier}} \&obj)=delete
+\item 
+\mbox{\hyperlink{class_message_recevier}{Message\+Recevier}} \& \mbox{\hyperlink{class_message_recevier_acef6009d6db5c0a7635861c9779dd214}{operator=}} (const \mbox{\hyperlink{class_message_recevier}{Message\+Recevier}} \&obj)=delete
+\item 
+\mbox{\hyperlink{class_message_recevier_a8f8a6ceb447f9ed43ecdcf093c872ff4}{Message\+Recevier}} (\mbox{\hyperlink{class_message_recevier}{Message\+Recevier}} \&\&obj)=delete
+\item 
+\mbox{\hyperlink{class_message_recevier}{Message\+Recevier}} \& \mbox{\hyperlink{class_message_recevier_ae1b09bb11564480523666569ea8c3627}{operator=}} (\mbox{\hyperlink{class_message_recevier}{Message\+Recevier}} \&\&obj)=delete
+\item 
+\mbox{\hyperlink{class_message_recevier_aae22e43e0d63c49a029c595d4ec284a9}{Message\+Recevier\+::\+Result}} \mbox{\hyperlink{class_message_recevier_ac35faf4feb54317489569a6cd13d7c1d}{receive\+Message}} ()
+\item 
+const std\+::string \& \mbox{\hyperlink{class_message_recevier_a413fc7cf339a044874e76bfe742d95c6}{get\+Last\+Message}} () const
+\item 
+bool \mbox{\hyperlink{class_message_recevier_a48d74d68706e4ce6a9f83f1e40ecb164}{is\+Quit\+Command}} (const std\+::string \&message)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_message_recevier_a98351aca9d360ba8375ca35d9163b86f}{clean\+Message}} (std\+::string \&message)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+SOCKET \mbox{\hyperlink{class_message_recevier_af133e1252b9ceeb02632d39ba89a7af4}{\+\_\+client\+Socket}}
+\item 
+std\+::string \mbox{\hyperlink{class_message_recevier_a2fb5023c3cdf737e120e2b531a3f5aff}{\+\_\+last\+Message}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{정적 Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+static const int \mbox{\hyperlink{class_message_recevier_aed395321f468c04bd00f6fbb38f36c2d}{BUFFER\+\_\+\+SIZE}} = 1024
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+
+
+\mbox{\hyperlink{_message_receiver_8h_source}{Message\+Receiver.\+h}} 파일의 \mbox{\hyperlink{_message_receiver_8h_source_l00012}{12}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-enum-members}
+\Hypertarget{class_message_recevier_doc-enum-members}
+\doxysubsection{멤버 열거형 문서화}
+\Hypertarget{class_message_recevier_aae22e43e0d63c49a029c595d4ec284a9}\index{MessageRecevier@{MessageRecevier}!Result@{Result}}
+\index{Result@{Result}!MessageRecevier@{MessageRecevier}}
+\doxysubsubsection{\texorpdfstring{Result}{Result}}
+{\footnotesize\ttfamily \label{class_message_recevier_aae22e43e0d63c49a029c595d4ec284a9} 
+enum class \mbox{\hyperlink{class_message_recevier_aae22e43e0d63c49a029c595d4ec284a9}{Message\+Recevier\+::\+Result}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}[2]{열거형 멤버}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SUCCESS@{SUCCESS}!MessageRecevier@{MessageRecevier}}\index{MessageRecevier@{MessageRecevier}!SUCCESS@{SUCCESS}}}\Hypertarget{class_message_recevier_aae22e43e0d63c49a029c595d4ec284a9ad0749aaba8b833466dfcbb0428e4f89c}\label{class_message_recevier_aae22e43e0d63c49a029c595d4ec284a9ad0749aaba8b833466dfcbb0428e4f89c} 
+SUCCESS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAIL\_RECEIVE@{FAIL\_RECEIVE}!MessageRecevier@{MessageRecevier}}\index{MessageRecevier@{MessageRecevier}!FAIL\_RECEIVE@{FAIL\_RECEIVE}}}\Hypertarget{class_message_recevier_aae22e43e0d63c49a029c595d4ec284a9ac6c8a4faea4d0b94dceb90a306074d2b}\label{class_message_recevier_aae22e43e0d63c49a029c595d4ec284a9ac6c8a4faea4d0b94dceb90a306074d2b} 
+FAIL\+\_\+\+RECEIVE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAIL\_SEND@{FAIL\_SEND}!MessageRecevier@{MessageRecevier}}\index{MessageRecevier@{MessageRecevier}!FAIL\_SEND@{FAIL\_SEND}}}\Hypertarget{class_message_recevier_aae22e43e0d63c49a029c595d4ec284a9abc14f1ca70c7ca9704e7f3bd0a2ba383}\label{class_message_recevier_aae22e43e0d63c49a029c595d4ec284a9abc14f1ca70c7ca9704e7f3bd0a2ba383} 
+FAIL\+\_\+\+SEND&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLIENT\_QUIT@{CLIENT\_QUIT}!MessageRecevier@{MessageRecevier}}\index{MessageRecevier@{MessageRecevier}!CLIENT\_QUIT@{CLIENT\_QUIT}}}\Hypertarget{class_message_recevier_aae22e43e0d63c49a029c595d4ec284a9a31933f777c42ffbab532bc7ba2610c68}\label{class_message_recevier_aae22e43e0d63c49a029c595d4ec284a9a31933f777c42ffbab532bc7ba2610c68} 
+CLIENT\+\_\+\+QUIT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLIENT\_DISCONNECTED@{CLIENT\_DISCONNECTED}!MessageRecevier@{MessageRecevier}}\index{MessageRecevier@{MessageRecevier}!CLIENT\_DISCONNECTED@{CLIENT\_DISCONNECTED}}}\Hypertarget{class_message_recevier_aae22e43e0d63c49a029c595d4ec284a9a50ba526e9a6ee61df579023c1e99817a}\label{class_message_recevier_aae22e43e0d63c49a029c595d4ec284a9a50ba526e9a6ee61df579023c1e99817a} 
+CLIENT\+\_\+\+DISCONNECTED&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\mbox{\hyperlink{_message_receiver_8h_source}{Message\+Receiver.\+h}} 파일의 \mbox{\hyperlink{_message_receiver_8h_source_l00017}{17}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_message_recevier_doc-constructors}
+\doxysubsection{생성자 \& 소멸자 문서화}
+\Hypertarget{class_message_recevier_a5cb6c99b0c2fa71538f235704b96caab}\index{MessageRecevier@{MessageRecevier}!MessageRecevier@{MessageRecevier}}
+\index{MessageRecevier@{MessageRecevier}!MessageRecevier@{MessageRecevier}}
+\doxysubsubsection{\texorpdfstring{MessageRecevier()}{MessageRecevier()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_message_recevier_a5cb6c99b0c2fa71538f235704b96caab} 
+Message\+Recevier\+::\+Message\+Recevier (\begin{DoxyParamCaption}\item[{SOCKET}]{client\+\_\+socket}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\mbox{\hyperlink{_message_receiver_8cpp_source}{Message\+Receiver.\+cpp}} 파일의 \mbox{\hyperlink{_message_receiver_8cpp_source_l00005}{5}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_message_recevier_aba93f4e6042da58b21a20ee544dcc5e3}\index{MessageRecevier@{MessageRecevier}!````~MessageRecevier@{\texorpdfstring{$\sim$}{\string~}MessageRecevier}}
+\index{````~MessageRecevier@{\texorpdfstring{$\sim$}{\string~}MessageRecevier}!MessageRecevier@{MessageRecevier}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MessageRecevier()}{\string~MessageRecevier()}}
+{\footnotesize\ttfamily \label{class_message_recevier_aba93f4e6042da58b21a20ee544dcc5e3} 
+Message\+Recevier\+::\texorpdfstring{$\sim$}{\string~}\+Message\+Recevier (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{_message_receiver_8cpp_source}{Message\+Receiver.\+cpp}} 파일의 \mbox{\hyperlink{_message_receiver_8cpp_source_l00011}{11}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_message_recevier_a2bd59563a7818774ace8f256f9ee8600}\index{MessageRecevier@{MessageRecevier}!MessageRecevier@{MessageRecevier}}
+\index{MessageRecevier@{MessageRecevier}!MessageRecevier@{MessageRecevier}}
+\doxysubsubsection{\texorpdfstring{MessageRecevier()}{MessageRecevier()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_message_recevier_a2bd59563a7818774ace8f256f9ee8600} 
+Message\+Recevier\+::\+Message\+Recevier (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_message_recevier}{Message\+Recevier}} \&}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_message_recevier_a8f8a6ceb447f9ed43ecdcf093c872ff4}\index{MessageRecevier@{MessageRecevier}!MessageRecevier@{MessageRecevier}}
+\index{MessageRecevier@{MessageRecevier}!MessageRecevier@{MessageRecevier}}
+\doxysubsubsection{\texorpdfstring{MessageRecevier()}{MessageRecevier()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_message_recevier_a8f8a6ceb447f9ed43ecdcf093c872ff4} 
+Message\+Recevier\+::\+Message\+Recevier (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_message_recevier}{Message\+Recevier}} \&\&}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_message_recevier_doc-func-members}
+\doxysubsection{멤버 함수 문서화}
+\Hypertarget{class_message_recevier_a98351aca9d360ba8375ca35d9163b86f}\index{MessageRecevier@{MessageRecevier}!cleanMessage@{cleanMessage}}
+\index{cleanMessage@{cleanMessage}!MessageRecevier@{MessageRecevier}}
+\doxysubsubsection{\texorpdfstring{cleanMessage()}{cleanMessage()}}
+{\footnotesize\ttfamily \label{class_message_recevier_a98351aca9d360ba8375ca35d9163b86f} 
+void Message\+Recevier\+::clean\+Message (\begin{DoxyParamCaption}\item[{std\+::string \&}]{message}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{_message_receiver_8cpp_source}{Message\+Receiver.\+cpp}} 파일의 \mbox{\hyperlink{_message_receiver_8cpp_source_l00080}{80}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_message_recevier_a413fc7cf339a044874e76bfe742d95c6}\index{MessageRecevier@{MessageRecevier}!getLastMessage@{getLastMessage}}
+\index{getLastMessage@{getLastMessage}!MessageRecevier@{MessageRecevier}}
+\doxysubsubsection{\texorpdfstring{getLastMessage()}{getLastMessage()}}
+{\footnotesize\ttfamily \label{class_message_recevier_a413fc7cf339a044874e76bfe742d95c6} 
+const std\+::string \& Message\+Recevier\+::get\+Last\+Message (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+\mbox{\hyperlink{_message_receiver_8cpp_source}{Message\+Receiver.\+cpp}} 파일의 \mbox{\hyperlink{_message_receiver_8cpp_source_l00068}{68}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_message_recevier_a48d74d68706e4ce6a9f83f1e40ecb164}\index{MessageRecevier@{MessageRecevier}!isQuitCommand@{isQuitCommand}}
+\index{isQuitCommand@{isQuitCommand}!MessageRecevier@{MessageRecevier}}
+\doxysubsubsection{\texorpdfstring{isQuitCommand()}{isQuitCommand()}}
+{\footnotesize\ttfamily \label{class_message_recevier_a48d74d68706e4ce6a9f83f1e40ecb164} 
+bool Message\+Recevier\+::is\+Quit\+Command (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{}\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{_message_receiver_8cpp_source}{Message\+Receiver.\+cpp}} 파일의 \mbox{\hyperlink{_message_receiver_8cpp_source_l00074}{74}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_message_recevier_acef6009d6db5c0a7635861c9779dd214}\index{MessageRecevier@{MessageRecevier}!operator=@{operator=}}
+\index{operator=@{operator=}!MessageRecevier@{MessageRecevier}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_message_recevier_acef6009d6db5c0a7635861c9779dd214} 
+\mbox{\hyperlink{class_message_recevier}{Message\+Recevier}} \& Message\+Recevier\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_message_recevier}{Message\+Recevier}} \&}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_message_recevier_ae1b09bb11564480523666569ea8c3627}\index{MessageRecevier@{MessageRecevier}!operator=@{operator=}}
+\index{operator=@{operator=}!MessageRecevier@{MessageRecevier}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_message_recevier_ae1b09bb11564480523666569ea8c3627} 
+\mbox{\hyperlink{class_message_recevier}{Message\+Recevier}} \& Message\+Recevier\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_message_recevier}{Message\+Recevier}} \&\&}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_message_recevier_ac35faf4feb54317489569a6cd13d7c1d}\index{MessageRecevier@{MessageRecevier}!receiveMessage@{receiveMessage}}
+\index{receiveMessage@{receiveMessage}!MessageRecevier@{MessageRecevier}}
+\doxysubsubsection{\texorpdfstring{receiveMessage()}{receiveMessage()}}
+{\footnotesize\ttfamily \label{class_message_recevier_ac35faf4feb54317489569a6cd13d7c1d} 
+\mbox{\hyperlink{class_message_recevier_aae22e43e0d63c49a029c595d4ec284a9}{Message\+Recevier\+::\+Result}} Message\+Recevier\+::receive\+Message (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{_message_receiver_8cpp_source}{Message\+Receiver.\+cpp}} 파일의 \mbox{\hyperlink{_message_receiver_8cpp_source_l00016}{16}} 번째 라인에서 정의되었습니다.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_message_recevier_doc-variable-members}
+\doxysubsection{멤버 데이터 문서화}
+\Hypertarget{class_message_recevier_af133e1252b9ceeb02632d39ba89a7af4}\index{MessageRecevier@{MessageRecevier}!\_clientSocket@{\_clientSocket}}
+\index{\_clientSocket@{\_clientSocket}!MessageRecevier@{MessageRecevier}}
+\doxysubsubsection{\texorpdfstring{\_clientSocket}{\_clientSocket}}
+{\footnotesize\ttfamily \label{class_message_recevier_af133e1252b9ceeb02632d39ba89a7af4} 
+SOCKET Message\+Recevier\+::\+\_\+client\+Socket\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{_message_receiver_8h_source}{Message\+Receiver.\+h}} 파일의 \mbox{\hyperlink{_message_receiver_8h_source_l00078}{78}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_message_recevier_a2fb5023c3cdf737e120e2b531a3f5aff}\index{MessageRecevier@{MessageRecevier}!\_lastMessage@{\_lastMessage}}
+\index{\_lastMessage@{\_lastMessage}!MessageRecevier@{MessageRecevier}}
+\doxysubsubsection{\texorpdfstring{\_lastMessage}{\_lastMessage}}
+{\footnotesize\ttfamily \label{class_message_recevier_a2fb5023c3cdf737e120e2b531a3f5aff} 
+std\+::string Message\+Recevier\+::\+\_\+last\+Message\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{_message_receiver_8h_source}{Message\+Receiver.\+h}} 파일의 \mbox{\hyperlink{_message_receiver_8h_source_l00081}{81}} 번째 라인에서 정의되었습니다.
+
+\Hypertarget{class_message_recevier_aed395321f468c04bd00f6fbb38f36c2d}\index{MessageRecevier@{MessageRecevier}!BUFFER\_SIZE@{BUFFER\_SIZE}}
+\index{BUFFER\_SIZE@{BUFFER\_SIZE}!MessageRecevier@{MessageRecevier}}
+\doxysubsubsection{\texorpdfstring{BUFFER\_SIZE}{BUFFER\_SIZE}}
+{\footnotesize\ttfamily \label{class_message_recevier_aed395321f468c04bd00f6fbb38f36c2d} 
+const int Message\+Recevier\+::\+BUFFER\+\_\+\+SIZE = 1024\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{_message_receiver_8h_source}{Message\+Receiver.\+h}} 파일의 \mbox{\hyperlink{_message_receiver_8h_source_l00084}{84}} 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일들로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+Socket\+Build/\mbox{\hyperlink{_message_receiver_8h}{Message\+Receiver.\+h}}\item 
+Socket\+Build/\mbox{\hyperlink{_message_receiver_8cpp}{Message\+Receiver.\+cpp}}\end{DoxyCompactItemize}

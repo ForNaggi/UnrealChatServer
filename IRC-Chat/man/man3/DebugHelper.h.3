@@ -1,0 +1,277 @@
+.TH "SocketBuild/DebugHelper.h" 3 "Version 1.0.0" "ChatMultiServerDoxygen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SocketBuild/DebugHelper.h \- 로깅 및 디버깅을 위한 유틸리티 함수와 정의들을 제공합니다\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <iostream>\fP
+.br
+\fR#include <string>\fP
+.br
+\fR#include <ctime>\fP
+.br
+
+.SS "매크로"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLOG_INFO\fP(message)"
+.br
+.RI "INFO 수준 로그 메시지를 출력하는 매크로\&. "
+.ti -1c
+.RI "#define \fBLOG_WARN\fP(message)"
+.br
+.RI "WARNING 수준 로그 메시지를 출력하는 매크로\&. "
+.ti -1c
+.RI "#define \fBLOG_ERROR\fP(message)"
+.br
+.RI "ERRORZ 수준 로그 메시지를 출력하는 매크로\&. "
+.ti -1c
+.RI "#define \fBLOG_DEBUG\fP(message)"
+.br
+.RI "디버그 수준 로그 메시지를 출력하는 매크로\&. "
+.in -1c
+.SS "열거형 타입"
+
+.in +1c
+.ti -1c
+.RI "enum class \fBLogLevel\fP { \fBINFO\fP, \fBWARNING\fP, \fBERRORZ\fP, \fBDEBUG\fP }"
+.br
+.RI "로그의 출력 유형을 정의합니다\&. "
+.in -1c
+.SS "함수"
+
+.in +1c
+.ti -1c
+.RI "std::string \fBcurrent_time\fP ()"
+.br
+.RI "현재 시스템 시간을 포맷된 문자열로 반환합니다\&. "
+.ti -1c
+.RI "const char * \fBlog_level_to_string\fP (\fBLogLevel\fP level)"
+.br
+.RI "\fBLogLevel\fP 열거값을 해당 문자열로 변환합니다\&. "
+.ti -1c
+.RI "void \fBlog\fP (\fBLogLevel\fP level, const std::string &message, const char *file='', int line=0)"
+.br
+.RI "주어진 로그 레벨, 메시지를 로그 유형에 따라 파일명, 라인위치 정보와 함께 로그로 출력합니다\&. "
+.in -1c
+.SH "상세한 설명"
+.PP 
+로깅 및 디버깅을 위한 유틸리티 함수와 정의들을 제공합니다\&. 
+
+
+.PP
+\fB작성자\fP
+.RS 4
+최성락 
+.RE
+.PP
+\fB날짜\fP
+.RS 4
+2025-06-17
+.RE
+.PP
+로그 레벨 유형을 정의하고, 현재 시간, 로그 메시지 포맷을 위한 함수를 제공합니다\&.
+.br
+ 로그 레벨 유형을 선택하여 로그를 남길 수 있는 매크로들을 제공합니다\&. 
+.PP
+\fBDebugHelper\&.h\fP 파일에서 정의되었습니다\&.
+.SH "매크로 문서화"
+.PP 
+.SS "#define LOG_DEBUG( message)"
+\fB값:\fP
+.nf
+log(LogLevel::DEBUG, message, __FILE__, __LINE__)
+.PP
+.fi
+
+.PP
+디버그 수준 로그 메시지를 출력하는 매크로\&. 
+.PP
+\fB매개변수\fP
+.RS 4
+\fI[IN]\fP const std::string& message : 로그로 남길 디버그 메시지\&. 
+.RE
+.PP
+\fB참고\fP
+.RS 4
+\fBlog()\fP 
+.RE
+.PP
+\fB주의\fP
+.RS 4
+이 매크로는 로그 출력에 소스 파일과 줄 번호를 포함합니다\&. 
+.br
+디버그 빌드에서만 활성됩니다\&. 
+.RE
+.PP
+
+.PP
+\fBDebugHelper\&.h\fP 파일의 \fB151\fP 번째 라인에서 정의되었습니다\&.
+.SS "#define LOG_ERROR( message)"
+\fB값:\fP
+.nf
+log(LogLevel::ERRORZ, message, __FILE__, __LINE__)
+.PP
+.fi
+
+.PP
+ERRORZ 수준 로그 메시지를 출력하는 매크로\&. 
+.PP
+\fB매개변수\fP
+.RS 4
+\fI[IN]\fP const std::string& message : 로그로 남길 오류 메시지\&. 
+.RE
+.PP
+\fB참고\fP
+.RS 4
+\fBlog()\fP 
+.RE
+.PP
+\fB주의\fP
+.RS 4
+이 매크로는 로그 출력에 소스 파일과 줄 번호를 포함합니다\&. 
+.RE
+.PP
+
+.PP
+\fBDebugHelper\&.h\fP 파일의 \fB142\fP 번째 라인에서 정의되었습니다\&.
+.SS "#define LOG_INFO( message)"
+\fB값:\fP
+.nf
+log(LogLevel::INFO,  message)
+.PP
+.fi
+
+.PP
+INFO 수준 로그 메시지를 출력하는 매크로\&. 
+.PP
+\fB매개변수\fP
+.RS 4
+\fI[IN]\fP const std::string& message : 로그로 남길 일반 메시지\&. 
+.RE
+.PP
+\fB참고\fP
+.RS 4
+\fBlog()\fP 
+.RE
+.PP
+
+.PP
+\fBDebugHelper\&.h\fP 파일의 \fB127\fP 번째 라인에서 정의되었습니다\&.
+.SS "#define LOG_WARN( message)"
+\fB값:\fP
+.nf
+log(LogLevel::WARNING,  message)
+.PP
+.fi
+
+.PP
+WARNING 수준 로그 메시지를 출력하는 매크로\&. 
+.PP
+\fB매개변수\fP
+.RS 4
+\fI[IN]\fP const std::string& message : 로그로 남길 경고 메시지\&. 
+.RE
+.PP
+\fB참고\fP
+.RS 4
+\fBlog()\fP 
+.RE
+.PP
+
+.PP
+\fBDebugHelper\&.h\fP 파일의 \fB134\fP 번째 라인에서 정의되었습니다\&.
+.SH "열거형 타입 문서화"
+.PP 
+.SS "enum class \fBLogLevel\fP\fR [strong]\fP"
+
+.PP
+로그의 출력 유형을 정의합니다\&. 각 레벨은 로그 메시지의 중요도나 유형을 나타냅니다\&.
+.br
+ INFO는 일반, WARNING은 경고, ERROR는 오류, DEBUG는 디버깅용 메시지\&. 
+.PP
+\fB열거형 멤버\fP
+.in +1c
+.TP
+\f(BIINFO \fP
+일반 메세지 레벨\&. 
+.TP
+\f(BIWARNING \fP
+경고 메시지 레벨\&. 
+.TP
+\f(BIERRORZ \fP
+오류 메시지 레벨\&. 
+.TP
+\f(BIDEBUG \fP
+디버그 메시지 레벨\&. 
+.PP
+\fBDebugHelper\&.h\fP 파일의 \fB27\fP 번째 라인에서 정의되었습니다\&.
+.SH "함수 문서화"
+.PP 
+.SS "std::string current_time ()\fR [inline]\fP"
+
+.PP
+현재 시스템 시간을 포맷된 문자열로 반환합니다\&. 
+.PP
+\fB반환값\fP
+.RS 4
+std::string : "YYYY-MM-DD HH:MM:SS" 형식의 현재 시간 문자열\&. 
+.RE
+.PP
+\fB주의\fP
+.RS 4
+예시 형식: "2025-06-04 13:45:30"\&. 로그 타임스탬프를 남길 때 유용합니다\&. 
+.RE
+.PP
+
+.PP
+\fBDebugHelper\&.h\fP 파일의 \fB41\fP 번째 라인에서 정의되었습니다\&.
+.SS "void log (\fBLogLevel\fP level, const std::string & message, const char * file = \fR''\fP, int line = \fR0\fP)\fR [inline]\fP"
+
+.PP
+주어진 로그 레벨, 메시지를 로그 유형에 따라 파일명, 라인위치 정보와 함께 로그로 출력합니다\&. 
+.PP
+\fB매개변수\fP
+.RS 4
+\fI[IN]\fP \fBLogLevel\fP level : 로그 레벨 (INFO, WARNING, ERRORZ, DEBUG)\&. 
+.br
+\fI[IN]\fP const std::string& message : 로그로 출력할 메시지 텍스트\&. 
+.br
+\fI[IN(default\fP : "")] const char* file : 로그 발생 소스 파일 이름 (ERRORZ/DEBUG 레벨에서 사용)\&. 
+.br
+\fI[IN(default\fP : 0)] int line : 로그 발생 소스 코드 줄 번호 (ERRORZ/DEBUG 레벨에서 사용)\&. 
+.RE
+.PP
+\fB반환값\fP
+.RS 4
+없음\&.
+.RE
+.PP
+로그 레벨에 따라 출력 스트림을 결정합니다 (오류는 std::cerr, 그 외는 std::cout)\&. 로그 앞부분에 타임스탬프와 레벨을 붙이고, ERRORZ와 DEBUG 레벨에서는 파일명과 라인 번호를 추가합니다\&. 디버그 모드가 아닌 빌드에서는 DEBUG 레벨 메시지는 출력되지 않습니다\&. 
+.PP
+\fBDebugHelper\&.h\fP 파일의 \fB85\fP 번째 라인에서 정의되었습니다\&.
+.SS "const char * log_level_to_string (\fBLogLevel\fP level)\fR [inline]\fP"
+
+.PP
+\fBLogLevel\fP 열거값을 해당 문자열로 변환합니다\&. 
+.PP
+\fB매개변수\fP
+.RS 4
+\fI[IN]\fP \fBLogLevel\fP level : \fBLogLevel\fP 값 (예: \fBLogLevel::INFO\fP)\&. 
+.RE
+.PP
+\fB반환값\fP
+.RS 4
+const char* : 로그 레벨에 대응하는 문자열 (예: "INFO", "ERROR" 등)\&. 
+.RE
+.PP
+
+.PP
+\fBDebugHelper\&.h\fP 파일의 \fB59\fP 번째 라인에서 정의되었습니다\&.
+.SH "작성자"
+.PP 
+소스 코드로부터 ChatMultiServerDoxygen를 위해 Doxygen에 의해 자동으로 생성됨\&.

@@ -1,0 +1,50 @@
+.TH "SocketBuild/SocketIniter.h" 3 "Version 1.0.0" "ChatMultiServerDoxygen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SocketBuild/SocketIniter.h \- WinSock(Windows Sockets API)을 초기화하기 위한 \fBSocketIniter\fP 클래스를 정의합니다\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <winsock2\&.h>\fP
+.br
+\fR#include <string>\fP
+.br
+
+.SS "클래스"
+
+.in +1c
+.ti -1c
+.RI "class \fBSocketIniter\fP"
+.br
+.RI "애플리케이션의 WinSock 초기화와 종료를 수행합니다\&. "
+.in -1c
+.SH "상세한 설명"
+.PP 
+WinSock(Windows Sockets API)을 초기화하기 위한 \fBSocketIniter\fP 클래스를 정의합니다\&. 
+
+
+.PP
+\fB작성자\fP
+.RS 4
+최성락 
+.RE
+.PP
+\fB날짜\fP
+.RS 4
+2025-06-17
+.RE
+.PP
+이 클래스는 애플리케이션의 WinSock 시작과 종료를 담당합니다\&. 
+.br
+\fBSocketIniter\fP 인스턴스를 생성하면 WSAStartup이 호출되어 네트워크 하부 시스템을 준비합니다\&. 
+.br
+인스턴스가 소멸될 때 WSACleanup이 호출되어 정리를 수행합니다\&. 
+.br
+WinSock의 세부 정보를 문자열로 만들어 로그 등에 활용할 수 있습니다\&. 
+.PP
+\fBSocketIniter\&.h\fP 파일에서 정의되었습니다\&.
+.SH "작성자"
+.PP 
+소스 코드로부터 ChatMultiServerDoxygen를 위해 Doxygen에 의해 자동으로 생성됨\&.
